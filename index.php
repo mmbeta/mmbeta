@@ -17,36 +17,34 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
+		<?php 
+		$my_query = new WP_Query( 'category_name=featured&posts_per_page=1' ); 
+		if ( have_posts() ) : 
+		
+			while ( $my_query->have_posts() ) : $my_query->the_post(); 
+					$do_not_duplicate = $post->ID; ?>
 
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
+						<div class="jumbotron col-xs-12 featured-area">
+						  <h1 class="display-3"><?php the_title(); ?></h1>
+						  <p class="lead"><?php the_excerpt(); ?></p>
+						  <hr class="m-y-md">
+						  <p class="lead">
+						    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+						  </p>
+						</div>
+			<?php 
+			endwhile; 
+			if ( have_posts() ) : while ( have_posts() ) : the_post(); 
+				if ( $post->ID == $do_not_duplicate ) continue;
+						get_template_part( 'template-parts/content', get_post_format() );
+					
+			endwhile; endif; 
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+				 the_posts_navigation(); 
 
-				<?php
-
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-
-			<?php the_posts_navigation(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-		<?php endif; ?>
+		 else : 
+		 	get_template_part( 'template-parts/content', 'none' );
+		 endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
