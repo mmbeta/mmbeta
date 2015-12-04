@@ -22,18 +22,20 @@ get_header(); ?>
 		if ( have_posts() ) : 
 		
 			while ( $my_query->have_posts() ) : $my_query->the_post(); 
-					$do_not_duplicate = $post->ID; ?>
+				$do_not_duplicate = $post->ID; ?>
 
-						<div class="jumbotron col-xs-12 featured-area">
-						  <h1 class="display-3"><?php the_title(); ?></h1>
-						  <p class="lead"><?php the_excerpt(); ?></p>
-						  <hr class="m-y-md">
-						  <p class="lead">
-						    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-						  </p>
-						</div>
+					<div class="jumbotron col-xs-12 featured-area">
+					  <h1 class="display-3"><?php the_title(); ?></h1>
+					  <p class="lead"><?php the_excerpt(); ?></p>
+					  <hr class="m-y-md">
+					  <p class="lead">
+					    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+					  </p>
+					</div>
 			<?php 
-			endwhile; 
+			endwhile; ?>
+			<div class="col-xs-12 col-md-8">
+			<?php 
 			if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 				if ( $post->ID == $do_not_duplicate ) continue;
 						get_template_part( 'template-parts/content', get_post_format() );
@@ -45,9 +47,14 @@ get_header(); ?>
 		 else : 
 		 	get_template_part( 'template-parts/content', 'none' );
 		 endif; ?>
-
+		 </div>
 		</main><!-- #main -->
+		<div class="col-xs-12 col-md-4">
+			<?php get_sidebar(); ?>
+		</div>
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+
+<div class="col-xs-12">
+	<?php get_footer(); ?>
+</div>

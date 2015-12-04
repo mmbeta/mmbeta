@@ -110,6 +110,7 @@ function mmbeta_widgets_init() {
 }
 add_action( 'widgets_init', 'mmbeta_widgets_init' );
 
+
 /**
  * Enqueue scripts and styles.
  */
@@ -148,3 +149,7 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+// Custom walker for bootstrap menus
+require get_template_directory() .'/wp_bootstrap_navwalker.php';

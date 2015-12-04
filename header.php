@@ -24,8 +24,8 @@
 <body <?php body_class(); ?> >
 <div id="page" class="container">
 
-	<header  class="row" role="banner">
-
+	<header role="banner">
+	<div class="row">
 		<div class="col-xs-12">
 			<?php if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -34,21 +34,46 @@
 			<?php endif; ?>
 			<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 		</div>
+	</div>
 
-		<nav class="navbar navbar-dark bg-primary col-xs-12" role="navigation">
-		  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#mmbeta-menu">
-		    &#9776;
-		  </button>
-		  <a class="navbar-brand" href="#">mmbeta</a>
-		  <div id="mmbeta-menu">
-		  	<?php wp_nav_menu( array( 
-		  														'theme_location' => 'primary', 
-		  														'menu_id' => 'primary-menu',
-		  														'container_class' => 'nav navbar-nav' 
+	<nav class="navbar navbar-light bg-faded">
+	  <a class="navbar-brand" href="#">Navbar</a>
+	  
 
-		  													) ); ?>
-		  </div>
-		</nav>
+	  <?php wp_nav_menu( array(
+                'menu'              => 'primary',
+                'theme_location'    => 'primary',
+                'depth'             => 2,
+                'container'         => 'div',
+                'container_class'   => 'collapse navbar-collapse',
+        				'container_id'      => 'bs-example-navbar-collapse-1',
+                'menu_class'        => 'nav navbar-nav',
+                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                'walker'            => new wp_bootstrap_navwalker())
+            );
+		?>
+	  
+
+	  <ul class="nav navbar-nav">
+	    <li class="nav-item active">
+	      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#">Features</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#">Pricing</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#">About</a>
+	    </li>
+	  </ul>
+	  <form class="form-inline navbar-form pull-right">
+	    <input class="form-control" type="text" placeholder="Search">
+	    <button class="btn btn-secondary-outline" type="submit">Search</button>
+	  </form>
+	</nav>
+
 	</header>
 
 	<div id="content" class="site-content">
