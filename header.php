@@ -36,17 +36,16 @@
 		</div>
 	</div>
 
-	<nav class="navbar navbar-light bg-faded">
-	  <a class="navbar-brand" href="#">Navbar</a>
+
 	  
 
 	  <?php wp_nav_menu( array(
                 'menu'              => 'primary',
                 'theme_location'    => 'primary',
-                'depth'             => 2,
-                'container'         => 'div',
-                'container_class'   => 'collapse navbar-collapse',
-        				'container_id'      => 'bs-example-navbar-collapse-1',
+                'depth'             => 0,
+                'container'         => 'nav',
+                'container_class'   => 'navbar navbar-light bg-faded',
+        				'container_id'      => 'navbar-1',
                 'menu_class'        => 'nav navbar-nav',
                 'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
                 'walker'            => new wp_bootstrap_navwalker())
@@ -54,26 +53,7 @@
 		?>
 	  
 
-	  <ul class="nav navbar-nav">
-	    <li class="nav-item active">
-	      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">Features</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">Pricing</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">About</a>
-	    </li>
-	  </ul>
-	  <form class="form-inline navbar-form pull-right">
-	    <input class="form-control" type="text" placeholder="Search">
-	    <button class="btn btn-secondary-outline" type="submit">Search</button>
-	  </form>
-	</nav>
 
 	</header>
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content"></div>
