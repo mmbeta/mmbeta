@@ -29,7 +29,8 @@ get_header(); ?>
 					  <p class="lead"><?php the_excerpt(); ?></p>
 					  <hr class="m-y-md">
 					  <p class="lead">
-					    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+					    <?php $value = get_field( "link" ); ?>
+					    <a class="btn btn-primary btn-lg" href="<?php $value ? print $value : the_permalink(); ?>" role="button">Learn more</a>
 					  </p>
 					</div>
 			<?php 
