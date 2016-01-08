@@ -169,6 +169,28 @@ function mmbeta_setup() {
 	}
 	add_action( 'init', 'add_taxonomy_preise', 0 );
 
+	// Change Password protected wording
+
+	function my_password_form() {
+	    global $post;
+	    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+	    $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
+	    ' . __( "Bitte geben Sie das Passwort aus der Printausgabe ein, um den Inhalt zu sehen:" ) . "<br>" . '
+	    <input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" /><input type="submit" name="Submit" value="' . esc_attr__( "Senden" ) . '" />
+	    </form>
+	    ';
+	    return $o;
+	}
+	add_filter( 'the_password_form', 'my_password_form' );
+
+	function my_excerpt_protected( $excerpt ) {
+	    if ( post_password_required() )
+	        $excerpt = get_the_password_form();
+	    return $excerpt;
+	}
+	add_filter( 'the_excerpt', 'my_excerpt_protected' );
+
+
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'mmbeta_custom_background_args', array(
