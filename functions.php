@@ -190,7 +190,170 @@ function mmbeta_setup() {
 	}
 	add_filter( 'the_excerpt', 'my_excerpt_protected' );
 
+	// Strip "Protected:" from 
 
+	function strip_protected_string($title) {
+       return '%s';
+	}
+	add_filter('protected_title_format', 'strip_protected_string');
+
+	// strip Archiv-Type from Archive-Title
+
+	function strip_archive_type($title){
+			$title = single_cat_title( '', false );
+			return $title;
+	}
+	apply_filters( 'get_the_archive_title', 'strip_archive_type' );
+
+	//Custom fields for Preisträger
+	if(function_exists("register_field_group"))
+	{
+		register_field_group(array (
+			'id' => 'acf_post-fields',
+			'title' => 'Post-Fields',
+			'fields' => array (
+				array (
+					'key' => 'field_568e1b987eb0d',
+					'label' => 'Teaser-Link',
+					'name' => 'link',
+					'type' => 'page_link',
+					'instructions' => 'Wenn dieses Feld ausgefüllt ist, linkt der Teaser nicht auf den Beitrag selbst, sondern auf die hier eingetragene Seite/Post/Preisträger.',
+					'post_type' => array (
+						0 => 'all',
+					),
+					'allow_null' => 1,
+					'multiple' => 0,
+				),
+			),
+			'location' => array (
+				array (
+					array (
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'post',
+						'order_no' => 0,
+						'group_no' => 0,
+					),
+				),
+				array (
+					array (
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'preistraeger',
+						'order_no' => 0,
+						'group_no' => 1,
+					),
+				),
+			),
+			'options' => array (
+				'position' => 'normal',
+				'layout' => 'no_box',
+				'hide_on_screen' => array (
+				),
+			),
+			'menu_order' => 0,
+		));
+		register_field_group(array (
+			'id' => 'acf_preistrager-felder',
+			'title' => 'Preisträger-Felder',
+			'fields' => array (
+				array (
+					'key' => 'field_568c54a877aa9',
+					'label' => 'Platz',
+					'name' => 'platz',
+					'type' => 'number',
+					'instructions' => 'Zum Beispiel: Platz 1 von 10',
+					'required' => 1,
+					'default_value' => 1,
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'min' => 1,
+					'max' => 10,
+					'step' => 1,
+				),
+				array (
+					'key' => 'field_5690fbcdd9c84',
+					'label' => 'Preis-Titel',
+					'name' => 'preis-titel',
+					'type' => 'text',
+					'instructions' => 'z.B. Journalistin des Jahres oder Kulturjournalist des Jahres. Wenn nicht ausgefüllt, erscheint zB. Platz 8, Kategorie Kultur ',
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
+				),
+				array (
+					'key' => 'field_5690fcafd9c85',
+					'label' => 'Vorname',
+					'name' => 'vorname',
+					'type' => 'text',
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
+				),
+				array (
+					'key' => 'field_5690fb23d9c83',
+					'label' => 'Nachname',
+					'name' => 'nachname',
+					'type' => 'text',
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
+				),
+				array (
+					'key' => 'field_568c5b142551c',
+					'label' => 'Position',
+					'name' => 'position',
+					'type' => 'text',
+					'instructions' => 'In welcher Position/Funktion wurde die Person ausgezeichnet?',
+					'required' => 1,
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
+				),
+				array (
+					'key' => 'field_568c592ec49ed',
+					'label' => 'Jury-Begründung',
+					'name' => 'begruendung',
+					'type' => 'wysiwyg',
+					'instructions' => 'z.B. " Journalistin mit Profil und klarer Haltung: Im Sommer 2015 zeigte Reschke mit ihrem Kommentar ,Aufstand der Anständigen‘ in den ,Tagesthemen‘, was der Journalismus in Zeiten der ,Lügenpresse‘-Vorwürfe braucht: Haltung..."',
+					'default_value' => '',
+					'toolbar' => 'basic',
+					'media_upload' => 'no',
+				),
+			),
+			'location' => array (
+				array (
+					array (
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'preistraeger',
+						'order_no' => 0,
+						'group_no' => 0,
+					),
+				),
+			),
+			'options' => array (
+				'position' => 'acf_after_title',
+				'layout' => 'no_box',
+				'hide_on_screen' => array (
+				),
+			),
+			'menu_order' => 0,
+		));
+	}
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'mmbeta_custom_background_args', array(

@@ -10,34 +10,11 @@
 ?>
 
 <article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <header class="entry-header">
-    <div class="entry-meta">
-      <?php
-        $taxonomy = 'preise';
-        $post_terms = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
-        $separator = ', ';
-
-        if ( !empty( $post_terms ) && !is_wp_error( $post_terms ) ) {
-          $term_ids = implode( ',' , $post_terms );
-          $terms = wp_list_categories( 'title_li=&style=none&echo=0&taxonomy=' . $taxonomy . '&include=' . $term_ids );
-          $terms = rtrim( trim( str_replace( '<br />',  $separator, $terms ) ), $separator );
-          echo  $terms;
-        }
-      ?>
-    </div><!-- .entry-meta -->
-  </header><!-- .entry-header -->
-
-  <div class="lead">
-    <?php 
-      the_excerpt();
-      if ( ! post_password_required() ) {
-        the_title( '<h3 class="entry-title">', '</h3>' ); the_field( "position" );
-
-      }
-    ?>
-  </div><!-- .entry-content -->
-
-  <footer class="entry-footer">
-    <?php mmbeta_entry_footer(); ?>
-  </footer><!-- .entry-footer -->
+  <dl class="lead">
+    <dt><?php the_title(); ?></dt>
+    <d><?php the_field( "position" ); ?></dd>
+    <div class="pull-md-left">
+      <a href="<?php the_permalink(); ?>"><button type="button" class="btn btn-secondary btn-sm">Begründung</button></a>
+    </div>
+  </dl><!-- .entry-content -->
 </article><!-- #post-## -->

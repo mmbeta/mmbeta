@@ -9,7 +9,8 @@
  * @package medium_magazin_beta
  */
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -36,9 +37,6 @@
 		</div>
 	</div>
 
-
-	  
-
 	  <?php wp_nav_menu( array(
                 'menu'              => 'primary',
                 'theme_location'    => 'primary',
@@ -51,9 +49,5 @@
                 'walker'            => new wp_bootstrap_navwalker())
             );
 		?>
-	  
-
 
 	</header>
-
-	<div id="content" class="site-content"></div>
