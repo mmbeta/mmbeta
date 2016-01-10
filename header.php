@@ -24,10 +24,11 @@
 
 <body <?php body_class(); ?> >
 <div id="page" class="container">
-
+<div class="ribbon"><a href="#">Das ist eine beta-Version</a></div>
 	<header role="banner">
 	<div class="row">
-		<div class="col-xs-12">
+    <div class="col-xs-12 col-md-6 col-md-offset-2 col-lg-4 col-lg-offset-3 m-t"><img class="img-fluid" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>"></div>
+    <div class="col-xs-12">
 			<?php if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<?php else : ?>

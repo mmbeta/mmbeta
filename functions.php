@@ -399,7 +399,7 @@ add_action( 'widgets_init', 'mmbeta_widgets_init' );
  * Enqueue scripts and styles.
  */
 function mmbeta_scripts() {
-	wp_enqueue_style( 'mmbeta-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'mmbeta-custom', get_template_directory_uri() . '/css/mmbeta-custom.css' );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css' );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '20151106', true );
 
