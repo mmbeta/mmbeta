@@ -8,9 +8,8 @@
  */
 
 ?>
-
 <article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <dl class="lead">
+  <dl class="lead col-lg-6 m-t">
     <dt><?php the_title(); ?></dt>
     <d><?php the_field( "position" ); ?></dd>
     <div class="pull-md-left">
