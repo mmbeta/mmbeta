@@ -27,25 +27,36 @@
 <div class="ribbon"><a href="#">Das ist eine beta-Version</a></div>
 	<header role="banner">
 	<div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-2 col-lg-4 col-lg-offset-3 m-t m-b"><img class="img-fluid" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>"></div>
-    <div class="col-xs-12">
-			<?php if (is_front_page() && is_home()): ?>
-				<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name');?></a></h1>
-			<?php endif;?>
-		</div>
+        <div class="col-xs-12 col-md-6 col-md-offset-2 col-lg-4 col-lg-offset-3 m-t m-b">
+            <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>">
+        </div>
+        <div class="col-xs-12">
+            
+
+
+        </div>
 	</div>
 
-	<?php wp_nav_menu(array(
-    'menu' => 'primary',
-    'theme_location' => 'primary',
-    'depth' => 0,
-    'container' => 'nav',
-    'container_class' => 'navbar navbar-light bg-faded',
-    'container_id' => 'navbar-1',
-    'menu_class' => 'nav navbar-nav',
-    'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-    'walker' => new wp_bootstrap_navwalker())
-);
-?>
+
+  <?php 
+      $menu_name = 'primary';
+      $branding = '<a class="navbar-brand" href="' . esc_url(home_url('/')) . '" rel="home">' . get_bloginfo('name') . '</a>';
+          if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+                $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                $menu_items = wp_get_nav_menu_items($menu->term_id);
+                $menu_list = '<nav class="navbar navbar-dark bg-inverse"><div class="nav navbar-nav">' . $branding;
+
+                foreach ( (array) $menu_items as $key => $menu_item ) {
+                    $title = $menu_item->title;
+                    $url = $menu_item->url;
+                    $menu_list .= '<a class="nav-item nav-link" href="' . $url . '">' . $title . '</a>';
+                }
+                $menu_list .= '</div></nav>';
+          } else {
+                $menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
+          }
+
+          echo $menu_list;
+  ?>
 
 	</header>
