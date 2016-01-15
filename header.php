@@ -24,7 +24,7 @@
 
 <body <?php body_class();?> >
 <div id="page" class="container">
-<div class="ribbon"><a href="#">Das ist eine beta-Version</a></div>
+<div class="ribbon"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
 	<header role="banner">
 	<div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t m-b">

@@ -417,6 +417,16 @@ function mmbeta_die_preiskatekorie(){
   echo end($post_terms)->name;
 }
 
+function mmbeta_die_preiskatekorie_slug(){
+  $taxonomy = 'preise';
+  $id = get_the_ID();
+  $post_terms = wp_get_object_terms( $id, $taxonomy, 'names' );
+  return end($post_terms)->slug;
+}
+
+//Google Analytics
+require get_template_directory() . '/analytics.php';
+
 /**
  * Implement the Custom Header feature.
  */

@@ -30,17 +30,29 @@ get_header(); ?>
 
     <!-- Other winners' cards -->
     <div class="row">
-    <div class="lead">Außerdem wurden in der Kategorie <?php mmbeta_die_preiskatekorie(); ?> ausgezeichnet:</div>
+    <div class="lead">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskatekorie(); ?>" ausgezeichnet:</div>
     <div class="col-xs-12 m-t">
      <?php
-      rewind_posts();
-      $query = new WP_Query( array(
-        'posts_per_page' => -1,
-        'post_type' => 'preistraeger',
-        'meta_key' => 'nachname',
-        'orderby' => 'meta_value',
-        'order' => 'ASC',
-      ) );
+        $kategorie = mmbeta_die_preiskatekorie_slug();
+        $die_ID = $post->ID;
+
+
+        $args = array(
+            'post_type' => 'preistraeger',
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'preise',
+                'field'    => 'slug',
+                'terms'    => $kategorie,
+              ),
+            ),
+            'post__not_in' => array( $die_ID ),
+            'meta_key' => 'platz',
+            'orderby' => 'meta_value',
+            'order' => 'ASC',
+          );
+          $query = new WP_Query( $args );
+      
 
       if ($query->have_posts()): ?>
 

@@ -26,21 +26,12 @@
     <?php if ( ! post_password_required() ) { ?>
         <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
         <h6 class="text-muted"><?php the_field( "position" ); ?></h6>
+        <div class="lead"><strong>Kategorie:</strong> <?php mmbeta_die_preiskatekorie(); ?>, <strong>Platz: </strong><?php the_field('platz'); ?> </div>
         <div class="m-t"><?php the_field( "begruendung" ); ?></div>
     <?php  } else {
         the_excerpt();
       };
     
-      $taxonomy = 'preise';
-      $post_terms = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
-      $separator = ', ';
-
-      if ( !empty( $post_terms ) && !is_wp_error( $post_terms ) ) {
-        $term_ids = implode( ',' , $post_terms );
-        $terms = wp_list_categories( 'title_li=&style=none&echo=0&taxonomy=' . $taxonomy . '&include=' . $term_ids );
-        $terms = rtrim( trim( str_replace( '<br />',  $separator, $terms ) ), $separator );
-        echo  $terms;
-      }
     ?>
     </div>
   </div><!-- .entry-content -->
