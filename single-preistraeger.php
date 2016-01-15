@@ -30,7 +30,7 @@ get_header(); ?>
 
     <!-- Other winners' cards -->
     <div class="row">
-    <div class="lead">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskatekorie(); ?>" ausgezeichnet:</div>
+    <div class="lead p-l">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskatekorie(); ?>" ausgezeichnet:</div>
     <div class="col-xs-12 m-t">
      <?php
         $kategorie = mmbeta_die_preiskatekorie_slug();
@@ -73,7 +73,7 @@ get_header(); ?>
                     <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskatekorie(); ?></li>
                   </ul>
                   <div class="card-block">
-                    <a href="<?php the_permalink(); ?>" class="btn btn-primary">Fragebogen</a>  
+                    <a href="<?php the_permalink(); ?>" class="btn btn-primary">Begründung</a>  
                   </div>  
                 </article>
         
