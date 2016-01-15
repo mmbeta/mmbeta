@@ -216,13 +216,14 @@ function mmbeta_setup() {
 					'key' => 'field_568e1b987eb0d',
 					'label' => 'Teaser-Link',
 					'name' => 'link',
-					'type' => 'page_link',
+					'type' => 'text',
 					'instructions' => 'Wenn dieses Feld ausgefüllt ist, linkt der Teaser nicht auf den Beitrag selbst, sondern auf die hier eingetragene Seite/Post/Preisträger.',
-					'post_type' => array (
-						0 => 'all',
-					),
-					'allow_null' => 1,
-					'multiple' => 0,
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
 				),
 			),
 			'location' => array (
@@ -408,6 +409,13 @@ function mmbeta_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'mmbeta_scripts' );
+
+function mmbeta_die_preiskatekorie(){
+  $taxonomy = 'preise';
+  $id = get_the_ID();
+  $post_terms = wp_get_object_terms( $id, $taxonomy, 'names' );
+  echo end($post_terms)->name;
+}
 
 /**
  * Implement the Custom Header feature.

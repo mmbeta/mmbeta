@@ -11,14 +11,14 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer col-xs-12 m-t" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mmbeta' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'mmbeta' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'mmbeta' ), 'mmbeta', '<a href="http://underscores.me/" rel="designer">Thomas Strothjohann</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
 </div><!-- #page -->
+<footer class="col-xs-12 m-t text-xs-center" role="contentinfo">
+  <ul class="list-unstyled">
+    <li><a href="http://www.mediummagazin.de/impressum">Impressum</a></li>
+    <li><a href="http://www.mediummagazin.de/mm-special/nominierungen-jdj2015/">Über die Beta</a></li>
+  </ul>
+</footer><!-- #colophon -->
+
 
 <?php wp_footer(); ?>
 

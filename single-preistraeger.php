@@ -10,7 +10,7 @@
 get_header(); ?>
 
   <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
+
 
     <?php while ( have_posts() ) : the_post(); ?>
 
@@ -26,9 +26,12 @@ get_header(); ?>
 
     <?php endwhile; // End of the loop. ?>
 
-    </main><!-- #main -->
 
-        <!-- Other winners' cards -->
+
+    <!-- Other winners' cards -->
+    <div class="row">
+    <div class="lead">Außerdem wurden in der Kategorie <?php mmbeta_die_preiskatekorie(); ?> ausgezeichnet:</div>
+    <div class="col-xs-12 m-t">
      <?php
       rewind_posts();
       $query = new WP_Query( array(
@@ -40,42 +43,34 @@ get_header(); ?>
       ) );
 
       if ($query->have_posts()): ?>
-        <div id="carousel-example-generic" class="carousel slide col-lg-8 col-lg-offset-1" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox">
-          <?php while ($query->have_posts()): $query->the_post();?>
-            <div class="carousel-item active">
-              <article class="card col-xs-12 col-md-6">  
-                <?php if (has_post_thumbnail()) : ?>
-                <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
-                <img class="card-img-top" src="<?php echo $image[0]; ?>" alt="<?php the_title() ?>">
-                <?php endif; ?>
-                <div class="card-block">
-                  <h4 class="card-title"><?php the_title(); ?></h4>
-                  <p class="card-text"><?php the_content(); ?></p>
-                  <a href="<?php the_permalink(); ?>" class="btn btn-primary">Fragebogen</a>
-                </div>
-              </article>
-            </div>
-          <?php endwhile;?>
-          </div>
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="icon-prev" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="icon-next" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
+
+            <?php while ($query->have_posts()): $query->the_post();?>
+              
+                <article class="card col-lg-3 col-md-6 col-sm-12">
+                  <?php if (has_post_thumbnail()) : ?>
+                  <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
+                  
+                  <img class="card-img-top img-responsive" src="<?php echo $image[0]; ?>" alt="<?php the_title() ?>">
+                  <?php endif; ?>
+                  <div class="card-block">
+                    <h4 class="card-title"><?php the_title(); ?></h4>
+                    <p class="card-text"><?php the_field( "position" ); ?></p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Platz:</strong> <?php the_field('platz'); ?></li>
+                    <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskatekorie(); ?></li>
+                  </ul>
+                  <div class="card-block">
+                    <a href="<?php the_permalink(); ?>" class="btn btn-primary">Fragebogen</a>  
+                  </div>  
+                </article>
+        
+            <?php endwhile;?>
+
     <?php else: ?>
       <?php echo "no Preisträger yet" ;?>
     <?php endif;?>
-
+  </div>
   </div><!-- #primary -->
 
 <?php get_footer(); ?>
