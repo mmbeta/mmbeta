@@ -1,12 +1,14 @@
 <?php
 /**
- * Requiering Google Analytics
+ * Analytics.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package medium_magazin_beta
  */
+
 ?>
+
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

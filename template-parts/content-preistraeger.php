@@ -11,18 +11,21 @@
 
 <article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-  <div class="m-t m-b row">
-    
-      <?php if (has_post_thumbnail()) : ?>
-      <div class="col-lg-3">
-        <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
-        <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
-        <figure class="figure">
-          <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
-          <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
-        </figure>
-      </div>
-      <?php endif; ?>
+  <div class="m-t m-b row">  
+    <?php if (!has_post_thumbnail()) : ?>
+    <div class="col-lg-2">
+      <img class="img-responsive" src="http://localhost:8080/wp-content/uploads/2016/01/jdj.png">
+    </div>
+    <?php else : ?>
+    <div class="col-lg-3">
+      <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
+      <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
+      <figure class="figure">
+        <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
+        <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
+      </figure>
+    </div>
+    <?php endif; ?>
     
     <div class="col-lg-8">
     <?php if ( ! post_password_required() ) { ?>

@@ -23,6 +23,8 @@
 </head>
 
 <body <?php body_class();?> >
+
+<?php get_template_part( 'inc/google', 'analytics' ); ?>
 <div id="page" class="container">
 <div class="ribbon"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
 	<header role="banner">

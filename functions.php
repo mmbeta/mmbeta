@@ -428,10 +428,6 @@ function mmbeta_die_preiskatekorie_object(){
  */
 require get_template_directory() . '/inc/custom-header.php';
 
-//Google Analytics
-
-require get_template_directory() . '/google-analytics.php'; 
-
 /**
  * Custom template tags for this theme.
  */
