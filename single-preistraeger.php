@@ -29,11 +29,13 @@ get_header(); ?>
 
 
     <!-- Other winners' cards -->
-    <div class="row">
-    <div class="lead p-l">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskatekorie(); ?>" ausgezeichnet:</div>
-    <div class="col-xs-12 m-t">
-     <?php
-        $kategorie = mmbeta_die_preiskatekorie_slug();
+
+    <?php 
+      $kategorie = mmbeta_die_preiskatekorie_object();
+      if ( $kategorie->name !== 'JDJ' ){ ?>
+        <div class="lead p-l">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskatekorie(); ?>" ausgezeichnet:</div>
+      <?php } 
+
         $die_ID = $post->ID;
 
 
@@ -43,7 +45,7 @@ get_header(); ?>
               array(
                 'taxonomy' => 'preise',
                 'field'    => 'slug',
-                'terms'    => $kategorie,
+                'terms'    => $kategorie->slug,
               ),
             ),
             'post__not_in' => array( $die_ID ),
@@ -55,12 +57,12 @@ get_header(); ?>
       
 
       if ($query->have_posts()): ?>
-
+        <div class="card-columns">
             <?php while ($query->have_posts()): $query->the_post();?>
               
-                <article class="card col-lg-3 col-md-6 col-sm-12">
+                <article class="card">
                   <?php if (has_post_thumbnail()) : ?>
-                  <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
+                  <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' ); ?>
                   
                   <img class="card-img-top img-responsive" src="<?php echo $image[0]; ?>" alt="<?php the_title() ?>">
                   <?php endif; ?>
@@ -76,13 +78,11 @@ get_header(); ?>
                     <a href="<?php the_permalink(); ?>" class="btn btn-primary">Begründung</a>  
                   </div>  
                 </article>
-        
+            
             <?php endwhile;?>
+        </div>
+      <?php endif;?>
 
-    <?php else: ?>
-      <?php echo "no Preisträger yet" ;?>
-    <?php endif;?>
-  </div>
   </div><!-- #primary -->
 
 <?php get_footer(); ?>

@@ -403,7 +403,6 @@ function mmbeta_scripts() {
 	wp_enqueue_style( 'mmbeta-custom', get_template_directory_uri() . '/css/mmbeta-custom.css' );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css' );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '20151106', true );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -417,20 +416,21 @@ function mmbeta_die_preiskatekorie(){
   echo end($post_terms)->name;
 }
 
-function mmbeta_die_preiskatekorie_slug(){
+function mmbeta_die_preiskatekorie_object(){
   $taxonomy = 'preise';
   $id = get_the_ID();
   $post_terms = wp_get_object_terms( $id, $taxonomy, 'names' );
-  return end($post_terms)->slug;
+  return end($post_terms);
 }
-
-//Google Analytics
-require get_template_directory() . '/analytics.php';
 
 /**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
+
+//Google Analytics
+
+require get_template_directory() . '/google-analytics.php'; 
 
 /**
  * Custom template tags for this theme.

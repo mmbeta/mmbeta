@@ -3939,10 +3939,15 @@ input[type="button"].btn-block {
   border-radius: 0;
 }
 
+/*Added column-width*/
+
 .card-columns {
   -webkit-column-count: 3;
      -moz-column-count: 3;
           column-count: 3;
+  -webkit-column-width: 250px;
+     -moz-column-width: 250px;
+          column-width: 250px;
   -webkit-column-gap: 1.25rem;
      -moz-column-gap: 1.25rem;
           column-gap: 1.25rem;
