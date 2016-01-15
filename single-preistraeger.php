@@ -48,7 +48,7 @@ get_header(); ?>
             ),
             'post__not_in' => array( $die_ID ),
             'meta_key' => 'platz',
-            'orderby' => 'meta_value',
+            'orderby' => 'meta_value_num',
             'order' => 'ASC',
           );
           $query = new WP_Query( $args );
