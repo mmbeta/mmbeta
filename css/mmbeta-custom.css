@@ -43,3 +43,5 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
   text-decoration: none;
   text-shadow: 0 0 5px #444;
 }
+
+.clear { clear: both; }

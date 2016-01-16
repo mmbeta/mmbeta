@@ -10,14 +10,10 @@
 get_header();?>
 
 <main id="main" class="site-main m-t" role="main">
-    <header class="page-header m-t">
-      <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
-      <div class="lead"><?php the_archive_description();?></div>
-    </header><!-- .page-header -->
-
-<style type="text/css">
-.clear { clear: both; }
-</style>
+  <header class="page-header m-t">
+    <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
+    <div class="lead"><?php the_archive_description();?></div>
+  </header><!-- .page-header -->
 
 <?php 
 
