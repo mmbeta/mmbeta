@@ -33,7 +33,7 @@ get_header(); ?>
     <?php 
       $kategorie = mmbeta_die_preiskategorie_object();
       if ( $kategorie->name !== 'JDJ' ){ ?>
-        <div class="lead p-l">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskategorie(); ?>" ausgezeichnet:</div>
+        <div class="lead m-b">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskategorie(); ?>" ausgezeichnet:</div>
       <?php } 
 
         $die_ID = $post->ID;
