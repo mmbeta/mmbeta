@@ -61,11 +61,6 @@ get_header(); ?>
             <?php while ($query->have_posts()): $query->the_post();?>
               
                 <article class="card">
-                  <?php if (has_post_thumbnail()) : ?>
-                  <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' ); ?>
-                  
-                  <img class="card-img-top img-responsive" src="<?php echo $image[0]; ?>" alt="<?php the_title() ?>">
-                  <?php endif; ?>
                   <div class="card-block">
                     <h4 class="card-title"><?php the_title(); ?></h4>
                     <p class="card-text"><?php the_field( "position" ); ?></p>
@@ -75,7 +70,7 @@ get_header(); ?>
                     <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?></li>
                   </ul>
                   <div class="card-block">
-                    <a href="<?php the_permalink(); ?>" class="btn btn-primary">Begründung</a>  
+                    <a href="<?php the_permalink(); ?>" class="btn btn-secondary">Begründung</a>  
                   </div>  
                 </article>
             

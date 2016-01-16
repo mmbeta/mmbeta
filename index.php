@@ -30,7 +30,7 @@ get_header(); ?>
 					  <hr class="m-y-md">
 					  <p class="lead">
 					    <?php $value = get_field( "link" ); ?>
-					    <a class="btn btn-primary btn-lg" href="<?php $value ? print $value : the_permalink(); ?>" role="button">Learn more</a>
+					    <a class="btn btn-primary btn-lg" href="<?php $value ? print $value : the_permalink(); ?>" role="button">Journalisten des Jahres</a>
 					  </p>
 					</div>
 			<?php 
