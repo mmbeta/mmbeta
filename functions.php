@@ -361,6 +361,10 @@ function mmbeta_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	
+
+
 }
 endif; // mmbeta_setup
 add_action( 'after_setup_theme', 'mmbeta_setup' );
