@@ -409,17 +409,19 @@ function mmbeta_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'mmbeta_scripts' );
 
-function mmbeta_die_preiskatekorie(){
+function mmbeta_die_preiskategorie(){
   $taxonomy = 'preise';
   $id = get_the_ID();
-  $post_terms = wp_get_object_terms( $id, $taxonomy, 'names' );
+  $args = array('orderby' => 'count', 'order' => 'DESC');
+  $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
   echo end($post_terms)->name;
 }
 
-function mmbeta_die_preiskatekorie_object(){
+function mmbeta_die_preiskategorie_object(){
   $taxonomy = 'preise';
   $id = get_the_ID();
-  $post_terms = wp_get_object_terms( $id, $taxonomy, 'names' );
+  $args = array('orderby' => 'count', 'order' => 'DESC');
+  $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
   return end($post_terms);
 }
 

@@ -13,8 +13,10 @@
 
   <div class="m-t m-b row">  
     <?php if (!has_post_thumbnail()) : ?>
-    <div class="col-lg-2">
-      <img class="img-responsive" src="http://localhost:8080/wp-content/uploads/2016/01/jdj.png">
+    <div class="col-md-2 col-xs-5">
+      <figure class="figure">
+        <img class="img-responsive" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
+      </figure>
     </div>
     <?php else : ?>
     <div class="col-lg-3">
@@ -31,7 +33,7 @@
     <?php if ( ! post_password_required() ) { ?>
         <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
         <h6 class="text-muted"><?php the_field( "position" ); ?></h6>
-        <div class="lead"><strong>Kategorie:</strong> <?php mmbeta_die_preiskatekorie(); ?>, <strong>Platz: </strong><?php the_field('platz'); ?> </div>
+        <div class="lead"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?>, <strong>Platz: </strong><?php the_field('platz'); ?> </div>
         <div class="m-t"><?php the_field( "begruendung" ); ?></div>
     <?php  } else {
         the_excerpt();

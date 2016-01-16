@@ -31,9 +31,9 @@ get_header(); ?>
     <!-- Other winners' cards -->
 
     <?php 
-      $kategorie = mmbeta_die_preiskatekorie_object();
+      $kategorie = mmbeta_die_preiskategorie_object();
       if ( $kategorie->name !== 'JDJ' ){ ?>
-        <div class="lead p-l">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskatekorie(); ?>" ausgezeichnet:</div>
+        <div class="lead p-l">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskategorie(); ?>" ausgezeichnet:</div>
       <?php } 
 
         $die_ID = $post->ID;
@@ -72,7 +72,7 @@ get_header(); ?>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Platz:</strong> <?php the_field('platz'); ?></li>
-                    <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskatekorie(); ?></li>
+                    <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?></li>
                   </ul>
                   <div class="card-block">
                     <a href="<?php the_permalink(); ?>" class="btn btn-primary">Begründung</a>  
