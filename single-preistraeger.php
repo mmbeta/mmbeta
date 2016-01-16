@@ -30,9 +30,10 @@ get_header(); ?>
 
     <!-- Other winners' cards -->
 
-    <?php 
+    <?php
+      if ( ! post_password_required() ) {  
       $kategorie = mmbeta_die_preiskategorie_object();
-      if ( $kategorie->name !== 'JDJ' ){ ?>
+      if ( $kategorie->name !== 'JDJ' && $kategorie->name !=='Lebenswerk' ){ ?>
         <div class="lead m-b">Außerdem wurden in der Kategorie "<?php mmbeta_die_preiskategorie(); ?>" ausgezeichnet:</div>
       <?php } 
 
@@ -77,6 +78,7 @@ get_header(); ?>
             <?php endwhile;?>
         </div>
       <?php endif;?>
+<?php } //end of no password ?>
 
 
 

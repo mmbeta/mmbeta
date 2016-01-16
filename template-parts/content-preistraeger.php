@@ -39,6 +39,7 @@
           <strong>Alle Kategorien:</strong>
           <?php
             $taxonomy = 'preise';
+            echo $post->ID;
             $post_terms = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
             $separator = ', ';
             if ( !empty( $post_terms ) && !is_wp_error( $post_terms ) ) {
