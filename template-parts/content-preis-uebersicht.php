@@ -6,7 +6,14 @@
  *
  * @package medium_magazin_beta
  */
-
+?>
+<div class="row m-t m-b">
+  <header class="page-header col-xs-12">
+    <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
+    <div class="lead"><?php the_archive_description();?></div>
+  </header><!-- .page-header -->
+</div>
+<?php
 $kategorie = mmbeta_die_preiskategorie_object();
 $args = array(
     'post_type' => 'preistraeger',

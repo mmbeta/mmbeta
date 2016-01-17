@@ -8,7 +8,7 @@
  */
 
 get_header();?>
-
+<?php if(is_tax( 'preise', 'journalisten-des-jahres' )){ ?>
 <main id="main" class="site-main m-t" role="main">
   <div class="row">
     <div class="col-xs-12 m-b"style="background-color: #eceeef; padding: 1rem;">
@@ -29,9 +29,7 @@ get_header();?>
     </div>
   </div>
 
-<?php if(is_tax( 'preise', 'journalisten-des-jahres' )){
-
-
+  <?php
   function end_prev_letter() {
      echo "<!-- End of letter-group -->\n";
      echo "<div class='clear'></div>\n";
