@@ -26,7 +26,7 @@
 
 <?php get_template_part( 'inc/google', 'analytics' ); ?>
 <div id="page" class="container">
-<div class="ribbon"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
+<div class="ribbon hidden-md-down"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
 	<header role="banner">
 	<div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t m-b">
@@ -46,7 +46,7 @@
           if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
                 $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                 $menu_items = wp_get_nav_menu_items($menu->term_id);
-                $menu_list = '<nav class="navbar navbar-dark bg-inverse"><div class="nav navbar-nav">' . $branding;
+                $menu_list = '<nav class="navbar navbar-light" style="background-color: #eff3f6;"><div class="nav navbar-nav">' . $branding;
 
                 foreach ( (array) $menu_items as $key => $menu_item ) {
                     $title = $menu_item->title;

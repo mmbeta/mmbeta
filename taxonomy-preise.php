@@ -10,10 +10,24 @@
 get_header();?>
 
 <main id="main" class="site-main m-t" role="main">
-  <header class="page-header m-t">
-    <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
-    <div class="lead"><?php the_archive_description();?></div>
-  </header><!-- .page-header -->
+  <div class="row">
+    <div class="col-xs-12 m-b"style="background-color: #eceeef; padding: 1rem;">
+      <div class="col-lg-2 col-xs-6">
+        <figure class="figure">
+          <img class="img-responsive" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
+        </figure>
+      </div>
+      <div class="col-lg-2 col-xs-6">
+        <figure class="figure">
+          <img class="img-responsive" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/cover_MM012016.png'  ?>">
+        </figure>
+      </div>
+      <header class="page-header col-lg-8 col-xs-12">
+        <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
+        <div class="lead"><?php the_archive_description();?></div>
+      </header><!-- .page-header -->
+    </div>
+  </div>
 
 <?php if(is_tax( 'preise', 'journalisten-des-jahres' )){
 

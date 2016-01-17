@@ -45,3 +45,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
 }
 
 .clear { clear: both; }
+
+.my-jumbotron {
+    padding: 2rem 1rem;
+    margin: 2rem;
+    background-color: #eceeef;
+    border-radius: .3rem;
+
+}
