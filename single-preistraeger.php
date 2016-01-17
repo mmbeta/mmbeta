@@ -67,7 +67,7 @@ get_header(); ?>
                     <p class="card-text"><?php the_field( "position" ); ?></p>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Platz:</strong> <?php the_field('platz'); ?></li>
+                    <li class="list-group-item bg-primary-faded"><strong>Platz:</strong> <?php the_field('platz'); ?></li>
                     <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?></li>
                   </ul>
                   <div class="card-block">

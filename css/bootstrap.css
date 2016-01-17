@@ -5700,6 +5700,10 @@ a.text-danger:focus, a.text-danger:hover {
   background-color: #0275d8;
 }
 
+.bg-primary-faded {
+  background-color: #cce3f7;
+}
+
 a.bg-primary:focus, a.bg-primary:hover {
   background-color: #025aa5;
 }
