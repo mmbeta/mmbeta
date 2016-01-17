@@ -37,19 +37,31 @@
         <div class="m-t"><?php the_field( "begruendung" ); ?></div>
         <div class="small">
           <strong>Alle Kategorien:</strong>
+
           <?php
             $taxonomy = 'preise';
-            echo $post->ID;
-            $post_terms = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
-            $separator = ', ';
-            if ( !empty( $post_terms ) && !is_wp_error( $post_terms ) ) {
-              $term_ids = implode( ',' , $post_terms );
-              $terms = wp_list_categories( 'title_li=&style=none&echo=0&taxonomy=' . $taxonomy . '&exclude=2,3' );
-              $terms = rtrim( trim( str_replace( '<br />',  $separator, $terms ) ), $separator );
-              echo  $terms;
-          }
-          ?>
-          </div>
+              //$terms = wp_list_categories( 'title_li=&style=none&echo=0&taxonomy=' . $taxonomy . '&exclude=2,3' );        
+ 
+            $orderby      = 'count'; 
+            $show_count   = 0;      // 1 for yes, 0 for no
+            $pad_counts   = 0;      // 1 for yes, 0 for no
+            $hierarchical = 0;      // 1 for yes, 0 for no
+            $title        = '';
+
+            $args = array(
+              'taxonomy'     => $taxonomy,
+              'orderby'      => $orderby,
+              'show_count'   => $show_count,
+              'pad_counts'   => $pad_counts,
+              'hierarchical' => $hierarchical,
+              'title_li'     => $title
+            );
+            ?>
+
+          <ul class="list-inline">
+          <?php wp_list_categories( $args ); ?>
+          </ul>
+        </div>
     <?php  } else {
         the_excerpt();
       };
