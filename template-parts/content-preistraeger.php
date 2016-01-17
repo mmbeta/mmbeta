@@ -51,6 +51,8 @@
             $args = array(
               'taxonomy'     => $taxonomy,
               'orderby'      => $orderby,
+              'order'        => 'DESC',
+              'exclude'      => '2,3',
               'show_count'   => $show_count,
               'pad_counts'   => $pad_counts,
               'hierarchical' => $hierarchical,
