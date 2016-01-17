@@ -25,7 +25,7 @@ get_header(); ?>
 				$do_not_duplicate = $post->ID; ?>
 
 					<div class="jumbotron col-xs-12 featured-area">
-					  <h1 class="display-3"><?php the_title(); ?></h1>
+					  <h1 class="display-1"><?php the_title(); ?></h1>
 					  <p class="lead"><?php the_excerpt(); ?></p>
 					  <hr class="m-y-md">
 					  <p class="lead">

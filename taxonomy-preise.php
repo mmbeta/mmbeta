@@ -10,14 +10,9 @@
 get_header();?>
 <?php if(is_tax( 'preise', 'journalisten-des-jahres' )){ ?>
 <main id="main" class="site-main m-t" role="main">
-  <div class="row">
-    <div class="col-xs-12 m-b"style="background-color: #eceeef; padding: 1rem;">
-      <div class="col-lg-2 col-xs-6">
-        <figure class="figure">
-          <img class="img-responsive" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
-        </figure>
-      </div>
-      <div class="col-lg-2 col-xs-6">
+  
+    <div class="col-xs-12 m-b bg-secondary p-a">
+      <div class="col-lg-3 col-xs-6">
         <figure class="figure">
           <img class="img-responsive" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/cover_MM012016.png'  ?>">
         </figure>
@@ -27,7 +22,7 @@ get_header();?>
         <div class="lead"><?php the_archive_description();?></div>
       </header><!-- .page-header -->
     </div>
-  </div>
+  <div class="clear"></div>
 
   <?php
   function end_prev_letter() {

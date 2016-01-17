@@ -32,33 +32,30 @@
         <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t m-b">
             <img class="img-responsive" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>">
         </div>
-        <div class="col-xs-12">
-            
+	
 
+    <div class="col-xs-12 m-b">
+    <?php 
+        $menu_name = 'primary';
+        $branding = '<a class="navbar-brand" href="' . esc_url(home_url('/')) . '" rel="home">' . get_bloginfo('name') . '</a>';
+            if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+                  $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                  $menu_items = wp_get_nav_menu_items($menu->term_id);
+                  $menu_list = '<nav class="navbar navbar-light" style="background-color: #eff3f6;"><div class="nav navbar-nav">' . $branding;
 
-        </div>
-	</div>
+                  foreach ( (array) $menu_items as $key => $menu_item ) {
+                      $title = $menu_item->title;
+                      $url = $menu_item->url;
+                      $menu_list .= '<a class="nav-item nav-link" href="' . $url . '">' . $title . '</a>';
+                  }
+                  $menu_list .= '</div></nav>';
+            } else {
+                  $menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
+            }
 
-
-  <?php 
-      $menu_name = 'primary';
-      $branding = '<a class="navbar-brand" href="' . esc_url(home_url('/')) . '" rel="home">' . get_bloginfo('name') . '</a>';
-          if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
-                $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-                $menu_items = wp_get_nav_menu_items($menu->term_id);
-                $menu_list = '<nav class="navbar navbar-light" style="background-color: #eff3f6;"><div class="nav navbar-nav">' . $branding;
-
-                foreach ( (array) $menu_items as $key => $menu_item ) {
-                    $title = $menu_item->title;
-                    $url = $menu_item->url;
-                    $menu_list .= '<a class="nav-item nav-link" href="' . $url . '">' . $title . '</a>';
-                }
-                $menu_list .= '</div></nav>';
-          } else {
-                $menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
-          }
-
-          echo $menu_list;
-  ?>
+            echo $menu_list;
+    ?>
+    </div>
+  </div>
 
 	</header>
