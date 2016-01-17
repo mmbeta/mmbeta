@@ -15,7 +15,7 @@
     <?php if (!has_post_thumbnail()) : ?>
     <div class="col-md-2 col-xs-5">
       <figure class="figure">
-        <img class="img-responsive" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
+        <img class="img-responsive col-lg-12" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
       </figure>
     </div>
     <?php else : ?>

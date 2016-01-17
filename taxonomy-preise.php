@@ -14,7 +14,7 @@ get_header();?>
     <div class="col-xs-12 m-b bg-secondary p-a">
       <div class="col-lg-3 col-xs-6">
         <figure class="figure">
-          <img class="img-responsive" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/cover_MM012016.png'  ?>">
+          <img class="img-responsive col-lg-12" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/cover_MM012016.png'  ?>">
         </figure>
       </div>
       <header class="page-header col-lg-8 col-xs-12">
