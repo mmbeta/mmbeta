@@ -61,6 +61,10 @@ a.nav-link {
     text-transform: uppercase;
 }
 
+nav.navbar ul {
+  padding-left: 0;
+}
+
 nav.navbar li {
     margin-right: 1rem;
     display: inline-block;
@@ -77,22 +81,28 @@ a.nav-link:hover, a.nav-link.active {
 }
 
 
-div.container > ul > li:last-child {
+div > ul > li:last-child {
     border-right: none;
 }
 
 nav.navbar {
-    padding: 0;
-    border-bottom-color: rgb(238, 238, 238);
+    padding: 0.2em;
+    border-top-color: rgb(125, 120, 120);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: rgb(125, 120, 120);
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-radius: 0;
-    width: 100%;
-    z-index: 5;
+    z-index: 1;
     background-color: white;
 
 }
 
 .pinned {
     position: fixed !important;
+}
+
+.forcefullwidth_wrapper_tp_banner {
+  z-index: 5;
 }

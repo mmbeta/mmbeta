@@ -77,6 +77,6 @@ var guid = (function() {
 
 
   jQuery(document).ready(function(){
-    jQuery('#mainnav').pushpin( { top: jQuery('#mainnav').offset().top } );
+    jQuery('#mainnav').pushpin( { top: jQuery('#mainnav').offset().top + jQuery('#mainnav').height() } );
 
   });

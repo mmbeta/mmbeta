@@ -24,7 +24,7 @@ get_header(); ?>
 			while ( $my_query->have_posts() ) : $my_query->the_post(); 
 				$do_not_duplicate = $post->ID; ?>
 
-					<div class="jumbotron col-xs-12 featured-area">
+					<div class="jumbotron col-xs-12 col-lg-8 col-lg-offset-2 featured-area">
 					  <h1 class="display-1"><?php the_title(); ?></h1>
 					  <p class="lead"><?php the_excerpt(); ?></p>
 					  <hr class="m-y-md">
@@ -35,7 +35,7 @@ get_header(); ?>
 					</div>
 			<?php 
 			endwhile; ?>
-			<div class="col-xs-12 col-md-8">
+			<div class="col-xs-12 col-lg-8 col-lg-offset-2">
 			<?php 
 			if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 				if ( $post->ID == $do_not_duplicate ) continue;
