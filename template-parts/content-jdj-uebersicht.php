@@ -1,15 +1,16 @@
 <?php
 /**
- * The template for displaying Preisträger-Übersicht.
+ * The template for displaying JDJ-Übersicht.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package medium_magazin_beta
  */
 
-get_header();?>
-<?php if(is_tax( 'preise', 'journalisten-des-jahres' )){ ?>
+?>
+
 <main id="main" class="site-main m-t" role="main">
+  
     <div class="col-xs-12 m-b bg-secondary p-a">
       <div class="col-lg-3 col-xs-6">
         <figure class="figure">
@@ -63,36 +64,3 @@ get_header();?>
     echo "<h2>Sorry, no posts were found!</h2>";
   }
 //end of jdj-archive
-}else{
-
-
-  $tax_name = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-  $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
-  $page_name = strtolower($tax_name->name . '-' . $tax_name_parent->name);
-
-  // WP_Query arguments
-  $args = array (
-    'pagename'               => $page_name,
-  );
-
-  // The Query
-  $term_name_query = new WP_Query( $args );
-
-  // The Loop
-  if ( $term_name_query->have_posts() ) {
-    while ( $term_name_query->have_posts() ) {
-      $term_name_query->the_post();
-      the_title();
-      the_content();
-    }
-  } else {
-    echo 'Legen Sie eine Seite mit dem slug "' . $page_name . '" an.';
-  }
-
-  // Restore original Post Data
-  wp_reset_postdata();
-
-}  ?>
-
-</main><!-- #main -->
-<?php get_footer();?>

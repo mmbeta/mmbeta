@@ -76,7 +76,9 @@ var guid = (function() {
 }( jQuery ));
 
 
-  jQuery(document).ready(function(){
-    jQuery('#mainnav').pushpin( { top: jQuery('#mainnav').offset().top + jQuery('#mainnav').height() } );
-
-  });
+jQuery(document).ready(function(){
+  jQuery('#mainnav').pushpin( { top: jQuery('#mainnav').offset().top + jQuery('#mainnav').height() } );
+  if(jQuery('.owl-carousel').length > 0){
+    jQuery("#owl-example").owlCarousel();    
+  }
+});

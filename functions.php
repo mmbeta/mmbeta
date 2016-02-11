@@ -164,10 +164,11 @@ function mmbeta_setup() {
 			'show_in_nav_menus'          => true,
 			'show_tagcloud'              => true,
 		);
-		register_taxonomy( 'preise', array( 'preistraeger' ), $args );
+		register_taxonomy( 'preise', array( 'preistraeger', 'attachment' ), $args );
 
 	}
 	add_action( 'init', 'add_taxonomy_preise', 0 );
+
 
 	// Change Password protected wording
 
