@@ -41,6 +41,7 @@ function mmbeta_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'preview', 210, 140 );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -435,6 +436,12 @@ function mmbeta_die_preiskategorie_object(){
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
+
+/**
+ * Implement Shortcodes.
+ */
+require get_template_directory() . '/inc/shortcodes.php';
+
 
 /**
  * Custom template tags for this theme.

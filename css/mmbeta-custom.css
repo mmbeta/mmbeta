@@ -1,4 +1,4 @@
-/*
+/*!
 Theme Name: medium magazin beta
 Author: Thomas Strothjohann
 Author URI: http://codereporter.de/
@@ -106,3 +106,141 @@ nav.navbar {
 .forcefullwidth_wrapper_tp_banner {
   z-index: 5;
 }
+
+
+
+/* Teaser 1 und 3 */
+.teaser1-content,
+.teaser3-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 10px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top: 1px solid #000;
+}
+
+.teaser1-body,
+.teaser3-body {
+  padding: 10px;
+  border: 1px solid #000;
+  position: absolute;
+  top: 11px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.teaser3-body {
+  border: 0;
+}
+
+.teaser1-img,
+.teaser3-img {
+  width: 100%;
+  height:auto;
+  padding: 0px;
+}
+
+.teaser3-img {
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.teaser1-header,
+.teaser3-header {
+  text-align:center;
+  text-decoration: underline;
+}
+.teaser1-text,
+.teaser3-text {
+  color: #999;
+  padding: 10px 0;
+}
+.teaser1-text span.mobile,
+.teaser3-text span.mobile {
+  display: none;
+}
+
+.teaser1-link,
+.teaser3-link {
+  font-style:italic;
+}
+.blog-nav-item {
+  position: relative;
+  display:inline-block;
+  padding:10px;
+  font-weight:300;
+  color:white;
+  text-decoration:none;
+}
+.blog-nav-item:hover {
+  text-decoration:none;
+  font-weight:bold;
+  color:white;
+}
+.blog-title {
+  text-transform:uppercase;
+  font-size: 26px;
+  background-colo: #999;
+}
+.blog-main {
+}
+.blog-sidebar {
+}
+.blog-footer {
+  padding:40px 0;
+  color: #999;
+  text-align:center;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+}
+
+@media (min-width: 768px) {
+  .teaser1-container,
+  .teaser3-container {
+    padding-top: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .teaser1-container,
+  .teaser3-container {
+    padding-top: 33.33333333%;
+  }
+}
+
+@media (max-width: 768px) {
+  .teaser1-container,
+  .teaser3-container {
+    padding-top: 0;
+  }
+  .teaser1-content,
+  .teaser3-content {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .teaser1-body,
+  .teaser3-body {
+    padding: 10px;
+    position: static;
+  }
+  .teaser1-text,
+  .teaser3-text {
+    text-align: center;
+  }
+  .teaser1-text span.mobile,
+  .teaser3-text span.mobile {
+    display: inline;
+  }
+}
+
+/* End of teaser 1 and 3 

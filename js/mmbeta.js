@@ -79,6 +79,12 @@ var guid = (function() {
 jQuery(document).ready(function(){
   jQuery('#mainnav').pushpin( { top: jQuery('#mainnav').offset().top + jQuery('#mainnav').height() } );
   if(jQuery('.owl-carousel').length > 0){
-    jQuery("#owl-example").owlCarousel();    
+    jQuery("#owl-example").owlCarousel({
+      navigation : true, // Show next and prev buttons
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true,
+      autoHeight : true
+    });    
   }
 });

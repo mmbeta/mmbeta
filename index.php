@@ -39,7 +39,7 @@ get_header(); ?>
 			<?php 
 			if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 				if ( $post->ID == $do_not_duplicate ) continue;
-						get_template_part( 'template-parts/content', get_post_format() );
+				get_template_part( 'teasers/teaser', '1' );
 					
 			endwhile; endif; 
 
