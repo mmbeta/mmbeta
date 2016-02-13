@@ -10,21 +10,35 @@
 ?>
 
 <main id="main" class="site-main m-t" role="main">
-  
-    <div class="col-xs-12 m-b bg-secondary p-a">
-      <div class="col-lg-3 col-xs-6">
-        <figure class="figure">
-          <img class="img-responsive col-lg-12" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/cover_MM012016.png'  ?>">
-        </figure>
-      </div>
-      <header class="page-header col-lg-8 col-xs-12">
-        <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
-        <div class="lead"><?php the_archive_description();?></div>
-      </header><!-- .page-header -->
-    </div>
-  <div class="clear"></div>
-
   <?php
+  $tax_name = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+  $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
+  $page_name = strtolower($tax_name->slug . '-' . $tax_name_parent->slug);
+
+  $args = array (
+    'pagename' => $page_name,
+  );
+
+  $term_name_query = new WP_Query( $args );
+
+  if ( $term_name_query->have_posts() ) {
+    while ( $term_name_query->have_posts() ) {
+      $term_name_query->the_post(); ?>
+      <div class="col-xs-12 m-b bg-secondary p-a">
+        <header class="page-header col-lg-8 col-xs-12">
+          <h1 class="page-title"><?php the_title(); ?></h1>
+          <div><?php the_content(); ?></div>
+        </header><!-- .page-header -->
+      </div>
+    <div class="clear"></div>
+    <?php 
+    }
+  } else {
+    if (is_user_logged_in()) {
+      echo 'Legen Sie eine Seite mit dem slug "' . $page_name . '" an.';
+    }
+  }
+
   function end_prev_letter() {
      echo "<!-- End of letter-group -->\n";
      echo "<div class='clear'></div>\n";

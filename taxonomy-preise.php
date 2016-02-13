@@ -18,19 +18,22 @@ if($tax_name_parent->slug === 'journalisten-des-jahres'){
 }else{
 
   $args = array (
-    'pagename'               => $page_name,
+    'pagename' => $page_name,
   );
 
   $term_name_query = new WP_Query( $args );
 
   if ( $term_name_query->have_posts() ) {
     while ( $term_name_query->have_posts() ) {
-      $term_name_query->the_post();
-      the_title();
-      the_content();
+      $term_name_query->the_post(); ?>
+        <h1 class="display-2"><?php the_title(); ?></h1>
+        <?php the_content(); ?>
+    <?php 
     }
   } else {
-    echo 'Legen Sie eine Seite mit dem slug "' . $page_name . '" an.';
+    if (is_user_logged_in()) {
+      echo 'Legen Sie eine Seite mit dem slug "' . $page_name . '" an.';
+    }
   }
   get_template_part('template-parts/content', 'preis-uebersicht');
   // Restore original Post Data
