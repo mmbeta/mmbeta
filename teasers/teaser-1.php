@@ -17,7 +17,7 @@
       <img class="card-img-top teaser1-img" src="<?php the_post_thumbnail_url(); ?>" alt="Card image cap">        
       <h3 class="card-title teaser1-header"><?php the_title(); ?></h3>
       <div class="teaser1-text">
-      <?php the_content(); ?>
+      <?php the_excerpt(); ?>
         <a href="#" class="teaser1-link">Button</a> 
       </div>
     </div>
