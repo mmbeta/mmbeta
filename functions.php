@@ -70,6 +70,7 @@ function mmbeta_setup() {
 		'video',
 		'quote',
 		'link',
+		'gallery',
 	) );
 
 	/*

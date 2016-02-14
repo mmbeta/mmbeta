@@ -88,3 +88,28 @@ jQuery(document).ready(function(){
     });    
   }
 });
+
+// Make modal gallery
+
+var galleryItems = jQuery('figure.gallery-item');
+if(galleryItems.length > 0){
+  jQuery(galleryItems)
+    .attr('data-toggle', 'modal')
+    .attr('data-toggle', '#myModal')
+  jQuery.each(galleryItems, function(i, value){
+    jQuery(value).on('click', function(event){
+      event.preventDefault();
+      jQuery('img#the-picture').attr('src', jQuery(value).find('a').attr('href'));
+      jQuery('#myModal').modal('toggle');
+    })
+  });
+}
+
+
+
+
+
+
+
+
+
