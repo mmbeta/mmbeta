@@ -9,7 +9,7 @@
  * @package medium_magazin_beta
  */
 
-;?>
+?>
 <!DOCTYPE html>
 <html <?php language_attributes();?>>
 <head>
@@ -29,7 +29,7 @@
 <div class="ribbon hidden-md-down"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
 	<header role="banner">
 	<div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t m-b">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t-lg m-b">
             <img class="img-responsive" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>">
         </div>
   </div>

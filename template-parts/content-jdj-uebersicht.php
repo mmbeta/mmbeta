@@ -8,8 +8,9 @@
  */
 
 ?>
+  
+  <main id="main" class="site-main m-t" role="main">
 
-<main id="main" class="site-main m-t" role="main">
   <?php
   $tax_name = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
   $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
@@ -24,11 +25,13 @@
   if ( $term_name_query->have_posts() ) {
     while ( $term_name_query->have_posts() ) {
       $term_name_query->the_post(); ?>
-      <div class="col-xs-12 m-b bg-secondary p-a">
-        <header class="page-header col-lg-8 col-xs-12">
-          <h1 class="page-title"><?php the_title(); ?></h1>
-          <div><?php the_content(); ?></div>
-        </header><!-- .page-header -->
+      <div class="row">
+        <div class="col-xs-12 m-b bg-jdj p-a">
+          <header class="page-header col-xs-12 col-lg-8 col-lg-offset-2">
+            <h1 class="page-title"><?php the_title(); ?></h1>
+            <div><?php the_content(); ?></div>
+          </header><!-- .page-header -->
+        </div>
       </div>
     <div class="clear"></div>
     <?php 
@@ -44,7 +47,7 @@
      echo "<div class='clear'></div>\n";
   }
   function start_new_letter($letter) {
-     echo "<div class='alert alert-success'>\n";
+     echo "<div class='alert-jdj'>\n";
      echo "\t<strong>$letter</strong>\n";
      echo "</div>";
   }
@@ -59,6 +62,7 @@
   );
   query_posts($args);
   if ( have_posts() ) {
+    echo '<div class="col-xs-12 col-lg-8 col-lg-offset-2">';
     $in_this_row = 0;
     while ( have_posts() ) {
        the_post();

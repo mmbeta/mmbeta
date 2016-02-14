@@ -17,7 +17,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
 */
 
 .ribbon {
-  background-color: #a00;
+  background-color: #305d63;
   overflow: hidden;
   white-space: nowrap;
   position: absolute;
@@ -33,7 +33,6 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
           box-shadow: 0 0 10px #888;
 }
 .ribbon a {
-  border: 1px solid #faa;
   color: #fff;
   display: block;
   font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -42,6 +41,13 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
   text-align: center;
   text-decoration: none;
   text-shadow: 0 0 5px #444;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+}
+
+.ribbon a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .clear { clear: both; }
@@ -52,6 +58,26 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
     background-color: #eceeef;
     border-radius: .3rem;
 
+}
+
+/* JDJ-Übersicht */
+.alert-jdj {
+  padding: 15px 0 0 10px;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid;
+  border-color: #31708f;
+  color: #31708f;
+  font-style: normal;
+}
+
+.bg-jdj {
+  background-color:  #305d63;
+}
+
+.page-header {
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
 }
 
 /* Menu */
