@@ -92,24 +92,23 @@ jQuery(document).ready(function(){
 // Make modal gallery
 
 var galleryItems = jQuery('figure.gallery-item');
+var imageCaption = '';
+var imageSource = '';
+var galleryFigure = '';
+
 if(galleryItems.length > 0){
-  jQuery(galleryItems)
-    .attr('data-toggle', 'modal')
-    .attr('data-toggle', '#myModal')
-  jQuery.each(galleryItems, function(i, value){
-    jQuery(value).on('click', function(event){
-      event.preventDefault();
-      jQuery('img#the-picture').attr('src', jQuery(value).find('a').attr('href'));
-      jQuery('#myModal').modal('toggle');
-    })
-  });
+  jQuery(galleryItems).on('click', function(event){
+    event.preventDefault();
+    jQuery('#galleryModal').modal('toggle');
+  }) 
+
+  jQuery.each(galleryItems, function(i,val){
+    imageCaption = jQuery(val).find('figcaption').text();
+    imageSource = jQuery(val).find('a').attr('href');
+    galleryFigure = '<figure class="figure">' +
+                      '<img class="figure-img" src="' + imageSource + '">' + 
+                      '<figcaption class="figure-caption">' + imageCaption + '</figcaption>' +
+                    '</figure>'
+    jQuery('div.modal-body').append(galleryFigure);
+  })
 }
-
-
-
-
-
-
-
-
-
