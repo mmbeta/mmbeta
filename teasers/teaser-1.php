@@ -20,7 +20,7 @@ $teaser_image = get_the_post_thumbnail_url( $post, 'medium');
       <h3 class="card-title teaser1-header"><?php the_title(); ?></h3>
       <div class="teaser1-text">
       <?php the_excerpt(); ?>
-        <a href="#" class="teaser1-link">Button</a> 
+        <a href="<?php echo the_permalink(); ?>" class="teaser1-link">Button</a> 
       </div>
     </div>
   
