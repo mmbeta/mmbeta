@@ -17,42 +17,9 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<?php 
-		$my_query = new WP_Query( 'category_name=featured&posts_per_page=1' ); 
-		if ( have_posts() ) : 
 		
-			while ( $my_query->have_posts() ) : $my_query->the_post(); 
-				$do_not_duplicate = $post->ID; ?>
-
-					<div class="jumbotron col-xs-12 col-lg-8 col-lg-offset-2 featured-area">
-					  <h1 class="display-1"><?php the_title(); ?></h1>
-					  <p class="lead"><?php the_excerpt(); ?></p>
-					  <hr class="m-y-md">
-					  <p class="lead">
-					    <?php $value = get_field( "link" ); ?>
-					    <a class="btn btn-primary btn-lg" href="<?php $value ? print $value : the_permalink(); ?>" role="button">Journalisten des Jahres</a>
-					  </p>
-					</div>
-			<?php 
-			endwhile; ?>
-			<div class="col-xs-12 col-lg-8 col-lg-offset-2">
-			<?php 
-			if ( have_posts() ) : while ( have_posts() ) : the_post(); 
-				if ( $post->ID == $do_not_duplicate ) continue;
-				get_template_part( 'teasers/teaser', '1' );
-					
-			endwhile; endif; 
-
-				 the_posts_navigation(); 
-
-		 else : 
-		 	get_template_part( 'template-parts/content', 'none' );
-		 endif; ?>
-		 </div>
 		</main><!-- #main -->
-		<div class="col-xs-12 col-md-4">
-			<?php get_sidebar(); ?>
-		</div>
+
 	</div><!-- #primary -->
 
 
