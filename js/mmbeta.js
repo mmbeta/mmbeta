@@ -75,11 +75,13 @@ var guid = (function() {
   });
 }( jQuery ));
 
+var identifier = '';
+var galleryStart = 0;
 
 jQuery(document).ready(function(){
   jQuery('#mainnav').pushpin( { top: jQuery('#mainnav').offset().top + jQuery('#mainnav').height() } );
-  if(jQuery('.owl-carousel').length > 0){
-    jQuery("#owl-example").owlCarousel({
+  if(jQuery('#owl-carousel-single').length > 0){
+    jQuery("#owl-carousel-single").owlCarousel({
       navigation : true, // Show next and prev buttons
       slideSpeed : 300,
       paginationSpeed : 400,
@@ -92,23 +94,17 @@ jQuery(document).ready(function(){
 // Make modal gallery
 
 var galleryItems = jQuery('figure.gallery-item');
-var imageCaption = '';
-var imageSource = '';
-var galleryFigure = '';
+
 
 if(galleryItems.length > 0){
-  jQuery(galleryItems).on('click', function(event){
+  jQuery(galleryItems).find('figcaption').hide();
+
+  jQuery(galleryItems).on('click', function(event){ 
     event.preventDefault();
+    galleryStart = parseInt(jQuery(event.target).attr('data-imgcount')) - 1;
+    jQuery("#owl-carousel-single").data('owlCarousel').reinit({});
+    jQuery("#owl-carousel-single").data('owlCarousel').goTo(galleryStart);
     jQuery('#galleryModal').modal('toggle');
   }) 
 
-  jQuery.each(galleryItems, function(i,val){
-    imageCaption = jQuery(val).find('figcaption').text();
-    imageSource = jQuery(val).find('a').attr('href');
-    galleryFigure = '<figure class="figure">' +
-                      '<img class="figure-img" src="' + imageSource + '">' + 
-                      '<figcaption class="figure-caption">' + imageCaption + '</figcaption>' +
-                    '</figure>'
-    jQuery('div.modal-body').append(galleryFigure);
-  })
 }

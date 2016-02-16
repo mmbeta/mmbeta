@@ -80,6 +80,16 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
   -moz-font-smoothing: antialiased;
 }
 
+.page-header a, .page-header a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Image Firefox tweak */
+.figure-img {
+  width: 100%;
+}
+
 /* Menu */
 
 a.nav-link, a.nav-link:hover {

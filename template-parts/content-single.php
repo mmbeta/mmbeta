@@ -9,27 +9,16 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" class="col-xs-12 col-lg-8 col-lg-offset-2" >
 	<header class="entry-header">
 		<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
-
-		<div class="entry-meta">
-			<?php mmbeta_posted_on(); ?>
-		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
-
-	<div class="lead">
+	<div>
 		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<small class="page-links">' . esc_html__( 'Pages:', 'mmbeta' ),
-				'after'  => '</small>',
-			) );
-		?>
 	</div><!-- .entry-content -->
+	<small class="entry-meta">
+		<?php mmbeta_posted_on(); ?>
+	</small><!-- .entry-meta -->
 
-	<footer class="entry-footer">
-		<?php mmbeta_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

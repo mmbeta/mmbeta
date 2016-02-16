@@ -9,7 +9,11 @@
 
 ?>
 
-<?php the_content(); ?>
+<div class="row">
+  <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+    <?php the_content(); ?>
+  </div>
+</div>
 
 <!-- Gallery Modal -->
 <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
