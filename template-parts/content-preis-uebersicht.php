@@ -7,12 +7,7 @@
  * @package medium_magazin_beta
  */
 ?>
-<div class="row m-t m-b">
-  <header class="col-xs-12">
-    <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
-    <div class="lead"><?php the_archive_description();?></div>
-  </header><!-- .page-header -->
-</div>
+
 <?php
 $kategorie = mmbeta_die_preiskategorie_object();
 $args = array(
@@ -32,6 +27,12 @@ $args = array(
 
 
 if ($query->have_posts()): ?>
+  <div class="row m-t m-b">
+    <header class="col-xs-12">
+      <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
+      <div class="lead"><?php the_archive_description();?></div>
+    </header><!-- .page-header -->
+  </div>
   <div class="card-columns">
       <?php while ($query->have_posts()): $query->the_post();?>
         
