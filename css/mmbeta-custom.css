@@ -88,6 +88,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
 /* Image Firefox tweak */
 .figure-img {
   width: 100%;
+  height: auto;
 }
 
 /* Menu */

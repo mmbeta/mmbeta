@@ -86,7 +86,8 @@ jQuery(document).ready(function(){
       slideSpeed : 300,
       paginationSpeed : 400,
       singleItem:true,
-      autoHeight : true
+      autoHeight : true,
+      pagination : false
     });    
   }
 });
@@ -105,6 +106,21 @@ if(galleryItems.length > 0){
     jQuery("#owl-carousel-single").data('owlCarousel').reinit({});
     jQuery("#owl-carousel-single").data('owlCarousel').goTo(galleryStart);
     jQuery('#galleryModal').modal('toggle');
-  }) 
+  })
+
+  jQuery(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: // left
+        jQuery("#owl-carousel-single").data('owlCarousel').prev();
+        break;
+        
+        case 39: // right
+        jQuery("#owl-carousel-single").data('owlCarousel').next();
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
 
 }
