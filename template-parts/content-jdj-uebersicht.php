@@ -33,8 +33,25 @@
           </header><!-- .page-header -->
         </div>
       </div>
-    <div class="clear"></div>
-    <?php 
+      <?php if(get_post_thumbnail_id($post->ID)){ 
+        $thumb_id = get_post_thumbnail_id($post->ID);
+        $image_meta  = wp_get_attachment_metadata( $thumb_id );
+        $credit = trim($image_meta['image_meta']['credit']) ? '&#169; ' . $image_meta['image_meta']['credit'] : "";
+        ?>
+        <div class="row">
+          <div class="col-lg-6 col-lg-offset-3 col-xs-10 col-xs-offset-1">
+            <figure class="figure">
+            <?php the_post_thumbnail(); ?>
+              <figcaption class="figure-caption">
+                <?php echo get_post($thumb_id)->post_excerpt; ?>
+                <br><small><?php echo $credit; ?></small>
+              </figcaption>
+          </figure>
+        </div>  
+      </div>
+
+        <?php
+        }
     }
   } else {
     if (is_user_logged_in()) {
