@@ -41,7 +41,7 @@
         <div class="row">
           <div class="col-lg-6 col-lg-offset-3 col-xs-10 col-xs-offset-1">
             <figure class="figure">
-            <?php the_post_thumbnail(); ?>
+            <img src="<?php the_post_thumbnail_url('large'); ?>" class="figure-img">
               <figcaption class="figure-caption">
                 <?php echo get_post($thumb_id)->post_excerpt; ?>
                 <br><small><?php echo $credit; ?></small>
