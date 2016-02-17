@@ -26,8 +26,12 @@ if($tax_name_parent->slug === 'journalisten-des-jahres'){
   if ( $term_name_query->have_posts() ) {
     while ( $term_name_query->have_posts() ) {
       $term_name_query->the_post(); ?>
-        <h1 class="display-2"><?php the_title(); ?></h1>
-        <?php the_content(); ?>
+        <div class="row">
+          <h1 class="display-3"><?php the_title(); ?></h1>
+          <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+            <?php the_content(); ?>
+          </div>
+        </div>
     <?php 
     }
   } else {
