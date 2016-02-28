@@ -18,8 +18,11 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
     <?php
 
+
       $args = array(
           'post_type' => array('preistraeger', 'post', 'page'),
+          'meta_key' => 'auf_der_homepage',
+          'meta_value' => 1,
         );
       $query = new WP_Query( $args );
       

@@ -386,6 +386,62 @@ function mmbeta_setup() {
 		));
 	}
 
+	if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_onfrontpage',
+		'title' => 'OnFrontpage',
+		'fields' => array (
+			array (
+				'key' => 'field_56d3849f14002',
+				'label' => 'Auf der Homepage?',
+				'name' => 'auf_der_homepage',
+				'type' => 'true_false',
+				'instructions' => 'Soll der Artikel auf der HP geteasert werden?',
+				'message' => 'Auf der HP anzeigen.',
+				'default_value' => 1,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'preistraeger',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
+					'order_no' => 0,
+					'group_no' => 2,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'side',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'mmbeta_custom_background_args', array(
 		'default-color' => 'ffffff',
