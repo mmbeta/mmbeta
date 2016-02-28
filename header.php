@@ -30,10 +30,12 @@
 	<header role="banner">
 	<div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t-lg m-b">
-            <img class="img-responsive" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+              <img class="img-responsive" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>">
+            </a>
         </div>
   </div>
-  <div class="row">
+  <div class="row hidden-md-down">
     
     <?php 
         $menu_name = 'primary';
@@ -42,12 +44,16 @@
           $menu_items = wp_get_nav_menu_items($menu->term_id);
           $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 col-lg-offset-2 col-xs-12 text-xs-center" role="navigation"><div class=""><ul>';
 
+          $menu_list_mobile = '<nav id="mobilenav" class="col-xs-12 text-xs-center" role="navigation"><div class=""><ul class="nav">';
+
           foreach ( (array) $menu_items as $key => $menu_item ) {
               $title = $menu_item->title;
               $url = $menu_item->url;
               $menu_list .= '<li><a class="nav-link" href="' . $url . '">' . $title . '</a></li>';
+              $menu_list_mobile .= '<li class="nav-item"><a class="nav-link" href="' . $url . '">' . $title . '</a></li>';
           }
           $menu_list .= '</ul></div></nav>';
+          $menu_list_mobile .= '</ul></div></nav>';
         } else {
           $menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
         }
@@ -56,8 +62,28 @@
     ?>
    
   </div>
+  <!-- Toggle test -->
+  <div class="row hidden-lg-up">
+
+      <div class="collapse" id="exCollapsingNavbar">
+
+          <?php echo $menu_list_mobile; ?>
+
+      </div>
+
+      <nav class="navbar navbar-light bg-faded col-xs-12 text-xs-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+          &#9776;
+        </button>
+      </nav>
+  </div>
+
+  <!-- Slider -->
   <div class="row m-b">
-    <?php putRevSlider('hp-slider', 'homepage'); ?> 
+  <?php if(is_home()){
+    putRevSlider('hp-slider', 'homepage');
+    }
+  ?>
   </div>
 
 	</header>

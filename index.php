@@ -16,7 +16,24 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+    <?php
 
+      $args = array(
+          'post_type' => array('preistraeger', 'post', 'page'),
+        );
+      $query = new WP_Query( $args );
+      
+
+      if ($query->have_posts()): ?>
+
+            <?php while ($query->have_posts()): $query->the_post();
+              get_field('teaser-typ') ? $teaser_typ = get_field('teaser-typ') : $teaser_typ = 'Standard';
+              
+              get_template_part( 'teasers/teaser', $teaser_typ );
+            endwhile;
+            ?>
+
+      <?php endif;?>
 		
 		</main><!-- #main -->
 

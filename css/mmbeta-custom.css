@@ -151,21 +151,34 @@ nav.navbar {
 
 
 /* Teaser 1 und 3 */
+.teaser1-container,
+.teaser2-container,
+.teaser3-container {
+  position: relative;
+  padding-top: 50%;
+  margin-bottom: 40px;
+  border: 0;
+}
+
 .teaser1-content,
+.teaser2-content,
 .teaser3-content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   padding-top: 10px;
+  padding-left: 0;
+  padding-right: 0;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-top: 1px solid #000;
+  overflow: hidden;
 }
 
 .teaser1-body,
+.teaser2-body,
 .teaser3-body {
   padding: 10px;
   border: 1px solid #000;
@@ -176,6 +189,10 @@ nav.navbar {
   right: 0;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.teaser2-body{
+  background-color: #202033;
 }
 
 .teaser3-body {
@@ -199,53 +216,61 @@ nav.navbar {
 .teaser3-header {
   text-align:center;
   text-decoration: underline;
+  margin-top:10px;
 }
 .teaser1-text,
+.teaser2-text,
 .teaser3-text {
   color: #999;
   padding: 10px 0;
+  overflow: hidden;
 }
+
+.teaser2-text{
+  color:#FFF;
+  font-size: 3em;
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
 .teaser1-text span.mobile,
 .teaser3-text span.mobile {
   display: none;
 }
 
+.teaser2-autor{
+  width: 30%;
+  color: #999;
+  text-align: left;
+  float: right;
+  margin-right: 20px;
+  font-size: 1em;
+  border-top: 1px solid #999;
+}
+
 .teaser1-link,
 .teaser3-link {
   font-style:italic;
-}
-.blog-nav-item {
-  position: relative;
+  text-decoration:underline;
+  color: #666;
   display:inline-block;
-  padding:10px;
-  font-weight:300;
-  color:white;
-  text-decoration:none;
+  margin-top: 10px;
 }
-.blog-nav-item:hover {
-  text-decoration:none;
-  font-weight:bold;
-  color:white;
-}
-.blog-title {
-  text-transform:uppercase;
-  font-size: 26px;
-  background-colo: #999;
-}
-.blog-main {
-}
-.blog-sidebar {
-}
-.blog-footer {
-  padding:40px 0;
-  color: #999;
-  text-align:center;
-  background-color: #f9f9f9;
-  border-top: 1px solid #e5e5e5;
+
+
+
+
+@media (min-width: 544px) {
+  .teaser1-container,
+  .teaser2-container,
+  .teaser3-container {
+    padding-top: 100%;
+  }
 }
 
 @media (min-width: 768px) {
   .teaser1-container,
+  .teaser2-container,
   .teaser3-container {
     padding-top: 50%;
   }
@@ -253,17 +278,20 @@ nav.navbar {
 
 @media (min-width: 992px) {
   .teaser1-container,
+  .teaser2-container,
   .teaser3-container {
-    padding-top: 33.33333333%;
+    padding-top: 33.33333%;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 544px) {
   .teaser1-container,
+  .teaser2-container,
   .teaser3-container {
     padding-top: 0;
   }
   .teaser1-content,
+  .teaser2-content,
   .teaser3-content {
     position: static;
     height: auto;
@@ -274,7 +302,14 @@ nav.navbar {
     padding: 10px;
     position: static;
   }
+  .teaser2-body{
+    padding: 10px;
+    padding-bottom: 70px;
+    position: static;
+  }
+  
   .teaser1-text,
+  .teaser2-text,
   .teaser3-text {
     text-align: center;
   }

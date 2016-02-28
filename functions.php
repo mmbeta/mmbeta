@@ -228,6 +228,33 @@ function mmbeta_setup() {
 					'formatting' => 'html',
 					'maxlength' => '',
 				),
+				array (
+					'key' => 'field_56d3714d496f3',
+					'label' => 'Teaser-Typ',
+					'name' => 'teaser-typ',
+					'type' => 'select',
+					'instructions' => 'Wähle einen der Teaser-Typen aus.',
+					'choices' => array (
+						'Standard' => 'Standard',
+						'Zitat' => 'Zitat',
+					),
+					'default_value' => 'Standard',
+					'allow_null' => 0,
+					'multiple' => 0,
+				),
+				array (
+					'key' => 'field_777e7b777eb0d',
+					'label' => 'Teaser-Text',
+					'name' => 'teaser-text',
+					'type' => 'text',
+					'instructions' => 'Wenn Du dieses Feld ausfüllst, ersetzt der Text den Auszug im HP-Teaser.',
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '40',
+				),
 			),
 			'location' => array (
 				array (
