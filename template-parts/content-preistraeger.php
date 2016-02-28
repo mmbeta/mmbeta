@@ -12,6 +12,7 @@
 <article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <div class="m-t m-b row">  
+    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
     <?php if (!has_post_thumbnail()) : ?>
     <div class="col-md-2 col-xs-5">
       <figure class="figure">
@@ -19,7 +20,7 @@
       </figure>
     </div>
     <?php else : ?>
-    <div class="col-lg-3">
+    <div class="col-lg-4">
       <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
       <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
       <figure class="figure">
@@ -64,6 +65,7 @@
           <?php wp_list_categories( $args ); ?>
           </ul>
         </div>
+      </div>
     <?php  } else {
         the_excerpt();
       };
