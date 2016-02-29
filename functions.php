@@ -237,6 +237,7 @@ function mmbeta_setup() {
 					'choices' => array (
 						'Standard' => 'Standard',
 						'Zitat' => 'Zitat',
+						'Rund' => 'Rund',
 					),
 					'default_value' => 'Standard',
 					'allow_null' => 0,
