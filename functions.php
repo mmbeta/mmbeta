@@ -166,7 +166,7 @@ function mmbeta_setup() {
 			'show_in_nav_menus'          => true,
 			'show_tagcloud'              => true,
 		);
-		register_taxonomy( 'preise', array( 'preistraeger', 'attachment' ), $args );
+		register_taxonomy( 'preise', array( 'preistraeger', 'attachment', 'page' ), $args );
 
 	}
 	add_action( 'init', 'add_taxonomy_preise', 0 );

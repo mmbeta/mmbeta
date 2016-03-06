@@ -25,7 +25,6 @@ $args = array(
   );
   $query = new WP_Query( $args );
 
-
 if ($query->have_posts()): ?>
   <div class="row m-t m-b">
     <header class="col-xs-12">
