@@ -208,6 +208,23 @@ function mmbeta_setup() {
 	}
 	apply_filters( 'get_the_archive_title', 'strip_archive_type' );
 
+
+	
+	//Make auto embeds 16:9 and responsive with bottstrap classes
+	function wrap_with_bt_embed($html)
+	{
+		
+		$prepend = '<div class="embed-responsive embed-responsive-16by9">';
+		$append = '</div>';
+		$new_html = $prepend . $html . $append;
+		return $new_html;
+
+	}
+	add_filter( 'embed_oembed_html', 'wrap_with_bt_embed', 10, 3);
+	add_filter( 'video_embed_html', 'wrap_with_bt_embed' );
+
+
+
 	//Custom fields for Preisträger
 	if(function_exists("register_field_group"))
 	{
