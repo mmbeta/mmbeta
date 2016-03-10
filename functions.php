@@ -43,6 +43,7 @@ function mmbeta_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'preview', 210, 140 );
 
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'mmbeta' ),
@@ -233,6 +234,19 @@ function mmbeta_setup() {
 			'title' => 'Post-Fields',
 			'fields' => array (
 				array (
+					'key' => 'field_569f7b999eb0d',
+					'label' => 'Showcase-Slider',
+					'name' => 'slider',
+					'type' => 'text',
+					'instructions' => 'In dieses Feld können Sie den Alias (maschinenlesbaren Namen) eines Revolution Sliders eintragen, damit dieser über dem Post angezeigt wird.',
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
+				),
+				array (
 					'key' => 'field_568e1b987eb0d',
 					'label' => 'Teaser-Link',
 					'name' => 'link',
@@ -417,7 +431,7 @@ function mmbeta_setup() {
 				'type' => 'true_false',
 				'instructions' => 'Soll der Artikel auf der HP geteasert werden?',
 				'message' => 'Auf der HP anzeigen.',
-				'default_value' => 1,
+				'default_value' => 0,
 			),
 		),
 		'location' => array (
@@ -533,6 +547,50 @@ function mmbeta_die_preiskategorie_object(){
   $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
   return end($post_terms);
 }
+
+// Bootstrap classes to post images
+function html5_insert_image($html, $id, $caption, $title, $align, $url, $size, $alt) {
+  $url = wp_get_attachment_image_src($id, $size);
+  $html5 = "<figure class='figure " . $size . "'>";
+  $html5 .= "<img class='figure-img img-responsive' src='" . $url[0] . "' alt='" . $alt . "' />";
+  if ($caption) {
+    $html5 .= "<figcaption class='figure-caption'>$caption</figcaption>";
+  }
+  $html5 .= "</figure>";
+  return $html5;
+}
+add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 8 );
+
+//Custom Styles in Editor
+function wpb_mce_buttons_2($buttons) {
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+}
+
+add_filter('mce_buttons_2', 'wpb_mce_buttons_2');
+
+function my_mce_before_init_insert_formats( $init_array ) {  
+
+// Define the style_formats array
+
+	$style_formats = array(  
+		// Each array child is a format with it's own settings
+		array(  
+			'title' => 'Zitat-Absatz',  
+			'block' => 'blockquote',  
+			'classes' => 'blockquote',
+			'wrapper' => true,	
+		),
+	);  
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );  
+	
+	return $init_array;  
+  
+} 
+// Attach callback to 'tiny_mce_before_init' 
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
+
 
 /**
  * Implement the Custom Header feature.

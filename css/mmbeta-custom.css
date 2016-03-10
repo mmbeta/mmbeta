@@ -148,6 +148,20 @@ nav.navbar {
   z-index: 5;
 }
 
+/* Artikel-Bilder */
+figure.medium {
+    float: left;
+    margin: 0 2.25rem 1.75rem -1.8rem;
+    max-width: 300px;
+    padding: 0;
+}
+
+figure.thumbnail {
+    float: right;
+    margin: 0 -1.8rem 1.75rem 2.25rem;
+    max-width: 150px;
+    padding: 0;
+}
 
 
 /* Teaser 1 und 3 */
