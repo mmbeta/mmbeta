@@ -17,7 +17,13 @@ get_header(); ?>
       <?php $slider_name = get_field('slider'); ?>
       <?php
         if($slider_name !== '' && function_exists(putRevSlider) ){
-          putRevSlider( $slider_name ); 
+          $theSlider = new RevSlider();
+          $arrSliders = $theSlider->getArrSliders();
+          foreach ($arrSliders as $slider) {
+            if($slider->getAlias() === $slider_name){
+              putRevSlider( $slider_name );
+            }
+          }
         } 
       ?>
       </div>
