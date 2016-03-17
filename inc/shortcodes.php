@@ -348,15 +348,30 @@ function mm_showcase_shortcode( $atts, $content = null ) {
     ), 
   $atts );
 
+  $noclasses = preg_replace(
+         "/thumbnail/", 
+         "medium", 
+         $content);
 
-  $output = '<div class="jumbotron">';
-  $output .= $content;
-  $output .= '<h3 class="text-xs-right">Bestellen</h3>';
-  $output .= '<span class="label label-default">PDF</span><span class="dashicons dashicons-cart"></span>';
-  $output .= '<span class="label label-default">Print</span><span class="dashicons dashicons-cart"></span>';
+  $output = '<div class="jumbotron responsive-height">';
+    $output .= '<div class="col-xs-12 col-lg-8">';
+      $output .= $noclasses;
+    $output .= '</div>';
+    $output .= '<div class="col-xs-12 col-lg-4">';
+      $output .= '<h3 class="text-xs-right">Bestellen</h3>';
+      $output .= '<ul class="list-group">';
+        $output .= '<li class="list-group-item active">' . $attributes['ausgabe'] . '</li>'; 
+        
+        $output .= '<a class="list-group-item" href="' . $attributes['pdf-kaufen'] . '">Ausgabe kaufen';
+        $output .= '<span class="label label-default">PDF</span><span class="dashicons dashicons-cart"></span></a>';
+
+        $output .= '<a class="list-group-item" href="' . $attributes['print-kaufen'] . '">Ausgabe kaufen';
+        $output .= '<span class="label label-default">Print</span><span class="dashicons dashicons-cart"></span></a>';
+      $output .= '</ul>';
+    $output .= '</div>';  
   $output .= '</div>';
 
-  $attributes['ausgabe'] . $content;
+  
 
   return $output;
 }

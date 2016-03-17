@@ -28,7 +28,6 @@ get_header(); ?>
       ?>
       </div>
 			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-      <?php echo get_post_format(); ?>
 		<?php endwhile; // End of the loop. ?>
 
 		</main><!-- #main -->

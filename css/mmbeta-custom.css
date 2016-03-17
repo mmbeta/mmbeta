@@ -61,6 +61,10 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
 
 }
 
+.responsive-height {
+    padding-bottom: 50% !important;
+}
+
 /* JDJ-Übersicht */
 .alert-jdj {
   padding: 15px 0 0 10px;
