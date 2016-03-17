@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="col-lg-8 col-lg-offset-2" >
+<article id="post-<?php the_ID(); ?>" class="col-lg-6 col-lg-offset-3" >
 	<header class="entry-header">
 		<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
 	</header><!-- .entry-header -->

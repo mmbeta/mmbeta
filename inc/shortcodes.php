@@ -336,3 +336,39 @@ function list_gallery_shortcode( $attr ) {
   <?php
   return $output;
 }
+
+// MM Showcase zum Heft bestellen
+function mm_showcase_shortcode( $atts, $content = null ) {
+  // Attributes
+  $attributes = shortcode_atts(
+    array(
+      'ausgabe' => '01/2016',
+      'pdf-kaufen' => 'https://www.newsroom.de/shop/einzelausgaben/medium-magazin/',
+      'print-kaufen' => 'https://www.newsroom.de/shop/einzelausgaben/medium-magazin/',
+    ), 
+  $atts );
+
+
+  $output = '<div class="jumbotron">';
+  $output .= $content;
+  $output .= '<h3 class="text-xs-right">Bestellen</h3>';
+  $output .= '<span class="label label-default">PDF</span><span class="dashicons dashicons-cart"></span>';
+  $output .= '<span class="label label-default">Print</span><span class="dashicons dashicons-cart"></span>';
+  $output .= '</div>';
+
+  $attributes['ausgabe'] . $content;
+
+  return $output;
+}
+add_shortcode( 'mmshowcase', 'mm_showcase_shortcode' );
+
+
+//PDF embedding
+function pdf_function($attr, $url) {
+   extract(shortcode_atts(array(
+       'width' => '100%',
+       'height' => '480px'
+   ), $attr));
+   return '<iframe src="http://docs.google.com/viewer?url=' . $url . '&embedded=true" style="width:' .$width. '; height:' .$height. ';">Your browser does not support iframes</iframe>';
+}
+add_shortcode('pdf', 'pdf_function');

@@ -80,7 +80,7 @@
 
   <!-- Slider -->
   <div class="row m-b">
-  <?php if(is_home()){
+  <?php if(is_home() && function_exists(putRevSlider) ){
     putRevSlider('hp-slider', 'homepage');
     }
   ?>
