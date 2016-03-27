@@ -288,7 +288,6 @@ function list_gallery_shortcode( $attr ) {
           '</button>' .
           '<h4 class="modal-title" id="myModalLabel">' . get_the_title() . '</h4>' .
         '</div>' .
-        '<small class="alert alert-secondary">Per Klick auf das Bild gelangen Sie zur hochauflösenden Version.</small>' .
         '<div id="owl-carousel-single" class="modal-body owl-carousel">';
 
   // Gallery Modal

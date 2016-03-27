@@ -211,11 +211,11 @@ function mmbeta_setup() {
 
 
 	
-	//Make auto embeds 16:9 and responsive with bottstrap classes
+	//Make auto embeds 16:9 and responsive with bootstrap classes
 	function wrap_with_bt_embed($html)
 	{
 		
-		$prepend = '<div class="embed-responsive embed-responsive-16by9">';
+		$prepend = '<div class="embed-responsive embed-responsive-16by9 m-b">';
 		$append = '</div>';
 		$new_html = $prepend . $html . $append;
 		return $new_html;
