@@ -18,8 +18,11 @@ if($tax_name_parent->slug === 'journalisten-des-jahres'){
 }else{
 
   $terms = get_the_terms( get_the_ID(), 'preise');
-  $term = array_pop($terms);
-  $tax_page = get_field('preis_seite', $term )[0];
+
+  $term = get_query_var( 'term' );
+  $term_object = get_term_by( 'slug', $term, 'preise' );
+
+  $tax_page = get_field('preis_seite', $term_object )[0];
 
   // To keep pages working where pages where included by page-slug-logic I fall back to this behaviour
   if($tax_page){
@@ -48,7 +51,7 @@ if($tax_name_parent->slug === 'journalisten-des-jahres'){
     }
   } else {
     if (is_user_logged_in()) {
-      $warning = 'Wählen Sie ' . edit_term_link( 'hier', '', '', $term, false ) . ' eine Seite aus, die über der Preis-Kategorie-Übersicht angezeigt werden soll.'; 
+      $warning = 'Wählen Sie ' . edit_term_link( 'hier', '', '', $term_object, false ) . ' eine Seite aus, die über der Preis-Kategorie-Übersicht angezeigt werden soll.'; 
       echo $warning;
     }
   }
