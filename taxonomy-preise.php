@@ -17,10 +17,22 @@ if($tax_name_parent->slug === 'journalisten-des-jahres'){
   get_template_part('template-parts/content', 'jdj-uebersicht');
 }else{
 
-  $args = array (
-    'pagename' => $page_name,
-  );
+  $terms = get_the_terms( get_the_ID(), 'preise');
+  $term = array_pop($terms);
+  $tax_page = get_field('preis_seite', $term )[0];
 
+  // To keep pages working where pages where included by page-slug-logic I fall back to this behaviour
+  if($tax_page){
+    $args = array (
+      'page_id' => $tax_page,
+    );   
+  }else{
+    $args = array (
+      'pagename' => $page_name,
+    );
+  }
+
+  
   $term_name_query = new WP_Query( $args );
 
   if ( $term_name_query->have_posts() ) {
@@ -36,7 +48,8 @@ if($tax_name_parent->slug === 'journalisten-des-jahres'){
     }
   } else {
     if (is_user_logged_in()) {
-      echo 'Legen Sie eine Seite mit dem slug "' . $page_name . '" an.';
+      $warning = 'Wählen Sie ' . edit_term_link( 'hier', '', '', $term, false ) . ' eine Seite aus, die über der Preis-Kategorie-Übersicht angezeigt werden soll.'; 
+      echo $warning;
     }
   }
   get_template_part('template-parts/content', 'preis-uebersicht');

@@ -473,6 +473,58 @@ function mmbeta_setup() {
 	));
 }
 
+// Add Custom Field to set pages to display on top of preise taxonomy
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_seite-in-preis-taxonomy',
+		'title' => 'Seite in Preis Taxonomy',
+		'fields' => array (
+			array (
+				'key' => 'field_56f81698b3aec',
+				'label' => 'Seite für Preis',
+				'name' => 'preis_seite',
+				'type' => 'relationship',
+				'instructions' => 'Hier können Sie eine Seite auswählen, deren Inhalt über der Preisträger-Übersicht dieser Kategorie angezeigt wird.',
+				'return_format' => 'id',
+				'post_type' => array (
+					0 => 'page',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'filters' => array (
+					0 => 'search',
+				),
+				'result_elements' => array (
+					0 => 'post_type',
+					1 => 'post_title',
+				),
+				'max' => 1,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'ef_taxonomy',
+					'operator' => '==',
+					'value' => 'preise',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'mmbeta_custom_background_args', array(
@@ -596,6 +648,7 @@ function my_mce_before_init_insert_formats( $init_array ) {
 } 
 // Attach callback to 'tiny_mce_before_init' 
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
+
 
 
 /**
