@@ -360,7 +360,7 @@ function mm_showcase_shortcode( $atts, $content = null ) {
       $output .= '<h4 class="card-title">' . $attributes['ausgabe'] . '</h4>';
       $output .= '<h6 class="card-subtitle text-muted">' . $attributes['untertitel'] . '</h6>';
     $output .= '</div>';
-    $output .= '<img src="' . $attributes['img-src'] . '" alt="Card image">';
+    $output .= '<img src="' . $attributes['img-src'] . '" class="img-responsive" alt="' . $attributes['ausgabe'] . '">';
     $output .= '<div class="card-block">';
       $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
       $output .= '<a href="' . $attributes['print-kaufen'] . '" class="card-link">Print kaufen<span class="dashicons dashicons-cart"></span></a>';
