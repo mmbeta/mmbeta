@@ -344,33 +344,29 @@ function mm_showcase_shortcode( $atts, $content = null ) {
       'ausgabe' => '01/2016',
       'pdf-kaufen' => 'https://www.newsroom.de/shop/einzelausgaben/medium-magazin/',
       'print-kaufen' => 'https://www.newsroom.de/shop/einzelausgaben/medium-magazin/',
+      'teaser' => '',
+      'untertitel' => '',
+      'img-src' => '',
     ), 
   $atts );
 
-  $noclasses = preg_replace(
+  $image_noclass = preg_replace(
          "/thumbnail/", 
          "medium", 
          $content);
 
-  $output = '<div class="jumbotron responsive-height">';
-    $output .= '<div class="col-xs-12 col-lg-8">';
-      $output .= $noclasses;
+  $output = '<div class="card">';
+    $output .= '<div class="card-block">';
+      $output .= '<h4 class="card-title">' . $attributes['ausgabe'] . '</h4>';
+      $output .= '<h6 class="card-subtitle text-muted">' . $attributes['untertitel'] . '</h6>';
     $output .= '</div>';
-    $output .= '<div class="col-xs-12 col-lg-4">';
-      $output .= '<h3 class="text-xs-right">Bestellen</h3>';
-      $output .= '<ul class="list-group">';
-        $output .= '<li class="list-group-item active">' . $attributes['ausgabe'] . '</li>'; 
-        
-        $output .= '<a class="list-group-item" href="' . $attributes['pdf-kaufen'] . '">Ausgabe kaufen';
-        $output .= '<span class="label label-default">PDF</span><span class="dashicons dashicons-cart"></span></a>';
-
-        $output .= '<a class="list-group-item" href="' . $attributes['print-kaufen'] . '">Ausgabe kaufen';
-        $output .= '<span class="label label-default">Print</span><span class="dashicons dashicons-cart"></span></a>';
-      $output .= '</ul>';
-    $output .= '</div>';  
+    $output .= '<img src="' . $attributes['img-src'] . '" alt="Card image">';
+    $output .= '<div class="card-block">';
+      $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
+      $output .= '<a href="' . $attributes['print-kaufen'] . '" class="card-link">Print kaufen<span class="dashicons dashicons-cart"></span></a>';
+      $output .= '<a href="' . $attributes['pdf-kaufen'] . '" class="card-link">PDF kaufen<span class="dashicons dashicons-cart"></span></a>';
+    $output .= '</div>';
   $output .= '</div>';
-
-  
 
   return $output;
 }
