@@ -346,3 +346,37 @@ a.voll-teaser-link:hover{
     display: inline;
   }
 }
+
+/* Cropped Image */
+
+.bg-image {
+  /* image specified in separate class below */
+  height: 80px;
+  width: 100%; 
+}
+
+.bg-image-teaser {
+  /* inline background-image: url(img/photo-wedding_1200x800.jpg);*/
+
+  /* lt ie8 */
+  -ms-background-position-x: center;
+  -ms-background-position-y: center;
+  background-position: center center;
+
+  /* scale bg image proportionately */
+  background-size: cover;
+    
+  /* ie8 workaround - http://louisremi.github.io/background-size-polyfill/ */
+  /*-ms-behavior: url(/backgroundsize.min.htc);*/
+  /* prevent scaling past src width (or not) */
+  /* max-width: 1200px; */
+}
+
+/* example media queries */
+@media (max-width: 48em) {
+  .bg-image { height: 320px; }
+}
+
+@media (min-width: 48.05em) {
+  .bg-image { height: 80px; }
+}

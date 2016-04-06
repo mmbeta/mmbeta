@@ -17,7 +17,8 @@ $teaser_text = get_field('teaser-text');
       <div class="card-block teaser1-content">        
         <div class="teaser1-body">
         <?php if ($teaser_image) { ?>
-          <img class="card-img-top teaser1-img" src="<?php echo $teaser_image;  ?>" alt="Card image cap">
+          <div class="bg-image bg-image-teaser" style="background-image: url(<?php echo $teaser_image;  ?>);" >
+          </div>
         <?php } ?>        
           <h3 class="card-title teaser1-header"><?php the_title(); ?></h3>
           <div class="teaser1-text">
