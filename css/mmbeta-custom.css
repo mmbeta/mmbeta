@@ -169,7 +169,35 @@ figure.thumbnail {
 }
 
 
-/* Teaser 1 und 3 */
+
+
+/* Teaser 1 und 3  added by thomas */
+
+.voll-teaser-link p{
+  text-decoration: none;
+  color: rgb(153, 153, 153);
+}
+
+a.voll-teaser-link{
+  text-decoration: none;
+}
+
+a.voll-teaser-link:hover{
+  text-decoration: none;
+}
+
+
+.voll-teaser-link h3{
+  color: rgb(55, 58, 60);
+}
+
+.teaser {
+  border: none !important;
+  border-radius: 0 !important;
+}
+/* teaser 1 and 3 by Marc */
+
+
 .teaser1-container,
 .teaser2-container,
 .teaser3-container {
@@ -188,8 +216,6 @@ figure.thumbnail {
   width: 100%;
   height: 100%;
   padding-top: 10px;
-  padding-left: 0;
-  padding-right: 0;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-top: 1px solid #000;
@@ -199,8 +225,6 @@ figure.thumbnail {
 .teaser1-body,
 .teaser2-body,
 .teaser3-body {
-  padding: 10px;
-  border: 1px solid #000;
   position: absolute;
   top: 11px;
   left: 0;
@@ -220,7 +244,7 @@ figure.thumbnail {
 
 .teaser1-img,
 .teaser3-img {
-  max-width: 50%;
+  width: 100%;
   height:auto;
   padding: 0px;
 }
@@ -236,7 +260,6 @@ figure.thumbnail {
   text-align:center;
   text-decoration: underline;
   margin-top:10px;
-  color: rgb(55, 58, 60);
 }
 .teaser1-text,
 .teaser2-text,
@@ -248,15 +271,12 @@ figure.thumbnail {
 
 .teaser2-text{
   color:#FFF;
-  font-size: 3em;
+  font-size: 2.7em;
+  word-wrap: break-word;
   padding: 20px;
   padding-bottom: 10px;
 }
 
-.teaser1-text span.mobile,
-.teaser3-text span.mobile {
-  display: none;
-}
 
 .teaser2-autor{
   width: 30%;
@@ -277,46 +297,22 @@ figure.thumbnail {
   margin-top: 10px;
 }
 
-.voll-teaser-link p{
-  text-decoration: none;
-  color: rgb(153, 153, 153);
+/* md */
+@media (min-width: 48em){
+  div.teaser {
+    padding-top: 95%;
+  }  
 }
 
-a.voll-teaser-link:hover{
-  text-decoration: none;
-}
-
-
-.voll-teaser-link h3{
-  color: rgb(55, 58, 60);
-}
-
-
-@media (min-width: 544px) {
-  .teaser1-container,
-  .teaser2-container,
-  .teaser3-container {
-    padding-top: 100%;
+/* lg */
+@media (min-width: 62em){
+  div.teaser {
+    padding-top: 95%;
   }
 }
 
-@media (min-width: 768px) {
-  .teaser1-container,
-  .teaser2-container,
-  .teaser3-container {
-    padding-top: 50%;
-  }
-}
-
-@media (min-width: 992px) {
-  .teaser1-container,
-  .teaser2-container,
-  .teaser3-container {
-    padding-top: 33.33333%;
-  }
-}
-
-@media (max-width: 544px) {
+/* xs & sm */
+@media (max-width: 48em) {
   .teaser1-container,
   .teaser2-container,
   .teaser3-container {
@@ -350,5 +346,3 @@ a.voll-teaser-link:hover{
     display: inline;
   }
 }
-
-/* End of teaser 1 and 3 

@@ -15,30 +15,34 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-    <?php
+		<main id="main" class="row" role="main">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 container">
+      <div class="row">
+      <?php
 
 
-      $args = array(
-          'post_type' => array('preistraeger', 'post', 'page'),
-          'meta_key' => 'auf_der_homepage',
-          'meta_value' => 1,
-        );
-      $query = new WP_Query( $args );
-      
+        $args = array(
+            'post_type' => array('preistraeger', 'post', 'page'),
+            'meta_key' => 'auf_der_homepage',
+            'meta_value' => 1,
+          );
+        $query = new WP_Query( $args );
+        
 
-      if ($query->have_posts()): ?>
+        if ($query->have_posts()): ?>
 
-            <?php while ($query->have_posts()): $query->the_post();
-              get_field('teaser-typ') ? $teaser_typ = get_field('teaser-typ') : $teaser_typ = 'Standard';
-              
-              get_template_part( 'teasers/teaser', $teaser_typ );
-            endwhile;
-            ?>
+              <?php while ($query->have_posts()): $query->the_post();
+                get_field('teaser-typ') ? $teaser_typ = get_field('teaser-typ') : $teaser_typ = 'Standard';
+                
+                get_template_part( 'teasers/teaser', $teaser_typ );
+              endwhile;
+              ?>
 
-      <?php endif;?>
-		
-		</main><!-- #main -->
+        <?php endif;?>
+
+      </div>
+  </div>
+	</main><!-- #main -->
 
 	</div><!-- #primary -->
 
