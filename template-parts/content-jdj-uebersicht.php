@@ -97,5 +97,4 @@
     ?>
   <?php } else {
     echo "<h2>Sorry, no posts were found!</h2>";
-  }
-//end of jdj-archive
+  } //end of jdj-archive

@@ -21,4 +21,3 @@
 	</small><!-- .entry-meta -->
 
 </article><!-- #post-## -->
-
