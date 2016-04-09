@@ -258,15 +258,14 @@ a.voll-teaser-link:hover{
   border: 0;
 }
 
-.teaser1-img,
-.teaser3-img {
+.teaser1-img {
   width: 100%;
   height:auto;
   padding: 0px;
 }
 
 .teaser3-img {
-  width: auto;
+  max-width: 50%;
   display: block;
   margin: 0 auto;
 }
