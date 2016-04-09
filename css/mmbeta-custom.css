@@ -16,6 +16,20 @@ medium magazin beta is based on Underscores http://underscores.me/, (C) 2012-201
 Underscores is distributed under the terms of the GNU GPL v2 or later. And Bootstrap.
 */
 
+a {
+  color: rgb(55, 58, 60);
+}
+
+a, a:hover {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(55, 58, 60, 0.498039);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #305d63;
+}
 
 .ribbon {
   background-color: #305d63;
@@ -103,8 +117,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
 /* Menu */
 
 a.nav-link, a.nav-link:hover {
-    color: black;
-    text-transform: uppercase;
+  color: black;
+  text-transform: uppercase;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  text-decoration: none;
 }
 
 nav.navbar ul {
@@ -142,7 +159,6 @@ nav.navbar {
     border-radius: 0;
     z-index: 1;
     background-color: white;
-
 }
 
 .pinned {

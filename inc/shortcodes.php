@@ -364,9 +364,9 @@ function mm_showcase_shortcode( $atts, $content = null ) {
     $output .= '<img src="' . $attributes['img-src'] . '" class="img-responsive" alt="' . $attributes['ausgabe'] . '">';
     $output .= '<div class="card-block">';
       $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
-      $output .= '<a href="' . $attributes['print-kaufen'] . '" class="card-link">Print kaufen<span class="dashicons dashicons-book"></span></a>';
-      $output .= '<a href="' . $attributes['epaper-kaufen'] . '" class="card-link">Epaper kaufen<span class="dashicons dashicons-tablet"></span></a>';
-      $output .= '<a href="' . $attributes['abo-link'] . '" class="card-link">Abos<span class="dashicons dashicons-money"></span></a>';
+      $output .= '<a href="' . $attributes['print-kaufen'] . '" class="card-link">Print kaufen <span class="dashicons dashicons-book"></span></a>';
+      $output .= '<a href="' . $attributes['epaper-kaufen'] . '" class="card-link">Epaper kaufen <span class="dashicons dashicons-tablet"></span></a>';
+      $output .= '<a href="' . $attributes['abo-link'] . '" class="card-link">Abos <span class="dashicons dashicons-money"></span></a>';
     $output .= '</div>';
   $output .= '</div>';
 
