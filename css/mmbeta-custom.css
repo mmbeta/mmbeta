@@ -184,8 +184,16 @@ figure.thumbnail {
     padding: 0;
 }
 
+/* Social links */
+.social-links {
+  position: absolute;
+  top: -1.2em;
+  right: 1em;
+}
 
-
+div.social-links > a {
+  border-bottom-width: 0px;
+}
 
 /* Teaser 1 und 3  added by thomas */
 
@@ -306,7 +314,6 @@ a.voll-teaser-link:hover{
 .teaser1-link,
 .teaser3-link {
   font-style:italic;
-  text-decoration:underline;
   color: #666;
   display:inline-block;
   margin-top: 10px;
