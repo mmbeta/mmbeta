@@ -32,10 +32,10 @@
       <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t-lg m-b">
           <div class="social-links">
             <a href="http://facebook.com/mediummagazin">
-              <span class="dashicons dashicons-facebook-alt">f</span>
+              <span class="dashicons dashicons-facebook-alt"></span>
             </a>
             <a href="http://twitter.com/mediummagazin">
-              <span class="dashicons dashicons-twitter">t</span>
+              <span class="dashicons dashicons-twitter"></span>
             </a>
           </div>
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
