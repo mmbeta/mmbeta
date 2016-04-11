@@ -18,16 +18,31 @@ get_header(); ?>
     <main id="main" class="site-main" role="main">
 
       <?php $query = new WP_Query( array( 'category_name' => 'heftvorschau' ) ); ?>
-      <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+      <?php if ( $query->have_posts() ) : ?>
+      <div class="col-xs-12 col-lg-8">
+        <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+        
+        <article>
+          <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
+          <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
+          <figure class="figure col-lg-5">
+            <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
+            <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
+          </figure>
+          <div class="col-lg-7">
+            <h2><?php the_title(); ?></h2>
+            <div class="lead"><?php the_excerpt(); ?></div>
+          </div>
+        </article> 
 
-        <?php the_title(); ?>
-        <?php the_excerpt(); ?>
 
-
-      <?php endwhile; // End of the loop. ?>
+        <?php endwhile; // End of the loop. ?>
+      </div>
+      <?php endif; ?>
 
     </main><!-- #main -->
   </div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+  <div class="col-lg-4">
+    <?php get_sidebar(); ?>
+  </div>
 <?php get_footer(); ?>
