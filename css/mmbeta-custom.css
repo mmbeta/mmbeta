@@ -185,10 +185,8 @@ figure.thumbnail {
 }
 
 /* Social links */
-.social-links {
-  position: absolute;
-  top: -1.2em;
-  right: 1em;
+.social-link {
+  float: right;
 }
 
 div.social-links > a {

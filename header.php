@@ -29,15 +29,15 @@
 <div class="ribbon hidden-md-down"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
 	<header role="banner">
 	<div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t-lg m-b">
-          <div class="social-links">
-            <a href="http://facebook.com/mediummagazin">
-              <span class="dashicons dashicons-facebook-alt"></span>
-            </a>
-            <a href="http://twitter.com/mediummagazin">
-              <span class="dashicons dashicons-twitter"></span>
-            </a>
-          </div>
+      <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t-lg">
+        <a href="http://facebook.com/mediummagazin">
+          <span class="dashicons dashicons-facebook-alt social-link"></span>
+        </a>
+        <a href="http://twitter.com/mediummagazin">
+          <span class="dashicons dashicons-twitter social-link"></span>
+        </a>
+      </div>
+      <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-b">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <img class="img-responsive" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>">
           </a>
