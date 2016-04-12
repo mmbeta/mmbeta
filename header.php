@@ -29,11 +29,12 @@
 <div class="ribbon hidden-md-down"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
 	<header role="banner">
 	<div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-t-lg">
-        <a href="http://facebook.com/mediummagazin">
+      <!-- col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 -->
+      <div class="col-lg-8 col-lg-offset-2 col-xs-12 m-t-lg social-links">
+        <a target="_blank" href="http://facebook.com/mediummagazin">
           <span class="dashicons dashicons-facebook-alt social-link"></span>
         </a>
-        <a href="http://twitter.com/mediummagazin">
+        <a target="_blank" href="http://twitter.com/mediummagazin">
           <span class="dashicons dashicons-twitter social-link"></span>
         </a>
       </div>
