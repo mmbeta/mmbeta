@@ -74,6 +74,12 @@ function mmbeta_setup() {
 		'gallery',
 	) );
 
+	//Admin Theme Options Page - needs ACF 5.o Pro installed
+	if (function_exists(acf_add_options_page)) {
+		acf_add_options_page( "mmbeta Settings" );
+	}
+
+
 	/*
 	 * Add custom post type for Preistraeger 
 	 */
@@ -649,8 +655,6 @@ function my_mce_before_init_insert_formats( $init_array ) {
 } 
 // Attach callback to 'tiny_mce_before_init' 
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
-
-
 
 /**
  * Implement the Custom Header feature.

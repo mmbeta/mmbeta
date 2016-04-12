@@ -89,9 +89,16 @@
 
   <!-- Slider -->
   <div class="row m-b">
-  <?php if(is_home() && function_exists(putRevSlider) ){
-    putRevSlider('hp-slider', 'homepage');
+  <?php 
+  if(is_home() && function_exists(putRevSlider) ){
+    if (function_exists(get_field)) {
+      $hpslider_name = get_field('hpslider', 'option');
+    }else{
+      $hpslider_name = 'hp-slider';
     }
+    
+    putRevSlider($hpslider_name, 'homepage');
+  }
   ?>
   </div>
 
