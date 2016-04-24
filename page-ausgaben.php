@@ -25,12 +25,16 @@ get_header(); ?>
         <article>
           <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
           <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
-          <figure class="figure col-lg-5">
-            <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
-            <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
-          </figure>
+          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+            <figure class="figure col-lg-5">
+              <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
+              <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
+            </figure>
+          </a>
           <div class="col-lg-7">
-            <h2><?php the_title(); ?></h2>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <h2><?php the_title(); ?></h2>
+            </a>
             <div class="lead"><?php the_excerpt(); ?></div>
           </div>
         </article> 
