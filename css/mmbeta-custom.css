@@ -80,25 +80,11 @@ a:hover {
 }
 
 
-/* mehr content line */
-button.more { 
-  width:90%;
-  display: inline-block; 
-  text-align:center; 
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid #000;
-  line-height:0.1em;
-  margin:10px 0 20px 5%;
-  cursor: pointer;
-  background-color: rgb(255, 255, 255); 
-} 
+/* card showcase margin */
 
-button.more span {
-  font-style: italic; 
-  background: rgb(255, 255, 255);
-  padding:0 10px;
+div.card.showcase {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 /* JDJ-Übersicht */
@@ -133,7 +119,11 @@ button.more span {
 }
 
 .img-responsive {
-  width: 100%;
+  max-width: 100%;
+}
+
+img.popup {
+  cursor: zoom-in;
 }
 
 /* Menu */

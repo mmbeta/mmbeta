@@ -121,6 +121,15 @@ if(galleryItems.length > 0){
         default: return; // exit this handler for other keys
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
-});
+  });
 
 }
+
+// Make images with class .popup pop up in a modal
+if (jQuery('img.popup').length > 0) {
+  jQuery('.popup').on('click', function(event){
+    var path = jQuery(event.target).data('imgpath');
+    jQuery('#modal_image').attr('src', path);
+    jQuery('#imageModal').modal();
+  })
+} 

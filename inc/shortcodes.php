@@ -356,12 +356,15 @@ function mm_showcase_shortcode( $atts, $content = null ) {
          "medium", 
          $content);
 
-  $output = '<div class="card">';
+  $main_image_id =  mm_get_attachment_id_from_url($attributes['img-src']); 
+  $main_image_path = wp_get_attachment_image_src( $main_image_id, 'full')[0];
+
+  $output = '<div class="card showcase">';
     $output .= '<div class="card-block">';
       $output .= '<h4 class="card-title">' . $attributes['ausgabe'] . '</h4>';
       $output .= '<h6 class="card-subtitle text-muted">' . $attributes['untertitel'] . '</h6>';
     $output .= '</div>';
-    $output .= '<img src="' . $attributes['img-src'] . '" class="img-responsive" alt="' . $attributes['ausgabe'] . '">';
+    $output .= '<img src="' . $attributes['img-src'] . '" class="img-responsive popup" alt="' . $attributes['ausgabe'] . '" data-imgpath="' . $main_image_path . '" >';
     $output .= '<div class="card-block">';
       $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
       $output .= '<a href="' . $attributes['print-kaufen'] . '" class="card-link">Print kaufen <span class="dashicons dashicons-book"></span></a>';
@@ -392,7 +395,7 @@ function show_more_function($attr, $content) {
        'width' => '100%',
        'height' => '480px'
    ), $attr));
-   $button = '<button class="more" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen."><span>mehr</span></button>';
+   $button = '<button type="button" class="btn btn-secondary btn-block m-b" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen.">mehr</button>';
    $body = '<div class="collapse" id="collapsedContent">' . $content . '</div>';
    return $button . $body;
 }
