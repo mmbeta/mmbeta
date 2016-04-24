@@ -364,7 +364,7 @@ function mm_showcase_shortcode( $atts, $content = null ) {
       $output .= '<h4 class="card-title">' . $attributes['ausgabe'] . '</h4>';
       $output .= '<h6 class="card-subtitle text-muted">' . $attributes['untertitel'] . '</h6>';
     $output .= '</div>';
-    $output .= '<img src="' . $attributes['img-src'] . '" class="img-responsive popup" alt="' . $attributes['ausgabe'] . '" data-imgpath="' . $main_image_path . '" >';
+    $output .= '<img src="' . wp_get_attachment_image_src( $main_image_id, 'large')[0] . '" class="img-responsive popup" alt="' . $attributes['ausgabe'] . '" data-imgpath="' . $main_image_path . '" >';
     $output .= '<div class="card-block">';
       $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
       $output .= '<a href="' . $attributes['print-kaufen'] . '" class="card-link">Print kaufen <span class="dashicons dashicons-book"></span></a>';
