@@ -96,7 +96,6 @@
     }else{
       $hpslider_name = 'hp-slider';
     }
-    
     putRevSlider($hpslider_name, 'homepage');
   }
   ?>

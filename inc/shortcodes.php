@@ -384,3 +384,16 @@ function pdf_function($attr, $url) {
    return '<iframe src="http://docs.google.com/viewer?url=' . $url . '&embedded=true" style="width:' .$width. '; height:' .$height. ';">Your browser does not support iframes</iframe>';
 }
 add_shortcode('pdf', 'pdf_function');
+
+//Slide out more content
+
+function show_more_function($attr, $content) {
+   extract(shortcode_atts(array(
+       'width' => '100%',
+       'height' => '480px'
+   ), $attr));
+   $button = '<button class="more" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen."><span>mehr</span></button>';
+   $body = '<div class="collapse" id="collapsedContent">' . $content . '</div>';
+   return $button . $body;
+}
+add_shortcode('more', 'show_more_function');
