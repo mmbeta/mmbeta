@@ -98,7 +98,13 @@ div.card.showcase {
 }
 
 .bg-jdj {
-  background-color:  #305d63;
+  background-color:  rgba(48,93,99,1);
+  color: white;
+}
+
+.bg-jdj-faded {
+  background-color:  rgba(48,93,99,0.6);
+  color: white;
 }
 
 .page-header {

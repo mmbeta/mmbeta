@@ -58,23 +58,24 @@ get_header(); ?>
       
 
       if ($query->have_posts()): ?>
-        <div class="card-columns">
+        <div class="row">
             <?php while ($query->have_posts()): $query->the_post();?>
-              
+              <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
                 <article class="card">
                   <div class="card-block">
                     <h4 class="card-title"><?php the_title(); ?></h4>
                     <p class="card-text"><?php the_field( "position" ); ?></p>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item bg-primary-faded"><strong>Platz:</strong> <?php the_field('platz'); ?></li>
+                    <li class="list-group-item bg-jdj-faded">
+                      <strong>Platz:</strong> <?php the_field('platz'); ?></li>
                     <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?></li>
                   </ul>
                   <div class="card-block">
                     <a href="<?php the_permalink(); ?>" class="btn btn-secondary">Begründung</a>  
                   </div>  
                 </article>
-            
+              </div>
             <?php endwhile;?>
         </div>
       <?php endif;?>
