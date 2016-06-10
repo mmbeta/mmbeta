@@ -400,3 +400,15 @@ function show_more_function($attr, $content) {
    return $button . $body;
 }
 add_shortcode('more', 'show_more_function');
+
+function iframe_shortcode($attr, $url) {
+
+ $style = "<style type="text/css">.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>";
+
+ $output = $style;
+ $output .= "<div class='embed-container'><iframe src='";
+ $output .= $url . "'";
+ $output .= " allowfullscreen frameborder=0></iframe></div>";
+ return $output;
+}
+add_shortcode('iframe', 'iframe_shortcode');
