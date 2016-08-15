@@ -35,6 +35,12 @@
         <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
         <h6 class="text-muted"><?php the_field( "position" ); ?></h6>
         <div class="lead"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?>, <strong>Platz: </strong><?php the_field('platz'); ?> </div>
+        
+
+        <div class="m-t"><?php the_field( "geburtsdatum" ); ?></div>
+        <div class="m-t"><?php the_field( "twitter" ); ?></div>
+        <div class="m-t"><?php the_field( "website" ); ?></div>
+
         <div class="m-t"><?php the_field( "begruendung" ); ?></div>
         <div class="small">
           <strong>Alle Kategorien:</strong>
