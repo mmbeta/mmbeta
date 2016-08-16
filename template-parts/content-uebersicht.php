@@ -76,6 +76,19 @@
     'meta_key' => 'nachname',
     'orderby' => 'meta_value',
     'order' => 'ASC',
+    'tax_query' => array(
+      'relation' => 'AND',
+      array(
+        'taxonomy' => 'preise',
+        'field'    => 'slug',
+        'terms'    => $tax_name_parent->slug,
+      ),
+      array(
+        'taxonomy' => 'preise',
+        'field'    => 'slug',
+        'terms'    => $tax_name->slug,
+      ),
+    ),
   );
   query_posts($args);
   if ( have_posts() ) {

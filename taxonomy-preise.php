@@ -13,8 +13,8 @@ $tax_name = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxono
 $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
 $page_name = strtolower($tax_name->name . '-' . $tax_name_parent->name);
 
-if($tax_name_parent->slug === 'journalisten-des-jahres'){
-  get_template_part('template-parts/content', 'jdj-uebersicht');
+if($tax_name_parent->slug === 'journalisten-des-jahres' || $tax_name_parent->slug === 'top-30-bis-30'){
+  get_template_part('template-parts/content', 'uebersicht');
 }else{
 
   $terms = get_the_terms( get_the_ID(), 'preise');
