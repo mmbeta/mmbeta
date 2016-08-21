@@ -42,6 +42,7 @@ function mmbeta_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'preview', 210, 140 );
+	add_image_size( 'card', 318, 180 );
 
 
 	// This theme uses wp_nav_menu() in one location.
@@ -406,6 +407,19 @@ function mmbeta_setup() {
 					'maxlength' => '',
 				),
 				array (
+					'key' => 'field_568c5b142551c9website-label',
+					'label' => 'Website Linktext',
+					'name' => 'website_label',
+					'type' => 'text',
+					'instructions' => 'Link-Text der Website. Z.B. "Blog" oder "Profil"',
+					'default_value' => '',
+					'placeholder' => 'Web',
+					'prepend' => '',
+					'append' => '',
+					'formatting' => 'html',
+					'maxlength' => '',
+				),
+				array (
 					'key' => 'field_568c5b142551c9website',
 					'label' => 'Website',
 					'name' => 'website',
@@ -550,6 +564,15 @@ if(function_exists("register_field_group"))
 					1 => 'post_title',
 				),
 				'max' => 1,
+			),
+			array (
+				'key' => 'field_56f8optionsShowCat',
+				'label' => 'Kategorie-Tags anzeigen',
+				'name' => 'show_cat_tags',
+				'type' => 'true_false',
+				'instructions' => 'Sollen auf den Preisträgerseiten dieser Kategorie Tags der anderen Kategorien angezeigt werden?',
+				'message' => 'Tags anzeigen?',
+				'default_value' => 1,
 			),
 		),
 		'location' => array (

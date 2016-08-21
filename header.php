@@ -51,7 +51,7 @@
         if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
           $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
           $menu_items = wp_get_nav_menu_items($menu->term_id);
-          $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 col-lg-offset-2 col-xs-12 text-xs-center" role="navigation"><div class=""><ul>';
+          $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 col-lg-offset-2 col-xs-12 text-xs-center" role="navigation"><div class="top-navi"><ul>';
 
           $menu_list_mobile = '<nav id="mobilenav" class="col-xs-12 text-xs-center" role="navigation"><div class=""><ul class="nav">';
 

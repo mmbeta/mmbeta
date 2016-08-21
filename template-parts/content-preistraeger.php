@@ -9,8 +9,12 @@
 
 ?>
 
-<article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+  $kategorie = mmbeta_die_preiskategorie_object();
+  $preis = get_term($kategorie->parent, 'preise')->slug;
+?>
 
+<article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="m-t m-b row">  
     <div class="col-lg-8 col-lg-offset-2 col-xs-12">
     <?php if (!has_post_thumbnail()) : ?>
@@ -27,6 +31,22 @@
         <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
         <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
       </figure>
+      
+      <?php if ($preis === 'top-30-bis-30') : ?>
+      <div class="profil-box m-b">
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Geburtsdatum:</strong> <?php the_field( "geburtsdatum" ); ?></li>
+          <?php if(get_field('twitter')) : ?>
+            <?php $twitterlink = "http://www.twitter.com/" . get_field( 'twitter' ); ?>
+            <li class="list-group-item">Twitter: <a href="<?php echo $twitterlink; ?>"><?php the_field( 'twitter' ); ?></a></li>
+          <?php endif;?>
+            <?php if (get_field(website)) : ?>
+            <li class="list-group-item">Website: <a href="<?php echo get_field("website"); ?>"><?php the_field( "website_label" ); ?></a></li>
+          <?php endif; ?>
+        </ul>
+      </div>
+      <?php endif; ?>
+
     </div>
     <?php endif; ?>
     
@@ -34,14 +54,17 @@
     <?php if ( ! post_password_required() ) { ?>
         <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
         <h6 class="text-muted"><?php the_field( "position" ); ?></h6>
-        <div class="lead"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?>, <strong>Platz: </strong><?php the_field('platz'); ?> </div>
         
 
-        <div class="m-t"><?php the_field( "geburtsdatum" ); ?></div>
-        <div class="m-t"><?php the_field( "twitter" ); ?></div>
-        <div class="m-t"><?php the_field( "website" ); ?></div>
+        <?php if ($preis !== 'top-30-bis-30') : ?>
+        <div class="lead">
+          <strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?>, <strong>Platz: </strong>
+          <?php the_field('platz'); ?>
+        </div>
+        <?php endif; ?>
 
         <div class="m-t"><?php the_field( "begruendung" ); ?></div>
+        <?php if ($preis !== 'top-30-bis-30') : ?>
         <div class="small">
           <strong>Alle Kategorien:</strong>
 
@@ -71,6 +94,7 @@
           <?php wp_list_categories( $args ); ?>
           </ul>
         </div>
+        <?php endif; ?>
       </div>
     <?php  } else {
         the_excerpt();

@@ -162,7 +162,7 @@ a.nav-link:hover, a.nav-link.active {
 }
 
 
-div > ul > li:last-child {
+div.top-navi > ul > li:last-child {
     border-right: none;
 }
 
