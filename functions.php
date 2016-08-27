@@ -635,11 +635,28 @@ function mmbeta_widgets_init() {
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="widgettitle">',
 		'after_title'   => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'mmbeta_widgets_init' );
+
+// register Cover_Gallery_Widget
+function register_cover_widget() {
+    register_widget( 'Cover_Gallery_Widget' );
+}
+add_action( 'widgets_init', 'register_cover_widget' );
+
+
+register_sidebar( array(
+	'id'          => 'footer_sidebar',
+	'name'        => 'Footer Widget Area',
+	'description' => __( 'Hier können Widegts eingetragen werden, die im Footer der Seite erscheinen sollen.', 'text_domain' ),
+	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	'after_widget'  => '</aside>',
+	'before_title'  => '<h3 class="widgettitle">',
+	'after_title'   => '</h3>',
+) );
 
 
 /**

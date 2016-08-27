@@ -521,6 +521,62 @@ function heads_gallery_shortcode( $attr ) {
 }
 add_shortcode('heads-gallery', 'heads_gallery_shortcode');
 
+////////////////////////////
+// Owl-Cover-Slider...   //
+//////////////////////////
+
+function cover_gallery_shortcode( $attr ) {
+  $output = "<div class='cover-gallery'>";
+
+  $query = new WP_Query( array( 'category_name' => 'heftvorschau' ) ); 
+    if ( $query->have_posts() ) : 
+      while ( $query->have_posts() ) : $query->the_post();
+      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'card' );
+      $output .= "<a href='" . get_permalink() . "'><div class='item'>";
+      $output .= "<img src='" . $image[0] . "' class='figure-img'>"; 
+      $output .= "</div></a>";
+      endwhile;
+    endif;
+
+  $output .= "
+    </div>
+    <style>
+    .cover-gallery div.item{
+      padding: 10px 0px;
+      margin: 5px;
+      color: #FFF;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      text-align: center;
+    }
+    </style>
+    <script type='text/javascript'>
+      jQuery(document).ready(function(){
+        if(jQuery('.cover-gallery').length > 0){
+          jQuery('.cover-gallery').owlCarousel({
+            navigation : false,
+            itemsScaleUp:true,
+            itemsCustom : [
+                    [0, 1],
+                    [450, 4],
+                    [600, 6],
+                    [800, 8],
+                    [1000, 10],
+                    [1200, 12],
+                    [1400, 14],
+                    [1600, 16]
+            ]
+          });    
+        }
+      });
+    </script>
+  ";
+
+  return $output;
+}
+add_shortcode('cover-gallery', 'cover_gallery_shortcode');
+
 // MM Showcase zum Heft bestellen
 function mm_showcase_shortcode( $atts, $content = null ) {
   // Attributes

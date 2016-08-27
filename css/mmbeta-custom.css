@@ -187,6 +187,16 @@ nav.navbar {
   z-index: 5;
 }
 
+/* Widget Areas */
+li.widget {
+  list-style: none;
+}
+
+h3.widgettitle {
+  font-size: 1.2rem;
+  margin-bottom: .3rem;
+}
+
 /* Artikel-Bilder */
 figure.medium {
     float: left;
