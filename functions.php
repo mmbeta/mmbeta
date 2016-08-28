@@ -42,7 +42,7 @@ function mmbeta_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'preview', 210, 140 );
-	add_image_size( 'card', 330, 220, array( 'center', 'center' ) );
+	add_image_size( 'card', 450, 300, array( 'center', 'center' ) );
 
 
 	// This theme uses wp_nav_menu() in one location.
