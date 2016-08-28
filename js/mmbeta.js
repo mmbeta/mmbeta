@@ -132,4 +132,23 @@ if (jQuery('img.popup').length > 0) {
     jQuery('#modal_image').attr('src', path);
     jQuery('#imageModal').modal();
   })
-} 
+}
+
+// Make cards float nice
+if(jQuery('.preistraeger-card').length > 1){
+  var cardClusterWidth = jQuery('.card-cluster').width();
+  var cardWidth = jQuery(jQuery('.preistraeger-card')[0]).width();
+
+  var counter = 0;
+
+  jQuery(jQuery("div.preistraeger-card")[0]).before("<div class='row'>");
+
+  jQuery("div.preistraeger-card").each(function(){
+    counter++;
+    if(counter%Math.floor(cardClusterWidth/cardWidth) === 0){      
+      jQuery(jQuery("div.preistraeger-card")[counter-1]).after("</div><div class='row'>");
+    }
+  })
+  jQuery(jQuery("div.preistraeger-card")[counter-1]).after("</div>");
+  counter = 0;
+}
