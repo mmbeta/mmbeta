@@ -346,7 +346,6 @@ function heads_gallery_shortcode( $attr ) {
     $attr['kategorie'] = 'journalisten-des-jahres';
   }
 
-
   $args = array(
       'post_type' => 'preistraeger',
       'tax_query' => array(
@@ -358,16 +357,11 @@ function heads_gallery_shortcode( $attr ) {
       ),
     );
   
-  //$query = new WP_Query( $args );
-  // if ($query->have_posts()):
-
-$output .= '<h2>Die Preisträger-Köpfe</h2>';
-get_template_part( 'teasers/teaser', 'Rund' );
-  
 
   $output .= "
+    </div>
     <style>
-      #owl-gallery .item{
+    .heads-gallery .item{
       padding: 30px 0px;
       margin: 5px;
       color: #FFF;
@@ -376,29 +370,37 @@ get_template_part( 'teasers/teaser', 'Rund' );
       border-radius: 3px;
       text-align: center;
     }
+
+    .heads-gallery h6 {
+      margin-top: .5rem;
+    }
+
+    .heads-gallery {
+      background-color: rgba(55, 58, 60, 0.1);
+    }
     </style>
     <script type='text/javascript'>
       jQuery(document).ready(function(){
-        if(jQuery('#owl-gallery').length > 0){
-          jQuery('#owl-gallery').owlCarousel({
+        if(jQuery('.heads-gallery').length > 0){
+          jQuery('.heads-gallery').owlCarousel({
             navigation : true,
-            itemsCustom : [
-                    [0, 1],
-                    [450, 2],
-                    [600, 3],
-                    [800, 4],
-                    [1000, 5],
-                    [1200, 6],
-                    [1400, 7],
-                    [1600, 8]
-            ]
+            items : 3
           });    
         }
       });
     </script>
   ";
 
-  return $output;
+  $query = new WP_Query( $args );
+  if ($query->have_posts()) :
+    if ($attr["titel"] !== "") :
+      echo '<h6>' . $attr["titel"] . '</h6><div class="heads-gallery">';
+    endif;
+    while ( $query->have_posts() ) : $query->the_post();
+      get_template_part( 'teasers/teaser', 'heads-gallery' );
+    endwhile;
+    echo $output;
+  endif;
 }
 add_shortcode('heads-gallery', 'heads_gallery_shortcode');
 
