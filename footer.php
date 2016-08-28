@@ -13,7 +13,7 @@
 </div><!-- #page -->
 <footer class="col-xs-12 m-t text-xs-center" role="contentinfo">
 
-  <?php if ( is_active_sidebar( 'footer_sidebar' ) ) : ?>
+  <?php if ( is_active_sidebar( 'footer_sidebar' ) && is_home() ) : ?>
     <div id="footer-sidebar" class="footer-sidebar widget-area" role="complementary">
       <?php dynamic_sidebar( 'footer_sidebar' ); ?>
     </div><!-- footer-sidebar -->
