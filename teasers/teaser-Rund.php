@@ -7,7 +7,7 @@
  * @package medium_magazin_beta
  */
 
-$teaser_image = get_the_post_thumbnail_url( $post, 'medium');
+$teaser_image = get_the_post_thumbnail_url( $post, 'thumbnail');
 $teaser_text = get_field('teaser-text');
 ?>
   <a href="<?php the_permalink(); ?>" class="voll-teaser-link">
