@@ -200,14 +200,14 @@ h3.widgettitle {
 /* Artikel-Bilder */
 figure.medium {
     float: left;
-    margin: 0 2.25rem 1.75rem -1.8rem;
+    margin: 0 2.25rem 1.75rem 0;
     max-width: 300px;
     padding: 0;
 }
 
 figure.thumbnail {
     float: right;
-    margin: 0 -1.8rem 1.75rem 2.25rem;
+    margin: 0 0 1.75rem 2.25rem;
     max-width: 150px;
     padding: 0;
 }

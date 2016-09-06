@@ -414,7 +414,7 @@ function cover_gallery_shortcode( $attr ) {
   $query = new WP_Query( array( 'category_name' => 'heftvorschau' ) ); 
     if ( $query->have_posts() ) : 
       while ( $query->have_posts() ) : $query->the_post();
-      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'card' );
+      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cover' );
       $output .= "<a href='" . get_permalink() . "'><div class='item'>";
       $output .= "<img src='" . $image[0] . "' class='figure-img'>"; 
       $output .= "</div></a>";
