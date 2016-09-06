@@ -490,11 +490,33 @@ function mm_showcase_shortcode( $atts, $content = null ) {
     $output .= '</div>';
     $output .= '<img src="' . wp_get_attachment_image_src( $main_image_id, 'large')[0] . '" class="img-responsive popup" alt="' . $attributes['ausgabe'] . '" data-imgpath="' . $main_image_path . '" >';
     $output .= '<div class="card-block">';
-      $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
-      $output .= '<a href="' . $attributes['print-kaufen'] . '" class="card-link">Print kaufen <span class="dashicons dashicons-book"></span></a>';
-      $output .= '<a href="' . $attributes['epaper-kaufen'] . '" class="card-link">Epaper kaufen <span class="dashicons dashicons-tablet"></span></a>';
-      $output .= '<a href="' . $attributes['abo-link'] . '" class="card-link">Abos <span class="dashicons dashicons-money"></span></a>';
+    $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
+
+    $output .= '<div class="container">';
+      $output .= '<div class="row">
+        <a class="button-link" href="' . $attributes['print-kaufen'] . '">
+          <button class="btn btn-secondary-outline btn-block showcase-button">
+            Print kaufen
+            <span class="dashicons dashicons-book"></span>
+          </button>
+        </a>
+        <a class="button-link" href="' . $attributes['epaper-kaufen'] . '">
+          <button class="btn btn-secondary-outline btn-block showcase-button">
+            Epaper kaufen
+            <span class="dashicons dashicons-tablet"></span>
+          </button>
+        </a>
+        <a class="button-link" href="' . $attributes['abo-link'] . '">
+          <button class="btn btn-secondary-outline btn-block showcase-button">
+            Abos
+            <span class="dashicons dashicons-money"></span>
+          </button>
+        </a>
+      </div>';
     $output .= '</div>';
+
+    $output .= '</div>';
+
   $output .= '</div>';
 
   return $output;

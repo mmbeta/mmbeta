@@ -45,6 +45,16 @@ function mmbeta_setup() {
 	add_image_size( 'cover', 202, 270, false );
 	add_image_size( 'card', 450, 300, array( 'center', 'center' ) );
 
+	add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+ 
+	function my_custom_sizes( $sizes ) {
+	    return array_merge( $sizes, array(
+	        'preview' => __( 'klein, breit' ),
+	        'cover' => __( 'Print Cover, klein' ),
+	        'card' => __( 'mittel, breit' ),
+	    ) );
+	}
+
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -694,7 +704,7 @@ function mmbeta_die_preiskategorie_object(){
 // Bootstrap classes to post images
 function html5_insert_image($html, $id, $caption, $title, $align, $url, $size, $alt) {
   $url = wp_get_attachment_image_src($id, $size);
-  $html5 = "<figure class='figure " . $size . "'>";
+  $html5 = "<figure class='figure " . $size . ' ' . 'align-' . $align . "'>";
   $html5 .= "<img class='figure-img img-responsive' src='" . $url[0] . "' alt='" . $alt . "' />";
   if ($caption) {
     $html5 .= "<figcaption class='figure-caption'>$caption</figcaption>";

@@ -212,6 +212,25 @@ figure.thumbnail {
     padding: 0;
 }
 
+figure.preview {
+    margin: 0 2.25rem 1.75rem 0;
+    max-width: 300px;
+}
+
+figure.cover {
+    max-width: 202px; 
+}
+
+figure.align-right {
+  float: right;
+  margin-left: 1rem;
+}
+
+figure.align-left {
+  float: left;
+  margin-right: 1rem;
+}
+
 /* Social links */
 .social-link {
   float: right;
@@ -219,6 +238,21 @@ figure.thumbnail {
 
 div.social-links {
   padding-right: 0;
+}
+
+/* Helpers */
+
+.centered-text {
+  text-align: center;
+}
+
+a.button-link {
+  text-decoration: none;
+  border-bottom-style: none;
+}
+
+.showcase-button {
+  margin-bottom: 0.2rem;
 }
 
 /* Teaser 1 und 3  added by thomas */
