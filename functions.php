@@ -690,6 +690,7 @@ function mmbeta_die_preiskategorie(){
   $id = get_the_ID();
   $args = array('orderby' => 'count', 'order' => 'DESC');
   $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
+
   echo end($post_terms)->name;
 }
 
@@ -699,6 +700,25 @@ function mmbeta_die_preiskategorie_object(){
   $args = array('orderby' => 'count', 'order' => 'DESC');
   $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
   return end($post_terms);
+}
+
+// Gibt zurück, ob der Preisträger den Preis JDJ oder Top30 bekommen hat
+function mmbeta_welcher_preis($return_value = 'name'){
+  
+  $taxonomy = 'preise';
+  $id = get_the_ID();
+  $args = array('orderby' => 'count', 'order' => 'DESC');
+  $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
+  $two_tags_with_most_children = array_slice($post_terms, 0, 2);
+  if ($two_tags_with_most_children[0]->count === $two_tags_with_most_children[1]->count) {
+  	if($two_tags_with_most_children[0]->parent === 0 ){
+  		return $two_tags_with_most_children[0]->$return_value;
+  	}else{
+  		return $two_tags_with_most_children[1]->$return_value;
+  	}
+  }else{
+  	return $two_tags_with_most_children[0]->$return_value;
+  }
 }
 
 // Bootstrap classes to post images

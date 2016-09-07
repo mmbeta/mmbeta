@@ -28,7 +28,7 @@ $args = array(
 if ($query->have_posts()): ?>
   <div class="row m-t m-b">
     <header class="col-xs-12">
-      <h1 class="page-title"><?php echo single_cat_title('', false); ?></h1>
+      <h1 class="page-title m-b"><?php echo single_cat_title('', false); ?></h1>
       <div class="lead"><?php the_archive_description();?></div>
     </header><!-- .page-header -->
   </div>
