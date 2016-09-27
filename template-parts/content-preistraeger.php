@@ -35,13 +35,17 @@
       <?php if ($preis === 'top-30-bis-30') : ?>
       <div class="profil-box m-b">
         <ul class="list-group">
-          <li class="list-group-item"><strong>Geburtsdatum:</strong> <?php the_field( "geburtsdatum" ); ?></li>
+          <?php if(get_field('geburtsdatum')) : ?>
+            <li class="list-group-item"><strong>Geburtstag:</strong> <?php echo date_i18n(get_option( 'date_format' ), strtotime( get_field( "geburtsdatum" ) ) ); ?></li>
+          <?php elseif (get_field('geburtsdatum-fallback')) : ?>
+            <li class="list-group-item"><strong>Geburtstag:</strong> <?php the_field( "geburtsdatum-fallback" ); ?></li>
+          <?php endif; ?>
           <?php if(get_field('twitter')) : ?>
             <?php $twitterlink = "http://www.twitter.com/" . get_field( 'twitter' ); ?>
-            <li class="list-group-item">Twitter: <a href="<?php echo $twitterlink; ?>"><?php the_field( 'twitter' ); ?></a></li>
+            <li class="list-group-item"><strong>Twitter:</strong> <a href="<?php echo $twitterlink; ?>"><?php the_field( 'twitter' ); ?></a></li>
           <?php endif;?>
             <?php if (get_field(website)) : ?>
-            <li class="list-group-item">Website: <a href="<?php echo get_field("website"); ?>"><?php the_field( "website_label" ); ?></a></li>
+            <li class="list-group-item"><strong>Web:</strong> <a href="<?php echo get_field("website"); ?>"><?php the_field( "website_label" ); ?></a></li>
           <?php endif; ?>
         </ul>
       </div>
