@@ -13,7 +13,7 @@
   if($preis === 'journalisten-des-jahres'){
     $button_text = "Begründung";
   }elseif ($preis === 'top-30-bis-30') {
-    $button_text = "Fragebogen";
+    $button_text = "Steckbrief";
   }else{
     $button_text = "mehr";
   }
