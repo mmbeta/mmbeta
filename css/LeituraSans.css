@@ -1,0 +1,70 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3217105, 2016-05-11T07:10:51-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: LeituraSans-Italic4 by DSType
+ * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/italic-4/
+ * 
+ * Webfont: LeituraSans-Grot1 by DSType
+ * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/grot-1/
+ * 
+ * Webfont: LeituraSans-Italic3 by DSType
+ * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/italic-3/
+ * 
+ * Webfont: LeituraSans-Italic2 by DSType
+ * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/italic-2/
+ * 
+ * Webfont: LeituraSans-Grot4 by DSType
+ * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/grot-4/
+ * 
+ * Webfont: LeituraSans-Italic1 by DSType
+ * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/italic-1/
+ * 
+ * Webfont: LeituraSans-Grot3 by DSType
+ * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/grot-3/
+ * 
+ * Webfont: LeituraSans-Grot2 by DSType
+ * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/grot-2/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3217105
+ * Licensed pageviews: 10,000
+ * Webfonts copyright: Copyright (c) 2006 by Dino dos Santos _DSType. All rights reserved.
+ * 
+ * © 2016 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3116d1");
+
+  
+@font-face {font-family: 'LeituraSans-Italic4';src: url('../webfonts/3116D1_0_0.eot');src: url('../webfonts/3116D1_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_0_0.woff2') format('woff2'),url('../webfonts/3116D1_0_0.woff') format('woff'),url('../webfonts/3116D1_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'LeituraSans-Grot1';src: url('../webfonts/3116D1_1_0.eot');src: url('../webfonts/3116D1_1_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_1_0.woff2') format('woff2'),url('../webfonts/3116D1_1_0.woff') format('woff'),url('../webfonts/3116D1_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'LeituraSans-Italic3';src: url('../webfonts/3116D1_2_0.eot');src: url('../webfonts/3116D1_2_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_2_0.woff2') format('woff2'),url('../webfonts/3116D1_2_0.woff') format('woff'),url('../webfonts/3116D1_2_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'LeituraSans-Italic2';src: url('../webfonts/3116D1_3_0.eot');src: url('../webfonts/3116D1_3_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_3_0.woff2') format('woff2'),url('../webfonts/3116D1_3_0.woff') format('woff'),url('../webfonts/3116D1_3_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'LeituraSans-Grot4';src: url('../webfonts/3116D1_4_0.eot');src: url('../webfonts/3116D1_4_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_4_0.woff2') format('woff2'),url('../webfonts/3116D1_4_0.woff') format('woff'),url('../webfonts/3116D1_4_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'LeituraSans-Italic1';src: url('../webfonts/3116D1_5_0.eot');src: url('../webfonts/3116D1_5_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_5_0.woff2') format('woff2'),url('../webfonts/3116D1_5_0.woff') format('woff'),url('../webfonts/3116D1_5_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'LeituraSans-Grot3';src: url('../webfonts/3116D1_6_0.eot');src: url('../webfonts/3116D1_6_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_6_0.woff2') format('woff2'),url('../webfonts/3116D1_6_0.woff') format('woff'),url('../webfonts/3116D1_6_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'LeituraSans-Grot2';src: url('../webfonts/3116D1_7_0.eot');src: url('../webfonts/3116D1_7_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_7_0.woff2') format('woff2'),url('../webfonts/3116D1_7_0.woff') format('woff'),url('../webfonts/3116D1_7_0.ttf') format('truetype');}
+ 

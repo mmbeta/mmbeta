@@ -90,9 +90,9 @@
   <!-- Slider -->
   <div class="row m-b">
   <?php 
-  if(is_home() && function_exists(putRevSlider) ){
+  if(is_front_page() && function_exists(putRevSlider) ){
     if (function_exists(get_field)) {
-      $hpslider_name = get_field('hpslider', 'option');
+      $hpslider_name = get_field('homepage-slider');
     }else{
       $hpslider_name = 'hp-slider';
     }
