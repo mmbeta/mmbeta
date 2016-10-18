@@ -19,7 +19,7 @@ get_header();
 <div id="primary" class="content-area">
   <main id="main" class="row" role="main">
   <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-6 col-xl-offset-3 container">
-    <div class="row">
+
     <?php
 
 
@@ -56,9 +56,15 @@ get_header();
               );
 
               if ( $teasergroup_query->have_posts() ) : 
-                while ( $teasergroup_query->have_posts() ) : $teasergroup_query->the_post();
-                  get_template_part( 'hp/hp', 'teasergruppe');
-                endwhile;
+              ?>
+                <div class="row">
+                <?php
+                  while ( $teasergroup_query->have_posts() ) : $teasergroup_query->the_post();
+                    get_template_part( 'hp/hp', 'teasergruppe');
+                  endwhile;
+                ?>
+                </div>
+              <?php
               endif;
               wp_reset_query();          
 
@@ -89,7 +95,6 @@ get_header();
 
     ?>
 
-    </div>
 </div>
 </main><!-- #main -->
 

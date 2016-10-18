@@ -361,6 +361,9 @@ function heads_gallery_shortcode( $attr ) {
   $output .= "
     </div></div>
     <style>
+    .heads-gallery {
+      background-color: #f7f7f9;
+    }
     .heads-gallery .item{
       padding: 30px 0px;
       margin: 5px;
@@ -375,9 +378,6 @@ function heads_gallery_shortcode( $attr ) {
       margin-top: .5rem;
     }
 
-    .heads-gallery-container {
-      background-color: rgba(55, 58, 60, 0.1);
-    }
     </style>
     <script type='text/javascript'>
       jQuery(document).ready(function(){
@@ -394,7 +394,7 @@ function heads_gallery_shortcode( $attr ) {
   $query = new WP_Query( $args );
   if ($query->have_posts()) :
     if ($attr["titel"] !== "") :
-      echo '<div class="row heads-gallery-container"><h6>' . $attr["titel"] . '</h6><div class="heads-gallery">';
+      echo '<div class="row"><h6>' . $attr["titel"] . '</h6><div class="heads-gallery">';
     endif;
     while ( $query->have_posts() ) : $query->the_post();
       get_template_part( 'teasers/teaser', 'heads-gallery' );
