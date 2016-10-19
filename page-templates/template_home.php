@@ -18,7 +18,8 @@ get_header();
 
 <div id="primary" class="content-area">
   <main id="main" class="row" role="main">
-  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-6 col-xl-offset-3 container">
+
+<!--   <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 container"> -->
 
     <?php
 
@@ -36,18 +37,14 @@ get_header();
               $post_2 = get_sub_field('linkziel_2');
               $post_3 = get_sub_field('linkziel_3');
 
-              if ( get_sub_field('teaser-text_1') ) {
-                $teaser_text_1 = get_sub_field('teaser-text_1');
-                update_post_meta($post_1, 'hp_teaser', $teaser_text_1); 
-              }
-              if ( get_sub_field('teaser-text_2') ) {
-                $teaser_text_1 = get_sub_field('teaser-text_2');
-                update_post_meta($post_2, 'hp_teaser', $teaser_text_1); 
-              }
-              if ( get_sub_field('teaser-text_3') ) {
-                $teaser_text_1 = get_sub_field('teaser-text_3');
-                update_post_meta($post_3, 'hp_teaser', $teaser_text_1); 
-              }
+              $teaser_text_1 = get_sub_field('teaser-text_1');
+              update_post_meta($post_1, 'hp_teaser', $teaser_text_1); 
+
+              $teaser_text_1 = get_sub_field('teaser-text_2');
+              update_post_meta($post_2, 'hp_teaser', $teaser_text_1); 
+
+              $teaser_text_1 = get_sub_field('teaser-text_3');
+              update_post_meta($post_3, 'hp_teaser', $teaser_text_1); 
 
               $teasergroup_query = new WP_Query( array( 
                 'post__in' => array( $post_1, $post_2, $post_3 ),
@@ -58,11 +55,13 @@ get_header();
               if ( $teasergroup_query->have_posts() ) : 
               ?>
                 <div class="row">
-                <?php
-                  while ( $teasergroup_query->have_posts() ) : $teasergroup_query->the_post();
-                    get_template_part( 'hp/hp', 'teasergruppe');
-                  endwhile;
-                ?>
+                  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2 container">
+                  <?php
+                    while ( $teasergroup_query->have_posts() ) : $teasergroup_query->the_post();
+                      get_template_part( 'hp/hp', 'teasergruppe');
+                    endwhile;
+                  ?>
+                  </div>
                 </div>
               <?php
               endif;
@@ -95,7 +94,7 @@ get_header();
 
     ?>
 
-</div>
+
 </main><!-- #main -->
 
 </div><!-- #primary -->

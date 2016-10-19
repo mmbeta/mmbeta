@@ -44,6 +44,7 @@ function mmbeta_setup() {
 	add_image_size( 'preview', 210, 140 );
 	add_image_size( 'cover', 202, 270, false );
 	add_image_size( 'card', 450, 300, array( 'center', 'center' ) );
+	add_image_size( 'square', 290, 290, array( 'center', 'center' ) );
 
 	add_filter( 'image_size_names_choose', 'my_custom_sizes' );
  
@@ -52,6 +53,7 @@ function mmbeta_setup() {
 	        'preview' => __( 'klein, breit' ),
 	        'cover' => __( 'Print Cover, klein' ),
 	        'card' => __( 'mittel, breit' ),
+	        'square' => __( 'mittel, quadratisch' )
 	    ) );
 	}
 

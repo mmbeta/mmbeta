@@ -274,11 +274,11 @@ a.button-link {
 
 .voll-teaser-link p{
   text-decoration: none;
-  color: rgb(153, 153, 153);
 }
 
 a.voll-teaser-link{
   text-decoration: none;
+  border-bottom: 0;
 }
 
 a.voll-teaser-link:hover{
@@ -301,36 +301,28 @@ a.voll-teaser-link:hover{
 .teaser2-container,
 .teaser3-container {
   position: relative;
-  padding-top: 50%;
   margin-bottom: 40px;
   border: 0;
+  border-top: 1px solid #000;
 }
 
 .teaser1-content,
 .teaser2-content,
 .teaser3-content {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   padding-top: 10px;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border-top: 1px solid #000;
-  overflow: hidden;
 }
 
 .teaser1-body,
 .teaser2-body,
 .teaser3-body {
-  position: absolute;
   top: 11px;
   left: 0;
   bottom: 0;
   right: 0;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .teaser2-body{
@@ -342,9 +334,14 @@ a.voll-teaser-link:hover{
 }
 
 .teaser1-img {
-  width: 100%;
-  height:auto;
-  padding: 0px;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: .25rem;
+  line-height: 1.5;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .teaser3-img {
@@ -355,16 +352,19 @@ a.voll-teaser-link:hover{
 
 .teaser1-header,
 .teaser3-header {
-  text-align:center;
+  font-family:LeituraSans-Grot1;
   text-decoration: underline;
   margin-top:10px;
 }
 .teaser1-text,
 .teaser2-text,
-.teaser3-text {
+.teaser3-text,
+.teaser1-text > p,
+.teaser2-text > p,
+.teaser3-text > p {
+  font-family:LeituraSans-Grot1;
   color: #999;
   padding: 10px 0;
-  overflow: hidden;
 }
 
 .teaser2-text{
@@ -388,24 +388,9 @@ a.voll-teaser-link:hover{
 
 .teaser1-link,
 .teaser3-link {
-  font-style:italic;
+  font-family: LeituraSans-Italic2;
   color: #666;
-  display:inline-block;
-  margin-top: 10px;
-}
-
-/* md */
-@media (min-width: 48em){
-  div.teaser {
-    padding-top: 95%;
-  }  
-}
-
-/* lg */
-@media (min-width: 62em){
-  div.teaser {
-    padding-top: 95%;
-  }
+  display: block;
 }
 
 /* xs & sm */
@@ -433,15 +418,6 @@ a.voll-teaser-link:hover{
     position: static;
   }
   
-  .teaser1-text,
-  .teaser2-text,
-  .teaser3-text {
-    text-align: center;
-  }
-  .teaser1-text span.mobile,
-  .teaser3-text span.mobile {
-    display: inline;
-  }
 }
 
 /* Cropped Image */

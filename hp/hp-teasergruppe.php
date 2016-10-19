@@ -7,18 +7,17 @@
  * @package medium_magazin_beta
  */
 
-$teaser_image = get_the_post_thumbnail_url( $post, 'medium');
+$teaser_image = get_the_post_thumbnail_url( $post, 'square');
 $teaser_text = get_post_meta( get_the_ID(), 'hp_teaser', true );
 ?>
 
 <a href="<?php the_permalink(); ?>" class="voll-teaser-link">
-  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-6">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-4">
     <div class="card teaser teaser1-container">
       <div class="card-block teaser1-content">        
         <div class="teaser1-body">
         <?php if ($teaser_image) { ?>
-          <div class="bg-image bg-image-teaser" style="background-image: url(<?php echo $teaser_image;  ?>);" >
-          </div>
+          <img src="<?php echo $teaser_image; ?>" alt="..." class="teaser1-img">
         <?php } ?>        
           <h3 class="card-title teaser1-header"><?php the_title(); ?></h3>
           <div class="teaser1-text">
