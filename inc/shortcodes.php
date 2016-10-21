@@ -350,6 +350,10 @@ function heads_gallery_shortcode( $attr ) {
     $attr['farbe'] = 'grau';
   }
 
+  if (!$attr['titel']) {
+    $attr['titel'] =  get_term_by( 'slug', $attr['kategorie'] );
+  }
+
   $bg_color = mmbeta_color( $attr['farbe'] );
 
   $args = array(
@@ -364,10 +368,10 @@ function heads_gallery_shortcode( $attr ) {
     );
   
 
-  $output .= "
+  $output = "
     </div></div>
     <style>
-    .heads-gallery {
+    .heads-gallery-container {
       background-color: " . $bg_color . ";
     }
     .heads-gallery .item{
@@ -379,11 +383,6 @@ function heads_gallery_shortcode( $attr ) {
       border-radius: 3px;
       text-align: center;
     }
-
-    .heads-gallery h6 {
-      margin-top: .5rem;
-    }
-
     </style>
     <script type='text/javascript'>
       jQuery(document).ready(function(){
@@ -397,11 +396,12 @@ function heads_gallery_shortcode( $attr ) {
     </script>
   ";
 
+
   $query = new WP_Query( $args );
   if ($query->have_posts()) :
-    if ($attr["titel"] !== "") :
-      echo '<div class="row"><h6>' . $attr["titel"] . '</h6><div class="heads-gallery">';
-    endif;
+
+    echo '<div class="row heads-gallery-container"><h6 class="heads-gallery-heading">' . $attr['titel']. '</h6><div class="heads-gallery">';
+
     while ( $query->have_posts() ) : $query->the_post();
       get_template_part( 'teasers/teaser', 'heads-gallery' );
     endwhile;

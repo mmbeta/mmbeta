@@ -20,6 +20,10 @@ get_header();
   <main id="main" role="main">
 
     <?php
+    
+
+// $cached_post = json_decode( get_transient( 'mmbeta_fresh_facebook_post' ) );
+// var_dump($cached_post);
 
 
     // check if the flexible content field has rows of data
@@ -92,13 +96,20 @@ get_header();
             // Tweet
             elseif( get_row_layout() == 'tweet-teaser' ):
               $tweet = get_sub_field('tweet');
-              echo $tweet;
+              print_r($tweet);
             
             // Kopf-Slider
             elseif( get_row_layout() == 'preistraeger-slider' ):
               $kategorie = get_sub_field('kopf-slider');
               $farbe = get_sub_field('color');
-              echo heads_gallery_shortcode( array('kategorie' => $kategorie->slug, 'farbe' => $farbe ) );
+              $titel = get_sub_field('slider_titel');
+              echo heads_gallery_shortcode( 
+                array(
+                'kategorie' => $kategorie->slug, 
+                'farbe' => $farbe, 
+                'titel' => $titel
+                ) 
+              );
               wp_reset_query(); 
             endif;
 

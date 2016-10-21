@@ -101,7 +101,7 @@ function mmbeta_setup() {
 	) );
 
 	//Admin Theme Options Page - needs ACF 5.o Pro installed
-	if (function_exists(acf_add_options_page)) {
+	if (function_exists('acf_add_options_page')) {
 		acf_add_options_page( "mmbeta Settings" );
 	}
 

@@ -44,7 +44,7 @@
             <?php $twitterlink = "http://www.twitter.com/" . get_field( 'twitter' ); ?>
             <li class="list-group-item"><strong>Twitter:</strong> <a href="<?php echo $twitterlink; ?>"><?php the_field( 'twitter' ); ?></a></li>
           <?php endif;?>
-            <?php if (get_field(website)) : ?>
+            <?php if (get_field("website")) : ?>
             <li class="list-group-item"><strong>Web:</strong> <a href="<?php echo get_field("website"); ?>"><?php the_field( "website_label" ); ?></a></li>
           <?php endif; ?>
         </ul>
