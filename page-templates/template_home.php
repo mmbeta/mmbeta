@@ -39,19 +39,25 @@ get_header();
 
               if ($post_1) {
                 $teaser_text_1 = get_sub_field('teaser-text_1');
+                $teaser_format = get_sub_field('teaserform_1');
                 update_post_meta($post_1, 'hp_teaser', $teaser_text_1);
+                update_post_meta($post_1, 'hp_teaser_format', $teaser_format);
                 array_push($teasergruppe_posts, $post_1);
               }
 
               if ($post_2) {
                 $teaser_text_2 = get_sub_field('teaser-text_2');
+                $teaser_format = get_sub_field('teaserform_2');
                 update_post_meta($post_2, 'hp_teaser', $teaser_text_2);
+                update_post_meta($post_2, 'hp_teaser_format', $teaser_format);
                 array_push($teasergruppe_posts, $post_2);
               }
 
               if ($post_3) {
                 $teaser_text_3 = get_sub_field('teaser-text_3');
+                $teaser_format = get_sub_field('teaserform_3');
                 update_post_meta($post_3, 'hp_teaser', $teaser_text_3);
+                update_post_meta($post_3, 'hp_teaser_format', $teaser_format);
                 array_push($teasergruppe_posts, $post_3);
               }
 
@@ -91,7 +97,8 @@ get_header();
             // Kopf-Slider
             elseif( get_row_layout() == 'preistraeger-slider' ):
               $kategorie = get_sub_field('kopf-slider');
-              echo heads_gallery_shortcode( array('kategorie' => $kategorie->slug) );
+              $farbe = get_sub_field('color');
+              echo heads_gallery_shortcode( array('kategorie' => $kategorie->slug, 'farbe' => $farbe ) );
               wp_reset_query(); 
             endif;
 

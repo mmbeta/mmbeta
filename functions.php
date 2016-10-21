@@ -57,6 +57,17 @@ function mmbeta_setup() {
 	    ) );
 	}
 
+	// Mapping image size to teaser format
+
+	function image_size_for_teaser($format) {
+		$format_mapping = array(
+      'hoch' => 'cover',
+      'breit' => 'card',
+      'quadratisch' => 'square',
+      'rund' => 'square'		
+		);
+		return $format_mapping[$format];
+	}
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

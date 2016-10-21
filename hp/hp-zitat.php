@@ -13,7 +13,7 @@ $zitatgeber = get_sub_field('zitatgeber');
 
 ?>
 
-<div class="row" style="background-color: <?php echo mmbeta_color( get_sub_field('color') ); ?>">
+<div class="row m-t m-b" style="background-color: <?php echo mmbeta_color( get_sub_field('color') ); ?>">
   <div class="col-xs-12">
     <a href="<?php the_sub_field('zitat-link')?>">
       <blockquote class="mmbeta_hp_quote">

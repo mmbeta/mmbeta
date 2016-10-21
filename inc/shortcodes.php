@@ -346,6 +346,12 @@ function heads_gallery_shortcode( $attr ) {
     $attr['kategorie'] = 'journalisten-des-jahres';
   }
 
+  if (! $attr['farbe']) {
+    $attr['farbe'] = 'grau';
+  }
+
+  $bg_color = mmbeta_color( $attr['farbe'] );
+
   $args = array(
       'post_type' => 'preistraeger',
       'tax_query' => array(
@@ -362,7 +368,7 @@ function heads_gallery_shortcode( $attr ) {
     </div></div>
     <style>
     .heads-gallery {
-      background-color: #f7f7f9;
+      background-color: " . $bg_color . ";
     }
     .heads-gallery .item{
       padding: 30px 0px;
@@ -383,8 +389,8 @@ function heads_gallery_shortcode( $attr ) {
       jQuery(document).ready(function(){
         if(jQuery('.heads-gallery').length > 0){
           jQuery('.heads-gallery').owlCarousel({
-            navigation : true,
-            items : 3
+            navigation : false,
+            items : 4
           });    
         }
       });

@@ -344,14 +344,34 @@ a.voll-teaser-link:hover{
   border: 0;
 }
 
-.teaser1-img {
-  display: inline-block;
+.teaser-img, .teaser1-img {
   max-width: 100%;
   height: auto;
   line-height: 1.5;
   -webkit-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+}
+
+.teaser-img-rund {
+  display: block;
+  margin: 0 auto 1em auto;
+  border-radius: 50%;
+  width: 65%;
+}
+
+.teaser-img-hoch {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.teaser-img-breit {
+  display: inline-block;
+}
+
+.teaser-img-quadratisch {
+  display: inline-block;
 }
 
 .teaser3-img {
