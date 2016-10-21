@@ -9,20 +9,38 @@
  */
 
 ?>
-
 </div><!-- #page -->
-<footer class="col-xs-12 m-t text-xs-center" role="contentinfo">
+<footer class="row m-t mmbeta_footer" role="contentinfo">
 
-  <?php if ( is_active_sidebar( 'footer_sidebar' ) && is_home() ) : ?>
+  <?php if ( is_active_sidebar( 'footer_sidebar' ) ) : ?>
     <div id="footer-sidebar" class="footer-sidebar widget-area" role="complementary">
       <?php dynamic_sidebar( 'footer_sidebar' ); ?>
     </div><!-- footer-sidebar -->
   <?php endif; ?>
 
-  <ul class="list-unstyled">
-    <li><a href="http://www.mediummagazin.de/impressum">Impressum</a></li>
-    <li><a href="http://www.mediummagazin.de/beta/">Über die Beta</a></li>
-  </ul>
+
+  <!-- Footer Menu -->
+  <?php 
+      $menu_name = 'footer';
+      if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+        $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+        $menu_list = '<nav class="nav-inline col-lg-8 col-lg-offset-2 col-xs-12" role="navigation">';
+
+
+        foreach ( (array) $menu_items as $key => $menu_item ) {
+            $title = $menu_item->title;
+            $url = $menu_item->url;
+            $menu_list .= '<a class="nav-link" href="' . $url . '">' . $title . '</a>';
+        }
+        $menu_list .= '</nav>';
+      } else {
+        $menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
+      }
+
+      echo $menu_list;
+  ?>
+
 </footer><!-- #colophon -->
 
 

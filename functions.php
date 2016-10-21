@@ -61,6 +61,7 @@ function mmbeta_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'mmbeta' ),
+		'footer' => esc_html__( 'Footer Menu', 'mmbeta' )
 	) );
 
 	/*
@@ -93,6 +94,26 @@ function mmbeta_setup() {
 		acf_add_options_page( "mmbeta Settings" );
 	}
 
+
+	// mmbeta-Farben
+
+	function mmbeta_color($color_name) {
+		$colors = array(
+			'blau' => 'rgba(59,67,149,0.7)',
+			'magenta' => 'rgba(149,36,86,1)',
+			'gruen' => 'rgba(57,124,35,1)',
+			'rot' => 'rgba(183,14,12,1)',
+			'orange' => 'rgba(239,125,0,1)',
+			'petrol' => 'rgba(0,97,116,1)',
+			'grau' => '#f7f7f9'
+		);
+
+		if($color_name && $colors[$color_name]){
+			return $colors[$color_name];
+		}else{
+			return $colors['grau'];
+		}
+	}
 
 	/*
 	 * Add custom post type for Preistraeger 
