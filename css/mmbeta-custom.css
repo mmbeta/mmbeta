@@ -16,6 +16,14 @@ medium magazin beta is based on Underscores http://underscores.me/, (C) 2012-201
 Underscores is distributed under the terms of the GNU GPL v2 or later. And Bootstrap.
 */
 
+body {
+  font-family: "LeituraSans-Grot1", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #373a3c;
+  background-color: #fff;
+}
+
 a {
   color: rgb(55, 58, 60);
 }
@@ -31,6 +39,8 @@ a:hover {
   color: #305d63;
 }
 
+
+/* Footer */
 footer.mmbeta_footer {
   padding: 1rem 0 1rem 0;
   background-color: rgba(34,41,51,1);
@@ -40,6 +50,8 @@ footer.mmbeta_footer {
 footer.mmbeta_footer > nav > a {
   color: white;
 }
+
+/* Beta-Markierung */
 
 .ribbon {
   background-color: #305d63;
@@ -75,7 +87,14 @@ footer.mmbeta_footer > nav > a {
   text-decoration: none;
 }
 
-.clear { clear: both; }
+/* card showcase margin */
+
+div.card.showcase {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+/* JDJ-Übersicht */
 
 .my-jumbotron {
     padding: 2rem 1rem;
@@ -85,19 +104,6 @@ footer.mmbeta_footer > nav > a {
 
 }
 
-.responsive-height {
-    padding-bottom: 50% !important;
-}
-
-
-/* card showcase margin */
-
-div.card.showcase {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-/* JDJ-Übersicht */
 .alert-jdj {
   padding: 15px 0 0 10px;
   margin-bottom: 1rem;
@@ -277,6 +283,11 @@ blockquote.mmbeta_hp_quote:hover {
 
 /* Helpers */
 
+.clear { clear: both; }
+.responsive-height {
+    padding-bottom: 50% !important;
+}
+
 .centered-text {
   text-align: center;
 }
@@ -290,6 +301,8 @@ a.button-link {
   margin-bottom: 0.2rem;
 }
 
+/* Heads Gallery */
+
 h6.heads-gallery-heading  {
   margin-top: 1rem;
   text-align: center;
@@ -298,6 +311,23 @@ h6.heads-gallery-heading  {
   color: white;
 }
 
+h6.heads-gallery-name  {
+  margin-top: 0.7rem;
+  text-align: center;
+  font-family: LeituraSans-Grot3;
+  font-size: 1em;
+  color: white;
+}
+
+p.heads-gallery-description  {
+  font-family: LeituraSans-Grot1;
+  font-size: 1em;
+  color: white;
+}
+
+div.row.heads-gallery-container > div > div.owl-controls.clickable > div > div.owl-page > span {
+  background: white;
+}
 /* Teaser 1 und 3  added by thomas */
 
 .voll-teaser-link p{

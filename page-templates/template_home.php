@@ -95,8 +95,8 @@ get_header();
 
             // Tweet
             elseif( get_row_layout() == 'tweet-teaser' ):
-              $tweet = get_sub_field('tweet');
-              print_r($tweet);
+              
+              get_template_part( 'hp/hp', 'tweet');
             
             // Kopf-Slider
             elseif( get_row_layout() == 'preistraeger-slider' ):
@@ -116,9 +116,7 @@ get_header();
         endwhile;
 
     else :
-
         echo "no layouts found";
-
     endif;
 
     ?>

@@ -15,7 +15,7 @@ $teaser_text = get_field('teaser-text');
       <?php if ($teaser_image) { ?>  
       <img class="img-circle teaser3-img" src="<?php echo $teaser_image; ?>" alt="Card image cap">
       <?php } ?>          
-      <h6><?php the_title(); ?></h6>
-      <p><?php the_field( "position" ); ?></p>
+      <h6 class="heads-gallery-name"><?php the_title(); ?></h6>
+      <p class="heads-gallery-description"><?php the_field( "position" ); ?></p>
     </a>
   </div>

@@ -297,48 +297,7 @@ function mmbeta_setup() {
 					'append' => '',
 					'formatting' => 'html',
 					'maxlength' => '',
-				),
-				array (
-					'key' => 'field_568e1b987eb0d',
-					'label' => 'Teaser-Link',
-					'name' => 'link',
-					'type' => 'text',
-					'instructions' => 'Wenn dieses Feld ausgefüllt ist, linkt der Teaser nicht auf den Beitrag selbst, sondern auf die hier eingetragene Seite/Post/Preisträger.',
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'formatting' => 'html',
-					'maxlength' => '',
-				),
-				array (
-					'key' => 'field_56d3714d496f3',
-					'label' => 'Teaser-Typ',
-					'name' => 'teaser-typ',
-					'type' => 'select',
-					'instructions' => 'Wähle einen der Teaser-Typen aus.',
-					'choices' => array (
-						'Standard' => 'Standard',
-						'Zitat' => 'Zitat',
-						'Rund' => 'Rund',
-					),
-					'default_value' => 'Standard',
-					'allow_null' => 0,
-					'multiple' => 0,
-				),
-				array (
-					'key' => 'field_777e7b777eb0d',
-					'label' => 'Teaser-Text',
-					'name' => 'teaser-text',
-					'type' => 'text',
-					'instructions' => 'Wenn Du dieses Feld ausfüllst, ersetzt der Text den Auszug im HP-Teaser.',
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'formatting' => 'html',
-					'maxlength' => '40',
-				),
+				)
 			),
 			'location' => array (
 				array (
@@ -539,61 +498,6 @@ function mmbeta_setup() {
 		));
 	}
 
-	if(function_exists("register_field_group"))
-{
-	register_field_group(array (
-		'id' => 'acf_onfrontpage',
-		'title' => 'OnFrontpage',
-		'fields' => array (
-			array (
-				'key' => 'field_56d3849f14002',
-				'label' => 'Auf der Homepage?',
-				'name' => 'auf_der_homepage',
-				'type' => 'true_false',
-				'instructions' => 'Soll der Artikel auf der HP geteasert werden?',
-				'message' => 'Auf der HP anzeigen.',
-				'default_value' => 0,
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'post',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'preistraeger',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'page',
-					'order_no' => 0,
-					'group_no' => 2,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-}
-
 // Add Custom Field to set pages to display on top of preise taxonomy
 if(function_exists("register_field_group"))
 {
@@ -669,17 +573,7 @@ if(function_exists("register_field_group"))
 endif; // mmbeta_setup
 add_action( 'after_setup_theme', 'mmbeta_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function mmbeta_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'mmbeta_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'mmbeta_content_width', 0 );
+
 
 /**
  * Register widget area.

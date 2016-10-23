@@ -16,7 +16,7 @@ get_header(); ?>
       <div class="row m-b">
       <?php $slider_name = get_field('slider'); ?>
       <?php
-        if($slider_name !== '' && function_exists(putRevSlider) ){
+        if($slider_name !== '' && function_exists('putRevSlider') ){
           $theSlider = new RevSlider();
           $arrSliders = $theSlider->getArrSliders();
           foreach ($arrSliders as $slider) {
