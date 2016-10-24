@@ -29,7 +29,9 @@ $teaser_text = get_post_meta( get_the_ID(), 'hp_teaser', true );
               the_excerpt();
             }
           ?>
-          <a href="<?php the_permalink(); ?>" class="teaser1-link">mehr</a> 
+          <div>
+            <a href="<?php the_permalink(); ?>" class="teaser1-link">mehr</a>
+          </div> 
         </div>
       </div>
     </div>

@@ -47,7 +47,8 @@ footer.mmbeta_footer {
 }
 
 
-footer.mmbeta_footer > nav > a {
+footer.mmbeta_footer > nav > a, 
+footer.mmbeta_footer > nav > a:hover {
   color: white;
 }
 
@@ -281,6 +282,31 @@ blockquote.mmbeta_hp_quote:hover {
   font-style: normal;
 }
 
+/* Embeds */
+.embed-container { 
+  position: relative; 
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+} 
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.EmbeddedTweet {
+  margin: auto;
+}
+
+
 /* Helpers */
 
 .clear { clear: both; }
@@ -458,7 +484,6 @@ a.voll-teaser-link:hover{
 .teaser3-link {
   font-family: LeituraSans-Italic2;
   color: #666;
-  display: block;
 }
 
 /* xs & sm */

@@ -8,11 +8,28 @@
  */
 
 $tweet = get_sub_field('tweet');
+$fbpost = get_sub_field('facebook');
+
+if (!$fbpost) {
+  $fbpost_from_cache = get_transient( 'mmbeta_fresh_facebook_post' );
+
+  if ( !$fbpost_from_cache && function_exists('hourly_social_api_call') ) {
+    hourly_social_api_call();
+  }
+
+  $cached_json = json_decode($fbpost_from_cache);
+  $publisher_and_postid = explode("_", $cached_json->id);
+  $fbpost = "https://www.facebook.com/" . $publisher_and_postid[0] . "/posts/" . $publisher_and_postid[1];
+}
 
 ?>
 
 <div class="row">
   <div class="col-xs-12 col-lg-6">
-    <?php echo $tweet; ?>
+      <?php echo $tweet; ?>
+  </div>
+
+  <div class="col-xs-12 col-lg-6">
+    <div class="fb-post" data-href="<?php echo $fbpost; ?>" data-width="500"></div>
   </div>
 </div>

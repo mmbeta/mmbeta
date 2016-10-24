@@ -20,12 +20,6 @@ get_header();
   <main id="main" role="main">
 
     <?php
-    
-
-// $cached_post = json_decode( get_transient( 'mmbeta_fresh_facebook_post' ) );
-// var_dump($cached_post);
-
-
     // check if the flexible content field has rows of data
     if( have_rows('homepage') ):
 
