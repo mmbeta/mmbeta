@@ -12,14 +12,16 @@ $fbpost = get_sub_field('facebook');
 
 if (!$fbpost) {
   $fbpost_from_cache = get_transient( 'mmbeta_fresh_facebook_post' );
+  $cached_json = json_decode($fbpost_from_cache);
 
-  if ( !$fbpost_from_cache && function_exists('hourly_social_api_call') ) {
+  if ( 'undefined' === $cached_json->id ) {
     hourly_social_api_call();
   }
-
-  $cached_json = json_decode($fbpost_from_cache);
-  $publisher_and_postid = explode("_", $cached_json->id);
-  $fbpost = "https://www.facebook.com/" . $publisher_and_postid[0] . "/posts/" . $publisher_and_postid[1];
+  
+  if ( 'undefined' !== $cached_json->id){
+    $publisher_and_postid = explode("_", $cached_json->id);
+    $fbpost = "https://www.facebook.com/" . $publisher_and_postid[0] . "/posts/" . $publisher_and_postid[1];
+  }
 }
 
 ?>
