@@ -303,7 +303,12 @@ blockquote.mmbeta_hp_quote:hover {
 }
 
 .EmbeddedTweet {
-  margin: auto;
+  max-width: 100% !important; 
+}
+
+twitterwidget, div.fb-post {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 

@@ -10,15 +10,28 @@
 $tweet = get_sub_field('tweet');
 $fbpost = get_sub_field('facebook');
 
+
+if (!$tweet) {
+  $tweet_from_cache = get_transient( 'mmbeta_tweet' );
+
+  if ( !$tweet_from_cache || isset($tweet_from_cache->error) ) {
+    hourly_social_api_call();
+  }
+  
+  if ( $tweet_from_cache && isset($tweet_from_cache->html) ){
+    $tweet = $tweet_from_cache->html;
+  }
+}
+
 if (!$fbpost) {
   $fbpost_from_cache = get_transient( 'mmbeta_fresh_facebook_post' );
   $cached_json = json_decode($fbpost_from_cache);
 
-  if ( 'undefined' === $cached_json->id ) {
+  if ( !$cached_json || isset($cached_json->error) ) {
     hourly_social_api_call();
   }
   
-  if ( 'undefined' !== $cached_json->id){
+  if ( $cached_json && isset($cached_json->id) ){
     $publisher_and_postid = explode("_", $cached_json->id);
     $fbpost = "https://www.facebook.com/" . $publisher_and_postid[0] . "/posts/" . $publisher_and_postid[1];
   }
@@ -26,12 +39,15 @@ if (!$fbpost) {
 
 ?>
 
-<div class="row">
+<div class="row m-t">
   <div class="col-xs-12 col-lg-6">
-      <?php echo $tweet; ?>
+    <?php echo $tweet; ?>
+
   </div>
 
   <div class="col-xs-12 col-lg-6">
-    <div class="fb-post" data-href="<?php echo $fbpost; ?>" data-width="500"></div>
+    <center>
+      <div class="fb-post" data-href="<?php echo $fbpost; ?>" data-width="auto"></div>
+    </center>
   </div>
 </div>
