@@ -9,7 +9,7 @@
  */
 
 ?>
-</div><!-- #page -->
+
 <footer class="row m-t mmbeta_footer" role="contentinfo">
 
   <?php if ( is_active_sidebar( 'footer_sidebar' ) ) : ?>
@@ -43,6 +43,7 @@
 
 </footer><!-- #colophon -->
 
+</div><!-- #page -->
 
 <?php wp_footer(); ?>
 
