@@ -29,7 +29,6 @@
 <div class="ribbon hidden-md-down"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
 	<header role="banner">
 	<div class="row">
-      <!-- col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 -->
       <div class="col-lg-8 col-lg-offset-2 col-xs-12 m-t-lg social-links">
         <a target="_blank" href="http://facebook.com/mediummagazin">
           <span class="dashicons dashicons-facebook-alt social-link"></span>
@@ -71,15 +70,11 @@
     ?>
    
   </div>
-  <!-- Toggle test -->
+
   <div class="row hidden-lg-up">
-
       <div class="collapse" id="exCollapsingNavbar">
-
           <?php echo $menu_list_mobile; ?>
-
       </div>
-
       <nav class="navbar navbar-light bg-faded col-xs-12 text-xs-center">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
           &#9776;

@@ -28,7 +28,7 @@ if (function_exists('hourly_social_api_call')) {
     $fbpost_from_cache = get_transient( 'mmbeta_fresh_facebook_post' );
     $cached_json = json_decode($fbpost_from_cache);
 
-    if ( !$cached_json || isset($cached_json->error) ) {
+    if ( !$fbpost_from_cache || isset($cached_json->error) ) {
       hourly_social_api_call();
     }
     

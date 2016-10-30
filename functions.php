@@ -261,22 +261,15 @@ function mmbeta_setup() {
 	}
 	apply_filters( 'get_the_archive_title', 'strip_archive_type' );
 
-
-	
 	//Make auto embeds 16:9 and responsive with bootstrap classes
-	function wrap_with_bt_embed($html)
-	{
-		
+	function wrap_with_bt_embed($html){		
 		$prepend = '<div class="embed-responsive embed-responsive-16by9 m-b">';
 		$append = '</div>';
 		$new_html = $prepend . $html . $append;
 		return $new_html;
-
 	}
 	add_filter( 'embed_oembed_html', 'wrap_with_bt_embed', 10, 3);
 	add_filter( 'video_embed_html', 'wrap_with_bt_embed' );
-
-
 
 	//Custom fields for Preisträger
 	if(function_exists("register_field_group"))
@@ -744,10 +737,6 @@ function mm_get_attachment_id_from_url( $attachment_url = '' ) {
 // Attach callback to 'tiny_mce_before_init' 
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Implement Shortcodes.

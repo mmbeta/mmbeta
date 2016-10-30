@@ -94,6 +94,8 @@
   if ( have_posts() ) {
     echo '<div class="col-xs-12 col-lg-8 col-lg-offset-2">';
     $in_this_row = 0;
+    $curr_letter = "";
+    $post_count = 0;
     while ( have_posts() ) {
        the_post();
        $first_letter = strtoupper(substr(get_field('nachname'),0,1));
