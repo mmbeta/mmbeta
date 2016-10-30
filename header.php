@@ -24,7 +24,8 @@
 
 <body <?php body_class();?> >
 
-<?php get_template_part( 'inc/google', 'analytics' ); ?>
+<?php get_template_part( 'template-parts/tracking', 'ga' ); ?>
+<?php get_template_part( 'template-parts/sdk', 'facebook' ); ?>
 <div id="page" class="container-fluid">
 <div class="ribbon hidden-md-down"><a href="http://www.mediummagazin.de/beta/">Das ist eine beta-Version</a></div>
 	<header role="banner">
