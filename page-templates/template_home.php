@@ -88,9 +88,9 @@ get_header();
               get_template_part( 'hp/hp', 'zitat');
 
             // Tweet
-            elseif( get_row_layout() == 'tweet-teaser' ):
+            elseif( get_row_layout() == 'social-teaser' ):
               
-              get_template_part( 'hp/hp', 'tweet');
+              get_template_part( 'hp/hp', 'social');
             
             // Kopf-Slider
             elseif( get_row_layout() == 'preistraeger-slider' ):
