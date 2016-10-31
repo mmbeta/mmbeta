@@ -415,17 +415,30 @@ add_shortcode('heads-gallery', 'heads_gallery_shortcode');
 //////////////////////////
 
 function cover_gallery_shortcode( $attr ) {
+  if ( !isset($attr['kategorie']) ) {
+    $attr['kategorie'] = 'heftvorschau';
+  }
+  if ( !isset($attr['titel']) ) {
+    $attr['titel'] = 'Aktuelle Ausgaben';
+  }
+  if ( !isset($attr['farbe']) ) {
+    $bg_color = 'transparent';
+  }else{
+    $bg_color = mmbeta_color( $attr['farbe'] );
+  }
+
   $output = "<div class='cover-gallery'>";
 
-  $query = new WP_Query( array( 'category_name' => 'heftvorschau' ) ); 
+  $query = new WP_Query( array( 'category_name' => $attr['kategorie']) ); 
     if ( $query->have_posts() ) : 
       while ( $query->have_posts() ) : $query->the_post();
-      $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'cover' );
+      $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'cover' );
       $output .= "<a href='" . get_permalink() . "'><div class='item'>";
       $output .= "<img src='" . $image[0] . "' class='figure-img'>"; 
       $output .= "</div></a>";
       endwhile;
     endif;
+
 
   $output .= "
     </div>
@@ -438,6 +451,10 @@ function cover_gallery_shortcode( $attr ) {
       -moz-border-radius: 3px;
       border-radius: 3px;
       text-align: center;
+    }
+
+    .cover-gallery {
+      background-color: " . $bg_color . ";
     }
     </style>
     <script type='text/javascript'>
@@ -508,7 +525,7 @@ function mm_showcase_shortcode( $atts, $content = null ) {
         </a>
         <a class="button-link" href="' . $attributes['epaper-kaufen'] . '">
           <button class="btn btn-secondary-outline btn-block showcase-button">
-            Epaper kaufen
+            E-Paper kaufen
             <span class="dashicons dashicons-tablet"></span>
           </button>
         </a>

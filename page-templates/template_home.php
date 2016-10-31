@@ -106,7 +106,23 @@ get_header();
                 'titel' => $titel
                 ) 
               );
-              wp_reset_query(); 
+              wp_reset_query();
+            elseif ( get_row_layout() == 'cover-slider'):
+              $kategorie = get_sub_field('cover-slider');
+              $farbe = get_sub_field('color');
+              $titel = get_sub_field('slider_titel');
+              echo '<div class="row cover-slider m-t" style="background-color:' . mmbeta_color($farbe) . ' " >';
+                echo '<h6 class="heads-gallery-heading">' . $titel . '</h6>';
+                echo "<div class='col-md-8 col-md-offset-2'>";
+                  echo cover_gallery_shortcode(
+                        array(
+                          'kategorie' => $kategorie->slug, 
+                          'farbe' => $farbe, 
+                          'titel' => $titel
+                        )
+                  );
+                echo '</div>';
+              echo '</div>';
             endif;
 
         endwhile;
