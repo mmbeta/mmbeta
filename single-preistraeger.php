@@ -38,7 +38,7 @@ get_header(); ?>
       if ( ! post_password_required() ) {  
       
       if ( $kategorie->name !== 'JDJ' && $kategorie->name !=='Lebenswerk' ){ ?>
-        <div class="lead m-b">Außerdem wurden <?php if( $preis !== "top-30-bis-30" ) : echo "in der Kategorie"; endif; ?><?php mmbeta_die_preiskategorie(); ?> ausgezeichnet:</div>
+        <div class="lead m-b">Außerdem wurden <?php if( $preis !== "top-30-bis-30" ) : echo "in der Kategorie "; endif; ?><?php mmbeta_die_preiskategorie(); ?> ausgezeichnet:</div>
       <?php } 
 
         $die_ID = $post->ID;

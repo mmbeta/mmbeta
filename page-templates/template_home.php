@@ -29,6 +29,7 @@ get_header();
             //  Teasergruppe
             if( get_row_layout() == 'teasergruppe' ):
 
+              $posts_to_be_shown = get_sub_field('teaser-anzahl');
               $teasergruppe_posts = array();
 
               $post_1 = get_sub_field('linkziel_1');
@@ -61,7 +62,8 @@ get_header();
 
               $teasergroup_query = new WP_Query( array( 
                 'post__in' => $teasergruppe_posts,
-                'orderby' => 'post__in' 
+                'orderby' => 'post__in',
+                'posts_per_page' => $posts_to_be_shown, 
                 )
               );
 
@@ -70,7 +72,7 @@ get_header();
                 <div class="row">
                   <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
                   <?php
-                    $template_name = 'teasergruppe-' . count($teasergruppe_posts);
+                    $template_name = 'teasergruppe-' . $posts_to_be_shown;
 
                     while ( $teasergroup_query->have_posts() ) : $teasergroup_query->the_post();
                       get_template_part( 'hp/hp', $template_name);
