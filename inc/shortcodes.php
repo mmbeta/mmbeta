@@ -453,9 +453,6 @@ function cover_gallery_shortcode( $attr ) {
       text-align: center;
     }
 
-    .cover-gallery {
-      background-color: " . $bg_color . ";
-    }
     </style>
     <script type='text/javascript'>
       jQuery(document).ready(function(){
