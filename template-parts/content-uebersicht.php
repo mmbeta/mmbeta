@@ -92,7 +92,8 @@
   );
   query_posts($args);
   if ( have_posts() ) {
-    echo '<div class="col-xs-12 col-lg-8 col-lg-offset-2">';
+    echo '<div class="row">';
+    echo '  <div class="col-xs-12 col-lg-8 col-lg-offset-2">';
     $in_this_row = 0;
     $curr_letter = "";
     $post_count = 0;
@@ -110,6 +111,7 @@
     }
     end_prev_letter();
     ?>
+    </div>
   <?php } else {
     echo "<h2>Sorry, no posts were found!</h2>";
   } //end of jdj-archive
