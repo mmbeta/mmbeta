@@ -561,7 +561,7 @@ function show_more_function($attr, $content) {
        'width' => '100%',
        'height' => '480px'
    ), $attr));
-   $button = '<button type="button" class="btn btn-secondary btn-block m-b" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen.">mehr</button>';
+   $button = '<button type="button" class="btn btn-secondary btn-block m-b button-toggle" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen.">mehr</button>';
    $body = '<div class="collapse" id="collapsedContent">' . $content . '</div>';
    return $button . $body;
 }

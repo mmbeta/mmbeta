@@ -152,3 +152,10 @@ if(jQuery('.preistraeger-card').length > 1){
   jQuery(jQuery("div.preistraeger-card")[counter-1]).after("</div>");
   counter = 0;
 }
+
+//Make more button hide when clicked.
+if(jQuery('button.button-toggle')){
+  jQuery('button.button-toggle').on('click', function(element){
+    jQuery(element.target).hide();
+  })
+}

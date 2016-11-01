@@ -335,6 +335,12 @@ a.button-link {
   margin-bottom: 0.2rem;
 }
 
+button.button-toggle {
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
 /* Heads Gallery */
 
 h6.heads-gallery-heading  {
