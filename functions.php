@@ -42,7 +42,7 @@ function mmbeta_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'preview', 210, 140 );
-	add_image_size( 'cover', 202, 270, false );
+	add_image_size( 'cover', 360, 481, false );
 	add_image_size( 'card', 450, 300, array( 'center', 'center' ) );
 	add_image_size( 'square', 290, 290, array( 'center', 'center' ) );
 
