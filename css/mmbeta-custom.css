@@ -386,6 +386,7 @@ a.voll-teaser-link:hover{
 
 .voll-teaser-link h3{
   color: rgb(55, 58, 60);
+  word-wrap: break-word;
 }
 
 .teaser {
