@@ -18,7 +18,7 @@ $teaser_text = get_post_meta( get_the_ID(), 'hp_teaser', true );
       <div class="card-block teaser1-content">        
         <div class="teaser1-body">
         <?php if ($teaser_image) { ?>
-          <img src="<?php echo $teaser_image; ?>" alt="..." class="teaser-img <?php echo 'teaser-img-' . $teaser_format; ?>">
+          <img src="<?php echo $teaser_image; ?>" alt="..." class="teaser-img teasergruppe-2 <?php echo 'teaser-img-' . $teaser_format; ?>">
         <?php } ?>        
           <h3 class="card-title teaser1-header"><?php the_title(); ?></h3>
           <div class="teaser1-text">

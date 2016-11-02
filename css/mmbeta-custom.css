@@ -446,6 +446,10 @@ a.voll-teaser-link:hover{
   margin-left: auto;
 }
 
+.teaser-img-hoch.teasergruppe-2 {
+  max-width: 60%;
+}
+
 .teaser-img-breit {
   display: inline-block;
 }
