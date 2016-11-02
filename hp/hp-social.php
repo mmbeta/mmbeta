@@ -49,7 +49,7 @@ if (function_exists('hourly_social_api_call')) {
 
   <div class="col-xs-12 col-lg-6">
     <center>
-      <div class="fb-post" data-href="<?php echo $fbpost; ?>" data-width="550"></div>
+      <div class="fb-post" data-href="<?php echo $fbpost; ?>" data-width="auto"></div>
     </center>
   </div>
 </div>
