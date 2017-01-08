@@ -1037,4 +1037,75 @@ acf_add_local_field_group(array (
 
 endif;
 
+// Preisträger-Übersicht
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array (
+  'key' => 'group_587231c7a4c82',
+  'title' => 'Preisträger-Liste',
+  'fields' => array (
+    array (
+      'key' => 'field_587231eb645da',
+      'label' => 'Preis',
+      'name' => 'preis_to_show',
+      'type' => 'taxonomy',
+      'instructions' => 'Wähle hier aus, Preisträger welches Preises (z.B. Top30 2016, JDJ 2015...) auf der Seite gelistet werden sollen.',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'taxonomy' => 'preise',
+      'field_type' => 'checkbox',
+      'allow_null' => 0,
+      'add_term' => 0,
+      'save_terms' => 0,
+      'load_terms' => 0,
+      'return_format' => 'object',
+      'multiple' => 0,
+    ),
+    array (
+      'key' => 'field_58723badda55c',
+      'label' => 'Header-Text',
+      'name' => 'header-text',
+      'type' => 'textarea',
+      'instructions' => 'Wenn Du hier Text einträgst, wird er im farbig hinterlegten Header der Übersichtsseite angezeigt. Darunter folgt der Inhalt des großen Textfeldes.',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'default_value' => '',
+      'placeholder' => '',
+      'maxlength' => '',
+      'rows' => '',
+      'new_lines' => 'wpautop',
+    ),
+  ),
+  'location' => array (
+    array (
+      array (
+        'param' => 'page_template',
+        'operator' => '==',
+        'value' => 'page-templates/template-preistraeger-liste.php',
+      ),
+    ),
+  ),
+  'menu_order' => 0,
+  'position' => 'normal',
+  'style' => 'seamless',
+  'label_placement' => 'top',
+  'instruction_placement' => 'label',
+  'hide_on_screen' => '',
+  'active' => 1,
+  'description' => 'Anzeige von Preisträgern',
+));
+
+endif;
+
 ?>
