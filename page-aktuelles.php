@@ -26,7 +26,7 @@ get_header(); ?>
           <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
           <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
           <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+            <a class="img-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
               <figure class="figure col-sm-3">
                 <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
                 <figcaption class="figure-caption"><?php echo $caption ?></figcaption>

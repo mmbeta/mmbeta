@@ -73,8 +73,7 @@
           <strong>Alle Kategorien:</strong>
 
           <?php
-            $taxonomy = 'preise';
-              //$terms = wp_list_categories( 'title_li=&style=none&echo=0&taxonomy=' . $taxonomy . '&exclude=2,3' );        
+            $taxonomy = 'preise';        
  
             $orderby      = 'count'; 
             $show_count   = 0;      // 1 for yes, 0 for no

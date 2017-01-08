@@ -39,6 +39,11 @@ a:hover {
   color: #305d63;
 }
 
+a.img-link {
+  text-decoration: none;
+  border: none; 
+}
+
 
 /* Footer */
 footer.mmbeta_footer {
