@@ -108,7 +108,7 @@ function mmbeta_setup() {
 
 	// mmbeta-Farben
 
-	function mmbeta_color($color_name) {
+	function mmbeta_color($color_name = 'grau') {
 		$colors = array(
 			'blau' => 'rgba(59,67,149,0.7)',
 			'magenta' => 'rgba(149,36,86,1)',
@@ -119,7 +119,7 @@ function mmbeta_setup() {
 			'grau' => '#f7f7f9'
 		);
 
-		if($color_name && $colors[$color_name]){
+		if( $color_name && $colors[$color_name]){
 			return $colors[$color_name];
 		}else{
 			return $colors['grau'];
