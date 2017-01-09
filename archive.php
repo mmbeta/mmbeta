@@ -12,15 +12,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 		<?php if ( have_posts() ) : ?>
-			<div class="row">
-				<header class="page-header col-xs-12 m-b p-a text-center" style="background-color: <?php echo mmbeta_color('petrol'); ?>">
-					<?php
-						single_term_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="taxonomy-description">', '</div>' );
-					?>
-				</header><!-- .page-header -->
-			</div>
-			<?php /* Start the Loop */ ?>
+
 			<?php while ( have_posts() ) : the_post(); ?>
 
         <article class="row">
