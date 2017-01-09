@@ -416,7 +416,7 @@ add_shortcode('heads-gallery', 'heads_gallery_shortcode');
 
 function cover_gallery_shortcode( $attr ) {
   if ( !isset($attr['kategorie']) ) {
-    $attr['kategorie'] = 'heftvorschau';
+    $attr['kategorie'] = 'ausgabe';
   }
   if ( !isset($attr['titel']) ) {
     $attr['titel'] = 'Aktuelle Ausgaben';

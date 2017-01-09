@@ -794,7 +794,7 @@ acf_add_local_field_group(array (
               'label' => 'Cover-Slider',
               'name' => 'cover-slider',
               'type' => 'taxonomy',
-              'instructions' => 'Wählen Sie die Kategorie aus, deren Posts in der Galerie angezeigt werden sollen. Wenn Sie nichts auswählen, wird die Kategorie "Heftvorschau" ausgewählt.',
+              'instructions' => 'Wählen Sie die Kategorie aus, deren Posts in der Galerie angezeigt werden sollen. Wenn Sie nichts auswählen, wird die Kategorie "Ausgabe" ausgewählt.',
               'required' => 0,
               'conditional_logic' => 0,
               'wrapper' => array (
