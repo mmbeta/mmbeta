@@ -2,7 +2,8 @@
 
 /**
  * Template Name: Preisträger Liste
- * The template file for mmbeta home page.
+ * Template Post Type: post, page
+ * The template file for Preisträger lists.
  *
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
