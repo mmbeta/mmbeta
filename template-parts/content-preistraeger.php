@@ -70,7 +70,7 @@
         <div class="m-t"><?php the_field( "begruendung" ); ?></div>
         <?php if ($preis !== 'top-30-bis-30') : ?>
         <div class="small">
-          <strong>Alle Kategorien:</strong>
+          <!-- <strong>Alle Kategorien:</strong> -->
 
           <?php
             $taxonomy = 'preise';        
@@ -93,9 +93,7 @@
             );
             ?>
 
-          <ul class="list-inline">
-          <?php wp_list_categories( $args ); ?>
-          </ul>
+
         </div>
         <?php endif; ?>
       </div>
