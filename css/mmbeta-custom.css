@@ -151,6 +151,11 @@ div.card.showcase {
   max-width: 100%;
 }
 
+.logo {
+  max-width: 50% !important;
+  margin: auto;
+}
+
 img.popup {
   cursor: zoom-in;
 }

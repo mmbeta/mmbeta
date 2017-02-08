@@ -17,22 +17,21 @@
 <article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="m-t m-b row">  
     <div class="col-lg-8 col-lg-offset-2 col-xs-12">
-    <?php if (!has_post_thumbnail()) : ?>
-    <div class="col-md-2 col-xs-5">
-      <figure class="figure">
-        <img class="img-responsive col-lg-12" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
-      </figure>
-    </div>
-    <?php else : ?>
-    <div class="col-lg-4">
-      <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
-      <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
-      <figure class="figure">
-        <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
-        <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
-      </figure>
+      <div class="col-lg-4 col-md-2 col-xs-5">
+      <?php if (!has_post_thumbnail()) : ?>      
+        <figure class="figure">
+          <img class="logo" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
+        </figure>
+      <?php else : ?>
+        <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
+        <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
+        <figure class="figure">
+          <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
+          <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
+        </figure>
+      <?php endif; ?>
       
-      <?php if ($preis === 'top-30-bis-30') : ?>
+      <?php if ( get_field("website") || get_field('geburtsdatum') || get_field('geburtsdatum-fallback') || get_field('twitter') ) : ?>
       <div class="profil-box m-b">
         <ul class="list-group">
           <?php if(get_field('geburtsdatum')) : ?>
@@ -51,8 +50,8 @@
       </div>
       <?php endif; ?>
 
-    </div>
-    <?php endif; ?>
+
+      </div>
     
     <div class="col-lg-8">
     <?php if ( ! post_password_required() ) { ?>
