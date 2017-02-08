@@ -99,7 +99,7 @@
     $post_count = 0;
     while ( have_posts() ) {
        the_post();
-       $first_letter = strtoupper(substr(get_field('nachname'),0,1));
+       $first_letter = strtoupper(mb_substr(get_field('nachname'),0,1));
        if ($first_letter != $curr_letter) {
           if (++$post_count > 1) {
              end_prev_letter();

@@ -58,7 +58,7 @@ $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
     }
     function start_new_letter($letter) {
        echo "<div class='alert-jdj'>\n";
-       echo "\t<strong>$letter</strong>\n";
+       echo "\t <strong>" . $letter . "</strong>\n";
        echo "</div>";
     }
 
@@ -93,7 +93,7 @@ $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
       $post_count = 0;
       while ( have_posts() ) {
          the_post();
-         $first_letter = strtoupper(substr(get_field('nachname'),0,1));
+         $first_letter = strtoupper(mb_substr(get_field('nachname'),0,1));
          if ($first_letter != $curr_letter) {
             if (++$post_count > 1) {
                end_prev_letter();
