@@ -1035,6 +1035,68 @@ acf_add_local_field_group(array (
   'description' => '',
 ));
 
+acf_add_local_field_group(array (
+  'key' => 'group_597df6a44939b',
+  'title' => 'Facebook Einstellungen',
+  'fields' => array (
+    array (
+      'key' => 'field_597df6a44b21a',
+      'label' => 'Facebook App ID',
+      'name' => 'facebook_app_id',
+      'type' => 'text',
+      'instructions' => 'Auf https://developers.facebook.com/ können Sie eine Facebook-App erstellen und dann die App-ID hier einfügen.',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'default_value' => '',
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'maxlength' => '',
+    ),
+    array (
+      'key' => 'field_597df6a44b22b',
+      'label' => 'Facebook App Secret',
+      'name' => 'facebook_secret',
+      'type' => 'text',
+      'instructions' => '',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'default_value' => '',
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'maxlength' => '',
+    ),
+  ),
+  'location' => array (
+    array (
+      array (
+        'param' => 'options_page',
+        'operator' => '==',
+        'value' => 'acf-options-mmbeta-settings',
+      ),
+    ),
+  ),
+  'menu_order' => 0,
+  'position' => 'normal',
+  'style' => 'default',
+  'label_placement' => 'top',
+  'instruction_placement' => 'label',
+  'hide_on_screen' => '',
+  'active' => 1,
+  'description' => '',
+));
+
 endif;
 
 // Preisträger-Übersicht

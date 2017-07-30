@@ -10,7 +10,6 @@
 $tweet = get_sub_field('tweet');
 $fbpost = get_sub_field('facebook');
 
-
 if (function_exists('hourly_social_api_call')) {
   if (!$tweet) {
     $tweet_from_cache = get_transient( 'mmbeta_tweet' );

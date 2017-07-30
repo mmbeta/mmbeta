@@ -243,6 +243,17 @@ function mmbeta_setup() {
 	}
 	add_action( 'init', 'add_taxonomy_preise', 0 );
 
+	// replace jahr in URL with the year set in a custom field
+
+	function jahr_im_permalink( $link, $post ){
+	  $post_meta = get_post_meta( $post->ID, 'preis_jahr', true );
+	  if( empty( $post_meta ) || !is_string( $post_meta ) )
+	    $post_meta = 'hheheh';
+	  $link = str_replace( '_preis-jahr_', $post_meta, $link );
+	  return $link;
+	}
+
+	// add_filter( 'post_type_link', 'jahr_im_permalink', 10, 2 );
 
 	// Change Password protected wording
 
