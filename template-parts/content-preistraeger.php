@@ -11,12 +11,24 @@
 
 <?php
   $kategorie = mmbeta_die_preiskategorie_object();
-  $preis = get_term($kategorie->parent, 'preise')->slug;
+  $kategorie_id = $kategorie->term_id;
+  $preis = mmbeta_welcher_preis();
+  $preis_slug = mmbeta_welcher_preis('slug');
+  $preis_id = mmbeta_welcher_preis('term_id');
+  $jahr_id = mmbeta_welches_preis_jahr('term_id');
 ?>
 
 <article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="m-t m-b row">  
     <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+      <ol class="breadcrumb" style="background-color: <?php print mmbeta_color() ?>">
+        <li class="breadcrumb-item"><a href="#"><?php print $preis; ?></a></li>
+        <li class="breadcrumb-item"><a href="#"><?php print mmbeta_welches_preis_jahr(); ?></a></li>
+        <?php if ($preis_slug !== 'top-30-bis-30') : ?>
+          <li class="breadcrumb-item"><a href="#"><?php mmbeta_die_preiskategorie(); ?></a></li>
+        <?php endif; ?>
+        <li class="breadcrumb-item active"><?php the_title(); ?></li>
+      </ol>
       <div class="col-lg-4 col-md-2 col-xs-5">
       <?php if (!has_post_thumbnail()) : ?>      
         <figure class="figure">
@@ -53,23 +65,23 @@
 
       </div>
     
+
     <div class="col-lg-8">
     <?php if ( ! post_password_required() ) { ?>
         <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
         <h6 class="text-muted"><?php the_field( "position" ); ?></h6>
         
-
-        <?php if ($preis !== 'top-30-bis-30') : ?>
+        <?php if ($preis_slug !== 'top-30-bis-30') : ?>
         <div class="lead">
-          <strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?>, <strong>Platz: </strong>
+          <strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?>, <strong>Jahr: </strong><?php print mmbeta_welches_preis_jahr() . ", "; ?><strong>Platz: </strong>
           <?php the_field('platz'); ?>
         </div>
         <?php endif; ?>
 
         <div class="m-t"><?php the_field( "begruendung" ); ?></div>
-        <?php if ($preis !== 'top-30-bis-30') : ?>
+        <?php if ($preis_slug !== 'top-30-bis-30') : ?>
         <div class="small">
-          <!-- <strong>Alle Kategorien:</strong> -->
+          <strong>Alle Kategorien:</strong>
 
           <?php
             $taxonomy = 'preise';        
@@ -84,14 +96,17 @@
               'taxonomy'     => $taxonomy,
               'orderby'      => $orderby,
               'order'        => 'DESC',
-              'exclude'      => '2,3',
+              // 'exclude'      => '2,3,' . $kategorie_id . ',' . $preis_id,
+              'child_of'     => $jahr_id,
               'show_count'   => $show_count,
               'pad_counts'   => $pad_counts,
               'hierarchical' => $hierarchical,
               'title_li'     => $title
             );
             ?>
-
+          <ul class="list-inline">
+            <?php wp_list_categories( $args ); ?>
+          </ul>
 
         </div>
         <?php endif; ?>

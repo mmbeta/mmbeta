@@ -243,17 +243,6 @@ function mmbeta_setup() {
 	}
 	add_action( 'init', 'add_taxonomy_preise', 0 );
 
-	// replace jahr in URL with the year set in a custom field
-
-	function jahr_im_permalink( $link, $post ){
-	  $post_meta = get_post_meta( $post->ID, 'preis_jahr', true );
-	  if( empty( $post_meta ) || !is_string( $post_meta ) )
-	    $post_meta = 'hheheh';
-	  $link = str_replace( '_preis-jahr_', $post_meta, $link );
-	  return $link;
-	}
-
-	// add_filter( 'post_type_link', 'jahr_im_permalink', 10, 2 );
 
 	// Change Password protected wording
 
@@ -372,7 +361,11 @@ function mmbeta_die_preiskategorie(){
   $args = array('orderby' => 'count', 'order' => 'DESC');
   $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
 
-  echo end($post_terms)->name;
+  if ($post_terms[0]->slug == "top-30-bis-30") {
+  	echo "Top30";
+  }else{
+	  echo end($post_terms)->name;
+  }
 }
 
 function mmbeta_die_preiskategorie_object(){
@@ -400,6 +393,21 @@ function mmbeta_welcher_preis($return_value = 'name'){
   }else{
   	return $two_tags_with_most_children[0]->$return_value;
   }
+}
+
+//Gibt das Preisjahr aus den Tags zurück
+function mmbeta_welches_preis_jahr($return_value = 'name'){
+  $taxonomy = 'preise';
+  $id = get_the_ID();
+  $args = array('orderby' => 'count', 'order' => 'DESC');
+  $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
+
+  if ( strpos( $post_terms[1]->name, '20' ) !== false ) {
+  	return $post_terms[1]->$return_value;
+  }else{
+  	return false;
+  }
+
 }
 
 // Bootstrap classes to post images
