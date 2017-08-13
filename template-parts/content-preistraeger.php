@@ -16,19 +16,26 @@
   $preis_slug = mmbeta_welcher_preis('slug');
   $preis_id = mmbeta_welcher_preis('term_id');
   $jahr_id = mmbeta_welches_preis_jahr('term_id');
+
+  $jahr_object = get_term_by( 'id', $jahr_id, 'preise' );
+  $tax_page = get_field('preis_seite', $jahr_object )[0];
 ?>
 
 <article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="m-t m-b row">  
     <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+      
       <ol class="breadcrumb" style="background-color: <?php print mmbeta_color() ?>">
-        <li class="breadcrumb-item"><a href="#"><?php print $preis; ?></a></li>
-        <li class="breadcrumb-item"><a href="#"><?php print mmbeta_welches_preis_jahr(); ?></a></li>
+        <li class="breadcrumb-item"><a href="/preise/<?php print $preis_slug; ?>"><?php print $preis; ?></a></li>
+        <li class="breadcrumb-item"><a href="<?php the_permalink($tax_page); ?>"><?php print mmbeta_welches_preis_jahr(); ?></a></li>
         <?php if ($preis_slug !== 'top-30-bis-30') : ?>
-          <li class="breadcrumb-item"><a href="#"><?php mmbeta_die_preiskategorie(); ?></a></li>
+          <li class="breadcrumb-item">
+            <a href="/preise/<?php print $kategorie->slug; ?>"><?php print $kategorie->name; ?></a>
+          </li>
         <?php endif; ?>
         <li class="breadcrumb-item active"><?php the_title(); ?></li>
       </ol>
+
       <div class="col-lg-4 col-md-2 col-xs-5">
       <?php if (!has_post_thumbnail()) : ?>      
         <figure class="figure">

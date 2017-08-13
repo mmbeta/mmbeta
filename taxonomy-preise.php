@@ -9,16 +9,40 @@
 
 get_header();?>
 <?php 
-$tax_name = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-$tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
-$page_name = strtolower($tax_name->name . '-' . $tax_name_parent->name);
 
-if($tax_name_parent->slug === 'journalisten-des-jahres' || $tax_name_parent->slug === 'top-30-bis-30'){
+// Cases: 
+// `toplevel` - Seite ist top30 oder jdj (top-level Tag) -> Liste der Jahrgänge
+// `jahrgang` - Seite ist Jahr (2016jdj, 2017top30) -> Liste der Preisträger des Jahrgangs (eigentlich über Seiten gelöst bzw. am Tag gespeichert)
+// `preiskategorie` - Seite ist Preiskategorie (nur JDJ) -> Cards-Übersicht über die Preisträger der Kategorie
+
+$page_type = "archive";
+$tax_name = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+$tax_parent = get_term_by('id', $tax_name->parent, get_query_var( 'taxonomy' ) );
+
+if(!$tax_parent){
+  $page_type = "toplevel";
+}elseif ( strpos( $tax_name->name, '20' ) !== false ) {
+  $page_type = "jahrgang";
+}elseif ( strpos( $tax_parent->name, '20' ) !== false ) {
+  $page_type = "preiskategorie";
+}
+
+print($page_type);
+
+
+if ($tax_name->parent) {
+  $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
+}else{
+  $tax_name_parent = false;
+}
+
+
+
+if($tax_name_parent && $tax_name_parent->slug === 'journalisten-des-jahres' || $tax_name_parent->slug === 'top-30-bis-30'){
   get_template_part('template-parts/content', 'uebersicht');
 }else{
 
   $terms = get_the_terms( get_the_ID(), 'preise');
-
   $term = get_query_var( 'term' );
   $term_object = get_term_by( 'slug', $term, 'preise' );
 
@@ -29,9 +53,9 @@ if($tax_name_parent->slug === 'journalisten-des-jahres' || $tax_name_parent->slu
     $args = array (
       'page_id' => $tax_page,
     );   
-  }else{
+  }elseif ($tax_name_parent) {
     $args = array (
-      'pagename' => $page_name,
+      'pagename' => strtolower($tax_name->name . '-' . $tax_name_parent->name),
     );
   }
 

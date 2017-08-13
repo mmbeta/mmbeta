@@ -385,6 +385,7 @@ function mmbeta_welcher_preis($return_value = 'name'){
   $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
   $two_tags_with_most_children = array_slice($post_terms, 0, 2);
   if ($two_tags_with_most_children[0]->count === $two_tags_with_most_children[1]->count) {
+
   	if($two_tags_with_most_children[0]->parent === 0 ){
   		return $two_tags_with_most_children[0]->$return_value;
   	}else{
