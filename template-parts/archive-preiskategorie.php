@@ -2,12 +2,12 @@
   $terms = get_the_terms( get_the_ID(), 'preise');
   $term = get_query_var( 'term' );
   $term_object = get_term_by( 'slug', $term, 'preise' );
-  $tax_page = get_field('preis_seite', $term_object )[0];
+  $tax_page = get_field('preis_seite', $term_object );
 
   // To keep pages working where pages where included by page-slug-logic I fall back to this behaviour
   if($tax_page){
     $args = array (
-      'page_id' => $tax_page,
+      'page_id' => $tax_page[0],
     );   
   }elseif ( isset($tax_name_parent) ) {
     $args = array (

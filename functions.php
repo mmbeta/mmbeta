@@ -391,8 +391,10 @@ function mmbeta_welcher_preis($return_value = 'name'){
   	}else{
   		return $two_tags_with_most_children[1]->$return_value;
   	}
-  }else{
+  }elseif( isset($two_tags_with_most_children[0]->$return_value) ){
   	return $two_tags_with_most_children[0]->$return_value;
+  }else{
+  	return false;
   }
 }
 
@@ -410,6 +412,20 @@ function mmbeta_welches_preis_jahr($return_value = 'name'){
   }
 
 }
+
+// Jahr der Auszeichnung und Wettbewerb als Custom Field eintragen
+function add_custom_field_automatically($post_id) {
+
+  $preis_jahr = mmbeta_welches_preis_jahr('name');
+  $preis_name = mmbeta_welcher_preis('slug');
+
+  if (!$preis_jahr) { $preis_jahr = "_"; }  
+  if (!$preis_name) { $preis_name = "_"; }
+
+	update_post_meta( $post_id, "preis-jahr", $preis_jahr );
+	update_post_meta( $post_id, "preis-name", $preis_name );
+}
+add_action('publish_preistraeger', 'add_custom_field_automatically');
 
 // Bootstrap classes to post images
 function html5_insert_image($html, $id, $caption, $title, $align, $url, $size, $alt) {
