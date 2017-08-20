@@ -21,7 +21,7 @@
   $tax_page = get_field('preis_seite', $jahr_object )[0];
 ?>
 
-<article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="preistraeger-<?php the_ID(); ?>" class="col-xs-12" ?>
   <div class="m-t m-b row">  
     <div class="col-lg-8 col-lg-offset-2 col-xs-12">
       
