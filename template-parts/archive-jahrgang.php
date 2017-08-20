@@ -112,6 +112,7 @@
     end_prev_letter();
     ?>
     </div>
+    </div>
   <?php } else {
     echo "<h2>Sorry, no posts were found!</h2>";
   } //end of jdj-archive

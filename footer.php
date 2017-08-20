@@ -43,7 +43,7 @@
 
 </footer><!-- #colophon -->
 
-</div><!-- #page -->
+</div><!-- #page footer -->
 
 <?php wp_footer(); ?>
 
