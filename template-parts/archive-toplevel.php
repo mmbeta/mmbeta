@@ -4,7 +4,7 @@
     <?php
       $taxonomy_name = get_query_var( 'taxonomy' );
       $term = get_term_by( 'slug', get_query_var( 'term' ), $taxonomy_name ); 
-      $term_children = get_term_children($term->term_id, $term->taxonomy);
+      $term_children = get_terms( $taxonomy_name, array('parent' => $term->term_id ) );
     ?>
 
 
@@ -25,8 +25,8 @@
           <ul class="list-group">
           <?php
             foreach ( $term_children as $child ) {
-              $term_child = get_term_by( 'id', $child, $taxonomy_name );
-              echo '<li class="list-group-item"><a href="' . get_term_link( $term_child, $taxonomy_name ) . '">' . $term_child->name . '</a></li>';
+              // $term_child = get_term_by( 'id', $child, $taxonomy_name );
+              echo '<li class="list-group-item"><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $child->name . '</a></li>';
             }
           ?>
           </ul>
