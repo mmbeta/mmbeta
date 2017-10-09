@@ -22,16 +22,24 @@
   $tax_page_url = get_post_permalink($tax_page);
   $access = true;
   
-  $access_result = LaterPay_Helper_Request::laterpay_api_get_access( array($tax_page) );
 
-  if ( empty( $access_result ) || ! array_key_exists( 'articles', $access_result ) ) {
-    $access = false;
-  }
+global $post;
+$post->tax_page = $tax_page;
 
-  if ( array_key_exists( 'articles', $access_result ) ) {
-    $access = $access_result['articles'][$tax_page]['access'];
-  }
-  
+
+
+
+  if ( class_exists("LaterPay_Helper_Request") &&  ! empty($tax_page) ){
+    $access_result = LaterPay_Helper_Request::laterpay_api_get_access( array($tax_page) );
+
+    if ( empty( $access_result ) || ! array_key_exists( 'articles', $access_result ) ) {
+      $access = false;
+    }
+
+    if ( array_key_exists( 'articles', $access_result ) ) {
+      $access = $access_result['articles'][$tax_page]['access'];
+    }
+  }  
 ?>
 
 <article id="preistraeger-<?php the_ID(); ?>" class="col-xs-12" ?>

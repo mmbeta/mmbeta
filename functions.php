@@ -505,6 +505,69 @@ function mm_get_attachment_id_from_url( $attachment_url = '' ) {
 	return $attachment_id;
 }
 
+// Laterpay Link Generator function
+function mmbeta_get_laterpay_purchase_link( $post_id ) {
+  $post = get_post( $post_id );
+  if ( $post === null || !function_exists("laterpay_get_plugin_config") ) {
+      return '';
+  }
+
+  $config = laterpay_get_plugin_config();
+
+  $currency       = $config->get( 'currency.code' );
+  $price          = LaterPay_Helper_Pricing::get_post_price( $post->ID );
+  $revenue_model  = LaterPay_Helper_Pricing::get_post_revenue_model( $post->ID );
+
+  $client_options = LaterPay_Helper_Config::get_php_client_options();
+  $client         = new LaterPay_Client(
+      $client_options['cp_key'],
+      $client_options['api_key'],
+      $client_options['api_root'],
+      $client_options['web_root'],
+      $client_options['token_name']
+  );
+
+  // data to register purchase after redirect from LaterPay
+  $url_params = array(
+      'post_id' => $post->ID,
+      'buy'     => 'true',
+  );
+
+  // get current post link
+  $link = get_permalink( $post_id );
+
+  // cut params from link and merge with other params
+  $parsed_link = parse_url( $link );
+  if ( isset( $parsed_link['query'] ) ) {
+      parse_str( $parsed_link['query'], $link_params );
+      $url_params = array_merge( $link_params, $url_params );
+      list( $link, $last ) = explode( '?', $link );
+  }
+
+  // parameters for LaterPay purchase form
+  $params = array(
+      'article_id'    => $post->ID,
+      'pricing'       => $currency . ( $price * 100 ),
+      'url'           => $link . '?' . build_query( $url_params ),
+      'title'         => $post->post_title,
+      'require_login' => (int) get_option( 'laterpay_require_login', 0 ),
+  );
+
+  laterpay_get_logger()->info(
+      __METHOD__, $params
+  );
+
+  if ( $revenue_model === 'sis' ) {
+      // Single Sale purchase
+      return $client->get_buy_url( $params );
+  } else {
+      // Pay-per-Use purchase
+      return $client->get_add_url( $params );
+  }
+}
+
+
+
 // Attach callback to 'tiny_mce_before_init' 
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
 

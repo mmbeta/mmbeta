@@ -15,19 +15,21 @@ get_header();
 
 $tax_name = get_field('preis_to_show')[0];
 $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
-$access = true;
 $post_id = get_the_ID();
-
 $access = true;
 
-$access_result = LaterPay_Helper_Request::laterpay_api_get_access( array($post_id) );
+if ( class_exists("LaterPay_Helper_Request") ){
 
-if ( empty( $access_result ) || ! array_key_exists( 'articles', $access_result ) ) {
-  $access = false;
-}
+  $access_result = LaterPay_Helper_Request::laterpay_api_get_access( array($post_id) );
 
-if ( array_key_exists( 'articles', $access_result ) ) {
-  $access = $access_result['articles'][$post_id]['access'];
+  if ( empty( $access_result ) || ! array_key_exists( 'articles', $access_result ) ) {
+    $access = false;
+  }
+
+  if ( array_key_exists( 'articles', $access_result ) ) {
+    $access = $access_result['articles'][$post_id]['access'];
+  }
+
 }
 
 ?>

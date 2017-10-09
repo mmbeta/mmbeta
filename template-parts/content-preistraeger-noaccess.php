@@ -18,7 +18,10 @@
       </p>
     </div>
     <div class="card-block">
-      <a href="<?php the_permalink(); ?>" class="btn btn-secondary">Jetzt kaufen</a>  
+      <?php global $post; ?>
+      <a href="<?php echo mmbeta_get_laterpay_purchase_link( $post->tax_page ); ?>" class="btn btn-secondary">Jetzt kaufen</a> 
+
+ 
     </div>  
   </article>
 </div>
