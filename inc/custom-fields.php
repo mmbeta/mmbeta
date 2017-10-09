@@ -237,10 +237,11 @@ if(function_exists("register_field_group")){
         'label' => 'Seite für Preis',
         'name' => 'preis_seite',
         'type' => 'relationship',
-        'instructions' => 'Hier können Sie eine Seite auswählen, deren Inhalt über der Preisträger-Übersicht dieser Kategorie angezeigt wird.',
+        'instructions' => 'Hier können Sie eine Seite auswählen, deren Inhalt über der Preisträger-Übersicht dieser Kategorie angezeigt wird. Bei Jahrgängen (2015/2016...) wird hier die Jahrgangsübersicht ausgewählt - das ist beim Einsatz von Laterpay der Inhalt der gekauft werden muss, um Zugriff auf die einzelnen Preisträger zu haben.',
         'return_format' => 'id',
         'post_type' => array (
           0 => 'page',
+          1 => 'post',
         ),
         'taxonomy' => array (
           0 => 'all',

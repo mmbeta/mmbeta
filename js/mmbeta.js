@@ -145,7 +145,8 @@ if(jQuery('.preistraeger-card').length > 1){
 
   jQuery("div.preistraeger-card").each(function(){
     counter++;
-    if(counter%Math.floor(cardClusterWidth/cardWidth) === 0){      
+    if(counter%Math.floor(cardClusterWidth/cardWidth) === 0){
+      console.log(counter, counter%Math.floor(cardClusterWidth/cardWidth) === 0 );      
       jQuery(jQuery("div.preistraeger-card")[counter-1]).after("</div><div class='row'>");
     }
   })

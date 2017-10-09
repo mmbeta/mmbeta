@@ -15,6 +15,21 @@ get_header();
 
 $tax_name = get_field('preis_to_show')[0];
 $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
+$access = true;
+$post_id = get_the_ID();
+
+$access = true;
+
+$access_result = LaterPay_Helper_Request::laterpay_api_get_access( array($post_id) );
+
+if ( empty( $access_result ) || ! array_key_exists( 'articles', $access_result ) ) {
+  $access = false;
+}
+
+if ( array_key_exists( 'articles', $access_result ) ) {
+  $access = $access_result['articles'][$post_id]['access'];
+}
+
 ?>
 
 <div id="primary" class="content-area">
@@ -45,9 +60,11 @@ $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
           </div>  
         </div>
       <?php 
-      endif;
-      the_content(); 
+      endif; 
       ?>
+    </div>
+    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12">
+      <?php the_content(); ?>
     </div>
     <div class="preistraeger-collection-container">
     <?php 
