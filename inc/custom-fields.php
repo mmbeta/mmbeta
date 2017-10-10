@@ -1098,6 +1098,68 @@ acf_add_local_field_group(array (
   'description' => '',
 ));
 
+acf_add_local_field_group(array (
+  'key' => 'group_597df6a44939blaterpay',
+  'title' => 'Paywall Einstellungen',
+  'fields' => array (
+    array (
+      'key' => 'field_597df6a44b21alaterpaytop30',
+      'label' => 'Paywall-Text für Top30',
+      'name' => 'paywall-text_top30',
+      'type' => 'textarea',
+      'instructions' => 'Dieser Text wird auf Preisträgerseiten angezeigt, wenn der Nutzer noch keinen Zugang hat.',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'default_value' => '',
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'maxlength' => '',
+    ),
+    array (
+      'key' => 'field_597df6a44b22blaterpayjdj',
+      'label' => 'Paywall-Text für JDJ',
+      'name' => 'paywall-text_jdj',
+      'type' => 'textarea',
+      'instructions' => 'Dieser Text wird auf Preisträgerseiten angezeigt, wenn der Nutzer noch keinen Zugang dazu hat.',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'default_value' => '',
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'maxlength' => '',
+    ),
+  ),
+  'location' => array (
+    array (
+      array (
+        'param' => 'options_page',
+        'operator' => '==',
+        'value' => 'acf-options-mmbeta-settings',
+      ),
+    ),
+  ),
+  'menu_order' => 0,
+  'position' => 'normal',
+  'style' => 'default',
+  'label_placement' => 'top',
+  'instruction_placement' => 'label',
+  'hide_on_screen' => '',
+  'active' => 1,
+  'description' => '',
+));
+
 endif;
 
 // Preisträger-Übersicht

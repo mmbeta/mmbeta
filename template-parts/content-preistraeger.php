@@ -23,11 +23,11 @@
   $access = true;
   
 
-global $post;
-$post->tax_page = $tax_page;
-
-
-
+  global $post;
+  $post->tax_page = $tax_page;
+  $post->preis = $preis;
+  $post->preis_slug = $preis_slug;
+  $post->jahr_name = mmbeta_welches_preis_jahr();
 
   if ( class_exists("LaterPay_Helper_Request") &&  ! empty($tax_page) ){
     $access_result = LaterPay_Helper_Request::laterpay_api_get_access( array($tax_page) );
@@ -48,7 +48,7 @@ $post->tax_page = $tax_page;
       
       <ol class="breadcrumb" style="background-color: <?php print mmbeta_color() ?>">
         <li class="breadcrumb-item"><a href="/preise/<?php print $preis_slug; ?>"><?php print $preis; ?></a></li>
-        <li class="breadcrumb-item"><a href="<?php the_permalink($tax_page); ?>"><?php print mmbeta_welches_preis_jahr(); ?></a></li>
+        <li class="breadcrumb-item"><a href="<?php the_permalink($tax_page); ?>"><?php print $post->jahr_name; ?></a></li>
         <?php if ($preis_slug !== 'top-30-bis-30') : ?>
           <li class="breadcrumb-item">
             <a href="/preise/<?php print $kategorie->slug; ?>"><?php print $kategorie->name; ?></a>

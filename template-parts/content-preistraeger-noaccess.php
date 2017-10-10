@@ -12,9 +12,9 @@
 <div class="col-xs-12">
   <article class="card">
     <div class="card-block">
-      <h4 class="card-title">Kaufen Sie den Zugang zum Steckbrief von <?php the_title(); ?></h4>
+      <h4 class="card-title">Kaufen Sie den Zugang zu <?php echo $post->preis . " " . $post->jahr_name; ?></h4>
       <p class="card-text">
-        Sie können sich die Profile aller ausgezeichneten Top30 bis 30 ansehen, wenn Sie über Laterpay dafür bezahlen.
+        <?php the_field('paywall-text_top30', 'option') ?>
       </p>
     </div>
     <div class="card-block">
