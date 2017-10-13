@@ -14,7 +14,13 @@
     <div class="card-block">
       <h4 class="card-title">Kaufen Sie den Zugang zu <?php echo $post->preis . " " . $post->jahr_name; ?></h4>
       <p class="card-text">
-        <?php the_field('paywall-text_top30', 'option') ?>
+        <?php 
+        if ($post->preis_slug == "top-30-bis-30") {
+          the_field('paywall-text_top30', 'option'); 
+        }else{
+          the_field('paywall-text_jdj', 'option');         
+        }
+        ?>
       </p>
     </div>
     <div class="card-block">
