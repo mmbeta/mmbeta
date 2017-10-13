@@ -29,19 +29,13 @@
   $post->preis_slug = $preis_slug;
   $post->jahr_name = mmbeta_welches_preis_jahr();
 
-  if ( class_exists("LaterPay_Helper_Request") &&  ! empty($tax_page) ):
-    $access_result = LaterPay_Helper_Request::laterpay_api_get_access( array($tax_page) );
+  if ( class_exists("LaterPay_Helper_Post") ):
+    $access = LaterPay_Helper_Post::has_access_to_post( get_post($post->tax_page) , false, null);
   ?>
     <div style="display: none;"><?php print_r($access_result); ?></div>
   <?php
-    if ( empty( $access_result ) || ! array_key_exists( 'articles', $access_result ) ) {
-      $access = false;
-    }
-
-    if ( array_key_exists( 'articles', $access_result ) ) {
-      $access = $access_result['articles'][$tax_page]['access'];
-    }
-  endif;  
+  endif;
+  
 ?>
 
 <article id="preistraeger-<?php the_ID(); ?>" class="col-xs-12" ?>
