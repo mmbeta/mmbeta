@@ -40,7 +40,7 @@
       </div>
       <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-b">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <img class="img-responsive" src="<?php echo get_template_directory_uri() . '/images/mm-logo.png'; ?>">
+            <?php get_template_part( 'template-parts/logo', '' ); ?>
           </a>
       </div>
   </div>

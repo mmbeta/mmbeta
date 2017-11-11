@@ -140,6 +140,17 @@ div.card.showcase {
   text-decoration: underline;
 }
 
+
+.logo__container {
+  width: 100%;
+}
+
+/* Logo Header */
+svg * {
+  transition: all .1s ease-out;
+}
+
+
 /* Image Firefox tweak */
 .figure-img {
   width: 100%;

@@ -41,8 +41,8 @@
 */
 
 
-/* @import must be at top of file, otherwise CSS will not work */
-@import url("//hello.myfonts.net/count/3116d1");
+/* @import must be at top of file, otherwise CSS will not work 
+@import url("//hello.myfonts.net/count/3116d1");*/
 
   
 @font-face {font-family: 'LeituraSans-Italic4';src: url('../webfonts/3116D1_0_0.eot');src: url('../webfonts/3116D1_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_0_0.woff2') format('woff2'),url('../webfonts/3116D1_0_0.woff') format('woff'),url('../webfonts/3116D1_0_0.ttf') format('truetype');}
