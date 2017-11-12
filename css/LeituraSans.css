@@ -1,6 +1,7 @@
-/**
+/*
  * @license
  * MyFonts Webfont Build ID 3217105, 2016-05-11T07:10:51-0400
+ * MyFonts Webfont Build ID 3481476, 2017-11-10T13:13:09-0500
  * 
  * The fonts listed in this notice are subject to the End User License
  * Agreement(s) entered into by the website owner. All other parties are 
@@ -32,8 +33,21 @@
  * Webfont: LeituraSans-Grot2 by DSType
  * URL: http://www.myfonts.com/fonts/dstype/leitura-sans/grot-2/
  * 
+ * Webfont: LeituraNews-Italic4 by DSType
+ * URL: https://www.myfonts.com/fonts/dstype/leitura-news/italic-4/
  * 
+ * Webfont: LeituraNews-Roman4 by DSType
+ * URL: https://www.myfonts.com/fonts/dstype/leitura-news/roman-4/
+ * 
+ * Webfont: LeituraNews-Italic2 by DSType
+ * URL: https://www.myfonts.com/fonts/dstype/leitura-news/italic-2/
+ * 
+ * Webfont: LeituraNews-Roman2 by DSType
+ * URL: https://www.myfonts.com/fonts/dstype/leitura-news/roman-2/
+
  * License: http://www.myfonts.com/viewlicense?type=web&buildid=3217105
+ * Licensed pageviews: 10,000
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3481476
  * Licensed pageviews: 10,000
  * Webfonts copyright: Copyright (c) 2006 by Dino dos Santos _DSType. All rights reserved.
  * 
@@ -41,30 +55,103 @@
 */
 
 
-/* @import must be at top of file, otherwise CSS will not work 
-@import url("//hello.myfonts.net/count/3116d1");*/
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3116d1");
+@import url("//hello.myfonts.net/count/351f84");
 
-  
-@font-face {font-family: 'LeituraSans-Italic4';src: url('../webfonts/3116D1_0_0.eot');src: url('../webfonts/3116D1_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_0_0.woff2') format('woff2'),url('../webfonts/3116D1_0_0.woff') format('woff'),url('../webfonts/3116D1_0_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'LeituraSans-Grot1';src: url('../webfonts/3116D1_1_0.eot');src: url('../webfonts/3116D1_1_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_1_0.woff2') format('woff2'),url('../webfonts/3116D1_1_0.woff') format('woff'),url('../webfonts/3116D1_1_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'LeituraSans-Italic3';src: url('../webfonts/3116D1_2_0.eot');src: url('../webfonts/3116D1_2_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_2_0.woff2') format('woff2'),url('../webfonts/3116D1_2_0.woff') format('woff'),url('../webfonts/3116D1_2_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'LeituraSans-Italic2';src: url('../webfonts/3116D1_3_0.eot');src: url('../webfonts/3116D1_3_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_3_0.woff2') format('woff2'),url('../webfonts/3116D1_3_0.woff') format('woff'),url('../webfonts/3116D1_3_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'LeituraSans-Grot4';src: url('../webfonts/3116D1_4_0.eot');src: url('../webfonts/3116D1_4_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_4_0.woff2') format('woff2'),url('../webfonts/3116D1_4_0.woff') format('woff'),url('../webfonts/3116D1_4_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'LeituraSans-Italic1';src: url('../webfonts/3116D1_5_0.eot');src: url('../webfonts/3116D1_5_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_5_0.woff2') format('woff2'),url('../webfonts/3116D1_5_0.woff') format('woff'),url('../webfonts/3116D1_5_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'LeituraSans-Grot3';src: url('../webfonts/3116D1_6_0.eot');src: url('../webfonts/3116D1_6_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_6_0.woff2') format('woff2'),url('../webfonts/3116D1_6_0.woff') format('woff'),url('../webfonts/3116D1_6_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'LeituraSans-Grot2';src: url('../webfonts/3116D1_7_0.eot');src: url('../webfonts/3116D1_7_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/3116D1_7_0.woff2') format('woff2'),url('../webfonts/3116D1_7_0.woff') format('woff'),url('../webfonts/3116D1_7_0.ttf') format('truetype');}
- 
+/* LeituraSans-Grot 2 */
+@font-face {
+  font-family: 'Leitura Sans';
+  src:  url('../webfonts/3116D1_7_0.eot');
+  src:  url('../webfonts/3116D1_7_0.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/3116D1_7_0.woff2') format('woff2'),
+        url('../webfonts/3116D1_7_0.woff') format('woff'),
+        url('../webfonts/3116D1_7_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* LeituraSans-Grot 4 */
+@font-face {
+  font-family: 'Leitura Sans';
+  src:  url('../webfonts/3116D1_4_0.eot');
+  src:  url('../webfonts/3116D1_4_0.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/3116D1_4_0.woff2') format('woff2'),
+        url('../webfonts/3116D1_4_0.woff') format('woff'),
+        url('../webfonts/3116D1_4_0.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* LeituraSans-Italic 2 */
+@font-face {
+  font-family: 'Leitura Sans';
+  src:  url('../webfonts/3116D1_3_0.eot');
+  src:  url('../webfonts/3116D1_3_0.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/3116D1_3_0.woff2') format('woff2'),
+        url('../webfonts/3116D1_3_0.woff') format('woff'),
+        url('../webfonts/3116D1_3_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* LeituraSans-Italic 4 */
+@font-face {
+  font-family: 'Leitura Sans';
+  src:  url('../webfonts/3116D1_0_0.eot');
+  src:  url('../webfonts/3116D1_0_0.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/3116D1_0_0.woff2') format('woff2'),
+        url('../webfonts/3116D1_0_0.woff') format('woff'),
+        url('../webfonts/3116D1_0_0.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* serif */
+/* Leitura News Roman 2 */
+@font-face {
+  font-family: 'Leitura Serif';
+  src:  url('../webfonts/351F84_3_0.eot');
+  src:  url('../webfonts/351F84_3_0.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/351F84_3_0.woff2') format('woff2'),
+        url('../webfonts/351F84_3_0.woff') format('woff'),
+        url('../webfonts/351F84_3_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Leitura News Roman 4 */
+@font-face {
+  font-family: 'Leitura Serif';
+  src:  url('../webfonts/351F84_1_0.eot');
+  src:  url('../webfonts/351F84_1_0.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/351F84_1_0.woff2') format('woff2'),
+        url('../webfonts/351F84_1_0.woff') format('woff'),
+        url('../webfonts/351F84_1_0.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Leitura News Italic 2 */
+@font-face {
+  font-family: 'Leitura Serif';
+  src:  url('../webfonts/351F84_2_0.eot');
+  src:  url('../webfonts/351F84_2_0.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/351F84_2_0.woff2') format('woff2'),
+        url('../webfonts/351F84_2_0.woff') format('woff'),
+        url('../webfonts/351F84_2_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Leitura News Italic 4 */
+@font-face {
+  font-family: 'Leitura Serif';
+  src:  url('../webfonts/351F84_0_0.eot');
+  src:  url('../webfonts/351F84_0_0.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/351F84_0_0.woff2') format('woff2'),
+        url('../webfonts/351F84_0_0.woff') format('woff'),
+        url('../webfonts/351F84_0_0.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
