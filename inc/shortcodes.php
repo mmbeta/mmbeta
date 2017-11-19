@@ -388,8 +388,8 @@ function heads_gallery_shortcode( $attr ) {
       jQuery(document).ready(function(){
         if(jQuery('.heads-gallery').length > 0){
           jQuery('.heads-gallery').owlCarousel({
-            navigation : false,
-            items : 4
+            items : 4,
+            lazyLoad: true
           });    
         }
       });
@@ -434,7 +434,7 @@ function cover_gallery_shortcode( $attr ) {
       while ( $query->have_posts() ) : $query->the_post();
       $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'cover' );
       $output .= "<a href='" . get_permalink() . "'><div class='item'>";
-      $output .= "<img src='" . $image[0] . "' class='figure-img'>"; 
+      $output .= "<img data-src='" . $image[0] . "' class='figure-img lazyOwl'>"; 
       $output .= "</div></a>";
       endwhile;
     endif;
@@ -459,6 +459,7 @@ function cover_gallery_shortcode( $attr ) {
         if(jQuery('.cover-gallery').length > 0){
           jQuery('.cover-gallery').owlCarousel({
             navigation : false,
+            lazyLoad: true,
             itemsScaleUp:true,
             itemsCustom : [
                     [0, 1],

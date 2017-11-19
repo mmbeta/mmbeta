@@ -43,12 +43,13 @@ function mmbeta_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'preview', 210, 140 );
 	add_image_size( 'cover', 360, 481, false );
+	add_image_size( 'cover-small', 65, 87, false );
 	add_image_size( 'card', 450, 300, array( 'center', 'center' ) );
 	add_image_size( 'square', 290, 290, array( 'center', 'center' ) );
 
-	add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+	add_filter( 'image_size_names_choose', 'custom_size_names' );
  
-	function my_custom_sizes( $sizes ) {
+	function custom_size_names( $sizes ) {
 	    return array_merge( $sizes, array(
 	        'preview' => __( 'klein, breit' ),
 	        'cover' => __( 'Print Cover, klein' ),
@@ -69,7 +70,7 @@ function mmbeta_setup() {
 		return $format_mapping[$format];
 	}
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in header and footer.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'mmbeta' ),
 		'footer' => esc_html__( 'Footer Menu', 'mmbeta' )
@@ -100,7 +101,7 @@ function mmbeta_setup() {
 		'gallery',
 	) );
 
-	//Admin Theme Options Page - needs ACF 5.o Pro installed
+	//Admin Theme Options Page - needs ACF 5.0 Pro installed
 	if (function_exists('acf_add_options_page')) {
 		acf_add_options_page( "mmbeta Settings" );
 	}
@@ -377,6 +378,7 @@ function mmbeta_die_preiskategorie_object(){
 }
 
 // Gibt zurück, ob der Preisträger den Preis JDJ oder Top30 bekommen hat
+// ToDo: Fall handeln, dass der Post keinem Preis zugeordnet ist
 function mmbeta_welcher_preis($return_value = 'name'){
   
   $taxonomy = 'preise';
@@ -472,7 +474,10 @@ function my_mce_before_init_insert_formats( $init_array ) {
 	
 	return $init_array;  
   
-} 
+}
+
+// Attach callback to 'tiny_mce_before_init' 
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );  
 
 // Get attachment id by url
 
@@ -566,10 +571,6 @@ function mmbeta_get_laterpay_purchase_link( $post_id ) {
   }
 }
 
-
-
-// Attach callback to 'tiny_mce_before_init' 
-add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
 
 /**
  * Custom fields (ACF required) for homepage, profiles, etc. 
