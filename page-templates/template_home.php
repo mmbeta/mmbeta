@@ -95,10 +95,11 @@ get_header();
               get_template_part( 'hp/hp', 'social');
             
             // Kopf-Slider
-            elseif( get_row_layout() == 'preistraeger-slider' ):
+            elseif( get_row_layout() == 'preistraeger-slider' && null !== get_sub_field('kopf-slider')  ):
               $kategorie = get_sub_field('kopf-slider');
               $farbe = get_sub_field('color');
               $titel = get_sub_field('slider_titel');
+              
               echo heads_gallery_shortcode( 
                 array(
                 'kategorie' => $kategorie->slug, 
@@ -107,6 +108,7 @@ get_header();
                 ) 
               );
               wp_reset_query();
+
             elseif ( get_row_layout() == 'cover-slider'):
               $kategorie = get_sub_field('cover-slider');
               $farbe = get_sub_field('color');

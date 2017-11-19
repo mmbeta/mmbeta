@@ -15,6 +15,16 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
       <div class="row m-b">
       <?php $slider_name = get_field('slider'); ?>
+
+      <?php
+
+      // topics set?
+      if( have_rows('ausgabenthemen') ){
+        get_template_part( 'template-parts/ausgabe', 'themen' );
+      }
+
+      ?>
+
       <?php
         if($slider_name !== '' && function_exists('putRevSlider') ){
           $theSlider = new RevSlider();
