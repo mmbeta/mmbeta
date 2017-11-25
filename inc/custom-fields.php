@@ -712,6 +712,93 @@ acf_add_local_field_group(array (
           'min' => '',
           'max' => '',
         ),
+
+        //Aufmacher Feld 
+        array (
+          'key' => '57f418b34983aufmacher',
+          'name' => 'aufmacher',
+          'label' => 'Aufmacher',
+          'display' => 'block',
+          'sub_fields' => array (
+            array (
+              'key' => 'field_57f411aufmacherartikel',
+              'label' => 'Artikel',
+              'name' => 'aufmacher-artikel',
+              'type' => 'post_object',
+              'instructions' => 'Wählen Sie den Artikel aus, der als Aufmacher erscheinen soll',
+              'required' => 1,
+              'conditional_logic' => 0,
+              'wrapper' => array (
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'post_type' => array (
+              ),
+              'taxonomy' => array (
+              ),
+              'allow_null' => 0,
+              'multiple' => 0,
+              'return_format' => 'id',
+              'ui' => 1,
+            ),
+            array (
+              'key' => 'field_5809ddbaufmacherfarbe',
+              'label' => 'Hintergrundfarbe',
+              'name' => 'color',
+              'type' => 'clone',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array (
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'clone' => array (
+                0 => 'field_58071bd088cec',
+              ),
+              'display' => 'seamless',
+              'layout' => 'block',
+              'prefix_label' => 0,
+              'prefix_name' => 0,
+            ),
+            array (
+              'key' => 'field_585aufmacherkontrastfarbe',
+              'label' => 'Kontrastfarbe',
+              'name' => 'contrast-color',
+              'type' => 'select',
+              'instructions' => 'Welche Farbe sollen Buttons und Labels haben?',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array (
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'choices' => array (
+                'blau' => 'Blau',
+                'magenta' => 'Magenta',
+                'gruen' => 'Grün',
+                'rot' => 'Rot',
+                'orange' => 'Orange',
+                'petrol' => 'Petrol',
+              ),
+              'default_value' => array (
+                'orange'
+              ),
+              'allow_null' => 0,
+              'multiple' => 0,
+              'ui' => 0,
+              'ajax' => 0,
+              'return_format' => 'value',
+              'placeholder' => '',
+            ),
+          ),
+          'min' => '',
+          'max' => '',
+        ),
+
         array (
           'key' => '57f418b34983a',
           'name' => 'preistraeger-slider',

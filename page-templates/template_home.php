@@ -125,7 +125,16 @@ get_header();
                   );
                 echo '</div>';
               echo '</div>';
+            
+            elseif ( get_row_layout() == 'aufmacher'):
+              $post = get_post( get_sub_field('aufmacher-artikel') );
+              $post->background_color = get_sub_field('color');
+              $post->contrast_color = get_sub_field('contrast-color');
+
+              get_template_part('hp/hp', 'aufmacher');
+              wp_reset_query();
             endif;
+
 
         endwhile;
 

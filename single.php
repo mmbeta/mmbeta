@@ -25,7 +25,12 @@ get_header(); ?>
 
       ?>
 
+
+
+
+
       <?php
+
         if($slider_name !== '' && function_exists('putRevSlider') ){
           $theSlider = new RevSlider();
           $arrSliders = $theSlider->getArrSliders();
