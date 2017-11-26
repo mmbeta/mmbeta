@@ -126,22 +126,55 @@ function mmbeta_setup() {
 	 		$wp_query->set( 'post_type', $my_post_array );
 	}
 
-	// mmbeta-Farben
 
-	function mmbeta_color($color_name = 'grau') {
+	function mmbeta_color($color_name = 'grau', $text_color = false) {
 		$colors = array(
-			'blau' => 'rgba(59,67,149,0.7)',
-			'magenta' => 'rgba(149,36,86,1)',
-			'gruen' => 'rgba(57,124,35,1)',
-			'rot' => 'rgba(183,14,12,1)',
-			'orange' => 'rgba(239,125,0,1)',
-			'petrol' => 'rgba(0,97,116,1)',
-			'grau' => '#f7f7f9'
+			'grau-dunkler' => '#42494F',
+			'grau-dunkel' => '#6D7478',
+			'grau' => '#9CA0A1',
+			'grau-hell' => '#DEE0E0',
+			'grau-heller' => '#F3F4F4',
+			'gruen' => '#397C23',
+			'gruen-hell' => '#F5F9F4',
+			'blau' => '#3B439',
+			'blau-hell' => '#F6F6FA',
+			'magenta' => '#952456',
+			'magenta-hell' => '#FAF4F6',
+			'orange' => '#EF7D00',
+			'orange-hell' => '#FFF9F3',
+			'petrol' => '#006174',
+			'petrol-hell' => '#F3F7F8',
+			'rot' => '#B70E0C',
+			'rot-hell' => '#FCF3F3',
+			'schwarz' => '#232933',
 		);
 
-		if( $color_name && $colors[$color_name]){
+		$text_colors = $arrayName = array(
+			'grau-dunkler' => '#FFFFFF',
+			'grau-dunkel' => '#FFFFFF',
+			'grau' => 'FFFFFF',
+			'grau-hell' => '#232933',
+			'grau-heller' => '#232933',
+			'gruen' => '#FFFFFF',
+			'gruen-hell' => '#232933',
+			'blau' => 'FFFFFF',
+			'blau-hell' => '#232933',
+			'magenta' => '#FFFFFF',
+			'magenta-hell' => '#232933',
+			'orange' => '#FFFFFF',
+			'orange-hell' => '#232933',
+			'petrol' => 'FFFFFF',
+			'petrol-hell' => '#232933',
+			'rot' => 'FFFFFF',
+			'rot-hell' => '#232933',
+			'schwarz' => 'FFFFFF',
+		);
+
+		if( $color_name && $colors[$color_name] && !$text_color ){
 			return $colors[$color_name];
-		}else{
+		}elseif ( $text_color && $color_name && $colors[$color_name] ) {
+			return $text_colors[$color_name];
+		} else {
 			return $colors['grau'];
 		}
 	}
