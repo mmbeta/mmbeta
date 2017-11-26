@@ -1320,4 +1320,100 @@ acf_add_local_field_group(array (
 
 endif;
 
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array (
+  'key' => 'group_5a19976f04dd2',
+  'title' => 'Ausgabenseite',
+  'fields' => array (
+    array (
+      'key' => 'field_5a19977b30889',
+      'label' => 'Themen',
+      'name' => 'themen',
+      'type' => 'repeater',
+      'instructions' => 'Fügen Sie Themen hinzu, die in dem Heft behandelt werden.',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'collapsed' => '',
+      'min' => 0,
+      'max' => 0,
+      'layout' => 'block',
+      'button_label' => 'Thema hinzufügen',
+      'sub_fields' => array (
+        array (
+          'key' => 'field_5a19984f3088c',
+          'label' => 'Themen-Titel',
+          'name' => 'topic-title',
+          'type' => 'text',
+          'instructions' => '',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array (
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'default_value' => '',
+          'placeholder' => '',
+          'prepend' => '',
+          'append' => '',
+          'maxlength' => 30,
+        ),
+        array (
+          'key' => 'field_5a1998bc3088d',
+          'label' => 'Themen-Teaser',
+          'name' => 'topic-teaser',
+          'type' => 'textarea',
+          'instructions' => '',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array (
+            'width' => '',
+            'class' => '',
+            'id' => '',
+          ),
+          'default_value' => '',
+          'placeholder' => '',
+          'maxlength' => 90,
+          'rows' => 3,
+          'new_lines' => '',
+        ),
+      ),
+    ),
+  ),
+  'location' => array (
+    array (
+      array (
+        'param' => 'post_type',
+        'operator' => '==',
+        'value' => 'post',
+      ),
+      array (
+        'param' => 'post_category',
+        'operator' => '==',
+        'value' => 'category:ausgaben',
+      ),
+    ),
+  ),
+  'menu_order' => 0,
+  'position' => 'normal',
+  'style' => 'default',
+  'label_placement' => 'top',
+  'instruction_placement' => 'label',
+  'hide_on_screen' => array (
+    0 => 'discussion',
+    1 => 'comments',
+    2 => 'send-trackbacks',
+  ),
+  'active' => 1,
+  'description' => 'Felder für Infos, die auf den Ausgabenseiten genutzt werden.',
+));
+
+endif;
+
 ?>
