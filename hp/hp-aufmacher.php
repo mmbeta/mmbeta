@@ -15,7 +15,7 @@ color: <?php echo( mmbeta_color($post->background_color, true) ); ?>;">
   <?php
   $contrast_color = mmbeta_color($post->contrast_color);
   $contrast_text_color = mmbeta_color($post->contrast_color, true);
-  $li_class = mmbeta_color( get_sub_field('color'), true ) === "#FFFFFF" ? "li-bright" : "li-dark";
+  $li_class = mmbeta_color( $post->background_color, true ) === "#FFFFFF" ? "li-bright" : "li-dark";
   $button_text = is_front_page() ? "Zum Heft" : "Heft kaufen";
   $button_link = is_front_page() ? get_permalink() : "https://www.newsroom.de/shop/einzelausgaben/medium-magazin/";
   $attributes = $arrayName = array('class' => 'figure-img aufmacher');
