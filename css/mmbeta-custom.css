@@ -93,6 +93,101 @@ footer.mmbeta_footer > nav > a:hover {
   text-decoration: none;
 }
 
+/* Flexbox for Aufmacher */
+
+.flex-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }
+
+.flex-item {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+  }
+
+
+img.aufmacher {
+  padding: 3em 1.5em 3em 0em;
+  max-width: 250px; 
+}
+
+.aufmacher-text-container {
+  padding-bottom: 1.5em;
+}
+
+@media (min-width: 48em) {
+  .aufmacher-text-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3em 0em 0em 0em;
+  }
+}
+
+.aufmacher-text-container {
+  color: white;
+  font-family: "Leitura Sans";
+}
+
+.aufmacher-list-item {
+  border-top: white 1px solid;
+  padding-top: .4em;
+}
+
+/*div.aufmacher-img-container {
+  width: 100%;
+}
+
+div.aufmacher-text-container {
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  div.aufmacher-img-container {
+    width: 50%;
+  }
+  
+  div.aufmacher-text-container {
+    width: 50%;
+  }
+}
+
+@media (min-width: 62em) {
+  div.aufmacher-img-container {
+    width: 33%;
+  }
+  
+  div.aufmacher-text-container {
+    width: 66%;
+  }
+}*/
+
+
+
 /* card showcase margin */
 
 div.card.showcase {
