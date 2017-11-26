@@ -13,6 +13,7 @@
 
   <?php
   $contrast_color = mmbeta_color($post->contrast_color);
+  $button_text = is_home() ? "Zum Heft" : "Heft kaufen";
   $attributes = $arrayName = array('class' => 'figure-img aufmacher');
   //Bild
   echo '<div class="flex-item aufmacher-img-container">' . wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'cover', false, $attributes  ) . '</div>';
@@ -41,6 +42,6 @@
   endif;
 
   ?>
-    <button type="button" class="btn" style="background-color: <?php echo $contrast_color; ?>; border-color: <?php echo $contrast_color; ?>;">Heft kaufen</button>
+    <a href="<?php the_permalink(); ?>" class="aufmacher-link"><button type="button" class="btn" style="background-color: <?php echo $contrast_color; ?>; border-color: <?php echo $contrast_color; ?>;"><?php echo $button_text; ?></button></a>
   </div>
 </div>

@@ -158,6 +158,11 @@ img.aufmacher {
   padding-top: .4em;
 }
 
+a.aufmacher-link {
+  text-decoration: none;
+  border: none;
+}
+
 /*div.aufmacher-img-container {
   width: 100%;
 }

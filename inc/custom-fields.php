@@ -682,6 +682,7 @@ acf_add_local_field_group(array (
                 'rot' => 'Rot',
                 'orange' => 'Orange',
                 'petrol' => 'Petrol',
+                'grau' => 'Grau',
               ),
               'default_value' => array (
               ),
