@@ -279,6 +279,7 @@ a.nav-link, a.nav-link:hover {
   border-bottom-width: 0px;
   border-bottom-style: solid;
   text-decoration: none;
+  font-family: "Leitura Sans";
 }
 
 nav.navbar ul {
