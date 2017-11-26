@@ -19,14 +19,14 @@ get_header(); ?>
       <?php
 
       // topics set?
-      if( have_rows('ausgabenthemen') ){
-        get_template_part( 'template-parts/ausgabe', 'themen' );
+      if( have_rows('themen') ){
+        global $post;
+        $post->background_color = get_field('artikel-header-farbe')['color'];
+        $post->contrast_color = get_field('artikel-header-contrast')['contrast-color'];
+        get_template_part( 'hp/hp', 'aufmacher' );
       }
 
       ?>
-
-
-
 
 
       <?php

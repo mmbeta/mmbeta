@@ -1409,6 +1409,48 @@ acf_add_local_field_group(array (
         ),
       ),
     ),
+    array (
+      'key' => 'field_5809ddbaufmacherfarbeartikel',
+      'label' => 'Hintergrundfarbe',
+      'name' => 'artikel-header-farbe',
+      'type' => 'clone',
+      'instructions' => '',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'clone' => array (
+        0 => 'field_58071bd088cec',
+      ),
+      'display' => 'seamless',
+      'layout' => 'block',
+      'prefix_label' => 0,
+      'prefix_name' => 0,      
+    ),
+    array (
+      'key' => 'field_58kontrastfarbeartikel',
+      'label' => 'Kontrastfarbe',
+      'name' => 'artikel-header-contrast',
+      'type' => 'clone',
+      'instructions' => '',
+      'required' => 0,
+      'conditional_logic' => 0,
+      'wrapper' => array (
+        'width' => '',
+        'class' => '',
+        'id' => '',
+      ),
+      'clone' => array (
+        0 => 'field_585aufmacherkontrastfarbe',
+      ),
+      'display' => 'seamless',
+      'layout' => 'block',
+      'prefix_label' => 0,
+      'prefix_name' => 0, 
+    ),
   ),
   'location' => array (
     array (

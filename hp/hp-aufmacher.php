@@ -15,8 +15,19 @@ color: <?php echo( mmbeta_color($post->background_color, true) ); ?>;">
   <?php
   $contrast_color = mmbeta_color($post->contrast_color);
   $contrast_text_color = mmbeta_color($post->contrast_color, true);
+  $li_class = mmbeta_color( get_sub_field('color'), true ) === "#FFFFFF" ? "li-bright" : "li-dark";
   $button_text = is_front_page() ? "Zum Heft" : "Heft kaufen";
+  $button_link = is_front_page() ? get_permalink() : "https://www.newsroom.de/shop/einzelausgaben/medium-magazin/";
   $attributes = $arrayName = array('class' => 'figure-img aufmacher');
+  ?>
+
+  <?php if( !is_front_page() ): ?>
+  <div class="aufmacher-headline">
+    <h1><?php the_title(); ?></h1>
+  </div>
+  <?php endif; ?>
+
+  <?php
   //Bild
   echo '<div class="flex-item aufmacher-img-container">' . wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'cover', false, $attributes  ) . '</div>';
   ?>
@@ -29,7 +40,7 @@ color: <?php echo( mmbeta_color($post->background_color, true) ); ?>;">
       while ( have_rows('themen') ) : the_row();
   ?>
 
-          <li class="aufmacher-list-item">
+          <li class="<?php echo($li_class); ?>">
             <h5 class="topic-title"><?php the_sub_field('topic-title'); ?></h5>
             <p class="topic-teaser"><?php the_sub_field('topic-teaser'); ?></p>
           </li>
@@ -44,6 +55,6 @@ color: <?php echo( mmbeta_color($post->background_color, true) ); ?>;">
   endif;
 
   ?>
-    <a href="<?php the_permalink(); ?>" class="aufmacher-link"><button type="button" class="btn" style="background-color: <?php echo $contrast_color; ?>; border-color: <?php echo $contrast_color; ?>; color: <?php echo $contrast_text_color; ?>;"><?php echo $button_text; ?></button></a>
+    <a href="<?php echo($button_link);  ?>" class="aufmacher-link"><button type="button" class="btn" style="background-color: <?php echo $contrast_color; ?>; border-color: <?php echo $contrast_color; ?>; color: <?php echo $contrast_text_color; ?>;"><?php echo $button_text; ?></button></a>
   </div>
 </div>

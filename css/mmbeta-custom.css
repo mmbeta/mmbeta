@@ -44,6 +44,9 @@ a.img-link {
   border: none; 
 }
 
+a.link-bright, a:hover.link-bright {
+  color: #FFFFFF;
+}
 
 /* Footer */
 footer.mmbeta_footer {
@@ -128,6 +131,12 @@ footer.mmbeta_footer > nav > a:hover {
     align-self: auto;
   }
 
+div.aufmacher-headline {
+  flex: 0 1 100%;
+  text-align: center;
+  font-family: "Leitura Sans";
+  padding-top: 3em;
+}
 
 img.aufmacher {
   padding: 3em 1.5em 3em 0em;
@@ -138,6 +147,12 @@ img.aufmacher {
   padding-bottom: 1.5em;
 }
 
+@media (min-width: 574px) {
+  .aufmacher-text-container {
+    padding-top: 3em;
+  }
+}
+
 @media (min-width: 48em) {
   .aufmacher-text-container {
     display: flex;
@@ -146,15 +161,24 @@ img.aufmacher {
     align-items: flex-start;
     padding: 3em 0em 0em 0em;
   }
+  
+  img.aufmacher {
+    padding: 3em 1.5em 3em 0em;
+    max-width: 250px; 
+  }
 }
 
 .aufmacher-text-container {
-  color: white;
   font-family: "Leitura Sans";
 }
 
-.aufmacher-list-item {
-  border-top: white 1px solid;
+.li-bright {
+  border-top: #FFFFFF 1px solid;
+  padding-top: .4em;
+}
+
+.li-dark {
+  border-top: #232933 1px solid;
   padding-top: .4em;
 }
 
@@ -398,7 +422,6 @@ blockquote.mmbeta_hp_quote {
 
 blockquote.mmbeta_hp_quote:hover {
   text-decoration: none;
-  color: rgb(55, 58, 60);
 }
 
 .mmbeta_hp_quote > p {
