@@ -400,7 +400,7 @@ function heads_gallery_shortcode( $attr ) {
   $query = new WP_Query( $args );
   if ($query->have_posts()) :
 
-    echo '<div class="row heads-gallery-container"><h6 class="heads-gallery-heading">' . $attr['titel']. '</h6><div class="heads-gallery">';
+    echo '<div class="row heads-gallery-container m-t"><h6 class="heads-gallery-heading">' . $attr['titel']. '</h6><div class="heads-gallery">';
 
     while ( $query->have_posts() ) : $query->the_post();
       get_template_part( 'teasers/teaser', 'heads-gallery' );
