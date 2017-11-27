@@ -26,12 +26,13 @@ get_header(); ?>
           <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
           <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
           <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-            <a class="img-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-              <figure class="figure col-sm-3">
-                <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
-                <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
-              </figure>
-            </a>
+            <div class="col-sm-3">
+              <a class="img-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <figure class="figure">
+                  <?php echo wp_get_attachment_image(get_post_thumbnail_id( $post->ID ), 'cover', false, array('class' => 'img-responsive figure-img') ); ?>
+                </figure>
+              </a>
+            </div>
             <div class="col-sm-9">
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <h2><?php the_title(); ?></h2>
