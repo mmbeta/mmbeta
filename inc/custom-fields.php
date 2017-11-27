@@ -823,6 +823,36 @@ acf_add_local_field_group(array (
           'max' => '',
         ),
 
+        // Embed
+        array (
+          'key' => '57f4178548hpembed',
+          'name' => 'hp_embed',
+          'label' => 'Embed (Video)',
+          'display' => 'block',
+          'sub_fields' => array (
+            array (
+              'key' => 'field_57839oembed',
+              'label' => 'Embed URL (Video)',
+              'name' => 'embed_element',
+              'type' => 'oembed',
+              'instructions' => '',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array (
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'default_value' => '',
+            ),
+            
+          ),
+          'min' => '',
+          'max' => '',
+        ),
+
+        // Preisträger Slider
+
         array (
           'key' => '57f418b34983a',
           'name' => 'preistraeger-slider',
