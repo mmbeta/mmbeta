@@ -867,7 +867,31 @@ acf_add_local_field_group(array (
               'maxlength' => '',
               'rows' => 5,
               'new_lines' => '',
-            ),            
+            ),
+            array (
+              'key' => 'field_57f41embed-link',
+              'label' => 'Linkziel (optional)',
+              'name' => 'embed-teaser-link',
+              'type' => 'post_object',
+              'instructions' => 'Wenn der Teaser auf einen Artikel linken soll, wählen Sie den Artikel aus.',
+              'required' => 1,
+              'conditional_logic' => 0,
+              'wrapper' => array (
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'post_type' => array (
+              ),
+              'taxonomy' => array (
+              ),
+              'allow_null' => 0,
+              'multiple' => 0,
+              'return_format' => 'id',
+              'ui' => 1,
+            ),
+
+            
             array (
               'key' => 'field_57839oembed',
               'label' => 'Embed URL (Video)',
