@@ -831,6 +831,44 @@ acf_add_local_field_group(array (
           'display' => 'block',
           'sub_fields' => array (
             array (
+              'key' => 'field_57f413e73embedtitel',
+              'label' => 'Titel',
+              'name' => 'embed-teaser-titel',
+              'type' => 'text',
+              'instructions' => 'Dieser Titel erscheint neben dem Embed.',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array (
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'default_value' => '',
+              'placeholder' => '',
+              'maxlength' => '',
+              'rows' => 5,
+              'new_lines' => '',
+            ),
+            array (
+              'key' => 'field_57f413e73embedtext',
+              'label' => 'Teasertext',
+              'name' => 'embed-teaser-text',
+              'type' => 'textarea',
+              'instructions' => 'Dieser Text erscheint neben dem Embed.',
+              'required' => 0,
+              'conditional_logic' => 0,
+              'wrapper' => array (
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'default_value' => '',
+              'placeholder' => '',
+              'maxlength' => '',
+              'rows' => 5,
+              'new_lines' => '',
+            ),            
+            array (
               'key' => 'field_57839oembed',
               'label' => 'Embed URL (Video)',
               'name' => 'embed_element',
@@ -845,7 +883,7 @@ acf_add_local_field_group(array (
               ),
               'default_value' => '',
             ),
-            
+
           ),
           'min' => '',
           'max' => '',

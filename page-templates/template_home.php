@@ -134,9 +134,7 @@ get_header();
               get_template_part('hp/hp', 'aufmacher');
               wp_reset_query();
             elseif ( get_row_layout() == 'hp_embed' ):
-              echo '<div class="embed-container">';
-                echo get_sub_field('embed_element');
-              echo '</div>';
+              get_template_part( 'hp/hp', 'video');
             endif;
 
 

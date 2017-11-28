@@ -35,7 +35,7 @@ color: <?php echo( mmbeta_color($post->background_color, true) ); ?>;">
   <?php
   // Themenliste
   if( have_rows('themen') ):
-      echo "<ul class='list-unstyled'>";
+      echo "<ul class='list-unstyled aufmacher'>";
     // loop through the rows of data
       while ( have_rows('themen') ) : the_row();
   ?>
