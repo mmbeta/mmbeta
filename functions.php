@@ -325,12 +325,6 @@ function mmbeta_setup() {
 	add_filter( 'video_embed_html', 'wrap_with_bt_embed' );
 
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'mmbeta_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-
 }
 endif; // mmbeta_setup
 add_action( 'after_setup_theme', 'mmbeta_setup' );
@@ -461,19 +455,6 @@ function add_custom_field_automatically($post_id) {
 	update_post_meta( $post_id, "preis-name", $preis_name );
 }
 add_action('publish_preistraeger', 'add_custom_field_automatically');
-
-// Bootstrap classes to post images
-function html5_insert_image($html, $id, $caption, $title, $align, $url, $size, $alt) {
-  $url = wp_get_attachment_image_src($id, $size);
-  $html5 = "<figure class='figure " . $size . ' ' . 'align-' . $align . "'>";
-  $html5 .= "<img class='figure-img img-responsive' src='" . $url[0] . "' alt='" . $alt . "' />";
-  if ($caption) {
-    $html5 .= "<figcaption class='figure-caption'>$caption</figcaption>";
-  }
-  $html5 .= "</figure>";
-  return $html5;
-}
-add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 8 );
 
 //Custom Styles in Editor
 function wpb_mce_buttons_2($buttons) {
