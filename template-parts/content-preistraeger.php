@@ -42,7 +42,7 @@
   <div class="m-t m-b row">  
     <div class="col-lg-8 col-lg-offset-2 col-xs-12">
       
-      <ol class="breadcrumb" style="background-color: <?php print mmbeta_color() ?>">
+      <ol class="breadcrumb" style="background-color: <?php print mmbeta_color('grau-heller') ?>">
         <li class="breadcrumb-item"><a href="/preise/<?php print $preis_slug; ?>"><?php print $preis; ?></a></li>
         <li class="breadcrumb-item"><a href="<?php the_permalink($tax_page); ?>"><?php print $post->jahr_name; ?></a></li>
         <?php if ($preis_slug !== 'top-30-bis-30') : ?>
