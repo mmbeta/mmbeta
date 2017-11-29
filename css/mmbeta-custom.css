@@ -60,42 +60,6 @@ footer.mmbeta_footer > nav > a:hover {
   color: white;
 }
 
-/* Beta-Markierung */
-
-.ribbon {
-  background-color: #305d63;
-  overflow: hidden;
-  white-space: nowrap;
-  position: absolute;
-  left: -50px;
-  top: 40px;
-  -webkit-transform: rotate(-40deg);
-     -moz-transform: rotate(-40deg);
-      -ms-transform: rotate(-40deg);
-       -o-transform: rotate(-40deg);
-          transform: rotate(-40deg);
-  -webkit-box-shadow: 0 0 10px #888;
-     -moz-box-shadow: 0 0 10px #888;
-          box-shadow: 0 0 10px #888;
-}
-.ribbon a {
-  color: #fff;
-  display: block;
-  font: bold 81.25% 'Leitura Sans', Helvetica, Arial, sans-serif;
-  margin: 1px 0;
-  padding: 10px 50px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 0 5px #444;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-}
-
-.ribbon a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
 /* Flexbox for Aufmacher */
 
 .flex-container {
