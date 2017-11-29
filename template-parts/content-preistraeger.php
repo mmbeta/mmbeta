@@ -57,22 +57,21 @@
     <?php if($access): ?>
 
       <!-- Bild und Profilbox -->
-      <div class="col-lg-4 col-md-2 col-xs-5">
+      <div class="col-lg-4 col-md-5 col-xs-12 text-xs-center">
         <?php if (!has_post_thumbnail()) : ?>      
           <figure class="figure">
             <img class="logo" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
           </figure>
         <?php else : ?>
-          <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
           <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
           <figure class="figure">
-            <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
+            <?php the_post_thumbnail('cover', array('class' => 'img-responsive figure-img')); ?>
             <figcaption class="figure-caption"><?php echo $caption ?></figcaption>
           </figure>
         <?php endif; ?>
         
         <?php if ( get_field("website") || get_field('geburtsdatum') || get_field('geburtsdatum-fallback') || get_field('twitter') ) : ?>
-        <div class="profil-box m-b">
+        <div class="profil-box m-b text-xs-left">
           <ul class="list-group">
             <?php if(get_field('geburtsdatum')) : ?>
               <li class="list-group-item"><strong>Geburtstag:</strong> <?php echo date_i18n(get_option( 'date_format' ), strtotime( get_field( "geburtsdatum" ) ) ); ?></li>
@@ -93,7 +92,7 @@
       <!-- Ende: Bild und Profilbox -->
 
       <!-- Hauptspalte - Titel, Position, Begründung -->
-      <div class="col-lg-8">
+      <div class="col-lg-8 col-md-7 col-xs-12">
       <?php if ( ! post_password_required() ): ?>
           <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
           <h6 class="text-muted"><?php the_field( "position" ); ?></h6>
