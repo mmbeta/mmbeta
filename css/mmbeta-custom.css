@@ -17,11 +17,15 @@ Underscores is distributed under the terms of the GNU GPL v2 or later. And Boots
 */
 
 body {
-  font-family: "Leitura Serif", Helvetica, Arial, sans-serif;
+  font-family: "Leitura Serif";
   font-size: 1rem;
   line-height: 1.5;
   color: #373a3c;
   background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Leitura Sans";
 }
 
 a {

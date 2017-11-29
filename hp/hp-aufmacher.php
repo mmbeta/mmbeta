@@ -21,12 +21,6 @@ color: <?php echo( mmbeta_color($post->background_color, true) ); ?>;">
   $attributes = $arrayName = array('class' => 'figure-img aufmacher');
   ?>
 
-  <?php if( !is_front_page() ): ?>
-  <div class="aufmacher-headline">
-    <h1><?php the_title(); ?></h1>
-  </div>
-  <?php endif; ?>
-
   <?php
   //Bild
   echo '<div class="flex-item aufmacher-img-container">' . wp_get_attachment_image( get_post_thumbnail_id( $post->ID ), 'cover', false, $attributes  ) . '</div>';
