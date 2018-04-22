@@ -16,7 +16,7 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="row" role="main">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 container">
+    <div class="col-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-6 col-xl-offset-3 container">
       <div class="row">
       <?php
 
@@ -47,6 +47,6 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 
-<div class="col-xs-12">
+<div class="col-12">
 	<?php get_footer(); ?>
 </div>

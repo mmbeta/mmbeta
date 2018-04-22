@@ -10,7 +10,7 @@
 ?>
 
 <div class="row">
-  <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+  <div class="col-12 col-lg-8 col-lg-offset-2">
     <?php the_content(); ?>
   </div>
 </div>

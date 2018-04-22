@@ -41,12 +41,12 @@ if (function_exists('hourly_social_api_call')) {
 ?>
 
 <div class="row m-t">
-  <div class="col-xs-12 col-lg-6">
+  <div class="col-12 col-lg-6">
     <?php echo $tweet; ?>
 
   </div>
 
-  <div class="col-xs-12 col-lg-6">
+  <div class="col-12 col-lg-6">
     <center>
       <div class="fb-post" data-href="<?php echo $fbpost; ?>" data-width="auto"></div>
     </center>

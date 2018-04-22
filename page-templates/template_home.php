@@ -70,7 +70,7 @@ get_header();
               if ( $teasergroup_query->have_posts() ) : 
               ?>
                 <div class="row">
-                  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
+                  <div class="col-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
                   <?php
                     $template_name = 'teasergruppe-' . $posts_to_be_shown;
 

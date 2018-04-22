@@ -20,7 +20,7 @@
 ?>
 <?php $vorname = get_field('vorname') ?>
 <article id="preistraeger-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <dl class="lead col-lg-4 col-md-6 col-xs-12 m-t">
+  <dl class="lead col-lg-4 col-md-6 col-12 m-t">
     <dt><?php the_field('nachname'); $vorname ? print ', ' . $vorname : print ''; ?> </dt>
     <dd><?php the_field( "position" ); ?></dd>
     <div class="pull-md-left">

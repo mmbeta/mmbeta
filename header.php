@@ -29,7 +29,7 @@
 <div id="page" class="container-fluid">
 	<header role="banner">
 	<div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-xs-12 m-t-lg social-links">
+      <div class="col-lg-8 col-lg-offset-2 col-12 m-t-lg social-links">
         <a target="_blank" href="http://facebook.com/mediummagazin">
           <span class="dashicons dashicons-facebook-alt social-link"></span>
         </a>
@@ -37,7 +37,7 @@
           <span class="dashicons dashicons-twitter social-link"></span>
         </a>
       </div>
-      <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-b">
+      <div class="col-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-b">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <?php get_template_part( 'template-parts/logo', '' ); ?>
           </a>
@@ -50,9 +50,9 @@
         if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
           $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
           $menu_items = wp_get_nav_menu_items($menu->term_id);
-          $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 col-lg-offset-2 col-xs-12 text-xs-center" role="navigation"><div class="top-navi"><ul>';
+          $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 col-lg-offset-2 col-12 text-xs-center" role="navigation"><div class="top-navi"><ul>';
 
-          $menu_list_mobile = '<nav id="mobilenav" class="col-xs-12 text-xs-center" role="navigation"><div class=""><ul class="nav">';
+          $menu_list_mobile = '<nav id="mobilenav" class="col-12 text-xs-center" role="navigation"><div class=""><ul class="nav">';
 
           foreach ( (array) $menu_items as $key => $menu_item ) {
               $title = $menu_item->title;
@@ -60,6 +60,18 @@
               $menu_list .= '<li><a class="nav-link" href="' . $url . '">' . $title . '</a></li>';
               $menu_list_mobile .= '<li class="nav-item"><a class="nav-link" href="' . $url . '">' . $title . '</a></li>';
           }
+          
+  //         $menu_list .= '  <li class="nav-item dropdown">
+  //   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+  //   <div class="dropdown-menu">
+  //     <a class="dropdown-item" href="#">Action</a>
+  //     <a class="dropdown-item" href="#">Another action</a>
+  //     <a class="dropdown-item" href="#">Something else here</a>
+  //     <div class="dropdown-divider"></div>
+  //     <a class="dropdown-item" href="#">Separated link</a>
+  //   </div>
+  // </li>';
+
           $menu_list .= '</ul></div></nav>';
           $menu_list_mobile .= '</ul></div></nav>';
         } else {
@@ -75,7 +87,7 @@
       <div class="collapse" id="exCollapsingNavbar">
           <?php echo $menu_list_mobile; ?>
       </div>
-      <nav class="navbar navbar-light bg-faded col-xs-12 text-xs-center">
+      <nav class="navbar navbar-light bg-faded col-12 text-xs-center">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
           &#9776;
         </button>

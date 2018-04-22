@@ -266,7 +266,7 @@ function list_gallery_shortcode( $attr ) {
       $orientation = ( $image_meta['height'] > $image_meta['width'] ) ? 'portrait' : 'landscape';
     }
     $column_to_grid = 12/$columns;
-    $output .= "<{$itemtag} class='gallery-item col-xs-12 col-lg-{$column_to_grid}'>";
+    $output .= "<{$itemtag} class='gallery-item col-12 col-lg-{$column_to_grid}'>";
     $output .= "
       <{$icontag} class='gallery-icon {$orientation}'>
         $image_output

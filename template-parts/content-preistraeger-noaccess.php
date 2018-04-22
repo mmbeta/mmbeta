@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="col-xs-12">
+<div class="col-12">
   <article class="card">
     <div class="card-block">
       <h4 class="card-title">Kaufen Sie den Zugang zu <?php echo $post->preis . " " . $post->jahr_name; ?></h4>

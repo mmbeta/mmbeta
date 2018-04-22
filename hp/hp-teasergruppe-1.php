@@ -12,14 +12,14 @@ $teaser_text = get_post_meta( get_the_ID(), 'hp_teaser', true );
 ?>
 
 <a href="<?php the_permalink(); ?>" class="voll-teaser-link">
-  <div class="col-xs-12">
+  <div class="col-12">
     <div class="card teaser teaser1-body">
-      <div class="col-xs-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <?php if ($teaser_image) { ?>
           <img src="<?php echo $teaser_image; ?>" alt="..." class="teaser-img <?php echo 'teaser-img-' . $teaser_format; ?>">
         <?php } ?> 
       </div>
-      <div class="col-xs-12 col-md-6 col-lg-8">
+      <div class="col-12 col-md-6 col-lg-8">
         <h3 class="card-title teaser1-header"><?php the_title(); ?></h3>
         <div class="teaser1-text">
           <?php 

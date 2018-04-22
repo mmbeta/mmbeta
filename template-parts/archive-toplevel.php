@@ -9,7 +9,7 @@
 
 
       <div class="row">
-        <header class="page-header col-xs-12 m-b p-a text-center" style="background-color: <?php echo mmbeta_color('petrol'); ?>">
+        <header class="page-header col-12 m-b p-a text-center" style="background-color: <?php echo mmbeta_color('petrol'); ?>">
           <?php
             single_term_title( '<h1 class="page-title">', '</h1>' );
           ?>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 text-center">
+        <div class="col-12 text-center">
           <ul class="list-group">
           <?php
             foreach ( $term_children as $child ) {

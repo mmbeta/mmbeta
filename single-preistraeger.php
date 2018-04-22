@@ -59,7 +59,7 @@ get_header(); ?>
       if ($query->have_posts()): ?>
         <div class="row card-cluster">
           <?php while ($query->have_posts()): $query->the_post();?>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 preistraeger-card">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 preistraeger-card">
               <a href="<?php the_permalink(); ?>">
                 <article class="card">
                   <?php if ($preis === "top-30-bis-30") : 

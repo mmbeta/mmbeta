@@ -13,7 +13,7 @@ $teaser_text = get_post_meta( get_the_ID(), 'hp_teaser', true );
 ?>
 
 <a href="<?php the_permalink(); ?>" class="voll-teaser-link">
-  <div class="col-xs-12 col-md-6">
+  <div class="col-12 col-md-6">
     <div class="card teaser teaser1-container">
       <div class="card-block teaser1-content">        
         <div class="teaser1-body">

@@ -18,7 +18,7 @@
   	<div>
   		<?php the_content(); ?>
   	</div><!-- .entry-content -->
-  	<small class="entry-meta col-xs-12 col-lg-8 col-lg-offset-2">
+  	<small class="entry-meta col-12 col-lg-8 col-lg-offset-2">
   		<?php mmbeta_posted_on(); ?>
   	</small><!-- .entry-meta -->
 
