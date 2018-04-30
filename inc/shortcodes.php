@@ -551,7 +551,7 @@ function pdf_function($attr, $url) {
        'width' => '100%',
        'height' => '480px'
    ), $attr));
-   return '<iframe src="http://docs.google.com/viewer?url=' . $url . '&embedded=true" style="width:' .$width. '; height:' .$height. ';">Your browser does not support iframes</iframe>';
+   return '<iframe src="https://docs.google.com/viewer?url=' . $url . '&embedded=true" style="width:' .$width. '; height:' .$height. ';">Your browser does not support iframes</iframe>';
 }
 add_shortcode('pdf', 'pdf_function');
 
