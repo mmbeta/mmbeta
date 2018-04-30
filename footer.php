@@ -25,7 +25,7 @@
       if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
         $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
         $menu_items = wp_get_nav_menu_items($menu->term_id);
-        $menu_list = '<nav class="nav-inline col-lg-8 col-lg-offset-2 col-12" role="navigation">';
+        $menu_list = '<nav class="nav-inline col-lg-8 offset-lg-2 col-12" role="navigation">';
 
 
         foreach ( (array) $menu_items as $key => $menu_item ) {

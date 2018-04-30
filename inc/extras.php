@@ -38,7 +38,7 @@ class Cover_Gallery_Widget extends WP_Widget {
     if ( ! empty( $instance['title'] ) ) {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
-    echo "<div class='col-md-8 col-md-offset-2'>";
+    echo "<div class='col-md-8 offset-md-2'>";
     echo cover_gallery_shortcode('');
     echo "</div>";
     echo $args['after_widget'];

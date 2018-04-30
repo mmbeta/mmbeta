@@ -40,7 +40,7 @@
 
 <article id="preistraeger-<?php the_ID(); ?>" class="col-12" ?>
   <div class="m-t m-b row">  
-    <div class="col-lg-8 col-lg-offset-2 col-12">
+    <div class="col-lg-8 offset-lg-2 col-12">
       
       <ol class="breadcrumb" style="background-color: <?php print mmbeta_color('grau-heller') ?>">
         <li class="breadcrumb-item"><a href="/preise/<?php print $preis_slug; ?>"><?php print $preis; ?></a></li>
@@ -57,7 +57,7 @@
     <?php if($access): ?>
 
       <!-- Bild und Profilbox -->
-      <div class="col-lg-4 col-md-5 col-12 text-xs-center">
+      <div class="col-lg-4 col-md-5 col-12 text-center">
         <?php if (!has_post_thumbnail()) : ?>      
           <figure class="figure">
             <img class="logo" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">

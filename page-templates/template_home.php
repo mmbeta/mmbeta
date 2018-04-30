@@ -70,7 +70,7 @@ get_header();
               if ( $teasergroup_query->have_posts() ) : 
               ?>
                 <div class="row">
-                  <div class="col-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
+                  <div class="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
                   <?php
                     $template_name = 'teasergruppe-' . $posts_to_be_shown;
 
@@ -115,7 +115,7 @@ get_header();
               $titel = get_sub_field('slider_titel');
               echo '<div class="row cover-slider m-t" style="background-color:' . mmbeta_color($farbe) . ' " >';
                 echo '<h6 class="heads-gallery-heading">' . $titel . '</h6>';
-                echo "<div class='col-md-8 col-md-offset-2'>";
+                echo "<div class='col-md-8 offset-md-2'>";
                   echo cover_gallery_shortcode(
                         array(
                           'kategorie' => $kategorie->slug, 

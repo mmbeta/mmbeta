@@ -12,7 +12,7 @@
 ?>
 
 <div class="row m-t">
-  <div class="col-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
+  <div class="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
     <div class="col-12">
       <div class="card teaser teaser1-body">
         <div class="col-12 col-md-6">

@@ -29,7 +29,7 @@
 <div id="page" class="container-fluid">
 	<header role="banner">
 	<div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-12 m-t-lg social-links">
+      <div class="col-lg-8 offset-lg-2 col-12 m-t-lg social-links">
         <a target="_blank" href="http://facebook.com/mediummagazin">
           <span class="dashicons dashicons-facebook-alt social-link"></span>
         </a>
@@ -37,22 +37,22 @@
           <span class="dashicons dashicons-twitter social-link"></span>
         </a>
       </div>
-      <div class="col-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 m-b">
+      <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 m-b">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <?php get_template_part( 'template-parts/logo', '' ); ?>
           </a>
       </div>
   </div>
-  <div class="row hidden-md-down">
+  <div class="row d-none d-md-block">
     
     <?php 
         $menu_name = 'primary';
         if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
           $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
           $menu_items = wp_get_nav_menu_items($menu->term_id);
-          $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 col-lg-offset-2 col-12 text-xs-center" role="navigation"><div class="top-navi"><ul>';
+          $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 offset-lg-2 col-12 text-center" role="navigation"><div class="top-navi"><ul>';
 
-          $menu_list_mobile = '<nav id="mobilenav" class="col-12 text-xs-center" role="navigation"><div class=""><ul class="nav">';
+          $menu_list_mobile = '<nav id="mobilenav" class="col-12 text-center" role="navigation"><div class=""><ul class="nav">';
 
           foreach ( (array) $menu_items as $key => $menu_item ) {
               $title = $menu_item->title;
@@ -83,11 +83,11 @@
    
   </div>
 
-  <div class="row hidden-lg-up">
+  <div class="row d-md-none d-block">
       <div class="collapse" id="exCollapsingNavbar">
           <?php echo $menu_list_mobile; ?>
       </div>
-      <nav class="navbar navbar-light bg-faded col-12 text-xs-center">
+      <nav class="navbar navbar-light bg-faded col-12 text-center">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
           &#9776;
         </button>

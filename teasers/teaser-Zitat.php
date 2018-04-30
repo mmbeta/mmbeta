@@ -12,7 +12,7 @@ $teaser_text = get_field('teaser-text');
 ?>
 
 <a href="<?php the_permalink(); ?>" class="voll-teaser-link">
-  <div class="col-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-6">
+  <div class="col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-6">
     <div class="card teaser teaser2-container"> 
       <div class="card-block teaser2-content"> 
         <div class="teaser2-body">
