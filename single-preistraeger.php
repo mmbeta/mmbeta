@@ -78,7 +78,7 @@ get_header(); ?>
                     <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?></li>
                   </ul>
                   <div class="card-block">
-                    <a href="<?php the_permalink(); ?>" class="btn btn-secondary">Begründung</a>  
+                    <a href="<?php the_permalink(); ?>" class="btn btn-outline-secondary">Begründung</a>  
                   </div> 
                   <?php endif; ?>
                 </article>

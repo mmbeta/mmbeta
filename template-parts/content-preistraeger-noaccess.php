@@ -25,7 +25,7 @@
     </div>
     <div class="card-block">
       <?php global $post; ?>
-      <a href="<?php echo mmbeta_get_laterpay_purchase_link( $post->tax_page ); ?>" class="btn btn-secondary">Jetzt kaufen</a> 
+      <a href="<?php echo mmbeta_get_laterpay_purchase_link( $post->tax_page ); ?>" class="btn btn-outline-secondary">Jetzt kaufen</a> 
 
  
     </div>  

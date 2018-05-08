@@ -12,7 +12,6 @@
  */
 
 get_header();
-
 $tax_name = get_field('preis_to_show')[0];
 $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
 $post_id = get_the_ID();
@@ -76,7 +75,7 @@ if ( class_exists("LaterPay_Helper_Request") ){
        echo "<div class='clear'></div>\n";
     }
     function start_new_letter($letter) {
-       echo "<div class='alert-jdj'>\n";
+       echo "<div class='alert-jdj w-100'>\n";
        echo "\t <strong>" . $letter . "</strong>\n";
        echo "</div>";
     }
@@ -106,10 +105,12 @@ if ( class_exists("LaterPay_Helper_Request") ){
     query_posts($args);
     if ( have_posts() ) {
       echo '<div class="row">';
-      echo '  <div class="col-12 col-lg-8 offset-lg-2">';
+
       $in_this_row = 0;
       $curr_letter = "";
       $post_count = 0;
+      
+
       while ( have_posts() ) {
          the_post();
          $first_letter = strtoupper(mb_substr(get_field('nachname'),0,1));
@@ -120,11 +121,12 @@ if ( class_exists("LaterPay_Helper_Request") ){
             start_new_letter($first_letter);
             $curr_letter = $first_letter;
          }
+        
         get_template_part('teasers/teaser', get_post_type());
       }
       end_prev_letter();
       ?>
-      </div>
+
     <?php } else {
       echo "<h2>Sorry, no posts were found!</h2>";
     } //end of jdj-archive

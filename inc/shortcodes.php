@@ -516,19 +516,19 @@ function mm_showcase_shortcode( $atts, $content = null ) {
     $output .= '<div class="container">';
       $output .= '<div class="row">
         <a class="button-link" href="' . $attributes['print-kaufen'] . '">
-          <button class="btn btn-secondary-outline btn-block showcase-button">
+          <button class="btn btn-outline-secondary-outline btn-block showcase-button">
             Print kaufen
             <span class="dashicons dashicons-book"></span>
           </button>
         </a>
         <a class="button-link" href="' . $attributes['epaper-kaufen'] . '">
-          <button class="btn btn-secondary-outline btn-block showcase-button">
+          <button class="btn btn-outline-secondary-outline btn-block showcase-button">
             E-Paper kaufen
             <span class="dashicons dashicons-tablet"></span>
           </button>
         </a>
         <a class="button-link" href="' . $attributes['abo-link'] . '">
-          <button class="btn btn-secondary-outline btn-block showcase-button">
+          <button class="btn btn-outline-secondary-outline btn-block showcase-button">
             Abos
             <span class="dashicons dashicons-money"></span>
           </button>
@@ -562,7 +562,7 @@ function show_more_function($attr, $content) {
        'width' => '100%',
        'height' => '480px'
    ), $attr));
-   $button = '<button type="button" class="btn btn-secondary btn-block m-b button-toggle" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen.">mehr</button>';
+   $button = '<button type="button" class="btn btn-outline-secondary btn-block m-b button-toggle" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen.">mehr</button>';
    $body = '<div class="collapse" id="collapsedContent">' . $content . '</div>';
    return $button . $body;
 }
