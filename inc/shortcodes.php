@@ -295,7 +295,7 @@ function list_gallery_shortcode( $attr ) {
   $iterator = 0;
   foreach ( $attachments as $id => $attachment ) {
     $image_meta  = wp_get_attachment_metadata( $id );
-    $credit = trim($image_meta[image_meta][credit]) ? '&#169; ' . $image_meta[image_meta][credit] : "";
+    $credit = trim($image_meta['image_meta']['credit']) ? '&#169; ' . $image_meta['image_meta']['credit'] : "";
     $iterator++;
     $attr = ( trim( $attachment->post_excerpt ) ) ? array( 'aria-describedby' => "$selector-$id", 'data-imgcount' => "$iterator", 'class' => 'figure-img' ) : array( 'data-imgcount' => "$iterator", 'class' => 'figure-img'  );
     if ( ! empty( $atts['link'] ) && 'file' === $atts['link'] ) {
