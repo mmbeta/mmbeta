@@ -67,7 +67,7 @@ if ( class_exists("LaterPay_Helper_Request") ){
     <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
       <?php the_content(); ?>
     </div>
-    <div class="preistraeger-collection-container">
+    <div class="col-lg-8 offset-lg-2 col-12">
     <?php 
 
     function end_prev_letter() {
