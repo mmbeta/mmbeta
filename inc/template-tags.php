@@ -128,7 +128,7 @@ function mm_menu( $theme_location ) {
         $menu_items = wp_get_nav_menu_items($menu->term_id);
 
         $menu_array = array();
-        $menu_list = '<ul class="navbar-nav mr-auto">';
+        $menu_list = '<ul class="navbar-nav">';
         
         // Build an array with all menu items - sorted by parents
         foreach( $menu_items as $menu_item ) {

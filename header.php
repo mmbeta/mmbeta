@@ -44,27 +44,27 @@
       </div>
   </div>
 
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white row">
-      
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <!-- mm logo for mobile -->
       <a class="d-lg-none navbar-brand mm_logo-mobile" href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <img src="<?php print get_template_directory_uri() . '/images/mm_logo_nourl.svg'  ?>" width="110" height="30" alt="">
       </a>
-   
+      
+      <!-- button expands menu on mobile -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <!-- nav items -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="container d-flex flex-row justify-content-center">
         <!-- menu template tag start -->
         <?php mm_menu('primary'); ?>
         <!-- menu template tag end -->
+        </div>
       </div>
     </nav>
-
-
-
-
-
+  </div>
 
 	</header>
