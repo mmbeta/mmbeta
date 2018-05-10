@@ -376,7 +376,7 @@ function mmbeta_scripts() {
 	wp_enqueue_style( 'mmbeta-leitura-sans', get_template_directory_uri() . '/css/Leitura.css' );
 	wp_enqueue_style( 'mmbeta-custom', get_template_directory_uri() . '/css/mmbeta-custom.css' );
 	wp_enqueue_script( 'mmbeta-custom-js', get_template_directory_uri() . '/js/mmbeta.js', array( 'jquery' ), '20160201', true );
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '20151106', true );
+	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', array( 'jquery' ), '20180507', true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

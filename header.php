@@ -61,16 +61,7 @@
               $menu_list_mobile .= '<li class="nav-item"><a class="nav-link" href="' . $url . '">' . $title . '</a></li>';
           }
           
-  //         $menu_list .= '  <li class="nav-item dropdown">
-  //   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-  //   <div class="dropdown-menu">
-  //     <a class="dropdown-item" href="#">Action</a>
-  //     <a class="dropdown-item" href="#">Another action</a>
-  //     <a class="dropdown-item" href="#">Something else here</a>
-  //     <div class="dropdown-divider"></div>
-  //     <a class="dropdown-item" href="#">Separated link</a>
-  //   </div>
-  // </li>';
+
 
           $menu_list .= '</ul></div></nav>';
           $menu_list_mobile .= '</ul></div></nav>';
@@ -78,7 +69,9 @@
           $menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
         }
 
-        echo $menu_list;
+        // echo $menu_list;
+
+        mm_menu('primary');
     ?>
    
   </div>
@@ -94,18 +87,11 @@
       </nav>
   </div>
 
-  <!-- Slider -->
-  <div class="row m-b">
-  <?php 
-  if(is_front_page() && function_exists('putRevSlider') ){
-    if (function_exists('get_field')) {
-      $hpslider_name = get_field('homepage-slider');
-    }else{
-      $hpslider_name = 'hp-slider';
-    }
-    putRevSlider($hpslider_name, 'homepage');
-  }
-  ?>
-  </div>
+  <!-- Test menu -->
+
+
+  <!-- End Test Menu -->
+
+
 
 	</header>

@@ -119,3 +119,128 @@ function mmbeta_category_transient_flusher() {
 }
 add_action( 'edit_category', 'mmbeta_category_transient_flusher' );
 add_action( 'save_post',     'mmbeta_category_transient_flusher' );
+
+
+function mm_menu( $theme_location ) {
+    if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
+        $menu = get_term( $locations[$theme_location], 'nav_menu' );
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+        $menu_array = array();
+        $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 offset-lg-2 col-12 text-center" role="navigation"><div class="top-navi"><ul>';
+        
+        foreach( $menu_items as $menu_item ) {
+            $menu_array[$menu_item->menu_item_parent][] = $menu_item->ID;
+        }
+
+        foreach( $menu_items as $menu_item ) {
+   
+            $link = $menu_item->url;
+            $title = $menu_item->title;
+            $has_children = isset($menu_array[$menu_item->ID]);
+           	
+          	// var_dump(  $menu_item->menu_item_parent > 0 and !$has_children );
+
+            
+            if ( !$has_children and $menu_item->menu_item_parent == 0 ) {
+           		$menu_list .= "<li><a class='nav-link' href='" . $link . "'>" . $menu_item->title . "</a></li>";
+            }
+
+            if( $has_children ){
+            	$menu_list .= "<li class='dropdown show'><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='" . $link . "'>" . $menu_item->title . "</a>";
+
+
+
+            	if ( isset($menu_array[$menu_item->ID]) ) {
+            		$menu_list .= "<ul class='dropdown-menu'>";
+	            	
+	            	foreach ($menu_array[$menu_item->ID] as $menu_child_id) {
+	            		$menu_child = wp_setup_nav_menu_item(get_post($menu_child_id));
+	            		
+	            		$menu_list .= "<a class='dropdown-item' href='" . $menu_child->url . "'>" . $menu_child->title . "</a>";
+	            	}
+
+	            	$menu_list .= "</ul>";
+
+            	}
+
+            	$menu_list .= "</li>";
+            }
+            
+           
+        }
+        
+        $menu_list .= "</ul>";
+
+
+    } else {
+        $menu_list = 'no menu defined in location "'.$theme_location.'"';
+    }
+    
+    echo($menu_list);
+}
+
+
+
+
+function mm_menu_( $theme_location ) {
+    if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
+        $menu = get_term( $locations[$theme_location], 'nav_menu' );
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+ 
+        $menu_list  = '<nav>' ."\n";
+        $menu_list .= '<ul class="main-nav">' ."\n";
+ 
+        $count = 0;
+        $submenu = false;
+         
+        foreach( $menu_items as $menu_item ) {
+             
+            $link = $menu_item->url;
+            $title = $menu_item->title;
+            
+            //has no parent
+            if ( !$menu_item->menu_item_parent ) {
+                $parent_id = $menu_item->ID;
+                 
+                $menu_list .= '<li class="item">' ."\n";
+                $menu_list .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
+            }
+ 				
+
+
+            if ( $parent_id == $menu_item->menu_item_parent ) {
+ 
+                if ( !$submenu ) {
+                    $submenu = true;
+                    $menu_list .= '<ul class="sub-menu">' ."\n";
+                }
+ 
+                $menu_list .= '<li class="item">' ."\n";
+                $menu_list .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
+                $menu_list .= '</li>' ."\n";
+                     
+ 
+                if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
+                    $menu_list .= '</ul>' ."\n";
+                    $submenu = false;
+                }
+ 
+            }
+ 
+            if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) { 
+                $menu_list .= '</li>' ."\n";      
+                $submenu = false;
+            }
+ 
+            $count++;
+        }
+         
+        $menu_list .= '</ul>' ."\n";
+        $menu_list .= '</nav>' ."\n";
+ 
+    } else {
+        $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';
+    }
+    echo $menu_list;
+}
