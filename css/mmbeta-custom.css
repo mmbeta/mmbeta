@@ -281,10 +281,6 @@ img.popup {
 
 /* Menu */
 
-.nav-link {
-  padding: 0;
-}
-
 a.nav-link, a.nav-link:hover {
   color: black;
   text-transform: uppercase;
@@ -294,6 +290,12 @@ a.nav-link, a.nav-link:hover {
   font-family: "Leitura Sans";
 }
 
+a.mm_logo-mobile, a.mm_logo-mobile:hover {
+  text-decoration: none;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;  
+}
+/*
 nav.navbar ul {
   padding-left: 0;
 }
@@ -329,7 +331,7 @@ nav.navbar {
     border-radius: 0;
     z-index: 1;
     background-color: white;
-}
+}*/
 
 .pinned {
     position: fixed !important;

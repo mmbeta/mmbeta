@@ -121,13 +121,14 @@ add_action( 'edit_category', 'mmbeta_category_transient_flusher' );
 add_action( 'save_post',     'mmbeta_category_transient_flusher' );
 
 
-function mm_menu( $theme_location, $breakpoint ) {
+
+function mm_menu( $theme_location ) {
     if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
         $menu = get_term( $locations[$theme_location], 'nav_menu' );
         $menu_items = wp_get_nav_menu_items($menu->term_id);
 
         $menu_array = array();
-        $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 offset-lg-2 col-12 text-center" role="navigation"><div class="top-navi"><ul>';
+        $menu_list = '<ul class="navbar-nav mr-auto">';
         
         // Build an array with all menu items - sorted by parents
         foreach( $menu_items as $menu_item ) {
@@ -143,16 +144,17 @@ function mm_menu( $theme_location, $breakpoint ) {
 
             
             if ( !$has_children and $menu_item->menu_item_parent == 0 ) {
-           		$menu_list .= "<li><a class='nav-link' href='" . $link . "'>" . $menu_item->title . "</a></li>";
+           		$menu_list .= "<li class='nav-item'><a class='nav-link' href='" . $link . "'>" . $menu_item->title . "</a></li>";
             }
 
             if( $has_children ){
-            	$menu_list .= "<li class='dropdown show'><a class='nav-link dropdown-toggle' data-toggle='dropdown' href='" . $link . "'>" . $menu_item->title . "</a>";
+            	$menu_list .= "<li class='nav-item dropdown'>";
+            	$menu_list .= '<a class="nav-link dropdown-toggle" href="' . $link . '" id="navbar ' . $menu_item->title . '" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'  . $menu_item->title .  '</a>';
 
 
 
             	if ( isset($menu_array[$menu_item->ID]) ) {
-            		$menu_list .= "<ul class='dropdown-menu'>";
+            		$menu_list .= '<div class="dropdown-menu" aria-labelledby="navbar ' . $menu_item->title . '">';
 	            	
 	            	foreach ($menu_array[$menu_item->ID] as $menu_child_id) {
 	            		$menu_child = wp_setup_nav_menu_item(get_post($menu_child_id));
@@ -160,7 +162,7 @@ function mm_menu( $theme_location, $breakpoint ) {
 	            		$menu_list .= "<a class='dropdown-item' href='" . $menu_child->url . "'>" . $menu_child->title . "</a>";
 	            	}
 
-	            	$menu_list .= "</ul>";
+	            	$menu_list .= "</div>";
 
             	}
 
@@ -170,25 +172,15 @@ function mm_menu( $theme_location, $breakpoint ) {
            
         }
 
-        $menu_list .= "</ul></div></nav>";
+        $menu_list .= "</ul>";
         
-        // Loop for mobile menu
-        $menu_list_mobile = '<ul class="nav">';
-        foreach ($menu_items as $menu_item) {
-          $title = $menu_item->title;
-          $url = $menu_item->url;
-          $menu_list_mobile .= '<li class="nav-item"><a class="nav-link" href="' . $url . '">' . $title . '</a></li>';
-        }
-        
-        $menu_list_mobile .= '</ul>';
+
 
     } else {
         $menu_list = 'no menu defined in location "'.$theme_location.'"';
     }
     
-    if ($breakpoint == 'mobile') {
-    	echo($menu_list_mobile);
-    }else{
-    	echo($menu_list);
-	}
+
+   	echo($menu_list);
+	
 }

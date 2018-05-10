@@ -28,8 +28,8 @@
 <?php get_template_part( 'template-parts/sdk', 'facebook' ); ?>
 <div id="page" class="container-fluid">
 	<header role="banner">
-	<div class="row">
-      <div class="col-lg-8 offset-lg-2 col-12 m-t-lg social-links">
+	<div class="row d-none d-lg-block">
+      <div class="col-lg-8 offset-lg-2 col-12 mt-5 social-links">
         <a target="_blank" href="http://facebook.com/mediummagazin">
           <span class="dashicons dashicons-facebook-alt social-link"></span>
         </a>
@@ -44,25 +44,24 @@
       </div>
   </div>
 
-  <!-- Menu desktop -->
-  <div class="row d-none d-md-block">
-    <!-- template tag desktop menu start -->
-    <?php mm_menu('primary', 'desktop');?> 
-    <!-- template tag desktop menu end-->  
-  </div>
-  
-  <!-- Menu mobile -->
-  
-  <div class="row d-block d-md-none">
-    <div class="collapse" id="exCollapsingNavbar">
-        <?php mm_menu('primary', 'mobile');?>
-    </div>
-    <nav class="navbar navbar-light bg-faded col-xs-12 text-xs-center">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-        &#9776;
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white row">
+      
+      <a class="d-lg-none navbar-brand mm_logo-mobile" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+        <img src="<?php print get_template_directory_uri() . '/images/mm_logo_nourl.svg'  ?>" width="110" height="30" alt="">
+      </a>
+   
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- menu template tag start -->
+        <?php mm_menu('primary'); ?>
+        <!-- menu template tag end -->
+      </div>
     </nav>
-  </div>
+
 
 
 
