@@ -295,10 +295,9 @@ a.mm_logo-mobile, a.mm_logo-mobile:hover {
   border-bottom-width: 0px;
   border-bottom-style: solid;  
 }
-/*
-nav.navbar ul {
-  padding-left: 0;
-}
+
+
+
 
 nav.navbar li {
     margin-right: 1rem;
@@ -316,12 +315,16 @@ a.nav-link:hover, a.nav-link.active {
 }
 
 
-div.top-navi > ul > li:last-child {
+ul.navbar-nav > li:last-child {
     border-right: none;
 }
 
+a.nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 nav.navbar {
-    padding: 0.2em;
     border-top-color: rgb(125, 120, 120);
     border-top-style: solid;
     border-top-width: 1px;
@@ -331,7 +334,7 @@ nav.navbar {
     border-radius: 0;
     z-index: 1;
     background-color: white;
-}*/
+}
 
 .pinned {
     position: fixed !important;
