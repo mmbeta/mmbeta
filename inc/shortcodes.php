@@ -456,7 +456,7 @@ function cover_gallery_shortcode( $attr ) {
     </style>
     <script type='text/javascript'>
       jQuery(document).ready(function(){
-        if(jQuery('.cover-gallery').length > 0){
+        if(jQuery('.cover-gallery').length > 0 ){
           jQuery('.cover-gallery').owlCarousel({
             navigation : false,
             lazyLoad: true,

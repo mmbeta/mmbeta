@@ -281,6 +281,10 @@ img.popup {
 
 /* Menu */
 
+.nav-link {
+  padding: 0;
+}
+
 a.nav-link, a.nav-link:hover {
   color: black;
   text-transform: uppercase;

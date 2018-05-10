@@ -121,7 +121,7 @@ add_action( 'edit_category', 'mmbeta_category_transient_flusher' );
 add_action( 'save_post',     'mmbeta_category_transient_flusher' );
 
 
-function mm_menu( $theme_location ) {
+function mm_menu( $theme_location, $breakpoint ) {
     if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
         $menu = get_term( $locations[$theme_location], 'nav_menu' );
         $menu_items = wp_get_nav_menu_items($menu->term_id);
@@ -129,17 +129,17 @@ function mm_menu( $theme_location ) {
         $menu_array = array();
         $menu_list = '<nav id="mainnav" class="navbar nav-inline col-lg-8 offset-lg-2 col-12 text-center" role="navigation"><div class="top-navi"><ul>';
         
+        // Build an array with all menu items - sorted by parents
         foreach( $menu_items as $menu_item ) {
             $menu_array[$menu_item->menu_item_parent][] = $menu_item->ID;
         }
 
+        // Add menu items to desktop navigation - extra loop for submenu-items
         foreach( $menu_items as $menu_item ) {
    
             $link = $menu_item->url;
             $title = $menu_item->title;
             $has_children = isset($menu_array[$menu_item->ID]);
-           	
-          	// var_dump(  $menu_item->menu_item_parent > 0 and !$has_children );
 
             
             if ( !$has_children and $menu_item->menu_item_parent == 0 ) {
@@ -169,78 +169,26 @@ function mm_menu( $theme_location ) {
             
            
         }
-        
-        $menu_list .= "</ul>";
 
+        $menu_list .= "</ul></div></nav>";
+        
+        // Loop for mobile menu
+        $menu_list_mobile = '<ul class="nav">';
+        foreach ($menu_items as $menu_item) {
+          $title = $menu_item->title;
+          $url = $menu_item->url;
+          $menu_list_mobile .= '<li class="nav-item"><a class="nav-link" href="' . $url . '">' . $title . '</a></li>';
+        }
+        
+        $menu_list_mobile .= '</ul>';
 
     } else {
         $menu_list = 'no menu defined in location "'.$theme_location.'"';
     }
     
-    echo($menu_list);
-}
-
-
-
-
-function mm_menu_( $theme_location ) {
-    if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
-        $menu = get_term( $locations[$theme_location], 'nav_menu' );
-        $menu_items = wp_get_nav_menu_items($menu->term_id);
- 
-        $menu_list  = '<nav>' ."\n";
-        $menu_list .= '<ul class="main-nav">' ."\n";
- 
-        $count = 0;
-        $submenu = false;
-         
-        foreach( $menu_items as $menu_item ) {
-             
-            $link = $menu_item->url;
-            $title = $menu_item->title;
-            
-            //has no parent
-            if ( !$menu_item->menu_item_parent ) {
-                $parent_id = $menu_item->ID;
-                 
-                $menu_list .= '<li class="item">' ."\n";
-                $menu_list .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
-            }
- 				
-
-
-            if ( $parent_id == $menu_item->menu_item_parent ) {
- 
-                if ( !$submenu ) {
-                    $submenu = true;
-                    $menu_list .= '<ul class="sub-menu">' ."\n";
-                }
- 
-                $menu_list .= '<li class="item">' ."\n";
-                $menu_list .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
-                $menu_list .= '</li>' ."\n";
-                     
- 
-                if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){
-                    $menu_list .= '</ul>' ."\n";
-                    $submenu = false;
-                }
- 
-            }
- 
-            if ( $menu_items[ $count + 1 ]->menu_item_parent != $parent_id ) { 
-                $menu_list .= '</li>' ."\n";      
-                $submenu = false;
-            }
- 
-            $count++;
-        }
-         
-        $menu_list .= '</ul>' ."\n";
-        $menu_list .= '</nav>' ."\n";
- 
-    } else {
-        $menu_list = '<!-- no menu defined in location "'.$theme_location.'" -->';
-    }
-    echo $menu_list;
+    if ($breakpoint == 'mobile') {
+    	echo($menu_list_mobile);
+    }else{
+    	echo($menu_list);
+	}
 }
