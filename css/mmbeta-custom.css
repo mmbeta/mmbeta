@@ -166,34 +166,6 @@ a.aufmacher-link {
   border: none;
 }
 
-/*div.aufmacher-img-container {
-  width: 100%;
-}
-
-div.aufmacher-text-container {
-  width: 100%;
-}
-
-@media (min-width: 48em) {
-  div.aufmacher-img-container {
-    width: 50%;
-  }
-  
-  div.aufmacher-text-container {
-    width: 50%;
-  }
-}
-
-@media (min-width: 62em) {
-  div.aufmacher-img-container {
-    width: 33%;
-  }
-  
-  div.aufmacher-text-container {
-    width: 66%;
-  }
-}*/
-
 
 
 /* card showcase margin */
@@ -528,18 +500,6 @@ a.voll-teaser-link:hover{
 /* teaser 1 and 3 by Marc */
 
 
-.teaser1-container,
-.teaser2-container,
-.teaser3-container {
-  position: relative;
-}
-
-.teaser1-content,
-.teaser2-content,
-.teaser3-content {
-  padding-top: 10px;
-}
-
 .teaser1-body,
 .teaser2-body,
 .teaser3-body {
@@ -581,6 +541,10 @@ a.voll-teaser-link:hover{
   max-width: 60%;
 }
 
+.teaser-img-hoch.teasergruppe-3 {
+  max-height: 220px;
+}
+
 .teaser-img-breit {
   display: inline-block;
 }
@@ -599,7 +563,6 @@ a.voll-teaser-link:hover{
 .teaser3-header {
   font-family:Leitura Sans;
   text-decoration: underline;
-  margin-top:10px;
 }
 .teaser1-text,
 .teaser2-text,

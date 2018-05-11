@@ -69,8 +69,8 @@ get_header();
 
               if ( $teasergroup_query->have_posts() ) : 
               ?>
-                <div class="row">
-                  <div class="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                <div class="container d-flex flex-row flex-wrap justify-content-center">
+                  
                   <?php
                     $template_name = 'teasergruppe-' . $posts_to_be_shown;
 
@@ -78,7 +78,7 @@ get_header();
                       get_template_part( 'hp/hp', $template_name);
                     endwhile;
                   ?>
-                  </div>
+                  
                 </div>
               <?php
               endif;
@@ -134,7 +134,9 @@ get_header();
               get_template_part('hp/hp', 'aufmacher');
               wp_reset_query();
             elseif ( get_row_layout() == 'hp_embed' ):
+              echo '<div class="container d-flex flex-row flex-wrap justify-content-center">';
               get_template_part( 'hp/hp', 'video');
+              echo '</div>';
             endif;
 
 

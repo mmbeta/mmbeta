@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="row flex-container" style="background-color: <?php echo( mmbeta_color($post->background_color) ); ?>;
+<div class="row flex-container mb-lg-5" style="background-color: <?php echo( mmbeta_color($post->background_color) ); ?>;
 color: <?php echo( mmbeta_color($post->background_color, true) ); ?>;">
 
   <?php
