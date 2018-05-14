@@ -661,3 +661,9 @@ a.voll-teaser-link:hover{
 @media (min-width: 48.05em) {
   .bg-image { height: 80px; }
 }
+
+@media (min-width: 48.05em) {
+  .social-container {
+    padding: 2em;
+  }
+}

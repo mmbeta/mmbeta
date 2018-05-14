@@ -40,13 +40,12 @@ if (function_exists('hourly_social_api_call')) {
 
 ?>
 
-<div class="row m-t">
-  <div class="col-12 col-lg-6">
+<div class="container d-flex flex-row flex-wrap justify-content-center justify-content-lg-around social-container">
+  <div class="col-12 col-lg-5 align-self-center">
     <?php echo $tweet; ?>
-
   </div>
 
-  <div class="col-12 col-lg-6">
+  <div class="col-12 col-lg-5 align-self-center">
     <center>
       <div class="fb-post" data-href="<?php echo $fbpost; ?>" data-width="auto"></div>
     </center>

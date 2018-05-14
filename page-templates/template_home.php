@@ -113,7 +113,7 @@ get_header();
               $kategorie = get_sub_field('cover-slider');
               $farbe = get_sub_field('color');
               $titel = get_sub_field('slider_titel');
-              echo '<div class="row cover-slider m-t" style="background-color:' . mmbeta_color($farbe) . ' " >';
+              echo '<div class="row cover-slider mt-1" style="background-color:' . mmbeta_color($farbe) . ' " >';
                 echo '<h6 class="heads-gallery-heading">' . $titel . '</h6>';
                 echo "<div class='col-md-8 offset-md-2'>";
                   echo cover_gallery_shortcode(
