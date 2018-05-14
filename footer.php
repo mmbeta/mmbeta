@@ -25,13 +25,13 @@
       if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
         $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
         $menu_items = wp_get_nav_menu_items($menu->term_id);
-        $menu_list = '<nav class="nav-inline col-lg-8 offset-lg-2 col-12" role="navigation">';
+        $menu_list = '<nav class="container d-flex flex-wrap flex-row justify-content-center" role="navigation">';
 
 
         foreach ( (array) $menu_items as $key => $menu_item ) {
             $title = $menu_item->title;
             $url = $menu_item->url;
-            $menu_list .= '<a class="nav-link" href="' . $url . '">' . $title . '</a>';
+            $menu_list .= '<a class="nav-link col-12 col-md-4 align-self-center text-md-center" href="' . $url . '">' . $title . '</a>';
         }
         $menu_list .= '</nav>';
       } else {
