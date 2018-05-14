@@ -115,7 +115,7 @@ get_header();
               $titel = get_sub_field('slider_titel');
               echo '<div class="row cover-slider mt-3 mb-3 pt-3" style="background-color:' . mmbeta_color($farbe) . ' " >';
                 echo '<div class="justify-content-center container d-flex flex-row flex-wrap">';
-                  echo '<h6 class="heads-gallery-heading">' . $titel . '</h6>';
+                  echo '<h6 class="heads-gallery-heading col-12">' . $titel . '</h6>';
                   echo "<div class='col-12'>";
                     echo cover_gallery_shortcode(
                           array(
