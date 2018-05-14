@@ -270,12 +270,13 @@ a.mm_logo-mobile, a.mm_logo-mobile:hover {
 
 
 
-
-nav.navbar li {
+@media (min-width: 48em) {
+  nav.navbar li {
     margin-right: 1rem;
     display: inline-block;
     padding-right: 1rem;
     border-right: 1px solid #eee;
+  }
 }
 
 nav.navbar ul {
