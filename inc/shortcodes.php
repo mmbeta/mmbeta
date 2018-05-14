@@ -433,9 +433,11 @@ function cover_gallery_shortcode( $attr ) {
     if ( $query->have_posts() ) : 
       while ( $query->have_posts() ) : $query->the_post();
       $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'cover' );
-      $output .= "<a href='" . get_permalink() . "'><div class='item'>";
-      $output .= "<img data-src='" . $image[0] . "' class='figure-img lazyOwl'>"; 
-      $output .= "</div></a>";
+      if($image[0]){ 
+        $output .= "<a href='" . get_permalink() . "'><div class='item'>";
+        $output .= "<img data-src='" . $image[0] . "' class='figure-img lazyOwl'>"; 
+        $output .= "</div></a>";
+      }
       endwhile;
     endif;
 
@@ -444,8 +446,7 @@ function cover_gallery_shortcode( $attr ) {
     </div>
     <style>
     .cover-gallery div.item{
-      padding: 10px 0px;
-      margin: 5px;
+      margin: 5%;
       color: #FFF;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -464,12 +465,7 @@ function cover_gallery_shortcode( $attr ) {
             itemsCustom : [
                     [0, 1],
                     [450, 4],
-                    [600, 6],
-                    [800, 8],
-                    [1000, 10],
-                    [1200, 12],
-                    [1400, 14],
-                    [1600, 16]
+                    [800, 5]
             ]
           });    
         }
