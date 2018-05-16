@@ -9,8 +9,8 @@
 
 ?>
 
-<div class="row">
-  <article id="post-<?php the_ID(); ?>" class="col-lg-6 offset-lg-3" >
+<div class="container justify-content-center d-flex mt-3 mb-3">
+  <article id="post-<?php the_ID(); ?>" class="col-12 col-lg-8" >
   	<header class="entry-header">
   		<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
   	</header><!-- .entry-header -->
@@ -18,7 +18,7 @@
   	<div>
   		<?php the_content(); ?>
   	</div><!-- .entry-content -->
-  	<small class="entry-meta col-12 col-lg-8 offset-lg-2">
+  	<small class="entry-meta">
   		<?php mmbeta_posted_on(); ?>
   	</small><!-- .entry-meta -->
 
