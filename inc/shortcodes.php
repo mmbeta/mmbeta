@@ -504,12 +504,12 @@ function mm_showcase_shortcode( $atts, $content = null ) {
   $main_image_path = wp_get_attachment_image_src( $main_image_id, 'full')[0];
 
   $output = '<div class="card showcase">';
-    $output .= '<div class="card-block">';
+    $output .= '<div class="card-body">';
       $output .= '<h4 class="card-title">' . $attributes['ausgabe'] . '</h4>';
       $output .= '<h6 class="card-subtitle text-muted">' . $attributes['untertitel'] . '</h6>';
     $output .= '</div>';
     $output .= '<img src="' . wp_get_attachment_image_src( $main_image_id, 'large')[0] . '" class="img-responsive popup" alt="' . $attributes['ausgabe'] . '" data-imgpath="' . $main_image_path . '" >';
-    $output .= '<div class="card-block">';
+    $output .= '<div class="card-body">';
     $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
 
     $output .= '<div class="container">';
