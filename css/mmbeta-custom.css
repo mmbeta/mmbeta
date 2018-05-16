@@ -317,6 +317,12 @@ nav.navbar {
   z-index: 5;
 }
 
+/* Breadcrumb */
+
+.breadcrumb-item {
+  font-family: "Leitura Sans";
+}
+
 /* Widget Areas */
 li.widget {
   list-style: none;
