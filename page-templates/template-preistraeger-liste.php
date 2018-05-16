@@ -35,13 +35,11 @@ if ( class_exists("LaterPay_Helper_Request") ){
 
 <div id="primary" class="content-area">
   <main id="main" role="main">
-    <div class="row">
-      <div class="col-12 m-b bg-jdj p-a">
-        <header class="page-header col-12 col-lg-8 offset-lg-2">
-          <h1 class="page-title"><?php the_title(); ?></h1>
-          <div><?php the_field('header-text'); ?></div>
-        </header><!-- .page-header -->
-      </div>
+    <div class="row d-flex justify-content-center bg-jdj mb-2">
+      <header class="page-header col-12 col-lg-8 m-3">
+        <h1 class="page-title"><?php the_title(); ?></h1>
+        <div><?php the_field('header-text'); ?></div>
+      </header><!-- .page-header -->
     </div>
     <div>
       <?php if(get_post_thumbnail_id($post->ID)) :
@@ -54,7 +52,13 @@ if ( class_exists("LaterPay_Helper_Request") ){
             <figure class="figure">
               <img src="<?php the_post_thumbnail_url('large'); ?>" class="figure-img">
               <figcaption class="figure-caption">
-                <?php echo get_post($thumb_id)->post_excerpt; ?>
+                
+                <?php 
+                if ( get_post($thumb_id)->post_excerpt ) {
+                  echo get_post($thumb_id)->post_excerpt; 
+                }
+
+                ?>
                 <br><small><?php echo $credit; ?></small>
               </figcaption>
             </figure>
