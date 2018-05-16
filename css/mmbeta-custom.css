@@ -676,3 +676,7 @@ a.voll-teaser-link:hover{
     padding: 2em;
   }
 }
+
+.btn {
+  font-family: "Leitura Sans";
+}
