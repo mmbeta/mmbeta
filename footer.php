@@ -31,7 +31,7 @@
         foreach ( (array) $menu_items as $key => $menu_item ) {
             $title = $menu_item->title;
             $url = $menu_item->url;
-            $menu_list .= '<a class="nav-link col-12 col-md-4 align-self-center text-md-center" href="' . $url . '">' . $title . '</a>';
+            $menu_list .= '<a class="nav-link col-12 col-md-3 align-self-center text-md-center" href="' . $url . '">' . $title . '</a>';
         }
         $menu_list .= '</nav>';
       } else {
