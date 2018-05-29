@@ -172,6 +172,9 @@ function mm_menu( $theme_location ) {
            
         }
 
+        // Add Search
+        $menu_list .= "<li class='nav-item'>" . get_search_form(false) . "</li>";
+
         $menu_list .= "</ul>";
         
 
