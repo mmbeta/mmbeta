@@ -268,14 +268,15 @@ a.mm_logo-mobile, a.mm_logo-mobile:hover {
   border-bottom-style: solid;  
 }
 
+.dropdown-item {
+  font-family: "Leitura Sans";
+}
 
-
-@media (min-width: 48em) {
-  nav.navbar li {
-    margin-right: 1rem;
-    display: inline-block;
-    padding-right: 1rem;
-    border-right: 1px solid #eee;
+@media (max-width: 48em) {
+  .nav-item {
+    margin-top: 0.5em;
+/*    border-bottom-width: 1px;
+    border-bottom-style: solid; */
   }
 }
 

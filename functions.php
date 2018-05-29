@@ -494,7 +494,6 @@ function my_mce_before_init_insert_formats( $init_array ) {
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );  
 
 // Get attachment id by url
-
 function mm_get_attachment_id_from_url( $attachment_url = '' ) {
  
 	global $wpdb;
@@ -522,6 +521,28 @@ function mm_get_attachment_id_from_url( $attachment_url = '' ) {
 	}
  
 	return $attachment_id;
+}
+
+/**
+ * Get image alt
+ */
+function mm_get_image_alt( $image ) {
+    global $wpdb;
+
+    if( empty( $image ) ) {
+        return false;
+    }
+
+    $attachment  = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid='%s';", strtolower( $image ) ) );
+    $id   = ( ! empty( $attachment ) ) ? $attachment[0] : 0;
+
+    $alt = get_post_meta( $id, '_wp_attachment_image_alt', true );
+
+    if (!$alt) {
+    	$alt = get_the_title( $id );
+    }
+
+    return $alt;
 }
 
 // Laterpay Link Generator function
