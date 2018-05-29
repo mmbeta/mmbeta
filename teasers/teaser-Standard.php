@@ -12,8 +12,8 @@ $teaser_text = get_field('teaser-text');
 ?>
 
 <a href="<?php the_permalink(); ?>" class="voll-teaser-link">
-  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-6">
-    <div class="card teaser teaser1-container">
+  <div class="col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-0 col-lg-6">
+    <div class="card teaser">
       <div class="card-block teaser1-content">        
         <div class="teaser1-body">
         <?php if ($teaser_image) { ?>

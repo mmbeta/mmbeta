@@ -266,7 +266,7 @@ function list_gallery_shortcode( $attr ) {
       $orientation = ( $image_meta['height'] > $image_meta['width'] ) ? 'portrait' : 'landscape';
     }
     $column_to_grid = 12/$columns;
-    $output .= "<{$itemtag} class='gallery-item col-xs-12 col-lg-{$column_to_grid}'>";
+    $output .= "<{$itemtag} class='gallery-item col-12 col-lg-{$column_to_grid}'>";
     $output .= "
       <{$icontag} class='gallery-icon {$orientation}'>
         $image_output
@@ -295,7 +295,7 @@ function list_gallery_shortcode( $attr ) {
   $iterator = 0;
   foreach ( $attachments as $id => $attachment ) {
     $image_meta  = wp_get_attachment_metadata( $id );
-    $credit = trim($image_meta[image_meta][credit]) ? '&#169; ' . $image_meta[image_meta][credit] : "";
+    $credit = trim($image_meta['image_meta']['credit']) ? '&#169; ' . $image_meta['image_meta']['credit'] : "";
     $iterator++;
     $attr = ( trim( $attachment->post_excerpt ) ) ? array( 'aria-describedby' => "$selector-$id", 'data-imgcount' => "$iterator", 'class' => 'figure-img' ) : array( 'data-imgcount' => "$iterator", 'class' => 'figure-img'  );
     if ( ! empty( $atts['link'] ) && 'file' === $atts['link'] ) {
@@ -389,7 +389,9 @@ function heads_gallery_shortcode( $attr ) {
         if(jQuery('.heads-gallery').length > 0){
           jQuery('.heads-gallery').owlCarousel({
             items : 4,
-            lazyLoad: true
+            lazyLoad: true,
+            pagination: false,
+            navigation: false
           });    
         }
       });
@@ -400,11 +402,12 @@ function heads_gallery_shortcode( $attr ) {
   $query = new WP_Query( $args );
   if ($query->have_posts()) :
 
-    echo '<div class="row heads-gallery-container m-t"><h6 class="heads-gallery-heading">' . $attr['titel']. '</h6><div class="heads-gallery">';
+    echo '<div class="row heads-gallery-container mt-3 mb-3 pt-3"><div class="justify-content-center container d-flex flex-row flex-wrap"><h6 class="heads-gallery-heading">' . $attr['titel']. '</h6><div class="heads-gallery">';
 
     while ( $query->have_posts() ) : $query->the_post();
       get_template_part( 'teasers/teaser', 'heads-gallery' );
     endwhile;
+    echo "</div>";
     echo $output;
   endif;
 }
@@ -433,9 +436,11 @@ function cover_gallery_shortcode( $attr ) {
     if ( $query->have_posts() ) : 
       while ( $query->have_posts() ) : $query->the_post();
       $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'cover' );
-      $output .= "<a href='" . get_permalink() . "'><div class='item'>";
-      $output .= "<img data-src='" . $image[0] . "' class='figure-img lazyOwl'>"; 
-      $output .= "</div></a>";
+      if($image[0]){ 
+        $output .= "<a href='" . get_permalink() . "'><div class='item'>";
+        $output .= "<img data-src='" . $image[0] . "' class='figure-img lazyOwl'>"; 
+        $output .= "</div></a>";
+      }
       endwhile;
     endif;
 
@@ -444,8 +449,7 @@ function cover_gallery_shortcode( $attr ) {
     </div>
     <style>
     .cover-gallery div.item{
-      padding: 10px 0px;
-      margin: 5px;
+      margin: 5%;
       color: #FFF;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -456,7 +460,7 @@ function cover_gallery_shortcode( $attr ) {
     </style>
     <script type='text/javascript'>
       jQuery(document).ready(function(){
-        if(jQuery('.cover-gallery').length > 0){
+        if(jQuery('.cover-gallery').length > 0 ){
           jQuery('.cover-gallery').owlCarousel({
             navigation : false,
             lazyLoad: true,
@@ -464,12 +468,7 @@ function cover_gallery_shortcode( $attr ) {
             itemsCustom : [
                     [0, 1],
                     [450, 4],
-                    [600, 6],
-                    [800, 8],
-                    [1000, 10],
-                    [1200, 12],
-                    [1400, 14],
-                    [1600, 16]
+                    [800, 5]
             ]
           });    
         }
@@ -505,30 +504,30 @@ function mm_showcase_shortcode( $atts, $content = null ) {
   $main_image_path = wp_get_attachment_image_src( $main_image_id, 'full')[0];
 
   $output = '<div class="card showcase">';
-    $output .= '<div class="card-block">';
+    $output .= '<div class="card-body">';
       $output .= '<h4 class="card-title">' . $attributes['ausgabe'] . '</h4>';
       $output .= '<h6 class="card-subtitle text-muted">' . $attributes['untertitel'] . '</h6>';
     $output .= '</div>';
     $output .= '<img src="' . wp_get_attachment_image_src( $main_image_id, 'large')[0] . '" class="img-responsive popup" alt="' . $attributes['ausgabe'] . '" data-imgpath="' . $main_image_path . '" >';
-    $output .= '<div class="card-block">';
+    $output .= '<div class="card-body">';
     $output .= '<p class="card-text">' . $attributes['teaser'] . '</p>';
 
     $output .= '<div class="container">';
       $output .= '<div class="row">
         <a class="button-link" href="' . $attributes['print-kaufen'] . '">
-          <button class="btn btn-secondary-outline btn-block showcase-button">
+          <button class="btn btn-outline-secondary-outline btn-block showcase-button">
             Print kaufen
             <span class="dashicons dashicons-book"></span>
           </button>
         </a>
         <a class="button-link" href="' . $attributes['epaper-kaufen'] . '">
-          <button class="btn btn-secondary-outline btn-block showcase-button">
+          <button class="btn btn-outline-secondary-outline btn-block showcase-button">
             E-Paper kaufen
             <span class="dashicons dashicons-tablet"></span>
           </button>
         </a>
         <a class="button-link" href="' . $attributes['abo-link'] . '">
-          <button class="btn btn-secondary-outline btn-block showcase-button">
+          <button class="btn btn-outline-secondary-outline btn-block showcase-button">
             Abos
             <span class="dashicons dashicons-money"></span>
           </button>
@@ -562,7 +561,7 @@ function show_more_function($attr, $content) {
        'width' => '100%',
        'height' => '480px'
    ), $attr));
-   $button = '<button type="button" class="btn btn-secondary btn-block m-b button-toggle" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen.">mehr</button>';
+   $button = '<button type="button" class="btn btn-outline-secondary btn-block m-b button-toggle" data-toggle="collapse" data-target="#collapsedContent" aria-expanded="false" aria-controls="collapsedContent" title="Klicken Sie hier, um weiteren Inhalt auszuklappen.">mehr</button>';
    $body = '<div class="collapse" id="collapsedContent">' . $content . '</div>';
    return $button . $body;
 }

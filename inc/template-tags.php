@@ -119,3 +119,68 @@ function mmbeta_category_transient_flusher() {
 }
 add_action( 'edit_category', 'mmbeta_category_transient_flusher' );
 add_action( 'save_post',     'mmbeta_category_transient_flusher' );
+
+
+
+function mm_menu( $theme_location ) {
+    if ( ($theme_location) && ($locations = get_nav_menu_locations()) && isset($locations[$theme_location]) ) {
+        $menu = get_term( $locations[$theme_location], 'nav_menu' );
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+        $menu_array = array();
+        $menu_list = '<ul class="navbar-nav">';
+        
+        // Build an array with all menu items - sorted by parents
+        foreach( $menu_items as $menu_item ) {
+            $menu_array[$menu_item->menu_item_parent][] = $menu_item->ID;
+        }
+
+        // Add menu items to desktop navigation - extra loop for submenu-items
+        foreach( $menu_items as $menu_item ) {
+   
+            $link = $menu_item->url;
+            $title = $menu_item->title;
+            $has_children = isset($menu_array[$menu_item->ID]);
+
+            
+            if ( !$has_children and $menu_item->menu_item_parent == 0 ) {
+           		$menu_list .= "<li class='nav-item'><a class='nav-link' href='" . $link . "'>" . $menu_item->title . "</a></li>";
+            }
+
+            if( $has_children ){
+            	$menu_list .= "<li class='nav-item dropdown'>";
+            	$menu_list .= '<a class="nav-link dropdown-toggle" href="' . $link . '" id="navbar ' . $menu_item->title . '" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'  . $menu_item->title .  '</a>';
+
+
+
+            	if ( isset($menu_array[$menu_item->ID]) ) {
+            		$menu_list .= '<div class="dropdown-menu" aria-labelledby="navbar ' . $menu_item->title . '">';
+	            	
+	            	foreach ($menu_array[$menu_item->ID] as $menu_child_id) {
+	            		$menu_child = wp_setup_nav_menu_item(get_post($menu_child_id));
+	            		
+	            		$menu_list .= "<a class='dropdown-item' href='" . $menu_child->url . "'>" . $menu_child->title . "</a>";
+	            	}
+
+	            	$menu_list .= "</div>";
+
+            	}
+
+            	$menu_list .= "</li>";
+            }
+            
+           
+        }
+
+        $menu_list .= "</ul>";
+        
+
+
+    } else {
+        $menu_list = 'no menu defined in location "'.$theme_location.'"';
+    }
+    
+
+   	echo($menu_list);
+	
+}

@@ -18,9 +18,9 @@ if( have_rows('ausgabenthemen') ):
 ?>
 
   <div class="row">
-    <div class="page-header col-xs-12 m-b p-a text-center" style="background-color: <?php echo mmbeta_color('petrol'); ?>">
+    <div class="page-header col-12 m-b p-a text-center" style="background-color: <?php echo mmbeta_color('petrol'); ?>">
 
-      <figure class="figure col-xs-12 col-sm-8 col-m-6 col-lg-4 col-xl-2">
+      <figure class="figure col-12 col-sm-8 col-m-6 col-lg-4 col-xl-2">
         <img src="<?php echo $image[0] ?>" alt="<?php echo $caption ?>" class="img-responsive figure-img">
       </figure>
 

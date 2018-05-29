@@ -69,8 +69,8 @@ get_header();
 
               if ( $teasergroup_query->have_posts() ) : 
               ?>
-                <div class="row">
-                  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
+                <div class="container d-flex flex-row flex-wrap justify-content-center mt-3">
+                  
                   <?php
                     $template_name = 'teasergruppe-' . $posts_to_be_shown;
 
@@ -78,7 +78,7 @@ get_header();
                       get_template_part( 'hp/hp', $template_name);
                     endwhile;
                   ?>
-                  </div>
+                  
                 </div>
               <?php
               endif;
@@ -113,16 +113,18 @@ get_header();
               $kategorie = get_sub_field('cover-slider');
               $farbe = get_sub_field('color');
               $titel = get_sub_field('slider_titel');
-              echo '<div class="row cover-slider m-t" style="background-color:' . mmbeta_color($farbe) . ' " >';
-                echo '<h6 class="heads-gallery-heading">' . $titel . '</h6>';
-                echo "<div class='col-md-8 col-md-offset-2'>";
-                  echo cover_gallery_shortcode(
-                        array(
-                          'kategorie' => $kategorie->slug, 
-                          'farbe' => $farbe, 
-                          'titel' => $titel
-                        )
-                  );
+              echo '<div class="row cover-slider mt-3 mb-3 pt-3" style="background-color:' . mmbeta_color($farbe) . ' " >';
+                echo '<div class="justify-content-center container d-flex flex-row flex-wrap">';
+                  echo '<h6 class="heads-gallery-heading col-12">' . $titel . '</h6>';
+                  echo "<div class='col-12'>";
+                    echo cover_gallery_shortcode(
+                          array(
+                            'kategorie' => $kategorie->slug, 
+                            'farbe' => $farbe, 
+                            'titel' => $titel
+                          )
+                    );
+                  echo '</div>';
                 echo '</div>';
               echo '</div>';
             
@@ -134,7 +136,9 @@ get_header();
               get_template_part('hp/hp', 'aufmacher');
               wp_reset_query();
             elseif ( get_row_layout() == 'hp_embed' ):
+              echo '<div class="container d-flex flex-row flex-wrap justify-content-center mt-3">';
               get_template_part( 'hp/hp', 'video');
+              echo '</div>';
             endif;
 
 

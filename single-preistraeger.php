@@ -33,7 +33,11 @@ get_header(); ?>
       if ( ! post_password_required() ) {  
       
       if ( $kategorie->name !== 'JDJ' && $kategorie->name !=='Lebenswerk' ){ ?>
-        <div class="lead m-b">Außerdem wurden <?php if( $preis !== "top-30-bis-30" ) : echo "in der Kategorie "; endif; ?><?php mmbeta_die_preiskategorie(); ?> ausgezeichnet:</div>
+        <div class="container">
+          <div class="lead mb-2 mt-2">
+            Außerdem wurden <?php if( $preis !== "top-30-bis-30" ) : echo "in der Kategorie "; endif; ?><?php mmbeta_die_preiskategorie(); ?> ausgezeichnet:
+          </div>
+        </div>
       <?php } 
 
         $die_ID = $post->ID;
@@ -57,17 +61,17 @@ get_header(); ?>
       
 
       if ($query->have_posts()): ?>
-        <div class="row card-cluster">
+        <div class="container card-columns">
           <?php while ($query->have_posts()): $query->the_post();?>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3 preistraeger-card">
-              <a href="<?php the_permalink(); ?>">
+
+              <a href="<?php the_permalink(); ?>" >
                 <article class="card">
                   <?php if ($preis === "top-30-bis-30") : 
                     $card_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'card' );
                   ?>
                     <img class="card-img-top figure-img" src="<?php echo $card_image[0]; ?>">
                   <?php endif; ?>
-                  <div class="card-block">
+                  <div class="card-body">
                     <h4 class="card-title"><?php the_title(); ?></h4>
                     <p class="card-text"><?php the_field( "position" ); ?></p>
                   </div>
@@ -77,13 +81,13 @@ get_header(); ?>
                       <strong>Platz:</strong> <?php the_field('platz'); ?></li>
                     <li class="list-group-item"><strong>Kategorie:</strong> <?php mmbeta_die_preiskategorie(); ?></li>
                   </ul>
-                  <div class="card-block">
-                    <a href="<?php the_permalink(); ?>" class="btn btn-secondary">Begründung</a>  
-                  </div> 
+                  <div class="card-body">
+                    <a href="<?php the_permalink(); ?>" class="btn btn-outline-secondary">Begründung</a>  
+                  </div>
                   <?php endif; ?>
                 </article>
               </a>
-            </div>
+          
           <?php endwhile;?>
         </div>
       <?php endif;?>

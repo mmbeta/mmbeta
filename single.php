@@ -13,8 +13,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
-      <div class="row m-b">
-      <?php $slider_name = get_field('slider'); ?>
+
 
       <?php
 
@@ -29,19 +28,6 @@ get_header(); ?>
       ?>
 
 
-      <?php
-
-        if($slider_name !== '' && function_exists('putRevSlider') ){
-          $theSlider = new RevSlider();
-          $arrSliders = $theSlider->getArrSliders();
-          foreach ($arrSliders as $slider) {
-            if($slider->getAlias() === $slider_name){
-              putRevSlider( $slider_name );
-            }
-          }
-        } 
-      ?>
-      </div>
 			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 		<?php endwhile; // End of the loop. ?>
 

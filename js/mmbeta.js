@@ -12,74 +12,12 @@ var guid = (function() {
   };
 })();
 
-(function ($) {
-  $(document).ready(function() {
-
-    $.fn.pushpin = function (options) {
-
-      var defaults = {
-        top: 0,
-        bottom: Infinity,
-        offset: 0
-      }
-      options = $.extend(defaults, options);
-
-      $index = 0;
-      return this.each(function() {
-        var $uniqueId = guid(),
-            $this = $(this),
-            $original_offset = $(this).offset().top;
-
-        function removePinClasses(object) {
-          object.removeClass('pin-top');
-          object.removeClass('pinned');
-          object.removeClass('pin-bottom');
-        }
-
-        function updateElements(objects, scrolled) {
-          objects.each(function () {
-            // Add position fixed (because its between top and bottom)
-            if (options.top <= scrolled && options.bottom >= scrolled && !$(this).hasClass('pinned')) {
-              removePinClasses($(this));
-              $(this).css('top', options.offset);
-              $(this).addClass('pinned');
-            }
-
-            // Add pin-top (when scrolled position is above top)
-            if (scrolled < options.top && !$(this).hasClass('pin-top')) {
-              removePinClasses($(this));
-              $(this).css('top', 0);
-              $(this).addClass('pin-top');
-            }
-
-            // Add pin-bottom (when scrolled position is below bottom)
-            if (scrolled > options.bottom && !$(this).hasClass('pin-bottom')) {
-              removePinClasses($(this));
-              $(this).addClass('pin-bottom');
-              $(this).css('top', options.bottom - $original_offset);
-            }
-          });
-        }
-
-        updateElements($this, $(window).scrollTop());
-        $(window).on('scroll.' + $uniqueId, function () {
-          var $scrolled = $(window).scrollTop() + options.offset;
-          updateElements($this, $scrolled);
-        });
-
-      });
-
-    };
-
-
-  });
-}( jQuery ));
 
 var identifier = '';
 var galleryStart = 0;
 
 jQuery(document).ready(function(){
-  jQuery('#mainnav').pushpin( { top: jQuery('#mainnav').offset().top + jQuery('#mainnav').height() } );
+  // jQuery('#mainnav').pushpin( { top: jQuery('#mainnav').offset().top + jQuery('#mainnav').height() } );
   if(jQuery('#owl-carousel-single').length > 0){
     jQuery("#owl-carousel-single").owlCarousel({
       navigation : true, // Show next and prev buttons
@@ -132,26 +70,6 @@ if (jQuery('img.popup').length > 0) {
     jQuery('#modal_image').attr('src', path);
     jQuery('#imageModal').modal();
   })
-}
-
-// Make cards float nice
-if(jQuery('.preistraeger-card').length > 1){
-  var cardClusterWidth = jQuery('.card-cluster').width();
-  var cardWidth = jQuery(jQuery('.preistraeger-card')[0]).width();
-
-  var counter = 0;
-
-  jQuery(jQuery("div.preistraeger-card")[0]).before("<div class='row'>");
-
-  jQuery("div.preistraeger-card").each(function(){
-    counter++;
-    if(counter%Math.floor(cardClusterWidth/cardWidth) === 0){
-      console.log(counter, counter%Math.floor(cardClusterWidth/cardWidth) === 0 );      
-      jQuery(jQuery("div.preistraeger-card")[counter-1]).after("</div><div class='row'>");
-    }
-  })
-  jQuery(jQuery("div.preistraeger-card")[counter-1]).after("</div>");
-  counter = 0;
 }
 
 //Make more button hide when clicked.

@@ -8,7 +8,7 @@
  */
 
 ?>
-<article class="card col-xs-12 col-md-6">  
+<article class="card col-12 col-md-6">  
   <?php if (has_post_thumbnail()) : ?>
   <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
   <img class="card-img-top" src="<?php echo $image[0]; ?>" alt="<?php the_title() ?>">

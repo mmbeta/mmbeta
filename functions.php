@@ -376,7 +376,7 @@ function mmbeta_scripts() {
 	wp_enqueue_style( 'mmbeta-leitura-sans', get_template_directory_uri() . '/css/Leitura.css' );
 	wp_enqueue_style( 'mmbeta-custom', get_template_directory_uri() . '/css/mmbeta-custom.css' );
 	wp_enqueue_script( 'mmbeta-custom-js', get_template_directory_uri() . '/js/mmbeta.js', array( 'jquery' ), '20160201', true );
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), '20151106', true );
+	wp_enqueue_script( 'bootstrap-bundle', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', array( 'jquery' ), '20180507', true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -494,7 +494,6 @@ function my_mce_before_init_insert_formats( $init_array ) {
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );  
 
 // Get attachment id by url
-
 function mm_get_attachment_id_from_url( $attachment_url = '' ) {
  
 	global $wpdb;
@@ -522,6 +521,28 @@ function mm_get_attachment_id_from_url( $attachment_url = '' ) {
 	}
  
 	return $attachment_id;
+}
+
+/**
+ * Get image alt
+ */
+function mm_get_image_alt( $image ) {
+    global $wpdb;
+
+    if( empty( $image ) ) {
+        return false;
+    }
+
+    $attachment  = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid='%s';", strtolower( $image ) ) );
+    $id   = ( ! empty( $attachment ) ) ? $attachment[0] : 0;
+
+    $alt = get_post_meta( $id, '_wp_attachment_image_alt', true );
+
+    if (!$alt) {
+    	$alt = get_the_title( $id );
+    }
+
+    return $alt;
 }
 
 // Laterpay Link Generator function

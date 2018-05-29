@@ -13,36 +13,42 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 		<?php if ( have_posts() ) : ?>
 			<div class="row">
-				<header class="page-header col-xs-12 m-b p-a text-center" style="background-color: <?php echo mmbeta_color('petrol'); ?>">
+				<header class="page-header col-12 p-3 mb-4 text-center" style="background-color: <?php echo mmbeta_color('petrol'); ?>">
 					<?php
 						single_term_title( '<h1 class="page-title">', '</h1>' );
 						the_archive_description( '<div class="taxonomy-description">', '</div>' );
 					?>
 				</header><!-- .page-header -->
 			</div>
-			<?php while ( have_posts() ) : the_post(); ?>
+      <div class="d-flex justify-content-center flex-row flex-wrap">
+			
+      <?php while ( have_posts() ) : the_post(); ?>
 
-        <article class="row">
+        <article class="container col-12 col-md-10 col-lg-8 d-flex flex-row flex-wrap justify-content-center">
           <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); ?>
-          <?php $caption = get_post(get_post_thumbnail_id($post->ID))->post_excerpt; ?>
-          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-            <div class="col-sm-3">
+
+            <?php if ($image): ?>
+            <div class="col-12 col-md-4 d-flex justify-content-center">
               <a class="img-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <figure class="figure">
                   <?php echo wp_get_attachment_image(get_post_thumbnail_id( $post->ID ), 'cover', false, array('class' => 'img-responsive figure-img') ); ?>
                 </figure>
               </a>
             </div>
-            <div class="col-sm-9">
+            <?php endif; ?>
+
+            <div class="col-12 col-md-8">
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <h2><?php the_title(); ?></h2>
               </a>
               <div class="lead"><?php the_excerpt(); ?></div>
             </div>
-          </div>
+
         </article> 
 
 			<?php endwhile; ?>
+
+    </div>
 
 		<?php else : ?>
 

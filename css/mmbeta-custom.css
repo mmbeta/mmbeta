@@ -166,34 +166,6 @@ a.aufmacher-link {
   border: none;
 }
 
-/*div.aufmacher-img-container {
-  width: 100%;
-}
-
-div.aufmacher-text-container {
-  width: 100%;
-}
-
-@media (min-width: 48em) {
-  div.aufmacher-img-container {
-    width: 50%;
-  }
-  
-  div.aufmacher-text-container {
-    width: 50%;
-  }
-}
-
-@media (min-width: 62em) {
-  div.aufmacher-img-container {
-    width: 33%;
-  }
-  
-  div.aufmacher-text-container {
-    width: 66%;
-  }
-}*/
-
 
 
 /* card showcase margin */
@@ -290,15 +262,22 @@ a.nav-link, a.nav-link:hover {
   font-family: "Leitura Sans";
 }
 
-nav.navbar ul {
-  padding-left: 0;
+a.mm_logo-mobile, a.mm_logo-mobile:hover {
+  text-decoration: none;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;  
 }
 
-nav.navbar li {
-    margin-right: 1rem;
-    display: inline-block;
-    padding-right: 1rem;
-    border-right: 1px solid #eee;
+.dropdown-item {
+  font-family: "Leitura Sans";
+}
+
+@media (max-width: 48em) {
+  .nav-item {
+    margin-top: 0.5em;
+/*    border-bottom-width: 1px;
+    border-bottom-style: solid; */
+  }
 }
 
 nav.navbar ul {
@@ -310,12 +289,16 @@ a.nav-link:hover, a.nav-link.active {
 }
 
 
-div.top-navi > ul > li:last-child {
+ul.navbar-nav > li:last-child {
     border-right: none;
 }
 
+a.nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 nav.navbar {
-    padding: 0.2em;
     border-top-color: rgb(125, 120, 120);
     border-top-style: solid;
     border-top-width: 1px;
@@ -333,6 +316,12 @@ nav.navbar {
 
 .forcefullwidth_wrapper_tp_banner {
   z-index: 5;
+}
+
+/* Breadcrumb */
+
+.breadcrumb-item {
+  font-family: "Leitura Sans";
 }
 
 /* Widget Areas */
@@ -491,6 +480,8 @@ p.heads-gallery-description  {
 div.row.heads-gallery-container > div > div.owl-controls.clickable > div > div.owl-page > span {
   background: white;
 }
+
+
 /* Teaser 1 und 3  added by thomas */
 
 .voll-teaser-link p{
@@ -518,18 +509,6 @@ a.voll-teaser-link:hover{
 }
 /* teaser 1 and 3 by Marc */
 
-
-.teaser1-container,
-.teaser2-container,
-.teaser3-container {
-  position: relative;
-}
-
-.teaser1-content,
-.teaser2-content,
-.teaser3-content {
-  padding-top: 10px;
-}
 
 .teaser1-body,
 .teaser2-body,
@@ -572,6 +551,10 @@ a.voll-teaser-link:hover{
   max-width: 60%;
 }
 
+.teaser-img-hoch.teasergruppe-3 {
+  max-height: 220px;
+}
+
 .teaser-img-breit {
   display: inline-block;
 }
@@ -590,7 +573,6 @@ a.voll-teaser-link:hover{
 .teaser3-header {
   font-family:Leitura Sans;
   text-decoration: underline;
-  margin-top:10px;
 }
 .teaser1-text,
 .teaser2-text,
@@ -688,4 +670,14 @@ a.voll-teaser-link:hover{
 
 @media (min-width: 48.05em) {
   .bg-image { height: 80px; }
+}
+
+@media (min-width: 48.05em) {
+  .social-container {
+    padding: 2em;
+  }
+}
+
+.btn {
+  font-family: "Leitura Sans";
 }
