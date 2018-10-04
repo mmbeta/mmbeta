@@ -38,11 +38,11 @@
   
 ?>
 
-<article id="preistraeger-<?php the_ID(); ?>" class="col-12" ?>
-  <div class="m-t m-b row">  
-    <div class="col-lg-8 offset-lg-2 col-12">
+<article id="preistraeger-<?php the_ID(); ?>" class="row justify-content-center d-flex mt-3 mb-3" ?>
+
+
       
-      <ol class="breadcrumb" style="background-color: <?php print mmbeta_color('grau-heller') ?>">
+      <ol class="breadcrumb col-lg-10 col-11" style="background-color: <?php print mmbeta_color('grau-heller') ?>">
         <li class="breadcrumb-item"><a href="/preise/<?php print $preis_slug; ?>"><?php print $preis; ?></a></li>
         <li class="breadcrumb-item"><a href="<?php the_permalink($tax_page); ?>"><?php print $post->jahr_name; ?></a></li>
         <?php if ($preis_slug !== 'top-30-bis-30') : ?>
@@ -57,7 +57,7 @@
     <?php if($access): ?>
 
       <!-- Bild und Profilbox -->
-      <div class="col-lg-4 col-md-5 col-12 text-center">
+      <div class="col-lg-3 col-md-4 col-11">
         <?php if (!has_post_thumbnail()) : ?>      
           <figure class="figure">
             <img class="logo" alt="Logo der Journalisten des Jahres" src="<?php print get_template_directory_uri() . '/images/jdjschwarzaufweiss.png'  ?>">
@@ -92,7 +92,7 @@
       <!-- Ende: Bild und Profilbox -->
 
       <!-- Hauptspalte - Titel, Position, Begründung -->
-      <div class="col-lg-8 col-md-7 col-12">
+      <div class="col-lg-7 col-md-6 col-11 mt-3 mt-md-0">
       <?php if ( ! post_password_required() ): ?>
           <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
           <h6 class="text-muted"><?php the_field( "position" ); ?></h6>
@@ -153,6 +153,6 @@
       endif; 
     ?>
       <!-- Ende: Hauptspalte - Titel, Position, Begründung -->
-    </div><!-- col-lg-8 -->
-  </div><!-- row -->
+
+
 </article><!-- #post-## -->
