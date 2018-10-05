@@ -32,7 +32,8 @@
   if ( class_exists("LaterPay_Helper_Post") ):
     $access = LaterPay_Helper_Post::has_access_to_post( get_post($post->tax_page) , false, null);
   ?>
-    <div style="display: none;"><?php print_r($access_result); ?></div>
+    <div style="display: none;"><?php print_r($access); ?></div>
+    <div style="display: none;"><?php print_r($post->tax_page); ?></div>
   <?php
   endif;
   
