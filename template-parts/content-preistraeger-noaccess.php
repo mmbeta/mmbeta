@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="card mb-3">
+<div class="card col-12 col-lg-8 mb-3">
   <div class="card-body">
     <h5 class="card-title">Kaufen Sie den Zugang zu <?php echo $post->preis . " " . $post->jahr_name; ?></h5>
     <p class="card-text">
