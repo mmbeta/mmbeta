@@ -65,7 +65,8 @@ function mmbeta_setup() {
       'hoch' => 'cover',
       'breit' => 'card',
       'quadratisch' => 'square',
-      'rund' => 'square'		
+      'rund' => 'square',
+      'ad' => '',		
 		);
 		return $format_mapping[$format];
 	}

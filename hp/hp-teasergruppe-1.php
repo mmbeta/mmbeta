@@ -23,6 +23,13 @@ $teaser_text = get_post_meta( get_the_ID(), 'hp_teaser', true );
 
    
 <div class="col-12 col-md-6 col-lg-8 align-self-center">
+  <!-- Hier könnte ich checken ob $teaser_format 'ad' und dann  -->
+  <?php 
+    echo $teaser_format;
+    if ($teaser_format == 'ad') {
+      echo '<img src="https://placeimg.com/970/250/any" title="ad placeholder">';
+    }else{
+  ?>
   <a href="<?php the_permalink(); ?>" class="voll-teaser-link">
     <h3 class="card-title teaser1-header"><?php the_title(); ?></h3>
     <div class="teaser1-text">
@@ -38,6 +45,8 @@ $teaser_text = get_post_meta( get_the_ID(), 'hp_teaser', true );
       </div> 
     </div>
   </a>
+
+<?php } ?>
 </div>
 
 
