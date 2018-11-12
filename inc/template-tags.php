@@ -128,7 +128,7 @@ function mm_menu( $theme_location ) {
         $menu_items = wp_get_nav_menu_items($menu->term_id);
 
         $menu_array = array();
-        $menu_list = '<ul class="navbar-nav">';
+        $menu_list = '<ul class="navbar-nav align-items-lg-center">';
         
         // Build an array with all menu items - sorted by parents
         foreach( $menu_items as $menu_item ) {
@@ -171,6 +171,9 @@ function mm_menu( $theme_location ) {
             
            
         }
+
+        // Add Search
+        $menu_list .= "<li class='nav-item'>" . get_search_form(false) . "</li>";
 
         $menu_list .= "</ul>";
         
