@@ -10,7 +10,7 @@
 
 ?>
 
-<div class="d-lg-flex">
+<div class="d-lg-flex align-items-lg-center">
 	<a class="nav-link" data-toggle="collapse" data-target="#navbarSearch" href="#">Suchen</a>
 	<div id="navbarSearch" class="collapse">
 		<form action="<?php echo home_url( '/' ); ?>" method="get" class="input-group mm-searchform">
