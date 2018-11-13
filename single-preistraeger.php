@@ -35,7 +35,7 @@ get_header(); ?>
       if ( $kategorie->name !== 'JDJ' && $kategorie->name !=='Lebenswerk' ){ ?>
         <div class="container">
           <div class="lead mb-2 mt-2">
-            Außerdem wurden <?php if( $preis !== "top-30-bis-30" ) : echo "in der Kategorie "; endif; ?><?php mmbeta_die_preiskategorie(); ?> ausgezeichnet:
+            Außerdem wurden <?php if( $preis !== "top-30-bis-30" ) : echo "in der Kategorie "; mmbeta_die_preiskategorie(); endif; ?> ausgezeichnet:
           </div>
         </div>
       <?php } 
