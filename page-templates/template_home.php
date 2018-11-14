@@ -36,38 +36,45 @@ get_header();
               $post_2 = get_sub_field('linkziel_2');
               $post_3 = get_sub_field('linkziel_3');
 
-              if ($post_1) {
+              $teaser_format_1 = get_sub_field('teaserform_1');
+              $teaser_format_2 = get_sub_field('teaserform_2');
+              $teaser_format_3 = get_sub_field('teaserform_3');
+
+
+              // TODO: Der Ausschluss funktioniert noch nicht, wenn ein Teaser 'ad' ist.
+              if ($teaser_format_1 !== 'ad' && $post_1 ) {
                 $teaser_text_1 = get_sub_field('teaser-text_1');
-                $teaser_format = get_sub_field('teaserform_1');
                 update_post_meta($post_1, 'hp_teaser', $teaser_text_1);
-                update_post_meta($post_1, 'hp_teaser_format', $teaser_format);
+                update_post_meta($post_1, 'hp_teaser_format', $teaser_format_1);
                 array_push($teasergruppe_posts, $post_1);
               }
 
-              if ($post_2) {
+              if ($teaser_format_2 !== 'ad' && $post_2) {
                 $teaser_text_2 = get_sub_field('teaser-text_2');
-                $teaser_format = get_sub_field('teaserform_2');
                 update_post_meta($post_2, 'hp_teaser', $teaser_text_2);
-                update_post_meta($post_2, 'hp_teaser_format', $teaser_format);
+                update_post_meta($post_2, 'hp_teaser_format', $teaser_format_2);
                 array_push($teasergruppe_posts, $post_2);
               }
 
-              if ($post_3) {
+              if ($teaser_format_3 !== 'ad' && $post_3) {
                 $teaser_text_3 = get_sub_field('teaser-text_3');
-                $teaser_format = get_sub_field('teaserform_3');
                 update_post_meta($post_3, 'hp_teaser', $teaser_text_3);
-                update_post_meta($post_3, 'hp_teaser_format', $teaser_format);
+                update_post_meta($post_3, 'hp_teaser_format', $teaser_format_3);
                 array_push($teasergruppe_posts, $post_3);
               }
+
+              $editorial_teaser_count = count($teasergruppe_posts);
+              $ad_count = $posts_to_be_shown - $editorial_teaser_count;
 
               $teasergroup_query = new WP_Query( array( 
                 'post__in' => $teasergruppe_posts,
                 'orderby' => 'post__in',
-                'posts_per_page' => $posts_to_be_shown, 
+                'posts_per_page' => $posts_to_be_shown,
+                'ignore_sticky_posts' => 1,
                 )
               );
 
-              if ( $teasergroup_query->have_posts() ) : 
+              if ( !empty($teasergruppe_posts) && $teasergroup_query->have_posts() ) : 
               ?>
                 <div class="container d-flex flex-row flex-wrap justify-content-center mt-3">
                   
@@ -77,10 +84,28 @@ get_header();
                     while ( $teasergroup_query->have_posts() ) : $teasergroup_query->the_post();
                       get_template_part( 'hp/hp', $template_name);
                     endwhile;
+
+                    for ($i=$posts_to_be_shown; $i > $editorial_teaser_count; $i--) {  
+                      echo "<!-- adding an ad -->";
+                      get_template_part( 'hp/hp', $template_name . '-ad');
+                    }
                   ?>
                   
                 </div>
               <?php
+              elseif ($ad_count > 0) :
+
+              ?>
+
+                <div class="container d-flex flex-row flex-wrap justify-content-center mt-3">
+                  <!-- Hier kann ein vollbreites Ad hin -->
+                  <?php get_template_part( 'hp/hp', 'teasergruppe-1-ad'); ?>
+                  
+                </div>
+              
+              <?php
+              else:
+                echo "no Post";
               endif;
               wp_reset_query();          
 
