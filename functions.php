@@ -88,6 +88,8 @@ function mmbeta_setup() {
 		'caption',
 	) );
 
+	add_filter('img_caption_shortcode_width', '__return_false');
+
 	/*
 	 * Enable support for Post Formats.
 	 * See https://developer.wordpress.org/themes/functionality/post-formats/
