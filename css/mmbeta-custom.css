@@ -251,6 +251,13 @@ img.popup {
   font-family: Leitura Sans;
 }
 
+
+/* Makes images and figures repsonsive - no matter what inline width/height they might have */
+img, figure {
+    height: auto;
+    max-width: 100% !important;
+}
+
 /* Menu */
 
 a.nav-link, a.nav-link:hover {

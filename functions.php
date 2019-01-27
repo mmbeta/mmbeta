@@ -88,6 +88,7 @@ function mmbeta_setup() {
 		'caption',
 	) );
 
+	// Should remove inline width from figure elements when being inserted
 	add_filter('img_caption_shortcode_width', '__return_false');
 
 	/*
