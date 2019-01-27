@@ -247,9 +247,21 @@ img.popup {
 }
 
 /* Captions */
-.figure-caption {
+.wp-caption-text {
   font-family: Leitura Sans;
+  font-size: 90%;
+  color: #6c757d;
 }
+
+.wp-caption {
+  display: inline-block;
+}
+
+figure > img {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
 
 
 /* Makes images and figures repsonsive - no matter what inline width/height they might have */
@@ -347,24 +359,19 @@ h3.widgettitle {
 
 /* Artikel-Bilder */
 
-figure.alignright {
+.alignright {
   float: right;
   margin-left: 1rem;
 }
 
-figure.alignleft {
+.alignleft {
   float: left;
   margin-right: 1rem;
 }
 
-figure.aligncenter {
+.aligncenter {
   margin: 1rem auto 1rem auto;
   display: block;
-}
-
-figcaption {
-  font-family: Leitura Sans;
-  color: #818a91;
 }
 
 /* Social links */
