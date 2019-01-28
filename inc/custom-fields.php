@@ -11,52 +11,6 @@
 //Custom fields for Preisträger
 if(function_exists("register_field_group")){
   register_field_group(array (
-    'id' => 'acf_post-fields',
-    'title' => 'Post-Fields',
-    'fields' => array (
-      array (
-        'key' => 'field_569f7b999eb0d',
-        'label' => 'Showcase-Slider',
-        'name' => 'slider',
-        'type' => 'text',
-        'instructions' => 'In dieses Feld können Sie den Alias (maschinenlesbaren Namen) eines Revolution Sliders eintragen, damit dieser über dem Post angezeigt wird.',
-        'default_value' => '',
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-        'formatting' => 'html',
-        'maxlength' => '',
-      )
-    ),
-    'location' => array (
-      array (
-        array (
-          'param' => 'post_type',
-          'operator' => '==',
-          'value' => 'post',
-          'order_no' => 0,
-          'group_no' => 0,
-        ),
-      ),
-      array (
-        array (
-          'param' => 'post_type',
-          'operator' => '==',
-          'value' => 'preistraeger',
-          'order_no' => 0,
-          'group_no' => 1,
-        ),
-      ),
-    ),
-    'options' => array (
-      'position' => 'normal',
-      'layout' => 'no_box',
-      'hide_on_screen' => array (
-      ),
-    ),
-    'menu_order' => 0,
-  ));
-  register_field_group(array (
     'id' => 'acf_preistrager-felder',
     'title' => 'Preisträger-Felder',
     'fields' => array (
