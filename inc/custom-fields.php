@@ -295,27 +295,6 @@ acf_add_local_field_group(array (
   'title' => 'Homepage',
   'fields' => array (
     array (
-      'key' => 'field_57f409563303f',
-      'label' => 'Homepage-Slider',
-      'name' => 'homepage-slider',
-      'type' => 'text',
-      'instructions' => 'Geben Sie hier den Slug des Sliders ein, der auf der Homepage angezeigt werden soll. Einen neuen Slider können Sie unter "Slider Revolution" anlegen.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => '',
-        'id' => '',
-      ),
-      'default_value' => 'hp-slider',
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'maxlength' => '',
-      'readonly' => 0,
-      'disabled' => 0,
-    ),
-    array (
       'key' => 'field_57f40a1033040',
       'label' => 'Homepage',
       'name' => 'homepage',
