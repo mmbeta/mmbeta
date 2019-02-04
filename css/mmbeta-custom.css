@@ -108,7 +108,7 @@ div.aufmacher-headline {
 
 img.aufmacher {
   padding: 3em 1.5em 3em 0em;
-  max-width: 250px; 
+  width: 250px; 
 }
 
 .aufmacher-text-container {
@@ -135,7 +135,7 @@ img.aufmacher {
   
   img.aufmacher {
     padding: 3em 1.5em 3em 0em;
-    max-width: 250px; 
+    width: 250px; 
   }
 }
 
@@ -228,7 +228,6 @@ svg * {
 
 /* Image Firefox tweak */
 .figure-img {
-  width: 100%;
   max-width: 100%;
   height: auto;
 }
@@ -247,8 +246,52 @@ img.popup {
 }
 
 /* Captions */
-.figure-caption {
+.wp-caption-text, .figure-caption {
   font-family: Leitura Sans;
+  font-size: 90%;
+  color: #6c757d;
+}
+
+.wp-caption, .figure {
+  display: inline-block;
+}
+
+figure > img {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+/* Makes images and figures repsonsive - no matter what inline width/height they might have */
+img, figure {
+    height: auto;
+    max-width: 100% !important;
+}
+
+/* Artikel-Bilder */
+
+.alignright, .align-right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.alignleft, .align-left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.aligncenter, .align-center {
+  margin: 1rem auto 1rem auto;
+  display: block;
+}
+
+/* post typography */
+
+.entry-title {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Menu */
@@ -336,28 +379,6 @@ h3.widgettitle {
   color: white;
   text-align: center;
   font-weight: bold;
-}
-
-/* Artikel-Bilder */
-
-figure.alignright {
-  float: right;
-  margin-left: 1rem;
-}
-
-figure.alignleft {
-  float: left;
-  margin-right: 1rem;
-}
-
-figure.aligncenter {
-  margin: 1rem auto 1rem auto;
-  display: block;
-}
-
-figcaption {
-  font-family: Leitura Sans;
-  color: #818a91;
 }
 
 /* Social links */
@@ -532,6 +553,7 @@ a.voll-teaser-link:hover{
   -webkit-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+  margin: 0 auto 1em auto; 
 }
 
 .teaser-img-rund {
@@ -543,12 +565,11 @@ a.voll-teaser-link:hover{
 
 .teaser-img-hoch {
   display: block;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto 1em auto;
 }
 
 .teaser-img-hoch.teasergruppe-2 {
-  max-width: 60%;
+  width: 60%;
 }
 
 .teaser-img-hoch.teasergruppe-3 {
@@ -564,7 +585,7 @@ a.voll-teaser-link:hover{
 }
 
 .teaser3-img {
-  max-width: 50%;
+  width: 50%;
   display: block;
   margin: 0 auto;
 }

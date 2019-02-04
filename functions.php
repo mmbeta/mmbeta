@@ -89,6 +89,7 @@ function mmbeta_setup() {
 		'caption',
 	) );
 
+
 	/*
 	 * Enable support for Post Formats.
 	 * See https://developer.wordpress.org/themes/functionality/post-formats/

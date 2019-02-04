@@ -11,52 +11,6 @@
 //Custom fields for Preisträger
 if(function_exists("register_field_group")){
   register_field_group(array (
-    'id' => 'acf_post-fields',
-    'title' => 'Post-Fields',
-    'fields' => array (
-      array (
-        'key' => 'field_569f7b999eb0d',
-        'label' => 'Showcase-Slider',
-        'name' => 'slider',
-        'type' => 'text',
-        'instructions' => 'In dieses Feld können Sie den Alias (maschinenlesbaren Namen) eines Revolution Sliders eintragen, damit dieser über dem Post angezeigt wird.',
-        'default_value' => '',
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-        'formatting' => 'html',
-        'maxlength' => '',
-      )
-    ),
-    'location' => array (
-      array (
-        array (
-          'param' => 'post_type',
-          'operator' => '==',
-          'value' => 'post',
-          'order_no' => 0,
-          'group_no' => 0,
-        ),
-      ),
-      array (
-        array (
-          'param' => 'post_type',
-          'operator' => '==',
-          'value' => 'preistraeger',
-          'order_no' => 0,
-          'group_no' => 1,
-        ),
-      ),
-    ),
-    'options' => array (
-      'position' => 'normal',
-      'layout' => 'no_box',
-      'hide_on_screen' => array (
-      ),
-    ),
-    'menu_order' => 0,
-  ));
-  register_field_group(array (
     'id' => 'acf_preistrager-felder',
     'title' => 'Preisträger-Felder',
     'fields' => array (
@@ -294,27 +248,6 @@ acf_add_local_field_group(array (
   'key' => 'group_57f40951cbdb5',
   'title' => 'Homepage',
   'fields' => array (
-    array (
-      'key' => 'field_57f409563303f',
-      'label' => 'Homepage-Slider',
-      'name' => 'homepage-slider',
-      'type' => 'text',
-      'instructions' => 'Geben Sie hier den Slug des Sliders ein, der auf der Homepage angezeigt werden soll. Einen neuen Slider können Sie unter "Slider Revolution" anlegen.',
-      'required' => 0,
-      'conditional_logic' => 0,
-      'wrapper' => array (
-        'width' => '',
-        'class' => '',
-        'id' => '',
-      ),
-      'default_value' => 'hp-slider',
-      'placeholder' => '',
-      'prepend' => '',
-      'append' => '',
-      'maxlength' => '',
-      'readonly' => 0,
-      'disabled' => 0,
-    ),
     array (
       'key' => 'field_57f40a1033040',
       'label' => 'Homepage',
