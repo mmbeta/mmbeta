@@ -585,7 +585,7 @@ a.voll-teaser-link:hover{
 }
 
 .teaser3-img {
-  width: 50%;
+  width: 50% !important;
   display: block;
   margin: 0 auto;
 }

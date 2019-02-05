@@ -376,6 +376,7 @@ function heads_gallery_shortcode( $attr ) {
     }
     .heads-gallery .item{
       padding: 30px 0px;
+      max-width: 100%;
       margin: 5px;
       color: #FFF;
       -webkit-border-radius: 3px;
