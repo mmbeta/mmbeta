@@ -9,7 +9,6 @@
   
   $embed = get_sub_field('embed_element');
   $link = get_sub_field('embed-teaser-link') ? get_permalink( get_sub_field('embed-teaser-link') ) : false;
-  echo $link;
 ?>
 
         
