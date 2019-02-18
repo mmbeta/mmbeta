@@ -458,6 +458,25 @@ function add_custom_field_automatically($post_id) {
 }
 add_action('publish_preistraeger', 'add_custom_field_automatically');
 
+
+function add_custom_field_on_save_post($post_id){
+
+	global $post; 
+	if ( isset($post) && $post->post_type != 'preistraeger'){
+	    return;
+	}
+
+  $preis_jahr = mmbeta_welches_preis_jahr('name');
+  $preis_name = mmbeta_welcher_preis('slug');
+
+  if (!$preis_jahr) { $preis_jahr = "_"; }  
+  if (!$preis_name) { $preis_name = "_"; }
+
+	update_post_meta( $post_id, "preis-jahr", $preis_jahr );
+	update_post_meta( $post_id, "preis-name", $preis_name );
+}
+add_action('save_post','add_custom_field_on_save_post');
+
 //Custom Styles in Editor
 function wpb_mce_buttons_2($buttons) {
     array_unshift($buttons, 'styleselect');
