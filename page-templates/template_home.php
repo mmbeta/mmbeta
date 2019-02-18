@@ -124,14 +124,28 @@ get_header();
               $kategorie = get_sub_field('kopf-slider');
               $farbe = get_sub_field('color');
               $titel = get_sub_field('slider_titel');
+              $selection = get_sub_field('preistraeger_for_slider');
               
-              echo heads_gallery_shortcode( 
-                array(
-                'kategorie' => $kategorie->slug, 
-                'farbe' => $farbe, 
-                'titel' => $titel
-                ) 
-              );
+              if ( !$kategorie && count($selection) > 0 ) {
+                echo heads_gallery_shortcode( 
+                  array(
+                  'kategorie' => null, 
+                  'farbe' => $farbe, 
+                  'titel' => $titel,
+                  'selection' => $selection,
+                  ) 
+                );
+              }else{
+                echo heads_gallery_shortcode( 
+                  array(
+                  'kategorie' => $kategorie->slug, 
+                  'farbe' => $farbe, 
+                  'titel' => $titel,
+                  'selection' => null,
+                  ) 
+                );
+              }
+
               wp_reset_query();
 
             elseif ( get_row_layout() == 'cover-slider'):

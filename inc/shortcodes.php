@@ -341,6 +341,7 @@ function list_gallery_shortcode( $attr ) {
 //////////////////////////
 
 function heads_gallery_shortcode( $attr ) {
+  $is_selection = false;
 
   if (!$attr['kategorie']) {
     $attr['kategorie'] = 'journalisten-des-jahres';
@@ -354,18 +355,23 @@ function heads_gallery_shortcode( $attr ) {
     $attr['titel'] =  get_term_by( 'slug', $attr['kategorie'] );
   }
 
-  $bg_color = mmbeta_color( $attr['farbe'] );
-
-  $args = array(
-      'post_type' => 'preistraeger',
-      'tax_query' => array(
-        array(
-          'taxonomy' => 'preise',
-          'field'    => 'slug',
-          'terms'    => $attr['kategorie'],
+  if ( $attr['selection'] ) {
+    $args = array( 'post_type' => 'preistraeger', 'post__in' => $attr['selection'] );
+  }else{
+    $args = array(
+        'post_type' => 'preistraeger',
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'preise',
+            'field'    => 'slug',
+            'terms'    => $attr['kategorie'],
+          ),
         ),
-      ),
-    );
+      );
+  }
+
+  $bg_color = mmbeta_color( $attr['farbe'] );
+  
   
 
   $output = "
@@ -402,7 +408,6 @@ function heads_gallery_shortcode( $attr ) {
 
   $query = new WP_Query( $args );
   if ($query->have_posts()) :
-
     echo '<div class="row heads-gallery-container mt-3 mb-3 pt-3"><div class="justify-content-center container d-flex flex-row flex-wrap"><h6 class="heads-gallery-heading">' . $attr['titel']. '</h6><div class="heads-gallery">';
 
     while ( $query->have_posts() ) : $query->the_post();
