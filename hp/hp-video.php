@@ -8,7 +8,8 @@
  */
   
   $embed = get_sub_field('embed_element');
-  $link = get_permalink( get_sub_field('embed-teaser-link') );
+  $link = get_sub_field('embed-teaser-link') ? get_permalink( get_sub_field('embed-teaser-link') ) : false;
+  echo $link;
 ?>
 
         
@@ -25,7 +26,7 @@
 
 <!-- Text-Block -->
 <div class="col-12 col-lg-6 mt-1 mt-lg-0">
-  <?php if($link): ?>
+  <?php if( $link ): ?>
     <a href="<?php echo($link); ?>" class="voll-teaser-link">
   <?php endif; ?>
   <h3 class="card-title teaser1-header"><?php echo get_sub_field('embed-teaser-titel'); ?></h3>
@@ -35,7 +36,7 @@
     ?>
   </div>
 
-  <?php if($link): ?>
+  <?php if( $link ): ?>
   </a>
   <div>
     <a href="<?php echo $link; ?>" class="teaser1-link">mehr</a>

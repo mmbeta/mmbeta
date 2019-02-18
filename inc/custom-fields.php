@@ -810,7 +810,7 @@ acf_add_local_field_group(array (
               'name' => 'embed-teaser-link',
               'type' => 'post_object',
               'instructions' => 'Wenn der Teaser auf einen Artikel linken soll, wählen Sie den Artikel aus.',
-              'required' => 1,
+              'required' => 0,
               'conditional_logic' => 0,
               'wrapper' => array (
                 'width' => '',
@@ -821,7 +821,7 @@ acf_add_local_field_group(array (
               ),
               'taxonomy' => array (
               ),
-              'allow_null' => 0,
+              'allow_null' => 1,
               'multiple' => 0,
               'return_format' => 'id',
               'ui' => 1,
