@@ -492,9 +492,9 @@ function mm_showcase_shortcode( $atts, $content = null ) {
   $attributes = shortcode_atts(
     array(
       'ausgabe' => '01/2016',
-      'epaper-kaufen' => 'https://www.newsroom.de/shop/einzelausgaben/medium-magazin/',
-      'print-kaufen' => 'https://www.newsroom.de/shop/einzelausgaben/medium-magazin/',
-      'abo-link' => 'https://www.newsroom.de/shop/abos/medium-magazin/',
+      'epaper-kaufen' => 'https://shop.oberauer.com/medien/medium-magazin/',
+      'print-kaufen' => 'https://shop.oberauer.com/medien/medium-magazin/',
+      'abo-link' => 'https://shop.oberauer.com/medien/medium-magazin/',
       'teaser' => '',
       'untertitel' => '',
       'img-src' => '',
