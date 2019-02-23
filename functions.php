@@ -414,6 +414,10 @@ function mmbeta_welcher_preis($return_value = 'name'){
   $id = get_the_ID();
   $args = array('orderby' => 'count', 'order' => 'DESC');
   $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
+  if ( empty($post_terms) ) {
+  	return;
+  }
+
   $two_tags_with_most_children = array_slice($post_terms, 0, 2);
   if ($two_tags_with_most_children[0]->count === $two_tags_with_most_children[1]->count) {
 
@@ -435,7 +439,10 @@ function mmbeta_welches_preis_jahr($return_value = 'name'){
   $id = get_the_ID();
   $args = array('orderby' => 'count', 'order' => 'DESC');
   $post_terms = wp_get_object_terms( $id, $taxonomy, $args );
-
+  if ( empty($post_terms) ) {
+  	return;
+  }
+  
   if ( strpos( $post_terms[1]->name, '20' ) !== false ) {
   	return $post_terms[1]->$return_value;
   }else{
