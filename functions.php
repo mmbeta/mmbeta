@@ -499,6 +499,12 @@ function my_mce_before_init_insert_formats( $init_array ) {
 	$style_formats = array(  
 		// Each array child is a format with it's own settings
 		array(  
+			'title' => 'Teaser',  
+			'block' => 'p',  
+			'classes' => 'wp-block-mm-teaser',
+			'wrapper' => true,	
+		),
+		array(  
 			'title' => 'Zitat-Absatz',  
 			'block' => 'blockquote',  
 			'classes' => 'blockquote',
