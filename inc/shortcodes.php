@@ -486,7 +486,7 @@ function cover_gallery_shortcode( $attr ) {
 }
 add_shortcode('cover-gallery', 'cover_gallery_shortcode');
 
-// MM Showcase zum Heft bestellen
+// Alte Version mit Bild: MM Showcase zum Heft bestellen
 function mm_showcase_shortcode( $atts, $content = null ) {
   // Attributes
   $attributes = shortcode_atts(
@@ -549,6 +549,49 @@ function mm_showcase_shortcode( $atts, $content = null ) {
 }
 add_shortcode( 'mmshowcase', 'mm_showcase_shortcode' );
 
+
+
+// Aktuell: MM Showcase zum Heft bestellen Listen-Layout
+function mm_showcase_list_shortcode( $atts, $content = null ) {
+  // Attributes
+  $attributes = shortcode_atts(
+    array(
+      'titel' => '',
+      'epaper-kaufen' => 'https://shop.oberauer.com/medien/medium-magazin/',
+      'print-kaufen' => 'https://shop.oberauer.com/medien/medium-magazin/',
+      'abo-link' => 'https://shop.oberauer.com/medien/medium-magazin/',
+      'pdf-link' => '',
+    ), 
+  $atts );
+
+
+  $output = '<div class="list-group col-12 col-md-6 float-left my-2 mr-2">';
+    
+    if ( $attributes['titel'] !== "" ) {
+      $output .= '<div class="list-group-item list-group-item-dark">' . $attributes['titel'] . '</div>';
+    }
+    
+    if ( $attributes['pdf-link'] !== "" ) {
+      $output .= '<a class="list-group-item list-group-item-action" href="' . $attributes['pdf-link'] . '"> <span class="dashicons dashicons-list-view"></span> Inhaltsverzeichnis (PDF)</a>';
+    }
+
+    if ( $attributes['epaper-kaufen'] !== "" ) {
+      $output .= '<a class="list-group-item list-group-item-action" href="' . $attributes['epaper-kaufen'] . '"><span class="dashicons dashicons-tablet"></span> Epaper kaufen</a>';
+    }
+    
+    if ( $attributes['print-kaufen'] !== "" ) {
+      $output .= '<a class="list-group-item list-group-item-action" href="' . $attributes['print-kaufen'] . '"> <span class="dashicons dashicons-book"></span> Heft kaufen</a>';
+    }
+    
+    if ( $attributes['abo-link'] !== "" ) {
+      $output .= '<a class="list-group-item list-group-item-action" href="' . $attributes['abo-link'] . '"> <span class="dashicons dashicons-money"></span> Abos</a>';
+    }
+
+  $output .= '</div>';
+
+  return $output;
+}
+add_shortcode( 'mmshowcase-list', 'mm_showcase_list_shortcode' );
 
 //PDF embedding
 function pdf_function($attr, $url) {
