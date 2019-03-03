@@ -7,7 +7,7 @@
  * @package medium_magazin_beta
  */
 
-$teaser_image = get_the_post_thumbnail_url( $post, 'thumbnail');
+$teaser_image = get_the_post_thumbnail_url( $post, 'square');
 $teaser_text = get_field('teaser-text');
 
 if (!$teaser_image) {
