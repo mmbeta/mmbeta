@@ -408,7 +408,16 @@ function heads_gallery_shortcode( $attr ) {
 
   $query = new WP_Query( $args );
   if ($query->have_posts()) :
-    echo '<div class="row heads-gallery-container mt-3 mb-3 pt-3"><div class="justify-content-center container d-flex flex-row flex-wrap"><h6 class="heads-gallery-heading">' . $attr['titel']. '</h6><div class="heads-gallery">';
+    echo '<div class="row heads-gallery-container mt-3 mb-3 pt-3">';
+    echo '<div class="justify-content-center container d-flex flex-row flex-wrap">';
+    if ( !empty( $attr['titel-link'] ) ) {
+      echo '<a href="' . $attr['titel-link'] . ' ">';
+    }
+    echo '<h6 class="heads-gallery-heading">' . $attr['titel'] . '</h6>';
+    if ( !empty( $attr['titel-link'] ) ) {
+      echo '</a>';
+    }
+    echo '<div class="heads-gallery">';
 
     while ( $query->have_posts() ) : $query->the_post();
       get_template_part( 'teasers/teaser', 'heads-gallery' );
@@ -572,7 +581,7 @@ function mm_showcase_list_shortcode( $atts, $content = null ) {
     }
     
     if ( $attributes['pdf-link'] !== "" ) {
-      $output .= '<a class="list-group-item showcase-list list-group-item-action" href="' . $attributes['pdf-link'] . '"> <span class="dashicons dashicons-list-view"></span> Inhaltsverzeichnis (PDF)</a>';
+      $output .= '<a class="list-group-item showcase-list list-group-item-action" target="_blank" rel="noopener" href="' . $attributes['pdf-link'] . '"> <span class="dashicons dashicons-list-view"></span> Inhaltsverzeichnis (PDF)</a>';
     }
 
     if ( $attributes['epaper-kaufen'] !== "" ) {

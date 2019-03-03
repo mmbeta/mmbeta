@@ -941,6 +941,30 @@ acf_add_local_field_group(array (
               'append' => '',
               'maxlength' => '',
             ),
+            array(
+              'key' => 'field_5c7bbdbbf2251',
+              'label' => 'Link zur Übersicht',
+              'name' => 'titel-link',
+              'type' => 'url',
+              'instructions' => 'Wenn hier ein Link eingetragen ist, verlinkt die Überschrift des Kopf-Sliders dorthin.',
+              'required' => 0,
+              'conditional_logic' => array(
+                array(
+                  array(
+                    'field' => 'field_5c6b0ea9f1f3b',
+                    'operator' => '!=empty',
+                  ),
+                ),
+              ),
+              'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+              ),
+              'default_value' => '',
+              'placeholder' => '',
+            ),
+
           ),
           'min' => '',
           'max' => '',

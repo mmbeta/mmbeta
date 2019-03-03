@@ -125,6 +125,8 @@ get_header();
               $farbe = get_sub_field('color');
               $titel = get_sub_field('slider_titel');
               $selection = get_sub_field('preistraeger_for_slider');
+              $titel_link = get_sub_field('titel-link');
+              
               
               if ( !$kategorie && count($selection) > 0 ) {
                 echo heads_gallery_shortcode( 
@@ -133,15 +135,21 @@ get_header();
                   'farbe' => $farbe, 
                   'titel' => $titel,
                   'selection' => $selection,
+                  'titel-link' => $titel_link,
                   ) 
                 );
               }else{
+                // There is a page called preis_seite that can be added to JDJ 2017 / Top30 2019 etc. via custom field
+                $tax_page = empty( get_field('preis_seite', $kategorie ) ) ? "" :  get_field('preis_seite', $kategorie )[0];
+                $tax_page_url = empty( get_post_permalink($tax_page) ) ? "" : get_post_permalink($tax_page);
+
                 echo heads_gallery_shortcode( 
                   array(
                   'kategorie' => $kategorie->slug, 
                   'farbe' => $farbe, 
                   'titel' => $titel,
                   'selection' => null,
+                  'titel-link' => $tax_page_url,
                   ) 
                 );
               }
