@@ -442,7 +442,7 @@ blockquote.mmbeta_hp_quote:hover {
 twitterwidget, div.fb-post {
   margin-left: auto;
   margin-right: auto;
-  max-width: 550px;
+  max-width: 500px !important;
 }
 
 
