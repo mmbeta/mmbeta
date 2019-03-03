@@ -568,23 +568,23 @@ function mm_showcase_list_shortcode( $atts, $content = null ) {
   $output = '<div class="list-group col-12 col-md-6 float-left my-2 mr-2">';
     
     if ( $attributes['titel'] !== "" ) {
-      $output .= '<div class="list-group-item list-group-item-dark">' . $attributes['titel'] . '</div>';
+      $output .= '<div class="list-group-item showcase-list list-group-item-dark">' . $attributes['titel'] . '</div>';
     }
     
     if ( $attributes['pdf-link'] !== "" ) {
-      $output .= '<a class="list-group-item list-group-item-action" href="' . $attributes['pdf-link'] . '"> <span class="dashicons dashicons-list-view"></span> Inhaltsverzeichnis (PDF)</a>';
+      $output .= '<a class="list-group-item showcase-list list-group-item-action" href="' . $attributes['pdf-link'] . '"> <span class="dashicons dashicons-list-view"></span> Inhaltsverzeichnis (PDF)</a>';
     }
 
     if ( $attributes['epaper-kaufen'] !== "" ) {
-      $output .= '<a class="list-group-item list-group-item-action" href="' . $attributes['epaper-kaufen'] . '"><span class="dashicons dashicons-tablet"></span> Epaper kaufen</a>';
+      $output .= '<a class="list-group-item showcase-list list-group-item-action" href="' . $attributes['epaper-kaufen'] . '"><span class="dashicons dashicons-tablet"></span> Epaper kaufen</a>';
     }
     
     if ( $attributes['print-kaufen'] !== "" ) {
-      $output .= '<a class="list-group-item list-group-item-action" href="' . $attributes['print-kaufen'] . '"> <span class="dashicons dashicons-book"></span> Heft kaufen</a>';
+      $output .= '<a class="list-group-item showcase-list list-group-item-action" href="' . $attributes['print-kaufen'] . '"> <span class="dashicons dashicons-book"></span> Heft kaufen</a>';
     }
     
     if ( $attributes['abo-link'] !== "" ) {
-      $output .= '<a class="list-group-item list-group-item-action" href="' . $attributes['abo-link'] . '"> <span class="dashicons dashicons-money"></span> Abos</a>';
+      $output .= '<a class="list-group-item showcase-list list-group-item-action" href="' . $attributes['abo-link'] . '"> <span class="dashicons dashicons-money"></span> Abos</a>';
     }
 
   $output .= '</div>';

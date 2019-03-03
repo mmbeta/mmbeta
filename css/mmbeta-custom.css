@@ -466,6 +466,10 @@ a.button-link {
   margin-bottom: 0.2rem;
 }
 
+.showcase-list {
+  font-family: "Leitura Sans";
+}
+
 button.button-toggle {
   -webkit-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;

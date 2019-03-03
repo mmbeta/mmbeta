@@ -18,9 +18,9 @@
   	<div>
   		<?php the_content(); ?>
   	</div><!-- .entry-content -->
-  	<small class="entry-meta">
+  	<div class="clearfix"></div>
+    <small class="entry-meta">
   		<?php mmbeta_posted_on(); ?>
   	</small><!-- .entry-meta -->
-
   </article><!-- #post-## -->
 </div>
