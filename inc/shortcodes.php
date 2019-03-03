@@ -411,7 +411,7 @@ function heads_gallery_shortcode( $attr ) {
     echo '<div class="row heads-gallery-container mt-3 mb-3 pt-3">';
     echo '<div class="justify-content-center container d-flex flex-row flex-wrap">';
     if ( !empty( $attr['titel-link'] ) ) {
-      echo '<a href="' . $attr['titel-link'] . ' ">';
+      echo '<a class="heads-gallery-hading-link" href="' . $attr['titel-link'] . ' ">';
     }
     echo '<h6 class="heads-gallery-heading">' . $attr['titel'] . '</h6>';
     if ( !empty( $attr['titel-link'] ) ) {

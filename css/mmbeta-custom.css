@@ -487,6 +487,11 @@ h6.heads-gallery-heading  {
   color: white;
 }
 
+a.heads-gallery-hading-link {
+  cursor: pointer;
+  border-bottom-style: none;
+}
+
 h6.heads-gallery-name  {
   margin-top: 0.7rem;
   text-align: center;
