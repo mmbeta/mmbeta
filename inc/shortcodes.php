@@ -375,6 +375,12 @@ function heads_gallery_shortcode( $attr ) {
   
 
   $output = "
+    <nav aria-label='Preisträger Slider Navigation'>
+      <ul class='pagination pagination-sm heads-gallery-controls'>
+        <li class='page-item'><a class='page-link heads-gallery-prev'>zurück</a></li>
+        <li class='page-item'><a class='page-link heads-gallery-next'>weiter</a></li>
+      </ul>
+    </nav>
     </div></div>
     <style>
     .heads-gallery-container {
@@ -394,13 +400,21 @@ function heads_gallery_shortcode( $attr ) {
     <script type='text/javascript'>
       jQuery(document).ready(function(){
         if(jQuery('.heads-gallery').length > 0){
-          jQuery('.heads-gallery').owlCarousel({
+          var owlHeads = jQuery('.heads-gallery');
+          owlHeads.owlCarousel({
             items : 4,
             lazyLoad: true,
             pagination: false,
             navigation: false
           });    
         }
+
+        jQuery('.heads-gallery-prev').on('click', function(){
+            owlHeads.trigger('owl.prev');
+        });
+        jQuery('.heads-gallery-next').on('click', function(){
+            owlHeads.trigger('owl.next');
+        });
       });
     </script>
   ";

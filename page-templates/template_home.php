@@ -5,7 +5,7 @@
  * The template file for mmbeta home page.
  *
  * The page depends on the Advanced Custom Fields Pro feature flexible content fields.
- * It can be managed through the dordpress editor.
+ * It can be managed through the Wordpress editor.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
