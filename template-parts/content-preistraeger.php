@@ -108,8 +108,8 @@
 
           <div class="m-t"><?php echo apply_filters('the_content', the_field( "begruendung" ) ); ?></div>
           
-          <!-- Kategorienliste -->
-          <?php if ($preis_slug !== 'top-30-bis-30') : ?>
+          <!-- Kategorienliste wid nur angezeigt wenn JDJ und auf am Jahr (Taxonomy Preis) der entsprechende Haken auf true steht (default) -->
+          <?php if ($preis_slug !== 'top-30-bis-30' && get_field("show_cat_tags", $jahr_object) ) : ?>
           <div class="small">
             <strong>Alle Kategorien:</strong>
 
