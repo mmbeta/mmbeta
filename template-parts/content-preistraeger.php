@@ -130,11 +130,25 @@
                 'show_count'   => $show_count,
                 'pad_counts'   => $pad_counts,
                 'hierarchical' => $hierarchical,
-                'title_li'     => $title
               );
               ?>
             <ul class="list-inline">
-              <?php wp_list_categories( $args ); ?>
+              <?php 
+                $terms = get_terms( $args );
+                $terms_count = count($terms);
+
+                for ($i=0; $i < $terms_count; $i++) { 
+                  $term_link = get_term_link($terms[$i]);
+                  $term_name = $terms[$i]->name;
+                  $term_output = "<a href='" . $term_link . "'>" . $term_name . "</a>";
+
+                  if ($i < $terms_count - 1 ) {
+                    $term_output .= ", ";
+                  }
+                  echo $term_output;
+                }
+
+              ?>
             </ul>
 
           </div>
