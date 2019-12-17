@@ -48,7 +48,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white mt-2 mb-1 row">
       <!-- mm logo for mobile -->
       <a class="d-lg-none navbar-brand mm_logo-mobile" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <img src="<?php print get_template_directory_uri() . '/images/mm_logo_nourl.svg'  ?>" width="110" height="30" alt="">
+        <img src="<?php print get_template_directory_uri() . '/images/mm_logo_nourl_innen.svg'  ?>" width="110" height="30" alt="">
       </a>
       
       <!-- button expands menu on mobile -->
