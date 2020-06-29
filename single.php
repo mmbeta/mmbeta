@@ -22,6 +22,7 @@ get_header(); ?>
         global $post;
         $post->background_color = get_field('artikel-header-farbe')['color'];
         $post->contrast_color = get_field('artikel-header-contrast')['contrast-color'];
+        $post->shop_link = get_field('artikel-header-shop-link');
         get_template_part( 'hp/hp', 'aufmacher' );
       }
 
