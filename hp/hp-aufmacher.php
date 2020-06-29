@@ -17,8 +17,17 @@ color: <?php echo( mmbeta_color($post->background_color, true) ); ?>;">
   $contrast_text_color = mmbeta_color($post->contrast_color, true);
   $li_class = mmbeta_color( $post->background_color, true ) === "#FFFFFF" ? "li-bright" : "li-dark";
   $button_text = is_front_page() ? "Zum Heft" : "Heft kaufen";
-  $button_link = is_front_page() ? get_permalink() : $post->shop_link;
   $attributes = $arrayName = array('class' => 'figure-img aufmacher');
+
+  // $button_link = is_front_page() ? get_permalink() : $post->shop_link;
+
+  if ( is_front_page() ) {
+    $button_link = get_permalink();
+  }elseif ( isset( $post->shop_link ) ) {
+    $button_link = $post->shop_link;
+  }else{
+    $button_link = "https://shop.oberauer.com/medien/medium-magazin";
+  }
   ?>
 
   <?php
