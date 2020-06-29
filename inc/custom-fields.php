@@ -1527,6 +1527,19 @@ acf_add_local_field_group(array (
       'prefix_label' => 0,
       'prefix_name' => 0, 
     ),
+    array (
+      'key' => 'field_59heftkaufen',
+      'label' => 'Heft kaufen Link im Header',
+      'name' => 'artikel-header-shop-link',
+      'type' => 'url',
+      'instructions' => 'Link zum Shop, in dem das Heft bestellt werden kann. Default passt für mm, kann für Journalistin etc. überschrieben werden.',
+      'default_value' => 'https://shop.oberauer.com/medien/medium-magazin',
+      'placeholder' => '',
+      'prepend' => '',
+      'append' => '',
+      'formatting' => 'html',
+      'maxlength' => '',
+    ),
   ),
   'location' => array (
     array (
