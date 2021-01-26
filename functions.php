@@ -286,7 +286,7 @@ function mmbeta_setup() {
 	    global $post;
 	    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
 	    $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
-	    ' . __( "Bitte geben Sie das Passwort aus der Printausgabe ein, um den Inhalt zu sehen (siehe Seite 23, MM1/2016):" ) . "<br>" . '
+	    ' . __( "Bitte geben Sie das Passwort aus der Printausgabe ein, um den Inhalt zu sehen:" ) . "<br>" . '
 	    <input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" /><input type="submit" name="Submit" value="' . esc_attr__( "Senden" ) . '" />
 	    </form>
 	    ';
@@ -577,66 +577,6 @@ function mm_get_image_alt( $image ) {
     }
 
     return $alt;
-}
-
-// Laterpay Link Generator function
-function mmbeta_get_laterpay_purchase_link( $post_id ) {
-        $post = get_post( $post_id );
-        if ( $post === null ) {
-            return '';
-        }
-
-        $config = laterpay_get_plugin_config();
-
-        $currency       = $config->get( 'currency.code' );
-        $price          = LaterPay_Helper_Pricing::get_post_price( $post->ID );
-        $revenue_model  = LaterPay_Helper_Pricing::get_post_revenue_model( $post->ID );
-
-        $client_options = LaterPay_Helper_Config::get_php_client_options();
-        $client         = new LaterPay_Client(
-            $client_options['cp_key'],
-            $client_options['api_key'],
-            $client_options['api_root'],
-            $client_options['web_root'],
-            $client_options['token_name']
-        );
-
-        // data to register purchase after redirect from LaterPay
-        $url_params = array(
-            'post_id' => $post->ID,
-            'buy'     => 'true',
-        );
-
-        if ( $post->post_type === 'attachment' ) {
-            $url_params['post_id']           = $current_post_id;
-            $url_params['download_attached'] = $post->ID;
-        }
-
-	    $request_uri = isset( $_SERVER['REQUEST_URI'] ) ? filter_var( $_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL ) : ''; // phpcs:ignore
-        $parsed_link = explode( '?', $request_uri );
-        $back_url    = get_permalink( $post->ID ) . '?' . build_query( $url_params );
-
-        // if params exists in uri
-        if ( ! empty( $parsed_link[1] ) ) {
-            $back_url .= '&' . $parsed_link[1];
-        }
-
-        // parameters for LaterPay purchase form
-        $params = array(
-            'article_id'    => $post->ID,
-            'pricing'       => $currency . ( $price * 100 ),
-            'url'           => $back_url,
-            'title'         => $post->post_title,
-            'require_login' => (int) get_option( 'laterpay_require_login', 0 ),
-        );
-
-        if ( $revenue_model === 'sis' ) {
-            // Single Sale purchase
-            return $client->get_buy_url( $params );
-        } else {
-            // Pay-per-Use purchase
-            return $client->get_add_url( $params );
-        }
 }
 
 
