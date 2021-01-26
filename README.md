@@ -55,7 +55,7 @@ Zum Beispiel https://www.mediummagazin.de/medium-magazin-072018/ - Der Kopfberei
 * [mmbeta-owl-carousel](https://github.com/mmbeta/mmbeta-owl-carousel) (für Preisträger-Slider, Heft-Slider und die [Galerien](https://github.com/mmbeta/mmbeta/blob/c378736ef010a072fb9270b4c7ea34fda4736b26/inc/shortcodes.php#L9) die per Shortcode auf Posts genutzt werden können)
 * [mmbeta-social](https://github.com/mmbeta/mmbeta-social)
 * [mm-blocks](https://github.com/mmbeta/mm-blocks)
-* [wordpress-custom-fields-permalinks](https://github.com/athlan/wordpress-custom-fields-permalink-plugin) für (fast) REST-like URLs für Preisträger
+* [wordpress-custom-fields-permalinks](https://github.com/athlan/wordpress-custom-fields-permalink-plugin) für (fast) REST-like URLs für Preisträger. Setting: "/%field_preis-name%/%field_preis-jahr%/%postname%/"
 * [custom-post-type-permalinks](https://de.wordpress.org/plugins/custom-post-type-permalinks/)
 * [wppusher](https://wppusher.com/) Deployment per Commit
 

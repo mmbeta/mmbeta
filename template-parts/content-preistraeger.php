@@ -20,7 +20,6 @@
   $jahr_object = get_term_by( 'id', $jahr_id, 'preise' );
   $tax_page = get_field('preis_seite', $jahr_object )[0];
   $tax_page_url = get_post_permalink($tax_page);
-  $access = true;
   
 
   global $post;
@@ -28,15 +27,6 @@
   $post->preis = $preis;
   $post->preis_slug = $preis_slug;
   $post->jahr_name = mmbeta_welches_preis_jahr();
-
-  if ( class_exists("LaterPay_Helper_Post") ):
-    $access = LaterPay_Helper_Post::has_access_to_post( get_post($post->tax_page) , false, null);
-  ?>
-    <!-- for debugging only -->
-    <div style="display: none;"><?php print_r($access); ?></div>
-    <div style="display: none;"><?php print_r($post->tax_page); ?></div>
-  <?php
-  endif;
   
 ?>
 
@@ -54,9 +44,6 @@
         <?php endif; ?>
         <li class="breadcrumb-item active"><?php the_title(); ?></li>
       </ol>
-
-    <!-- ab hier wird nur angezeigt, wenn Access -->
-    <?php if($access): ?>
 
       <!-- Bild und Profilbox -->
       <div class="col-lg-3 col-md-4 col-11">
@@ -163,11 +150,7 @@
         
       </div>
 
-    <?php 
-      else:
-        get_template_part( 'template-parts/content', get_post_type( $post ) . '-noaccess' );
-      endif; 
-    ?>
+
       <!-- Ende: Hauptspalte - Titel, Position, Begründung -->
 
 
