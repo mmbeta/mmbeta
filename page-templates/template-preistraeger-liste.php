@@ -15,7 +15,6 @@ get_header();
 $tax_name = get_field('preis_to_show')[0];
 $tax_name_parent = get_term($tax_name->parent, get_query_var('taxonomy') );
 $post_id = get_the_ID();
-echo $tax_name->slug;
 ?>
 
 <div id="primary" class="content-area">

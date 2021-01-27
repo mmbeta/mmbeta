@@ -5,7 +5,7 @@ Das Theme mmbeta ist unter https://github.com/mmbeta/mmbeta auf Github verfügba
 ## Features
 Im Folgenden eine Liste der wichtigeren Features des Themes. Weiter unten gehe ich auf die einzelnen Punkte ein.
 
-1. Preisträgereinzelseiten und Preisträgerlisten für Journalisten des Jahres und Top30 mit *Laterpay-Paywall*
+1. Preisträgereinzelseiten und Preisträgerlisten für Journalisten des Jahres und Top30
 2. Preisträger-Slider und weitere Shortcodes
 3. Homepage Builder (inkl. vorbereitete Anzeigen-Einbindung)
 4. Ausgabenseiten
@@ -14,9 +14,9 @@ Im Folgenden eine Liste der wichtigeren Features des Themes. Weiter unten gehe i
 ### 1. Preisträgereinzelseiten und Preisträgerlisten
 * Es gibt den Post Type `preistraeger`, der in der `./functions.php` mit `add_post_type_preistraeger` deklariert wird.
 * Das Template für Preisträger-Einzelseiten basiert auf den folgenden Dateien:
-  * `./single-preistraeger` checkt ob es sich um einen Preisträger von JDJ oder Top30, um kleine Informationsunterschiede anzuzeigen (z.B. bei JDJ 1.-10. Platz in den Karten der übrigen in der Kategorie ausgezeichneten Preisträger). Vor Laterpay wurden die Preisträger mit einem Passwort geschützt, das im Heft stand. [Diese Funktionalität](https://github.com/mmbeta/mmbeta/blob/c378736ef010a072fb9270b4c7ea34fda4736b26/template-parts/content-preistraeger.php#L97) ist im Grunde noch vorhanden.
-  * `template-parts/content-preistraeger.php` wenn der Nutzer keinen Laterpay-Access gekauft hat, was über die Funktion `LaterPay_Helper_Post::has_access_to_post`aus dem Laterpay-Plugin geprüft wird, wird ihm nur der Teaser angezeigt und dann das Template (`*-noaccess`) eingebunden. Ansonsten werden die Infos angezeigt, die im Backend über das Formular für jeden Preisträger eingetragen wurden. Name, Funktion, Kategorie des Preises und Platz, Twitter, Website, ggf. Post-Thumbnail oder Platzhalterbild (`./images/jdjschwarzaufweiss.png`), Bergündung...
-  * `template-parts/content-preistraeger-noaccess.php` - Vorgabe war, dass der Nutzer den Zugang für alle Preisträger auf einmal kauft. Deshalb musste ich das Plugin sehr individuell nutzen und auf der Preisträger-Einzelseite checken, ob der Nutzer Zugriff auf die übergeordnete Übersichtsseite hat. Die Funktion [mmbeta_get_laterpay_purchase_link](https://github.com/mmbeta/mmbeta/blob/c378736ef010a072fb9270b4c7ea34fda4736b26/functions.php#L582) ist natürlich sehr abhängig vom Laterpay-Plugin und keine offizielle API. *Nach einem Laterpay-Update sollte die Funktionalität der Paywall deshalb überprüft werden*
+  * `./single-preistraeger` checkt ob es sich um einen Preisträger von JDJ oder Top30, um kleine Informationsunterschiede anzuzeigen (z.B. bei JDJ 1.-10. Platz in den Karten der übrigen in der Kategorie ausgezeichneten Preisträger). Die Preisträger können mit einem Passwort geschützt werden, das im Heft veröffentlicht wurde. [Diese Funktionalität](https://github.com/mmbeta/mmbeta/blob/c378736ef010a072fb9270b4c7ea34fda4736b26/template-parts/content-preistraeger.php#L97) ist noch vorhanden. Der Passwort-Hinweis ist noch nicht konfigurierbar, aber [im Code](https://github.com/mmbeta/mmbeta/blob/6002210def1526800d231395deb7729330fdd004/functions.php#L289) global anpassbar.
+  * `template-parts/content-preistraeger.php` Hier werden die Infos angezeigt, die im Backend über das Formular für jeden Preisträger eingetragen wurden. Name, Funktion, Kategorie des Preises und Platz, Twitter, Website, ggf. Post-Thumbnail oder Platzhalterbild (`./images/jdjschwarzaufweiss.png`), Bergündung...
+
 * Die Preisträgerlisten und Auszeichnungen basieren auf der [Custom Taxonomy "Preise"](https://github.com/mmbeta/mmbeta/blob/c378736ef010a072fb9270b4c7ea34fda4736b26/functions.php#L244). Die Funktionen `mmbeta_die_preiskategorie`, `mmbeta_die_preiskategorie_object`, `mmbeta_welcher_preis`, können genutzt werden, um festzustellen, ob es sich gerade um JDJ oder Top30 handelt und um welche Kategorie es sich handelt. `mmbeta_welches_preis_jahr` gibt das Jahr zurück. Die Funktionen haben sich bewährt funktionieren aber nur, wenn die Preisträger gewissenhaft kategorisiert werden.
 * Preisträgerlisten basieren auf dem [Template](https://github.com/mmbeta/mmbeta/blob/master/page-templates/template-preistraeger-liste.php) `./page-templates/template-preistrager-liste.php`. Beispiel: https://www.mediummagazin.de/jdj2018-die-preistraeger-innen/ - die automatisch entstehenden Taxonomy-Pages sind eher ein Relikt und sollten besser weitergeleitet oder abgeschaltet werden (TODO).
 
@@ -50,7 +50,6 @@ Zum Beispiel https://www.mediummagazin.de/medium-magazin-072018/ - Der Kopfberei
 
 ## Required Plugins
 * [advanced-custom-fields-pro](https://www.advancedcustomfields.com/pro/)
-* [Laterpay](https://de.wordpress.org/plugins/laterpay/) Paywall
 * [Shortpixel](https://de.wordpress.org/plugins/shortpixel-image-optimiser/) (optional für Bildkompression)
 * [mmbeta-owl-carousel](https://github.com/mmbeta/mmbeta-owl-carousel) (für Preisträger-Slider, Heft-Slider und die [Galerien](https://github.com/mmbeta/mmbeta/blob/c378736ef010a072fb9270b4c7ea34fda4736b26/inc/shortcodes.php#L9) die per Shortcode auf Posts genutzt werden können)
 * [mmbeta-social](https://github.com/mmbeta/mmbeta-social)
